@@ -11,7 +11,7 @@
     <AssemblyName>FSharp.ProjectTemplate.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.3.0.0</TargetFSharpCoreVersion>
-    <Name>FSharp.ProjectTemplate.Tests</Name>
+    <Name>Stanford.NLP.NET.FSharp.Tests</Name>
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
@@ -73,13 +73,6 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\FSharp.ProjectTemplate\FSharp.ProjectTemplate.fsproj">
-      <Name>FSharp.ProjectTemplate</Name>
-      <Project>{7e90d6ce-a10b-4858-a5bc-41df7250cbca}</Project>
-      <Private>True</Private>
-    </ProjectReference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

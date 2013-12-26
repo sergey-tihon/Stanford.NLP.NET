@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Stanford.NLP.Segmenter</id>
+    <version>0.0.1</version>
+    <authors>@authors@</authors>
+    <owners>Sergey Tihon</owners>
+    <licenseUrl>http://www.gnu.org/licenses/gpl-2.0.html</licenseUrl>
+	<iconUrl>http://nlp.stanford.edu/img/nlp-logo-navbar.jpg</iconUrl>
+    <projectUrl>http://sergeytihon.wordpress.com/2013/09/09/stanford-word-segmenter-is-available-on-nuget/</projectUrl>
+    <description>@description@</description>
+    <tags>nlp stanford segmenter tokenization splitting</tags>
+    <dependencies>
+      <dependency id="IKVM" version="7.3.4830.0" />
+    </dependencies>
+  </metadata>
+</package>

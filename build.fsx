@@ -21,7 +21,7 @@ open System
 
 // The name of the project 
 // (used by attributes in AssemblyInfo, name of a NuGet package and directory in 'src')
-let project = "FSharp.ProjectTemplate"
+let project = "Stanford.NLP.NET"
 
 // Short summary of the project
 // (used as description in AssemblyInfo and as a short summary for NuGet package)
@@ -33,21 +33,21 @@ let description = """
   A lengthy description of your project. 
   This can have multiple lines and will be cleaned up. """
 // List of author names (for NuGet package)
-let authors = [ "Your Name" ]
+let authors = [ "Sergey Tihon" ]
 // Tags for your project (for NuGet package)
 let tags = "F# fsharp tags which describe your project"
 
 // File system information 
 // (<solutionFile>.sln is built during the building process)
-let solutionFile  = "FSharp.ProjectScaffold"
+let solutionFile  = "Stanford.NLP.NET"
 // Pattern specifying assemblies to be tested using NUnit
-let testAssemblies = ["tests/*/bin/*/FSharp.ProjectTemplate*Tests*.dll"]
+let testAssemblies = ["tests/*/bin/*/Stanford.NLP.NET*Tests*.dll"]
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted 
-let gitHome = "https://github.com/pblasucci"
+let gitHome = "https://github.com/sergey-tihon/"
 // The name of the project on GitHub
-let gitName = "FSharp.ProjectScaffold"
+let gitName = "Stanford.NLP.NET"
 
 // --------------------------------------------------------------------------------------
 // END TODO: The rest of the file includes standard build steps 

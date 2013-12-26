@@ -172,3 +172,13 @@ TestResults.xml
 
 # Nuget outputs
 nuget/*.nupkg
+
+# ===================================================
+# Project specific directories and files
+# ===================================================
+
+# Download folder used for origin Stanford archives
+src/Download
+
+# Secret key
+src/Stanford.NLP.snk
