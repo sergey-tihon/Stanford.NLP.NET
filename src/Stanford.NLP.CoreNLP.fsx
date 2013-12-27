@@ -15,6 +15,9 @@ Target "RunIKVMCompiler" (fun _ ->
     restoreFolderFromUrl 
         @".\temp\stanford-corenlp-full-2013-11-12" 
         "http://nlp.stanford.edu/software/stanford-corenlp-full-2013-11-12.zip"
+    restoreFolderFromFile
+        @".\temp\stanford-corenlp-full-2013-11-12\stanford-corenlp-3.3.0-models\edu"
+        @".\temp\stanford-corenlp-full-2013-11-12\stanford-corenlp-3.3.0-models.jar"
     [IKVMcTask(@"temp\stanford-corenlp-full-2013-11-12\stanford-corenlp-3.3.0.jar", Version=version,
            Dependencies = [IKVMcTask(@"temp\stanford-corenlp-full-2013-11-12\joda-time.jar", Version="2.1");
                            IKVMcTask(@"temp\stanford-corenlp-full-2013-11-12\jollyday.jar", Version="0.4.7",

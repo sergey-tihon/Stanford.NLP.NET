@@ -16,7 +16,7 @@ Target "RunIKVMCompiler" (fun _ ->
         @".\temp\stanford-parser-full-2013-11-12" 
         "http://nlp.stanford.edu/software/stanford-parser-full-2013-11-12.zip"
     restoreFolderFromFile
-        @".\temp\stanford-parser-full-2013-11-12\edu" 
+        @".\temp\stanford-parser-full-2013-11-12\stanford-parser-3.3.0-models\edu" 
         @".\temp\stanford-parser-full-2013-11-12\stanford-parser-3.3.0-models.jar"
     [IKVMcTask(@"temp\stanford-parser-full-2013-11-12\stanford-parser.jar", Version=version,
            Dependencies = [IKVMcTask(@"temp\stanford-parser-full-2013-11-12\ejml-0.23.jar", Version="0.23.0.0")])]
