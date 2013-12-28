@@ -1,0 +1,4 @@
+Don Syme is an Australian computer scientist and a Principal Researcher at Microsoft Research, Cambridge, U.K. He is the designer and architect of the F# programming language, described by a reporter as being regarded as "the most original new face in computer languages since Bjarne Stroustrup developed C++ in the early 1980s.".
+Earlier, Syme created generics in the .NET Common Language Runtime, including the initial design of generics for the C# programming language, along with others including Andrew Kennedy and later Anders Hejlsberg. Kennedy, Syme and Yu also formalized this widely used system.
+He holds a Ph.D. from the University of Cambridge, and is a member of the WG2.8 working group on functional programming. He is a co-author of the book Expert F# 2.0.
+In the past he also worked on formal specification, interactive proof, automated verification and proof description languages.

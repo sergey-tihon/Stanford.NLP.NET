@@ -7,7 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1F1B4F
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}"
@@ -34,11 +33,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{8E6D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{ED8079DD-2B06-4030-9F0F-DC548F98E1C4}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Stanford.NLP.NET.FSharp.Tests", "tests\Stanford.NLP.NET.FSharp.Tests\Stanford.NLP.NET.FSharp.Tests.fsproj", "{E789C72A-5CFD-436B-8EF1-61AA2852A89F}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Stanford.NLP.CoreNLP.FSharp.Tests", "tests\Stanford.NLP.CoreNLP.FSharp.Tests\Stanford.NLP.CoreNLP.FSharp.Tests.fsproj", "{E789C72A-5CFD-436B-8EF1-61AA2852A89F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FC1213CC-EF87-45CA-95C0-56D378BE2B84}"
 	ProjectSection(SolutionItems) = preProject
 		src\Build.bat = src\Build.bat
+		src\BuildAll.bat = src\BuildAll.bat
 		src\Core.fsx = src\Core.fsx
 		src\Stanford.NLP.CoreNLP.fsx = src\Stanford.NLP.CoreNLP.fsx
 		src\Stanford.NLP.CoreNLP.nuspec = src\Stanford.NLP.CoreNLP.nuspec
@@ -53,7 +53,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FC1213CC-EF8
 		src\Stanford.NLP.snk = src\Stanford.NLP.snk
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.NET.CSharp.Tests", "tests\Stanford.NLP.NET.CSharp.Tests\Stanford.NLP.NET.CSharp.Tests.csproj", "{8891CFD6-AF1C-4271-B755-52D0EAA7D9D9}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Stanford.NLP.NER.FSharp.Tests", "tests\Stanford.NLP.NER.FSharp.Tests\Stanford.NLP.NER.FSharp.Tests.fsproj", "{12355230-0BA7-4B40-8C04-F67810E027A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{4B69DF10-DB06-4440-8434-52DC03ED19F6}"
+	ProjectSection(SolutionItems) = preProject
+		tests\data\SampleText.txt = tests\data\SampleText.txt
+		tests\data\test.simple.utf8 = tests\data\test.simple.utf8
+	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Stanford.NLP.Parser.FSharp.Tests", "tests\Stanford.NLP.Parser.FSharp.Tests\Stanford.NLP.Parser.FSharp.Tests.fsproj", "{199F6CB7-F5CA-48CA-8D37-A505DAFC88CA}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Stanford.NLP.POSTagger.FSharp.Tests", "tests\Stanford.NLP.POSTagger.FSharp.Tests\Stanford.NLP.POSTagger.FSharp.Tests.fsproj", "{AB3F38DD-6280-495F-8D29-752BB4AD1EAB}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Stanford.NLP.Segmenter.FSharp.Tests", "tests\Stanford.NLP.Segmenter.FSharp.Tests\Stanford.NLP.Segmenter.FSharp.Tests.fsproj", "{DB60FB5A-0452-4AC1-B682-E67065419978}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,10 +77,22 @@ Global
 		{E789C72A-5CFD-436B-8EF1-61AA2852A89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E789C72A-5CFD-436B-8EF1-61AA2852A89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E789C72A-5CFD-436B-8EF1-61AA2852A89F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8891CFD6-AF1C-4271-B755-52D0EAA7D9D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8891CFD6-AF1C-4271-B755-52D0EAA7D9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8891CFD6-AF1C-4271-B755-52D0EAA7D9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8891CFD6-AF1C-4271-B755-52D0EAA7D9D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12355230-0BA7-4B40-8C04-F67810E027A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12355230-0BA7-4B40-8C04-F67810E027A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12355230-0BA7-4B40-8C04-F67810E027A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12355230-0BA7-4B40-8C04-F67810E027A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{199F6CB7-F5CA-48CA-8D37-A505DAFC88CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{199F6CB7-F5CA-48CA-8D37-A505DAFC88CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{199F6CB7-F5CA-48CA-8D37-A505DAFC88CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{199F6CB7-F5CA-48CA-8D37-A505DAFC88CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB3F38DD-6280-495F-8D29-752BB4AD1EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB3F38DD-6280-495F-8D29-752BB4AD1EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB3F38DD-6280-495F-8D29-752BB4AD1EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB3F38DD-6280-495F-8D29-752BB4AD1EAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB60FB5A-0452-4AC1-B682-E67065419978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB60FB5A-0452-4AC1-B682-E67065419978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB60FB5A-0452-4AC1-B682-E67065419978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB60FB5A-0452-4AC1-B682-E67065419978}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +101,10 @@ Global
 		{83F16175-43B1-4C90-A1EE-8E351C33435D} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{8E6D5255-776D-4B61-85F9-73C37AA1FB9A} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{E789C72A-5CFD-436B-8EF1-61AA2852A89F} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
-		{8891CFD6-AF1C-4271-B755-52D0EAA7D9D9} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
+		{12355230-0BA7-4B40-8C04-F67810E027A8} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
+		{4B69DF10-DB06-4440-8434-52DC03ED19F6} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
+		{199F6CB7-F5CA-48CA-8D37-A505DAFC88CA} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
+		{AB3F38DD-6280-495F-8D29-752BB4AD1EAB} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
+		{DB60FB5A-0452-4AC1-B682-E67065419978} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 	EndGlobalSection
 EndGlobal
