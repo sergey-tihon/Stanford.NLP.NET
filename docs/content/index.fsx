@@ -4,66 +4,43 @@
 #I "../../bin"
 
 (**
-F# Project Scaffold
+Stanford NLP Software for .NET
 ===================
 
-Documentation
+<img src="img/cover.png" style="float:right;width:363px;margin: 0px 0px 10px 10px;" />
 
-<div class="row">
-  <div class="span1"></div>
-  <div class="span6">
-    <div class="well well-small" id="nuget">
-      The F# ProjectTemplate library can be <a href="https://nuget.org/packages/FSharp.ProjectTemplate">installed from NuGet</a>:
-      <pre>PM> Install-Package FSharp.ProjectTemplate</pre>
-    </div>
-  </div>
-  <div class="span1"></div>
-</div>
+The Stanford NLP Group makes parts of Natural Language Processing software available to everyone. These are statistical NLP 
+toolkits for various major computational linguistics problems. They can be incorporated into applications with human language 
+technology needs.
 
-<img src="img/logo.jpg" alt="F# Project" style="float:right;width:150px;margin:10px" />
-
-Example
+Supported software distributions
 -------
 
-This example demonstrates using a function defined in this sample library.
+All these software distributions are open source, licensed under the [GNU General Public License][license] (v2 or later). Note that this is 
+the full GPL, which allows many free uses, but does not allow its incorporation into any type of distributed proprietary software, 
+even in part or in translation. Commercial licensing is also available; please contact 
+[The Stanford Natural Language Processing Group](http://www-nlp.stanford.edu/) if you are interested.
 
-*)
-#r "FSharp.ProjectTemplate.dll"
-open FSharp.ProjectTemplate
+-----
 
-printfn "hello = %i" <| Library.hello 0
+### Stanford CoreNLP ###
 
-(**
-Some more info
+An integrated suite of natural language processing tools for English and (mainland) Chinese, including tokenization, 
+part-of-speech tagging, named entity recognition, parsing, and coreference. 
 
-Samples & documentation
------------------------
+See also: [Online CoreNLP demo](http://nlp.stanford.edu:8080/corenlp/).
 
-The library comes with comprehensible documentation. 
-It can include a tutorials automatically generated from `*.fsx` files in [the content folder][content]. 
-The API reference is automatically generated from Markdown comments in the library implementation.
-
- * [Tutorial](tutorial.html) contains a further explanation of this sample library.
-
- * [API Reference](reference/index.html) contains automatically generated documentation for all types, modules
-   and functions in the library. This includes additional brief samples on using most of the
-   functions.
+-----
  
-Contributing and copyright
+Contributing
 --------------------------
 
 The project is hosted on [GitHub][gh] where you can [report issues][issues], fork 
-the project and submit pull requests. If you're adding new public API, please also 
-consider adding [samples][content] that can be turned into a documentation. You might
-also want to read [library design notes][readme] to understand how it works.
+the project and submit pull requests. You might also want to read [library notes][readme] 
+to understand how it works.
 
-The library is available under Public Domain license, which allows modification and 
-redistribution for both commercial and non-commercial purposes. For more information see the 
-[License file][license] in the GitHub repository. 
-
-  [content]: https://github.com/pblasucci/FSharp.ProjectScaffold/tree/master/docs/content
-  [gh]: https://github.com/pblasucci/FSharp.ProjectScaffold
-  [issues]: https://github.com/pblasucci/FSharp.ProjectScaffold/issues
-  [readme]: https://github.com/pblasucci/FSharp.ProjectScaffold/blob/master/README.md
-  [license]: https://github.com/pblasucci/FSharp.ProjectScaffold/blob/master/LICENSE.txt
+  [gh]: https://github.com/sergey-tihon/Stanford.NLP.NET
+  [issues]: https://github.com/sergey-tihon/Stanford.NLP.NET/issues
+  [readme]: https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/README.md
+  [license]: https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt
 *)
