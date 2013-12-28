@@ -23,7 +23,7 @@ even in part or in translation. Commercial licensing is also available; please c
 
 -----
 
-### Stanford CoreNLP ###
+### [Stanford CoreNLP](/Stanford.NLP.NET/CoreNLP.html) ###
 
 An integrated suite of natural language processing tools for English and (mainland) Chinese, including tokenization, 
 part-of-speech tagging, named entity recognition, parsing, and coreference. 

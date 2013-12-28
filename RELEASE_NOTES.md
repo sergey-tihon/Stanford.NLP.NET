@@ -24,3 +24,8 @@
 #### 0.8.0-beta - November 27 2013
 * Compilation was process automated
 * Assemblies update up to Stanford.NLP v3.3.0
+
+#### 0.9.0-beta - December 29 2013
+* Applied new project structure (FSharp.ProjectScaffold)
+* All samples conveted into Unit Test
+* First version of documentaion was published
