@@ -13,8 +13,20 @@ The Stanford NLP Group makes parts of Natural Language Processing software avail
 toolkits for various major computational linguistics problems. They can be incorporated into applications with human language 
 technology needs.
 
+Getting started
+---------------
+
+*   Choose the package that is the most suitable for your task. If your task is complex and you need a deep analysis - select [Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html).
+*   Install selected [NuGet package](https://www.nuget.org/packages?q=Stanford.NLP).
+*   Download original ZIP archive for selected package from The Stanford NLP Group site. (Direct links are mentioned on the packages pages)
+*   Unzip *.jar file with models if such one exists.
+*   You are ready to start, please look at examples.
+
+Note: Do not try to reference several NuGet packages from your solution. They are incompatible. If you need more than one - you should
+reference [Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html) package. All features are packed inside.
+
 Supported software distributions
--------
+--------------------------------
 
 All these software distributions are open source, licensed under the [GNU General Public License][license] (v2 or later). Note that this is 
 the full GPL, which allows many free uses, but does not allow its incorporation into any type of distributed proprietary software, 
@@ -39,6 +51,35 @@ lexicalized PCFG parser, and a deep learning reranker.
 
 See also: [Online parser demo](http://nlp.stanford.edu:8080/parser/) and 
 the [Stanford Dependencies page](http://nlp.stanford.edu/software/stanford-dependencies.shtml).
+
+-----
+
+### [Stanford POS Tagger](/Stanford.NLP.NET/StanfordPOSTagger.html) ###
+
+A maximum-entropy (CMM) part-of-speech (POS) tagger for English, Arabic, Chinese, French, and German.
+
+-----
+
+### [Stanford Named Entity Recognizer](/Stanford.NLP.NET/StanfordNER.html) ###
+
+A Conditional Random Field sequence model, together with well-engineered features for Named Entity Recognition 
+in English, Chinese, and German. 
+
+See also: [Online NER demo](http://nlp.stanford.edu:8080/ner/)
+
+-----
+ 
+### [Stanford Word Segmenter](/Stanford.NLP.NET/StanfordWordSegmenter.html) ###
+
+A CRF-based word segmenter. Supports Arabic and Chinese.
+
+-----
+ 
+### [Stanford Temporal Tagger (SUTime)](/Stanford.NLP.NET/StanfordSUTime.html) ###
+
+A rule-based temporal tagger for English text.
+
+See also: [Online SUTime demo](http://nlp.stanford.edu:8080/sutime)
 
 -----
  

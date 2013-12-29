@@ -27,8 +27,11 @@ Stanford Parser for .NET (A statistical parser)
 >structure trees. Typed dependencies are otherwise known grammatical relations. This style of output is available only for English and Chinese. 
 >For more details, please refer to the [Stanford Dependencies webpage](http://www-nlp.stanford.edu/software/stanford-dependencies.shtml).
 >
->The Stanford CoreNLP code is licensed under the [GNU General Public License][license] (v2 or later). Note that this is the full GPL, 
->which allows many free uses, but not its use in distributed proprietary software.
+>The parser is available for download, licensed under the [GNU General Public License][license] (v2 or later). Source is included. 
+>The package includes components for command-line invocation, a Java parsing GUI, and a Java API. The parser code is dual licensed 
+>(in a similar manner to MySQL, etc.). Open source licensing is under the full GPL, which allows many free uses. For distributors of 
+>proprietary software, [commercial licensing](http://otlportal.stanford.edu/techfinder/technology/ID=24472) is available. 
+>If you don't need a commercial license, but would like to support maintenance of these tools, Stanford NLP Group welcome gift funding.
  
  <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
   <div class="span1"></div>
@@ -123,4 +126,12 @@ Read more about Stanford Parser on [the official page][goToOrigin].
 
   [goToOrigin]: http://www-nlp.stanford.edu/software/lex-parser.shtml
   [license]: https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt
+
+Relevant posts
+--------------
+*   [Stanford Parser is available on NuGet for F# and C#.](http://sergeytihon.wordpress.com/2013/07/11/stanford-parser-is-available-on-nuget/)
+*   [FSharp.NLP.Stanford.Parser available on NuGet.](http://sergeytihon.wordpress.com/2013/06/26/fsharp-nlp-stanford-parser-available-on-nuget/)
+*   [FSharp.NLP.Stanford.Parser justification or StackOverflow questions understanding.](http://sergeytihon.wordpress.com/2013/07/21/fsharp-nlp-stanford-parser-justification-or-stackoverflow-questions-understanding/)
+*   [NLP: Stanford Parser with F# (.NET).](http://sergeytihon.wordpress.com/2013/02/05/nlp-stanford-parser-with-f-net/)
+
 *)

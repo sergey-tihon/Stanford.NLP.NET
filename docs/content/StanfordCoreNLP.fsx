@@ -39,7 +39,7 @@ Stanford CoreNLP for .NET
  </div>
 
 F# Sample of text annotation
---------------------
+----------------------------
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
@@ -124,4 +124,9 @@ Read more about Stanford CoreNLP on [the official page][goToOrigin].
 
   [goToOrigin]: http://www-nlp.stanford.edu/software/corenlp.shtml
   [license]: https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt
+
+Relevant posts
+--------------
+*   [Stanford CoreNLP is available on NuGet for F#/C# devs.](http://sergeytihon.wordpress.com/2013/10/26/stanford-corenlp-is-available-on-nuget-for-fc-devs/)
+
 *)

@@ -28,7 +28,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{8E6D
 	ProjectSection(SolutionItems) = preProject
 		docs\content\index.fsx = docs\content\index.fsx
 		docs\content\StanfordCoreNLP.fsx = docs\content\StanfordCoreNLP.fsx
+		docs\content\StanfordNER.fsx = docs\content\StanfordNER.fsx
 		docs\content\StanfordParser.fsx = docs\content\StanfordParser.fsx
+		docs\content\StanfordPOSTagger.fsx = docs\content\StanfordPOSTagger.fsx
+		docs\content\StanfordSUTime.fsx = docs\content\StanfordSUTime.fsx
+		docs\content\StanfordWordSegmenter.fsx = docs\content\StanfordWordSegmenter.fsx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{ED8079DD-2B06-4030-9F0F-DC548F98E1C4}"
