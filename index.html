@@ -53,6 +53,19 @@
 toolkits for various major computational linguistics problems. They can be incorporated into applications with human language 
 technology needs.</p>
 
+<h2>Getting started</h2>
+
+<ul>
+<li>Choose the package that is the most suitable for your task. If your task is complex and you need a deep analysis - select <a href="/Stanford.NLP.NET/StanfordCoreNLP.html">Stanford CoreNLP</a>.</li>
+<li>Install selected <a href="https://www.nuget.org/packages?q=Stanford.NLP">NuGet package</a>.</li>
+<li>Download original ZIP archive for selected package from The Stanford NLP Group site. (Direct links are mentioned on the packages pages)</li>
+<li>Unzip *.jar file with models if such one exists.</li>
+<li>You are ready to start, please look at examples.</li>
+</ul>
+
+<p>Note: Do not try to reference several NuGet packages from your solution. They are incompatible. If you need more than one - you should
+reference <a href="/Stanford.NLP.NET/StanfordCoreNLP.html">Stanford CoreNLP</a> package. All features are packed inside.</p>
+
 <h2>Supported software distributions</h2>
 
 <p>All these software distributions are open source, licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later). Note that this is 
@@ -60,26 +73,55 @@ the full GPL, which allows many free uses, but does not allow its incorporation 
 even in part or in translation. Commercial licensing is also available; please contact 
 <a href="http://www-nlp.stanford.edu/">The Stanford Natural Language Processing Group</a> if you are interested.</p>
 
-<hr />
-
-<h3><a href="/Stanford.NLP.NET/StanfordCoreNLP.html">Stanford CoreNLP</a></h3>
-
-<p>An integrated suite of natural language processing tools for English and (mainland) Chinese, including tokenization, 
-part-of-speech tagging, named entity recognition, parsing, and coreference.</p>
-
-<p>See also: <a href="http://nlp.stanford.edu:8080/corenlp/">Online CoreNLP demo</a>.</p>
-
-<hr />
-
-<h3><a href="/Stanford.NLP.NET/StanfordParser.html">Stanford Parser</a></h3>
-
-<p>Implementations of probabilistic natural language parsers: highly optimized PCFG and dependency parsers, a 
-lexicalized PCFG parser, and a deep learning reranker.</p>
-
-<p>See also: <a href="http://nlp.stanford.edu:8080/parser/">Online parser demo</a> and 
-the <a href="http://nlp.stanford.edu/software/stanford-dependencies.shtml">Stanford Dependencies page</a>.</p>
-
-<hr />
+<div class="span9" style="margin-left: 0px;">
+    <div class="row-fluid">
+        <div class="span4">
+            <h2>Stanford CoreNLP</h2>
+            <p style="min-height: 110px;">
+               An integrated suite of natural language processing tools for English and (mainland) Chinese, including tokenization, 
+               part-of-speech tagging, named entity recognition, parsing, and coreference.<br/>
+            See also: <a href="http://nlp.stanford.edu:8080/corenlp/">Online CoreNLP demo</a>.</p>
+            <p><a class="btn" href="/Stanford.NLP.NET/StanfordCoreNLP.html">View details »</a></p>
+        </div><!--/span-->
+        <div class="span4">
+            <h2>Stanford Parser</h2>
+            <p style="min-height: 110px;">
+               Implementations of probabilistic natural language parsers: highly optimized PCFG and dependency parsers, a 
+               lexicalized PCFG parser, and a deep learning reranker.<br/>
+               See also: <a href="http://nlp.stanford.edu:8080/parser/">Online parser demo</a> and 
+               the <a href="http://nlp.stanford.edu/software/stanford-dependencies.shtml">Stanford Dependencies page</a>.</p>
+            <p><a class="btn" href="/Stanford.NLP.NET/StanfordParser.html">View details »</a></p>
+        </div><!--/span-->
+        <div class="span4">
+            <h2>Stanford POS Tagger</h2>
+            <p style="min-height: 110px;">
+               A maximum-entropy (CMM) part-of-speech (POS) tagger for English, Arabic, Chinese, French, and German.</p>
+            <p><a class="btn" href="/Stanford.NLP.NET/StanfordPOSTagger.html">View details »</a></p>
+        </div><!--/span-->
+    </div><!--/row-->
+    <div class="row-fluid">
+        <div class="span4">
+            <h2>Stanford Named Entity Recognizer</h2>
+            <p style="min-height: 110px;">
+               A Conditional Random Field sequence model, together with well-engineered features for Named Entity Recognition in English, Chinese, and German.<br/>
+               See also: <a href="http://nlp.stanford.edu:8080/ner/">Online NER demo</a></p>
+            <p><a class="btn" href="/Stanford.NLP.NET/StanfordNER.html">View details »</a></p>
+        </div><!--/span-->
+        <div class="span4">
+            <h2>Stanford Word Segmenter</h2>
+            <p style="min-height: 110px;">
+                A CRF-based word segmenter. Supports Arabic and Chinese.</p>
+            <p><a class="btn" href="/Stanford.NLP.NET/StanfordWordSegmenter.html">View details »</a></p>
+        </div><!--/span-->
+        <div class="span4">
+            <h2>Stanford Temporal Tagger (SUTime)</h2>
+            <p style="min-height: 110px;">
+               A rule-based temporal tagger for English text.<br/>
+               See also: <a href="http://nlp.stanford.edu:8080/sutime">Online SUTime demo</a></p>
+            <p><a class="btn" href="/Stanford.NLP.NET/StanfordSUTime.html">View details »</a></p>
+        </div><!--/span-->
+    </div><!--/row-->
+</div>
 
 <h2>Contributing</h2>
 
@@ -100,9 +142,13 @@ to understand how it works.</p>
                     <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">License</a></li>
                     <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
 
-                    <li class="nav-header">Available packages</li>
+                    <li class="nav-header">Supported distributions</li>
                     <li><a href="/Stanford.NLP.NET/StanfordCoreNLP.html">Stanford CoreNLP</a></li>
                     <li><a href="/Stanford.NLP.NET/StanfordParser.html">Stanford Parser</a></li>
+                    <li><a href="/Stanford.NLP.NET/StanfordPOSTagger.html">Stanford POS Tagger</a></li>
+                    <li><a href="/Stanford.NLP.NET/StanfordNER.html">Stanford Named Entity Recognizer</a></li>
+                    <li><a href="/Stanford.NLP.NET/StanfordWordSegmenter.html">Stanford Word Segmenter</a></li>
+                    <li><a href="/Stanford.NLP.NET/StanfordSUTime.html">Stanford Temporal Tagger (SUTime)</a></li>
 
                     <li class="nav-header">Documentation</li>
                     <li><a href="http://www-nlp.stanford.edu/software/index.shtml">API Reference</a></li>
