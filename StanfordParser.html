@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Stanford Parser for .NET (A statistical parser)
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Port of Stanford NLP libraries for .NET">
+    <meta name="author" content="Sergey Tihon">
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="/Stanford.NLP.NET/content/style.css" />
+    <script type="text/javascript" src="/Stanford.NLP.NET/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-43389710-2', 'sergey-tihon.github.io');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="masthead">
+            <ul class="nav nav-pills pull-right">
+                <li><a href="http://www-nlp.stanford.edu/">The Stanford NLP Group</a></li>
+                <li><a href="http://fsharp.org">fsharp.org</a></li>
+                <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET">github page</a></li>
+            </ul>
+            <h3 class="muted"><a href="/Stanford.NLP.NET/index.html">Stanford.NLP.NET</a></h3>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="span9" id="main">
+                
+<h1>Stanford Parser for .NET (A statistical parser)</h1>
+
+<blockquote>
+  <p><a href="http://www-nlp.stanford.edu/software/lex-parser.shtml">A natural language parser</a> is a program that works out the grammatical structure of sentences, for instance, which groups of words 
+go together (as "phrases") and which words are the subject or object of a verb. Probabilistic parsers use knowledge of language gained from hand-parsed 
+sentences to try to produce the most likely analysis of new sentences. These statistical parsers still make some mistakes, but commonly work 
+rather well. Their development was one of the biggest breakthroughs in natural language processing in the 1990s. You can 
+<a href="http://nlp.stanford.edu:8080/parser/">try out our parser online</a>.</p>
+
+  <p>The lexicalized probabilistic parser implements a factored product model, with separate PCFG phrase structure and lexical dependency experts, 
+whose preferences are combined by efficient exact inference, using an A* algorithm. Or the software can be used simply as an accurate 
+unlexicalized stochastic context-free grammar parser. Either of these yields a good performance statistical parsing system. 
+A GUI is provided for viewing the phrase structure tree output of the parser.</p>
+
+  <p>As well as providing an English parser, the parser can be and has been adapted to work with other languages. A Chinese parser based on 
+the Chinese Treebank, a German parser based on the Negra corpus and Arabic parsers based on the Penn Arabic Treebank are also included. 
+The parser has also been used for other languages, such as Italian, Bulgarian, and Portuguese.</p>
+
+  <p>The parser provides <a href="http://www-nlp.stanford.edu/software/stanford-dependencies.shtml">Stanford Dependencies</a> output as well as phrase 
+structure trees. Typed dependencies are otherwise known grammatical relations. This style of output is available only for English and Chinese. 
+For more details, please refer to the <a href="http://www-nlp.stanford.edu/software/stanford-dependencies.shtml">Stanford Dependencies webpage</a>.</p>
+
+  <p>The Stanford CoreNLP code is licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later). Note that this is the full GPL, 
+which allows many free uses, but not its use in distributed proprietary software.</p>
+</blockquote>
+
+<p><div class="row" style="margin-left: auto; margin-right: auto; display: block;">
+  <div class="span1"></div>
+  <div class="span6">
+    <div class="well well-small" id="nuget">
+      The Stanford Parser library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Parser/">installed from NuGet</a>:
+      <pre>PM> Install-Package Stanford.NLP.Parser</pre>
+    </div>
+    <form method="get" action="http://www-nlp.stanford.edu/software/stanford-parser-full-2013-11-12.zip">
+    <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
+    Download Stanford Parser ZIP archive with models (185Mb)</button>
+    </form>
+  </div>
+  <div class="span1"></div>
+ </div></p>
+
+<h2>F# Sample of sentence parsing</h2>
+
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+<span class="l">25: </span>
+<span class="l">26: </span>
+<span class="l">27: </span>
+<span class="l">28: </span>
+<span class="l">29: </span>
+<span class="l">30: </span>
+<span class="l">31: </span>
+<span class="l">32: </span>
+<span class="l">33: </span>
+<span class="l">34: </span>
+<span class="l">35: </span>
+<span class="l">36: </span>
+<span class="l">37: </span>
+<span class="l">38: </span>
+<span class="l">39: </span>
+<span class="l">40: </span>
+<span class="l">41: </span>
+<span class="l">42: </span>
+<span class="l">43: </span>
+<span class="l">44: </span>
+<span class="l">45: </span>
+<span class="l">46: </span>
+<span class="l">47: </span>
+<span class="l">48: </span>
+<span class="l">49: </span>
+<span class="l">50: </span>
+<span class="l">51: </span>
+<span class="l">52: </span>
+<span class="l">53: </span>
+<span class="l">54: </span>
+<span class="l">55: </span>
+<span class="l">56: </span>
+<span class="l">57: </span>
+<span class="l">58: </span>
+<span class="l">59: </span>
+<span class="l">60: </span>
+<span class="l">61: </span>
+<span class="l">62: </span>
+<span class="l">63: </span>
+<span class="l">64: </span>
+<span class="l">65: </span>
+<span class="l">66: </span>
+<span class="l">67: </span>
+<span class="l">68: </span>
+<span class="l">69: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="prep">#r</span> <span class="s">&quot;</span><span class="s">IKVM</span><span class="s">.</span><span class="s">OpenJDK</span><span class="s">.</span><span class="s">Core</span><span class="s">.</span><span class="s">dll</span><span class="s">&quot;</span>
+<span class="prep">#r</span> <span class="s">&quot;</span><span class="s">IKVM</span><span class="s">.</span><span class="s">OpenJDK</span><span class="s">.</span><span class="s">Util</span><span class="s">.</span><span class="s">dll</span><span class="s">&quot;</span>
+<span class="prep">#r</span> <span class="s">&quot;</span><span class="s">stanford</span><span class="s">-</span><span class="s">parser</span><span class="s">.</span><span class="s">dll</span><span class="s">&quot;</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">java</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">io</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">nlp</span><span class="o">.</span><span class="i">``process``</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 6)" onmouseover="showTip(event, 'fs3', 6)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 7)" onmouseover="showTip(event, 'fs4', 7)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 8)" onmouseover="showTip(event, 'fs5', 8)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 9)" onmouseover="showTip(event, 'fs6', 9)" class="i">ling</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 10)" onmouseover="showTip(event, 'fs3', 10)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 11)" onmouseover="showTip(event, 'fs4', 11)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 12)" onmouseover="showTip(event, 'fs5', 12)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 13)" onmouseover="showTip(event, 'fs7', 13)" class="i">trees</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 14)" onmouseover="showTip(event, 'fs3', 14)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 15)" onmouseover="showTip(event, 'fs4', 15)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 16)" onmouseover="showTip(event, 'fs5', 16)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 17)" onmouseover="showTip(event, 'fs8', 17)" class="i">parser</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 18)" onmouseover="showTip(event, 'fs9', 18)" class="i">lexparser</span>
+
+<span class="c">// Path to models extracted from `stanford-parser-3.3.0-models.jar`</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 19)" onmouseover="showTip(event, 'fs10', 19)" class="i">modelsDirectry</span> <span class="o">=</span> 
+    <span class="k">__SOURCE_DIRECTORY__</span> 
+    <span class="o">+</span> <span class="s">@&quot;</span><span class="s">.</span><span class="s">.</span><span class="s">\</span><span class="s">.</span><span class="s">.</span><span class="s">\</span><span class="s">.</span><span class="s">.</span><span class="s">\</span><span class="s">src</span><span class="s">\</span><span class="s">temp</span><span class="s">\</span><span class="s">stanford</span><span class="s">-</span><span class="s">parser</span><span class="s">-</span><span class="s">full</span><span class="s">-</span><span class="s">2013</span><span class="s">-</span><span class="s">11</span><span class="s">-</span><span class="s">12</span><span class="s">\</span><span class="s">stanford</span><span class="s">-</span><span class="s">parser</span><span class="s">-</span><span class="s">3</span><span class="s">.</span><span class="s">3</span><span class="s">.</span><span class="s">0</span><span class="s">-</span><span class="s">models</span><span class="s">\</span><span class="s">&quot;</span>
+    <span class="o">+</span> <span class="s">@&quot;</span><span class="s">edu</span><span class="s">\</span><span class="s">stanford</span><span class="s">\</span><span class="s">nlp</span><span class="s">\</span><span class="s">models</span><span class="s">\</span><span class="s">&quot;</span>
+
+<span class="c">// Loading english PCFG parser from file</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 20)" onmouseover="showTip(event, 'fs11', 20)" class="i">lp</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 21)" onmouseover="showTip(event, 'fs12', 21)" class="i">LexicalizedParser</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs13', 22)" onmouseover="showTip(event, 'fs13', 22)" class="i">loadModel</span>(<span onmouseout="hideTip(event, 'fs10', 23)" onmouseover="showTip(event, 'fs10', 23)" class="i">modelsDirectry</span> <span class="o">+</span> <span class="s">@&quot;</span><span class="s">lexparser</span><span class="s">\</span><span class="s">englishPCFG</span><span class="s">.</span><span class="s">ser</span><span class="s">.</span><span class="s">gz</span><span class="s">&quot;</span>)
+
+<span class="c">// This sample shows parsing a list of correctly tokenized words</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 24)" onmouseover="showTip(event, 'fs14', 24)" class="i">sent</span> <span class="o">=</span> [|<span class="s">&quot;</span><span class="s">This</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">is</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">an</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">easy</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">sentence</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">.</span><span class="s">&quot;</span> |]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 25)" onmouseover="showTip(event, 'fs15', 25)" class="i">rawWords</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs16', 26)" onmouseover="showTip(event, 'fs16', 26)" class="i">Sentence</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 27)" onmouseover="showTip(event, 'fs17', 27)" class="i">toCoreLabelList</span>(<span onmouseout="hideTip(event, 'fs14', 28)" onmouseover="showTip(event, 'fs14', 28)" class="i">sent</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 29)" onmouseover="showTip(event, 'fs18', 29)" class="i">tree</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 30)" onmouseover="showTip(event, 'fs11', 30)" class="i">lp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs19', 31)" onmouseover="showTip(event, 'fs19', 31)" class="i">apply</span>(<span onmouseout="hideTip(event, 'fs15', 32)" onmouseover="showTip(event, 'fs15', 32)" class="i">rawWords</span>)
+<span onmouseout="hideTip(event, 'fs18', 33)" onmouseover="showTip(event, 'fs18', 33)" class="i">tree</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs20', 34)" onmouseover="showTip(event, 'fs20', 34)" class="i">pennPrint</span>()
+<span class="fsi">&gt;</span>
+<span class="fsi">(ROOT</span>
+<span class="fsi">  (S</span>
+<span class="fsi">    (NP (DT This))</span>
+<span class="fsi">    (VP (VBZ is)</span>
+<span class="fsi">      (NP (DT an) (JJ easy) (NN sentence)))</span>
+<span class="fsi">    (. .)))</span>
+<span class="fsi">val it : unit = ()</span>
+
+<span class="c">// This option shows loading and using an explicit tokenizer</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs21', 35)" onmouseover="showTip(event, 'fs21', 35)" class="i">sent2</span> <span class="o">=</span> <span class="s">&quot;</span><span class="s">This</span><span class="s"> </span><span class="s">is</span><span class="s"> </span><span class="s">another</span><span class="s"> </span><span class="s">sentence</span><span class="s">.</span><span class="s">&quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs22', 36)" onmouseover="showTip(event, 'fs22', 36)" class="i">tokenizerFactory</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs23', 37)" onmouseover="showTip(event, 'fs23', 37)" class="i">PTBTokenizer</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs24', 38)" onmouseover="showTip(event, 'fs24', 38)" class="i">factory</span>(<span onmouseout="hideTip(event, 'fs25', 39)" onmouseover="showTip(event, 'fs25', 39)" class="i">CoreLabelTokenFactory</span>(), <span class="s">&quot;</span><span class="s">&quot;</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs26', 40)" onmouseover="showTip(event, 'fs26', 40)" class="i">sent2Reader</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs27', 41)" onmouseover="showTip(event, 'fs27', 41)" class="i">StringReader</span>(<span onmouseout="hideTip(event, 'fs21', 42)" onmouseover="showTip(event, 'fs21', 42)" class="i">sent2</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs28', 43)" onmouseover="showTip(event, 'fs28', 43)" class="i">rawWords2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs22', 44)" onmouseover="showTip(event, 'fs22', 44)" class="i">tokenizerFactory</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs29', 45)" onmouseover="showTip(event, 'fs29', 45)" class="i">getTokenizer</span>(<span onmouseout="hideTip(event, 'fs26', 46)" onmouseover="showTip(event, 'fs26', 46)" class="i">sent2Reader</span>)<span class="o">.</span><span class="i">tokenize</span>()
+<span onmouseout="hideTip(event, 'fs26', 47)" onmouseover="showTip(event, 'fs26', 47)" class="i">sent2Reader</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs30', 48)" onmouseover="showTip(event, 'fs30', 48)" class="i">close</span>()
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs31', 49)" onmouseover="showTip(event, 'fs31', 49)" class="i">tree2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 50)" onmouseover="showTip(event, 'fs11', 50)" class="i">lp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs19', 51)" onmouseover="showTip(event, 'fs19', 51)" class="i">apply</span>(<span onmouseout="hideTip(event, 'fs28', 52)" onmouseover="showTip(event, 'fs28', 52)" class="i">rawWords2</span>)
+
+<span class="c">// Extract dependencies from lexical tree</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs32', 53)" onmouseover="showTip(event, 'fs32', 53)" class="i">tlp</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs33', 54)" onmouseover="showTip(event, 'fs33', 54)" class="i">PennTreebankLanguagePack</span>()
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs34', 55)" onmouseover="showTip(event, 'fs34', 55)" class="i">gsf</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs32', 56)" onmouseover="showTip(event, 'fs32', 56)" class="i">tlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs35', 57)" onmouseover="showTip(event, 'fs35', 57)" class="i">grammaticalStructureFactory</span>()
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs36', 58)" onmouseover="showTip(event, 'fs36', 58)" class="i">gs</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs34', 59)" onmouseover="showTip(event, 'fs34', 59)" class="i">gsf</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs37', 60)" onmouseover="showTip(event, 'fs37', 60)" class="i">newGrammaticalStructure</span>(<span onmouseout="hideTip(event, 'fs31', 61)" onmouseover="showTip(event, 'fs31', 61)" class="i">tree2</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs38', 62)" onmouseover="showTip(event, 'fs38', 62)" class="i">tdl</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs36', 63)" onmouseover="showTip(event, 'fs36', 63)" class="i">gs</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 64)" onmouseover="showTip(event, 'fs39', 64)" class="i">typedDependenciesCCprocessed</span>()
+<span onmouseout="hideTip(event, 'fs40', 65)" onmouseover="showTip(event, 'fs40', 65)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">\n</span><span class="s">%</span><span class="s">O</span><span class="s">\n</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs38', 66)" onmouseover="showTip(event, 'fs38', 66)" class="i">tdl</span>
+<span class="fsi">&gt;</span>
+<span class="fsi">[nsubj(sentence-4, This-1), cop(sentence-4, is-2), det(sentence-4, another-3), root(ROOT-0, sentence-4)]</span>
+<span class="fsi"></span>
+<span class="fsi">val it : unit = ()</span>
+
+<span class="c">// Extract collapsed dependencies from parsed tree</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs41', 67)" onmouseover="showTip(event, 'fs41', 67)" class="i">tp</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs42', 68)" onmouseover="showTip(event, 'fs42', 68)" class="i">TreePrint</span>(<span class="s">&quot;</span><span class="s">penn</span><span class="s">,</span><span class="s">typedDependenciesCollapsed</span><span class="s">&quot;</span>)
+<span onmouseout="hideTip(event, 'fs41', 69)" onmouseover="showTip(event, 'fs41', 69)" class="i">tp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs43', 70)" onmouseover="showTip(event, 'fs43', 70)" class="i">printTree</span>(<span onmouseout="hideTip(event, 'fs31', 71)" onmouseover="showTip(event, 'fs31', 71)" class="i">tree2</span>)
+<span class="fsi">&gt; </span>
+<span class="fsi">(ROOT</span>
+<span class="fsi">  (S</span>
+<span class="fsi">    (NP (DT This))</span>
+<span class="fsi">    (VP (VBZ is)</span>
+<span class="fsi">      (NP (DT another) (NN sentence)))</span>
+<span class="fsi">    (. .)))</span>
+<span class="fsi"></span>
+<span class="fsi">nsubj(sentence-4, This-1)</span>
+<span class="fsi">cop(sentence-4, is-2)</span>
+<span class="fsi">det(sentence-4, another-3)</span>
+<span class="fsi">root(ROOT-0, sentence-4)</span>
+<span class="fsi"></span>
+<span class="fsi">val it : unit = ()</span></pre>
+</td>
+</tr>
+</table>
+
+<p>Read more about Stanford Parser on <a href="http://www-nlp.stanford.edu/software/lex-parser.shtml">the official page</a>.</p>
+
+<div class="tip" id="fs1">namespace java</div>
+<div class="tip" id="fs2">namespace java.io</div>
+<div class="tip" id="fs3">namespace edu</div>
+<div class="tip" id="fs4">namespace edu.stanford</div>
+<div class="tip" id="fs5">namespace edu.stanford.nlp</div>
+<div class="tip" id="fs6">namespace edu.stanford.nlp.ling</div>
+<div class="tip" id="fs7">namespace edu.stanford.nlp.trees</div>
+<div class="tip" id="fs8">namespace edu.stanford.nlp.parser</div>
+<div class="tip" id="fs9">namespace edu.stanford.nlp.parser.lexparser</div>
+<div class="tip" id="fs10">val modelsDirectry : string<br /><br />Full name: StanfordParser.modelsDirectry</div>
+<div class="tip" id="fs11">val lp : LexicalizedParser<br /><br />Full name: StanfordParser.lp</div>
+<div class="tip" id="fs12">Multiple items<br />type LexicalizedParser =<br />&#160;&#160;new : lex:Lexicon * bg:BinaryGrammar * ug:UnaryGrammar * dg:DependencyGrammar * stateIndex:Index * wordIndex:Index * tagIndex:Index * op:Options -&gt; LexicalizedParser<br />&#160;&#160;val lex : Lexicon<br />&#160;&#160;val bg : BinaryGrammar<br />&#160;&#160;val ug : UnaryGrammar<br />&#160;&#160;val dg : DependencyGrammar<br />&#160;&#160;val stateIndex : Index<br />&#160;&#160;val wordIndex : Index<br />&#160;&#160;val tagIndex : Index<br />&#160;&#160;val reranker : Reranker<br />&#160;&#160;member apply : words:List -&gt; Tree + 1 overload<br />&#160;&#160;...<br /><br />Full name: edu.stanford.nlp.parser.lexparser.LexicalizedParser<br /><br />--------------------<br />LexicalizedParser(lex: Lexicon, bg: BinaryGrammar, ug: UnaryGrammar, dg: DependencyGrammar, stateIndex: edu.stanford.nlp.util.Index, wordIndex: edu.stanford.nlp.util.Index, tagIndex: edu.stanford.nlp.util.Index, op: Options) : unit</div>
+<div class="tip" id="fs13">LexicalizedParser.loadModel() : LexicalizedParser<br />LexicalizedParser.loadModel(ois: ObjectInputStream) : LexicalizedParser<br />LexicalizedParser.loadModel(op: Options, params extraFlags: string []) : LexicalizedParser<br />LexicalizedParser.loadModel(parserFileOrUrl: string, params extraFlags: string []) : LexicalizedParser<br />LexicalizedParser.loadModel(parserFileOrUrl: string, op: Options, params extraFlags: string []) : LexicalizedParser</div>
+<div class="tip" id="fs14">val sent : string []<br /><br />Full name: StanfordParser.sent</div>
+<div class="tip" id="fs15">val rawWords : java.util.List<br /><br />Full name: StanfordParser.rawWords</div>
+<div class="tip" id="fs16">type Sentence =<br />&#160;&#160;static member extractNgram : list:List * start:int * end:int -&gt; string<br />&#160;&#160;static member listToString : list:List -&gt; string + 2 overloads<br />&#160;&#160;static member toCoreLabelList : params words:string[] -&gt; List + 1 overload<br />&#160;&#160;static member toTaggedList : lex:List * tags:List -&gt; ArrayList<br />&#160;&#160;static member toUntaggedList : lex:List -&gt; ArrayList + 1 overload<br />&#160;&#160;static member toWordList : params words:string[] -&gt; List<br />&#160;&#160;static member wordToString : o:obj * justValue:bool -&gt; string + 1 overload<br /><br />Full name: edu.stanford.nlp.ling.Sentence</div>
+<div class="tip" id="fs17">Sentence.toCoreLabelList(words: java.util.List) : java.util.List<br />Sentence.toCoreLabelList(params words: string []) : java.util.List</div>
+<div class="tip" id="fs18">val tree : Tree<br /><br />Full name: StanfordParser.tree</div>
+<div class="tip" id="fs19">LexicalizedParser.apply(x0: obj) : obj<br />LexicalizedParser.apply(words: java.util.List) : Tree</div>
+<div class="tip" id="fs20">Tree.pennPrint() : unit<br />Tree.pennPrint(ps: PrintStream) : unit<br />Tree.pennPrint(pw: PrintWriter) : unit<br />Tree.pennPrint(ps: PrintStream, printOnlyLabelValue: bool) : unit<br />Tree.pennPrint(pw: PrintWriter, printOnlyLabelValue: bool) : unit</div>
+<div class="tip" id="fs21">val sent2 : string<br /><br />Full name: StanfordParser.sent2</div>
+<div class="tip" id="fs22">val tokenizerFactory : TokenizerFactory<br /><br />Full name: StanfordParser.tokenizerFactory</div>
+<div class="tip" id="fs23">Multiple items<br />type PTBTokenizer =<br />&#160;&#160;inherit AbstractTokenizer<br />&#160;&#160;new : r:Reader * tokenFactory:LexedTokenFactory * options:string -&gt; PTBTokenizer<br />&#160;&#160;static member coreLabelFactory : unit -&gt; TokenizerFactory<br />&#160;&#160;static member factory : unit -&gt; TokenizerFactory + 2 overloads<br />&#160;&#160;static member getNewlineToken : unit -&gt; string<br />&#160;&#160;static member labelList2Text : ptbWords:List -&gt; string<br />&#160;&#160;static member main : args:string[] -&gt; unit<br />&#160;&#160;static member newPTBTokenizer : r:Reader -&gt; PTBTokenizer + 1 overload<br />&#160;&#160;static member ptb2Text : ptbText:string -&gt; string + 2 overloads<br />&#160;&#160;static member ptbToken2Text : ptbText:string -&gt; string<br />&#160;&#160;nested type PTBTokenizerFactory<br /><br />Full name: edu.stanford.nlp.process.PTBTokenizer<br /><br />--------------------<br />PTBTokenizer(r: Reader, tokenFactory: LexedTokenFactory, options: string) : unit</div>
+<div class="tip" id="fs24">PTBTokenizer.factory() : TokenizerFactory<br />PTBTokenizer.factory(tokenizeNLs: bool, invertible: bool) : TokenizerFactory<br />PTBTokenizer.factory(factory: LexedTokenFactory, options: string) : TokenizerFactory</div>
+<div class="tip" id="fs25">Multiple items<br />type CoreLabelTokenFactory =<br />&#160;&#160;new : unit -&gt; CoreLabelTokenFactory + 1 overload<br />&#160;&#160;member ``&lt;bridge&gt;makeToken`` : unit -&gt; CoreMap + 2 overloads<br />&#160;&#160;member makeToken : unit -&gt; CoreLabel + 5 overloads<br /><br />Full name: edu.stanford.nlp.process.CoreLabelTokenFactory<br /><br />--------------------<br />CoreLabelTokenFactory() : unit<br />CoreLabelTokenFactory(addIndices: bool) : unit</div>
+<div class="tip" id="fs26">val sent2Reader : StringReader<br /><br />Full name: StanfordParser.sent2Reader</div>
+<div class="tip" id="fs27">Multiple items<br />type StringReader =<br />&#160;&#160;inherit Reader<br />&#160;&#160;new : s:string -&gt; StringReader<br />&#160;&#160;member close : unit -&gt; unit<br />&#160;&#160;member mark : readAheadLimit:int -&gt; unit<br />&#160;&#160;member markSupported : unit -&gt; bool<br />&#160;&#160;member read : unit -&gt; int + 1 overload<br />&#160;&#160;member ready : unit -&gt; bool<br />&#160;&#160;member reset : unit -&gt; unit<br />&#160;&#160;member skip : ns:int64 -&gt; int64<br /><br />Full name: java.io.StringReader<br /><br />--------------------<br />StringReader(s: string) : unit</div>
+<div class="tip" id="fs28">val rawWords2 : java.util.List<br /><br />Full name: StanfordParser.rawWords2</div>
+<div class="tip" id="fs29">TokenizerFactory.getTokenizer(r: Reader) : Tokenizer<br />TokenizerFactory.getTokenizer(r: Reader, str: string) : Tokenizer</div>
+<div class="tip" id="fs30">StringReader.close() : unit</div>
+<div class="tip" id="fs31">val tree2 : Tree<br /><br />Full name: StanfordParser.tree2</div>
+<div class="tip" id="fs32">val tlp : PennTreebankLanguagePack<br /><br />Full name: StanfordParser.tlp</div>
+<div class="tip" id="fs33">Multiple items<br />type PennTreebankLanguagePack =<br />&#160;&#160;inherit AbstractTreebankLanguagePack<br />&#160;&#160;new : unit -&gt; PennTreebankLanguagePack<br />&#160;&#160;member evalBIgnoredPunctuationTags : unit -&gt; string[]<br />&#160;&#160;member getTokenizerFactory : unit -&gt; TokenizerFactory<br />&#160;&#160;member grammaticalStructureFactory : unit -&gt; GrammaticalStructureFactory + 2 overloads<br />&#160;&#160;member headFinder : unit -&gt; HeadFinder<br />&#160;&#160;member labelAnnotationIntroducingCharacters : unit -&gt; char[]<br />&#160;&#160;member punctuationTags : unit -&gt; string[]<br />&#160;&#160;member punctuationWords : unit -&gt; string[]<br />&#160;&#160;member sentenceFinalPunctuationTags : unit -&gt; string[]<br />&#160;&#160;member sentenceFinalPunctuationWords : unit -&gt; string[]<br />&#160;&#160;...<br /><br />Full name: edu.stanford.nlp.trees.PennTreebankLanguagePack<br /><br />--------------------<br />PennTreebankLanguagePack() : unit</div>
+<div class="tip" id="fs34">val gsf : GrammaticalStructureFactory<br /><br />Full name: StanfordParser.gsf</div>
+<div class="tip" id="fs35">PennTreebankLanguagePack.grammaticalStructureFactory() : GrammaticalStructureFactory<br />PennTreebankLanguagePack.grammaticalStructureFactory(puncFilter: edu.stanford.nlp.util.Filter) : GrammaticalStructureFactory<br />PennTreebankLanguagePack.grammaticalStructureFactory(puncFilter: edu.stanford.nlp.util.Filter, hf: HeadFinder) : GrammaticalStructureFactory</div>
+<div class="tip" id="fs36">val gs : GrammaticalStructure<br /><br />Full name: StanfordParser.gs</div>
+<div class="tip" id="fs37">GrammaticalStructureFactory.newGrammaticalStructure(t: Tree) : GrammaticalStructure</div>
+<div class="tip" id="fs38">val tdl : java.util.List<br /><br />Full name: StanfordParser.tdl</div>
+<div class="tip" id="fs39">GrammaticalStructure.typedDependenciesCCprocessed() : java.util.List<br />GrammaticalStructure.typedDependenciesCCprocessed(includeExtras: bool) : java.util.List</div>
+<div class="tip" id="fs40">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
+<div class="tip" id="fs41">val tp : TreePrint<br /><br />Full name: StanfordParser.tp</div>
+<div class="tip" id="fs42">Multiple items<br />type TreePrint =<br />&#160;&#160;new : formats:string -&gt; TreePrint + 3 overloads<br />&#160;&#160;member markHeadNodes : t:Tree -&gt; Tree<br />&#160;&#160;member printFooter : pw:PrintWriter -&gt; unit<br />&#160;&#160;member printHeader : pw:PrintWriter * charset:string -&gt; unit<br />&#160;&#160;member printTree : t:Tree -&gt; unit + 2 overloads<br />&#160;&#160;member printTrees : trees:List * id:string * pw:PrintWriter -&gt; unit<br />&#160;&#160;static val rootLabelOnlyFormat : string<br />&#160;&#160;static val headMark : string<br />&#160;&#160;static member main : args:string[] -&gt; unit<br />&#160;&#160;static member outputTreeFormats : string[]<br />&#160;&#160;...<br /><br />Full name: edu.stanford.nlp.trees.TreePrint<br /><br />--------------------<br />TreePrint(formats: string) : unit<br />TreePrint(formats: string, tlp: TreebankLanguagePack) : unit<br />TreePrint(formats: string, options: string, tlp: TreebankLanguagePack) : unit<br />TreePrint(formatString: string, optionsString: string, tlp: TreebankLanguagePack, hf: HeadFinder, typedDependencyHF: HeadFinder) : unit</div>
+<div class="tip" id="fs43">TreePrint.printTree(t: Tree) : unit<br />TreePrint.printTree(t: Tree, pw: PrintWriter) : unit<br />TreePrint.printTree(t: Tree, id: string, pw: PrintWriter) : unit</div>
+
+            </div>
+            <div class="span3">
+                <img src="img/logo.jpg" alt="Stanford.NLP.NET" style="width: 150px; height: 150px; margin: 10px 0px 0px 20px; border-style: none;" />
+                <ul class="nav nav-list" id="menu">
+                    <li class="nav-header">Stanford.NLP.NET</li>
+                    <li><a href="/Stanford.NLP.NET/index.html">Home page</a></li>
+                    <li class="divider"></li>
+                    <li><a href="https://www.nuget.org/packages?q=Stanford.NLP">Get Libraries via NuGet</a></li>
+                    <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET">Source Code on GitHub</a></li>
+                    <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">License</a></li>
+                    <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+
+                    <li class="nav-header">Available packages</li>
+                    <li><a href="/Stanford.NLP.NET/StanfordCoreNLP.html">Stanford CoreNLP</a></li>
+                    <li><a href="/Stanford.NLP.NET/StanfordParser.html">Stanford Parser</a></li>
+
+                    <li class="nav-header">Documentation</li>
+                    <li><a href="http://www-nlp.stanford.edu/software/index.shtml">API Reference</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a href="https://github.com/sergey-tihon/Stanford.NLP.NET"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+</body>
+</html>

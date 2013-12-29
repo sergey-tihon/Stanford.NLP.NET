@@ -60,7 +60,7 @@ the coreference resolution system, and the sentiment analysis tools, and provide
 The goal of this project is to enable people to quickly and painlessly get complete linguistic annotations of natural language texts. 
 It is designed to be highly flexible and extensible. With a single option you can change which tools should be enabled and which should be disabled.</p>
 
-  <p>The Stanford CoreNLP code is licensed under the GNU General Public License (v2 or later). Note that this is the full GPL, 
+  <p>The Stanford CoreNLP code is licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later). Note that this is the full GPL, 
 which allows many free uses, but not its use in distributed proprietary software.</p>
 </blockquote>
 
@@ -72,8 +72,8 @@ which allows many free uses, but not its use in distributed proprietary software
       <pre>PM> Install-Package Stanford.NLP.CoreNLP</pre>
     </div>
     <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2013-11-12.zip">
-    <button type="button" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
-    Download Stanford CoreNLP ZIP archive with models (225Mb)</button>
+    <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
+    Download Stanford CoreNLP ZIP archive with models (210Mb)</button>
     </form>
   </div>
   <div class="span1"></div>
@@ -254,23 +254,23 @@ which allows many free uses, but not its use in distributed proprietary software
 <div class="tip" id="fs7">namespace edu.stanford</div>
 <div class="tip" id="fs8">namespace edu.stanford.nlp</div>
 <div class="tip" id="fs9">namespace edu.stanford.nlp.pipeline</div>
-<div class="tip" id="fs10">val jarRoot : string<br /><br />Full name: CoreNLP.jarRoot</div>
-<div class="tip" id="fs11">val text : string<br /><br />Full name: CoreNLP.text</div>
-<div class="tip" id="fs12">val props : Properties<br /><br />Full name: CoreNLP.props</div>
+<div class="tip" id="fs10">val jarRoot : string<br /><br />Full name: StanfordCoreNLP.jarRoot</div>
+<div class="tip" id="fs11">val text : string<br /><br />Full name: StanfordCoreNLP.text</div>
+<div class="tip" id="fs12">val props : Properties<br /><br />Full name: StanfordCoreNLP.props</div>
 <div class="tip" id="fs13">Multiple items<br />type Properties =<br />&#160;&#160;inherit Hashtable<br />&#160;&#160;new : unit -&gt; Properties + 1 overload<br />&#160;&#160;member getProperty : key:string -&gt; string + 1 overload<br />&#160;&#160;member list : out:PrintStream -&gt; unit + 1 overload<br />&#160;&#160;member load : reader:Reader -&gt; unit + 1 overload<br />&#160;&#160;member loadFromXML : in:InputStream -&gt; unit<br />&#160;&#160;member propertyNames : unit -&gt; Enumeration<br />&#160;&#160;member save : out:OutputStream * comments:string -&gt; unit<br />&#160;&#160;member setProperty : key:string * value:string -&gt; obj<br />&#160;&#160;member store : out:OutputStream * comments:string -&gt; unit + 1 overload<br />&#160;&#160;member storeToXML : os:OutputStream * comment:string -&gt; unit + 1 overload<br />&#160;&#160;...<br /><br />Full name: java.util.Properties<br /><br />--------------------<br />Properties() : unit<br />Properties(defaults: Properties) : unit</div>
 <div class="tip" id="fs14">Properties.setProperty(key: string, value: string) : obj</div>
 <div class="tip" id="fs15">val ignore : value:&#39;T -&gt; unit<br /><br />Full name: Microsoft.FSharp.Core.Operators.ignore</div>
-<div class="tip" id="fs16">val curDir : string<br /><br />Full name: CoreNLP.curDir</div>
+<div class="tip" id="fs16">val curDir : string<br /><br />Full name: StanfordCoreNLP.curDir</div>
 <div class="tip" id="fs17">type Environment =<br />&#160;&#160;static member CommandLine : string<br />&#160;&#160;static member CurrentDirectory : string with get, set<br />&#160;&#160;static member Exit : exitCode:int -&gt; unit<br />&#160;&#160;static member ExitCode : int with get, set<br />&#160;&#160;static member ExpandEnvironmentVariables : name:string -&gt; string<br />&#160;&#160;static member FailFast : message:string -&gt; unit + 1 overload<br />&#160;&#160;static member GetCommandLineArgs : unit -&gt; string[]<br />&#160;&#160;static member GetEnvironmentVariable : variable:string -&gt; string + 1 overload<br />&#160;&#160;static member GetEnvironmentVariables : unit -&gt; IDictionary + 1 overload<br />&#160;&#160;static member GetFolderPath : folder:SpecialFolder -&gt; string + 1 overload<br />&#160;&#160;...<br />&#160;&#160;nested type SpecialFolder<br />&#160;&#160;nested type SpecialFolderOption<br /><br />Full name: System.Environment</div>
 <div class="tip" id="fs18">property Environment.CurrentDirectory: string</div>
 <div class="tip" id="fs19">type Directory =<br />&#160;&#160;static member CreateDirectory : path:string -&gt; DirectoryInfo + 1 overload<br />&#160;&#160;static member Delete : path:string -&gt; unit + 1 overload<br />&#160;&#160;static member EnumerateDirectories : path:string -&gt; IEnumerable&lt;string&gt; + 2 overloads<br />&#160;&#160;static member EnumerateFileSystemEntries : path:string -&gt; IEnumerable&lt;string&gt; + 2 overloads<br />&#160;&#160;static member EnumerateFiles : path:string -&gt; IEnumerable&lt;string&gt; + 2 overloads<br />&#160;&#160;static member Exists : path:string -&gt; bool<br />&#160;&#160;static member GetAccessControl : path:string -&gt; DirectorySecurity + 1 overload<br />&#160;&#160;static member GetCreationTime : path:string -&gt; DateTime<br />&#160;&#160;static member GetCreationTimeUtc : path:string -&gt; DateTime<br />&#160;&#160;static member GetCurrentDirectory : unit -&gt; string<br />&#160;&#160;...<br /><br />Full name: System.IO.Directory</div>
 <div class="tip" id="fs20">Directory.SetCurrentDirectory(path: string) : unit</div>
-<div class="tip" id="fs21">val pipeline : StanfordCoreNLP<br /><br />Full name: CoreNLP.pipeline</div>
+<div class="tip" id="fs21">val pipeline : StanfordCoreNLP<br /><br />Full name: StanfordCoreNLP.pipeline</div>
 <div class="tip" id="fs22">Multiple items<br />type StanfordCoreNLP =<br />&#160;&#160;inherit AnnotationPipeline<br />&#160;&#160;new : unit -&gt; StanfordCoreNLP + 4 overloads<br />&#160;&#160;member annotate : annotation:Annotation -&gt; unit<br />&#160;&#160;member getBeamPrintingOption : unit -&gt; float<br />&#160;&#160;member getConstituentTreePrinter : unit -&gt; TreePrint<br />&#160;&#160;member getDependencyTreePrinter : unit -&gt; TreePrint<br />&#160;&#160;member getEncoding : unit -&gt; string<br />&#160;&#160;member getProperties : unit -&gt; Properties<br />&#160;&#160;member prettyPrint : annotation:Annotation * os:OutputStream -&gt; unit + 1 overload<br />&#160;&#160;member ``process`` : text:string -&gt; Annotation<br />&#160;&#160;member processFiles : files:Collection -&gt; unit + 2 overloads<br />&#160;&#160;...<br /><br />Full name: edu.stanford.nlp.pipeline.StanfordCoreNLP<br /><br />--------------------<br />StanfordCoreNLP() : unit<br />StanfordCoreNLP(props: Properties) : unit<br />StanfordCoreNLP(propsFileNamePrefix: string) : unit<br />StanfordCoreNLP(props: Properties, enforceRequirements: bool) : unit<br />StanfordCoreNLP(propsFileNamePrefix: string, enforceRequirements: bool) : unit</div>
-<div class="tip" id="fs23">val annotation : Annotation<br /><br />Full name: CoreNLP.annotation</div>
+<div class="tip" id="fs23">val annotation : Annotation<br /><br />Full name: StanfordCoreNLP.annotation</div>
 <div class="tip" id="fs24">Multiple items<br />type Annotation =<br />&#160;&#160;inherit ArrayCoreMap<br />&#160;&#160;new : unit -&gt; Annotation + 3 overloads<br />&#160;&#160;member copy : unit -&gt; Annotation<br />&#160;&#160;member toString : unit -&gt; string<br /><br />Full name: edu.stanford.nlp.pipeline.Annotation<br /><br />--------------------<br />Annotation(text: string) : unit<br />Annotation(map: Annotation) : unit<br />Annotation(sentences: List) : unit</div>
 <div class="tip" id="fs25">AnnotationPipeline.annotate(annotations: java.lang.Iterable) : unit<br />StanfordCoreNLP.annotate(annotation: Annotation) : unit<br />AnnotationPipeline.annotate(annotations: java.lang.Iterable, callback: edu.stanford.nlp.util.Function) : unit<br />AnnotationPipeline.annotate(annotations: java.lang.Iterable, numThreads: int) : unit<br />AnnotationPipeline.annotate(annotations: java.lang.Iterable, numThreads: int, callback: edu.stanford.nlp.util.Function) : unit</div>
-<div class="tip" id="fs26">val stream : ByteArrayOutputStream<br /><br />Full name: CoreNLP.stream</div>
+<div class="tip" id="fs26">val stream : ByteArrayOutputStream<br /><br />Full name: StanfordCoreNLP.stream</div>
 <div class="tip" id="fs27">Multiple items<br />type ByteArrayOutputStream =<br />&#160;&#160;inherit OutputStream<br />&#160;&#160;new : unit -&gt; ByteArrayOutputStream + 1 overload<br />&#160;&#160;member close : unit -&gt; unit<br />&#160;&#160;member reset : unit -&gt; unit<br />&#160;&#160;member size : unit -&gt; int<br />&#160;&#160;member toByteArray : unit -&gt; byte[]<br />&#160;&#160;member toString : unit -&gt; string + 2 overloads<br />&#160;&#160;member write : b:int -&gt; unit + 1 overload<br />&#160;&#160;member writeTo : out:OutputStream -&gt; unit<br /><br />Full name: java.io.ByteArrayOutputStream<br /><br />--------------------<br />ByteArrayOutputStream() : unit<br />ByteArrayOutputStream(size: int) : unit</div>
 <div class="tip" id="fs28">StanfordCoreNLP.prettyPrint(annotation: Annotation, os: PrintWriter) : unit<br />StanfordCoreNLP.prettyPrint(annotation: Annotation, os: OutputStream) : unit</div>
 <div class="tip" id="fs29">Multiple items<br />type PrintWriter =<br />&#160;&#160;inherit Writer<br />&#160;&#160;new : out:Writer -&gt; PrintWriter + 7 overloads<br />&#160;&#160;member ``&lt;bridge&gt;append`` : x0:char -&gt; Writer + 5 overloads<br />&#160;&#160;member append : c:char -&gt; PrintWriter + 2 overloads<br />&#160;&#160;member checkError : unit -&gt; bool<br />&#160;&#160;member close : unit -&gt; unit<br />&#160;&#160;member flush : unit -&gt; unit<br />&#160;&#160;member format : format:string * params args:obj[] -&gt; PrintWriter + 1 overload<br />&#160;&#160;member print : b:bool -&gt; unit + 8 overloads<br />&#160;&#160;member printf : format:string * params args:obj[] -&gt; PrintWriter + 1 overload<br />&#160;&#160;member println : unit -&gt; unit + 9 overloads<br />&#160;&#160;...<br /><br />Full name: java.io.PrintWriter<br /><br />--------------------<br />PrintWriter(out: Writer) : unit<br />PrintWriter(out: OutputStream) : unit<br />PrintWriter(fileName: string) : unit<br />PrintWriter(file: File) : unit<br />PrintWriter(out: Writer, autoFlush: bool) : unit<br />PrintWriter(out: OutputStream, autoFlush: bool) : unit<br />PrintWriter(fileName: string, csn: string) : unit<br />PrintWriter(file: File, csn: string) : unit</div>
@@ -291,7 +291,8 @@ which allows many free uses, but not its use in distributed proprietary software
                     <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
 
                     <li class="nav-header">Available packages</li>
-                    <li><a href="/Stanford.NLP.NET/CoreNLP.html">Stanford CoreNLP</a></li>
+                    <li><a href="/Stanford.NLP.NET/StanfordCoreNLP.html">Stanford CoreNLP</a></li>
+                    <li><a href="/Stanford.NLP.NET/StanfordParser.html">Stanford Parser</a></li>
 
                     <li class="nav-header">Documentation</li>
                     <li><a href="http://www-nlp.stanford.edu/software/index.shtml">API Reference</a></li>
