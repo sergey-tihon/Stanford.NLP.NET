@@ -1,0 +1,126 @@
+﻿(*** hide ***)
+// This block of code is omitted in the generated HTML documentation. Use 
+// it to define helpers that you do not want to show in the documentation.
+#I "../../packages/Stanford.NLP.Parser.3.3.0.0/lib"
+#I "../../packages/IKVM.7.3.4830.0/lib/"
+
+(**
+Stanford Parser for .NET (A statistical parser)
+===============================================
+
+>[A natural language parser][goToOrigin] is a program that works out the grammatical structure of sentences, for instance, which groups of words 
+>go together (as "phrases") and which words are the subject or object of a verb. Probabilistic parsers use knowledge of language gained from hand-parsed 
+>sentences to try to produce the most likely analysis of new sentences. These statistical parsers still make some mistakes, but commonly work 
+>rather well. Their development was one of the biggest breakthroughs in natural language processing in the 1990s. You can 
+>[try out our parser online](http://nlp.stanford.edu:8080/parser/).
+>
+>The lexicalized probabilistic parser implements a factored product model, with separate PCFG phrase structure and lexical dependency experts, 
+>whose preferences are combined by efficient exact inference, using an A* algorithm. Or the software can be used simply as an accurate 
+>unlexicalized stochastic context-free grammar parser. Either of these yields a good performance statistical parsing system. 
+>A GUI is provided for viewing the phrase structure tree output of the parser.
+>
+>As well as providing an English parser, the parser can be and has been adapted to work with other languages. A Chinese parser based on 
+>the Chinese Treebank, a German parser based on the Negra corpus and Arabic parsers based on the Penn Arabic Treebank are also included. 
+>The parser has also been used for other languages, such as Italian, Bulgarian, and Portuguese.
+>
+>The parser provides [Stanford Dependencies](http://www-nlp.stanford.edu/software/stanford-dependencies.shtml) output as well as phrase 
+>structure trees. Typed dependencies are otherwise known grammatical relations. This style of output is available only for English and Chinese. 
+>For more details, please refer to the [Stanford Dependencies webpage](http://www-nlp.stanford.edu/software/stanford-dependencies.shtml).
+>
+>The Stanford CoreNLP code is licensed under the [GNU General Public License][license] (v2 or later). Note that this is the full GPL, 
+>which allows many free uses, but not its use in distributed proprietary software.
+ 
+ <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
+  <div class="span1"></div>
+  <div class="span6">
+    <div class="well well-small" id="nuget">
+      The Stanford Parser library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Parser/">installed from NuGet</a>:
+      <pre>PM> Install-Package Stanford.NLP.Parser</pre>
+    </div>
+    <form method="get" action="http://www-nlp.stanford.edu/software/stanford-parser-full-2013-11-12.zip">
+    <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
+    Download Stanford Parser ZIP archive with models (185Mb)</button>
+    </form>
+  </div>
+  <div class="span1"></div>
+ </div>
+
+F# Sample of sentence parsing 
+-----------------------------
+*)
+#r "IKVM.OpenJDK.Core.dll"
+#r "IKVM.OpenJDK.Util.dll"
+#r "stanford-parser.dll"
+
+open java.io
+open edu.stanford.nlp.``process``
+open edu.stanford.nlp.ling
+open edu.stanford.nlp.trees
+open edu.stanford.nlp.parser.lexparser
+
+// Path to models extracted from `stanford-parser-3.3.0-models.jar`
+let modelsDirectry = 
+    __SOURCE_DIRECTORY__ 
+    + @"..\..\..\src\temp\stanford-parser-full-2013-11-12\stanford-parser-3.3.0-models\"
+    + @"edu\stanford\nlp\models\"
+
+// Loading english PCFG parser from file
+let lp = LexicalizedParser.loadModel(modelsDirectry + @"lexparser\englishPCFG.ser.gz")
+
+// This sample shows parsing a list of correctly tokenized words
+let sent = [|"This"; "is"; "an"; "easy"; "sentence"; "." |]
+let rawWords = Sentence.toCoreLabelList(sent)
+let tree = lp.apply(rawWords)
+tree.pennPrint()
+// [fsi:>]
+// [fsi:(ROOT]
+// [fsi:  (S]
+// [fsi:    (NP (DT This))]
+// [fsi:    (VP (VBZ is)]
+// [fsi:      (NP (DT an) (JJ easy) (NN sentence)))]
+// [fsi:    (. .)))]
+// [fsi:val it : unit = ()]
+
+// This option shows loading and using an explicit tokenizer
+let sent2 = "This is another sentence."
+let tokenizerFactory = PTBTokenizer.factory(CoreLabelTokenFactory(), "")
+let sent2Reader = new StringReader(sent2)
+let rawWords2 = tokenizerFactory.getTokenizer(sent2Reader).tokenize()
+sent2Reader.close()
+let tree2 = lp.apply(rawWords2)
+
+// Extract dependencies from lexical tree
+let tlp = PennTreebankLanguagePack()
+let gsf = tlp.grammaticalStructureFactory()
+let gs = gsf.newGrammaticalStructure(tree2)
+let tdl = gs.typedDependenciesCCprocessed()
+printfn "\n%O\n" tdl
+// [fsi:>]
+// [fsi:[nsubj(sentence-4, This-1), cop(sentence-4, is-2), det(sentence-4, another-3), root(ROOT-0, sentence-4)]]
+// [fsi:]
+// [fsi:val it : unit = ()]
+
+// Extract collapsed dependencies from parsed tree
+let tp = new TreePrint("penn,typedDependenciesCollapsed")
+tp.printTree(tree2)
+// [fsi:> ]
+// [fsi:(ROOT]
+// [fsi:  (S]
+// [fsi:    (NP (DT This))]
+// [fsi:    (VP (VBZ is)]
+// [fsi:      (NP (DT another) (NN sentence)))]
+// [fsi:    (. .)))]
+// [fsi:]
+// [fsi:nsubj(sentence-4, This-1)]
+// [fsi:cop(sentence-4, is-2)]
+// [fsi:det(sentence-4, another-3)]
+// [fsi:root(ROOT-0, sentence-4)]
+// [fsi:]
+// [fsi:val it : unit = ()]
+
+(**
+Read more about Stanford Parser on [the official page][goToOrigin].
+
+  [goToOrigin]: http://www-nlp.stanford.edu/software/lex-parser.shtml
+  [license]: https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt
+*)

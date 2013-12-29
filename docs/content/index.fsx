@@ -23,12 +23,22 @@ even in part or in translation. Commercial licensing is also available; please c
 
 -----
 
-### [Stanford CoreNLP](/Stanford.NLP.NET/CoreNLP.html) ###
+### [Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html) ###
 
 An integrated suite of natural language processing tools for English and (mainland) Chinese, including tokenization, 
 part-of-speech tagging, named entity recognition, parsing, and coreference. 
 
 See also: [Online CoreNLP demo](http://nlp.stanford.edu:8080/corenlp/).
+
+-----
+
+### [Stanford Parser](/Stanford.NLP.NET/StanfordParser.html) ###
+
+Implementations of probabilistic natural language parsers: highly optimized PCFG and dependency parsers, a 
+lexicalized PCFG parser, and a deep learning reranker. 
+
+See also: [Online parser demo](http://nlp.stanford.edu:8080/parser/) and 
+the [Stanford Dependencies page](http://nlp.stanford.edu/software/stanford-dependencies.shtml).
 
 -----
  

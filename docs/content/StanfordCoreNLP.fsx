@@ -20,7 +20,7 @@ Stanford CoreNLP for .NET
 >The goal of this project is to enable people to quickly and painlessly get complete linguistic annotations of natural language texts. 
 >It is designed to be highly flexible and extensible. With a single option you can change which tools should be enabled and which should be disabled.
 >
->The Stanford CoreNLP code is licensed under the GNU General Public License (v2 or later). Note that this is the full GPL, 
+>The Stanford CoreNLP code is licensed under the [GNU General Public License][license] (v2 or later). Note that this is the full GPL, 
 >which allows many free uses, but not its use in distributed proprietary software.
  
  <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
@@ -31,8 +31,8 @@ Stanford CoreNLP for .NET
       <pre>PM> Install-Package Stanford.NLP.CoreNLP</pre>
     </div>
     <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2013-11-12.zip">
-    <button type="button" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
-    Download Stanford CoreNLP ZIP archive with models (225Mb)</button>
+    <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
+    Download Stanford CoreNLP ZIP archive with models (210Mb)</button>
     </form>
   </div>
   <div class="span1"></div>
@@ -123,4 +123,5 @@ stream.close()
 Read more about Stanford CoreNLP on [the official page][goToOrigin].
 
   [goToOrigin]: http://www-nlp.stanford.edu/software/corenlp.shtml
+  [license]: https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt
 *)
