@@ -11,14 +11,14 @@ Stanford CoreNLP for .NET
 >[Stanford CoreNLP][goToOrigin] provides a set of natural language analysis tools which can take raw English language text input 
 >and give the base forms of words, their parts of speech, whether they are names of companies, people, etc., normalize dates, times, 
 >and numeric quantities, and mark up the structure of sentences in terms of phrases and word dependencies, and indicate which noun phrases 
->refer to the same entities. Stanford CoreNLP is an integrated framework, which make it very easy to apply a bunch of language analysis 
->tools to a piece of text. Starting from plain text, you can run all the tools on it with just two lines of code. Its analyses provide the 
+>refer to the same entities. Stanford CoreNLP is an integrated framework, which makes it very easy to apply a bunch of language analysis 
+>tools to a piece of text. Starting from plain text, you can run all the tools on it with just two lines of code. Its analyses provides the 
 >foundational building blocks for higher-level and domain-specific text understanding applications.
 >
 >Stanford CoreNLP integrates all Stanford NLP tools, including the part-of-speech (POS) tagger, the named entity recognizer (NER), the parser, 
 >the coreference resolution system, and the sentiment analysis tools, and provides model files for analysis of English. 
 >The goal of this project is to enable people to quickly and painlessly get complete linguistic annotations of natural language texts. 
->It is designed to be highly flexible and extensible. With a single option you can change which tools should be enabled and which should be disabled.
+>It is designed to be highly flexible and extensible. With a single option, you can choose which tools should be enabled and which should be disabled.
 >
 >The Stanford CoreNLP code is licensed under the [GNU General Public License][license] (v2 or later). Note that this is the full GPL, 
 >which allows many free uses, but not its use in distributed proprietary software.
@@ -51,7 +51,7 @@ open java.util
 open java.io
 open edu.stanford.nlp.pipeline
 
-// Path to the folder with model extracted from `stanford-corenlp-3.3.0-models.jar`
+// Path to the folder with models extracted from `stanford-corenlp-3.3.0-models.jar`
 let jarRoot = __SOURCE_DIRECTORY__ + @"\..\..\src\temp\stanford-corenlp-full-2013-11-12\stanford-corenlp-3.3.0-models\"
 
 // Text for processing
@@ -62,7 +62,7 @@ let props = Properties()
 props.setProperty("annotators","tokenize, ssplit, pos, lemma, ner, parse, dcoref") |> ignore
 props.setProperty("sutime.binders","0") |> ignore
 
-// we should change current directory so StanfordCoreNLP could find all the model files automatically
+// We should change current directory, so StanfordCoreNLP could find all the model files automatically
 let curDir = Environment.CurrentDirectory
 Directory.SetCurrentDirectory(jarRoot)
 let pipeline = StanfordCoreNLP(props)

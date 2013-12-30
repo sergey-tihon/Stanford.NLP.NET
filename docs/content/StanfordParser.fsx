@@ -15,7 +15,7 @@ Stanford Parser for .NET (A statistical parser)
 >[try out our parser online](http://nlp.stanford.edu:8080/parser/).
 >
 >The lexicalized probabilistic parser implements a factored product model, with separate PCFG phrase structure and lexical dependency experts, 
->whose preferences are combined by efficient exact inference, using an A* algorithm. Or the software can be used simply as an accurate 
+>whose preferences are combined by efficient exact inference, using an A* algorithm. Alternatively the software can be used simply as an accurate 
 >unlexicalized stochastic context-free grammar parser. Either of these yields a good performance statistical parsing system. 
 >A GUI is provided for viewing the phrase structure tree output of the parser.
 >
@@ -31,7 +31,7 @@ Stanford Parser for .NET (A statistical parser)
 >The package includes components for command-line invocation, a Java parsing GUI, and a Java API. The parser code is dual licensed 
 >(in a similar manner to MySQL, etc.). Open source licensing is under the full GPL, which allows many free uses. For distributors of 
 >proprietary software, [commercial licensing](http://otlportal.stanford.edu/techfinder/technology/ID=24472) is available. 
->If you don't need a commercial license, but would like to support maintenance of these tools, Stanford NLP Group welcome gift funding.
+>If you don't need a commercial license, but would like to support maintenance of these tools, Stanford NLP Group welcomes gift funding.
  
  <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
   <div class="span1"></div>

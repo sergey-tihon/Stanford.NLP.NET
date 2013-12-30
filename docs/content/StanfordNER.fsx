@@ -8,10 +8,10 @@
 Stanford Named Entity Recognizer (NER) for .NET
 ===============================================
 
->[Stanford NER][goToOrigin] is a implementation of a Named Entity Recognizer. Named Entity Recognition (NER) labels sequences of words in a text 
+>[Stanford NER][goToOrigin] is an implementation of a Named Entity Recognizer. Named Entity Recognition (NER) labels sequences of words in a text 
 >which are the names of things, such as person and company names, or gene and protein names. It comes with well-engineered feature extractors 
 >for Named Entity Recognition, and many options for defining feature extractors. Included with the download are good named entity recognizers 
->for English, particularly for the 3 classes (`PERSON`, `ORGANIZATION`, `LOCATION`), and Stanford NLP Group also make available on [the original page][goToOrigin]
+>for English, particularly for the 3 classes (`PERSON`, `ORGANIZATION`, `LOCATION`), and Stanford NLP Group also makes available on [the original page][goToOrigin]
 >various other models for different languages and circumstances, including models trained on just the [CoNLL 2003](http://www.cnts.ua.ac.be/conll2003/ner/) 
 >English training data. The distributional similarity features in some models improve performance but the models require considerably more memory.
 >
@@ -19,7 +19,7 @@ Stanford Named Entity Recognizer (NER) for .NET
 >Conditional Random Field (CRF) sequence models. That is, by training your own models, you can actually use this code to build sequence models 
 >for any task.
 >
->You can look at a Powerpoint Introduction to NER and the Stanford NER package [ppt](http://www-nlp.stanford.edu/software/jenny-ner-2007.ppt) 
+>You can look at a PowerPoint Introduction to NER and the Stanford NER package [ppt](http://www-nlp.stanford.edu/software/jenny-ner-2007.ppt) 
 >[pdf](http://www-nlp.stanford.edu/software/jenny-ner-2007.pdf) or the [FAQ](http://www-nlp.stanford.edu/software/crf-faq.shtml), which has 
 >some information on training models. Further documentation is provided in the included README and in the javadocs.
 >
@@ -27,7 +27,7 @@ Stanford Named Entity Recognizer (NER) for .NET
 >The package includes components for command-line invocation, running as a server, and a Java API. Stanford NER code is dual licensed 
 >(in a similar manner to MySQL, etc.). Open source licensing is under the full GPL, which allows many free uses. 
 >For distributors of proprietary software, [commercial licensing](http://otlportal.stanford.edu/techfinder/technology/ID=24628) is available. 
->If you don't need a commercial license, but would like to support maintenance of these tools, Stanford NLP Group welcome gifts.
+>If you don't need a commercial license, but would like to support maintenance of these tools, Stanford NLP Group welcomes gifts.
  
  <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
   <div class="span1"></div>

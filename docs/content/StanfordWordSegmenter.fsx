@@ -20,7 +20,7 @@ Stanford Word Segmenter for .NET
 >includes components for command-line invocation and a Java API. The segmenter code is dual licensed (in a similar manner to MySQL, etc.). 
 >Open source licensing is under the full GPL, which allows many free uses. For distributors of proprietary software, 
 >[commercial licensing](http://otlportal.stanford.edu/techfinder/technology/ID=27276) is available. If you don't need a commercial license, 
->but would like to support maintenance of these tools, Stanford NLP Group welcome gift funding.
+>but would like to support maintenance of these tools, Stanford NLP Group welcomes gift funding.
  
  <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
   <div class="span1"></div>
@@ -64,7 +64,7 @@ let sampleData = __SOURCE_DIRECTORY__ + @"..\..\..\tests\data\test.simple.utf8";
 // Setup Segmenter loading properties
 let props = Properties();
 props.setProperty("sighanCorporaDict", segmenterData) |> ignore
-// below is needed because CTBSegDocumentIteratorFactory accesses it
+// Lines below are needed because CTBSegDocumentIteratorFactory accesses it
 props.setProperty("serDictionary", segmenterData + "dict-chris6.ser.gz") |> ignore
 props.setProperty("testFile", sampleData) |> ignore
 props.setProperty("inputEncoding", "UTF-8") |> ignore

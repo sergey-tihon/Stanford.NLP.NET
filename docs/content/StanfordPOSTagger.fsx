@@ -24,7 +24,7 @@ Stanford Log-linear Part-Of-Speech Tagger for .NET
 >command-line invocation, running as a server, and a Java API. The tagger code is dual licensed (in a similar manner to MySQL, etc.). 
 >Open source licensing is under the full GPL, which allows many free uses. For distributors of proprietary software, 
 >[commercial licensing](http://otlportal.stanford.edu/techfinder/technology/ID=26062) is available. If you don't need a commercial license, 
->but would like to support maintenance of these tools, Stanford NLP Group welcome gift funding.
+>but would like to support maintenance of these tools, Stanford NLP Group welcomes gift funding.
  
  <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
   <div class="span1"></div>

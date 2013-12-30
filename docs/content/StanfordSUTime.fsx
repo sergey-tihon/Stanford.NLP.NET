@@ -12,14 +12,14 @@ Stanford Temporal Tagger: SUTime for .NET
 >[Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html) pipeline and can be used to annotate documents with temporal information. 
 >It is a deterministic rule-based system designed for extensibility.
 >
->SUTime was developed using [TokensRegex](http://www-nlp.stanford.edu/software/tokensregex.shtml), a generic framework for definining 
->patterns over text and mapping to semantic objects. An included set of powerpoint slides and the javadoc for SUTime provide 
+>SUTime was developed using [TokensRegex](http://www-nlp.stanford.edu/software/tokensregex.shtml), a generic framework for defining 
+>patterns over text and mapping to semantic objects. An included set of PowerPoint slides and the javadoc for SUTime provide 
 >an overview of this package.
 >
 >SUTime annotations are provided automatically with the [Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html) pipeline by including 
 >the `ner` annotator. When a time expression is identified, the `NamedEntityTagAnnotation` is set with one of four temporal types (`DATE`, 
 >`TIME`, `DURATION`, and `SET`) and the `NormalizedNamedEntityTagAnnotation` is set to the value of the normalized temporal expression. 
->The temporal type and value corresponds to the [TIMEX3 standard](http://www.timeml.org/site/publications/timeMLdocs/timeml_1.2.1.html#timex3) 
+>The temporal type and value correspond to the [TIMEX3 standard](http://www.timeml.org/site/publications/timeMLdocs/timeml_1.2.1.html#timex3) 
 >for type and value. (Note the slightly weird and non-specific entity name `SET`, which refers to a set of times, such as a recurring event.)
  
  <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
@@ -52,7 +52,7 @@ open edu.stanford.nlp.time
 open edu.stanford.nlp.util
 open edu.stanford.nlp.ling
 
-// Path to the folder with model extracted from `stanford-corenlp-3.3.0-models.jar`
+// Path to the folder with models extracted from `stanford-corenlp-3.3.0-models.jar`
 let jarRoot = 
     __SOURCE_DIRECTORY__ + @"\..\..\src\temp\stanford-corenlp-full-2013-11-12\stanford-corenlp-3.3.0-models\"
 let modelsDirectry = jarRoot + @"edu\stanford\nlp\models\"

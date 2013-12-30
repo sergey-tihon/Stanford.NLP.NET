@@ -19,11 +19,14 @@ Getting started
 *   Choose the package that is the most suitable for your task. If your task is complex and you need a deep analysis - select [Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html).
 *   Install selected [NuGet package](https://www.nuget.org/packages?q=Stanford.NLP).
 *   Download original ZIP archive for selected package from The Stanford NLP Group site. (Direct links are mentioned on the packages pages)
-*   Unzip *.jar file with models if such one exists.
+*   Unzip `*.jar` file with models if such one exists.
 *   You are ready to start, please look at examples.
 
-Note: Do not try to reference several NuGet packages from your solution. They are incompatible. If you need more than one - you should
+Note: Do not try to reference several NuGet packages from your solution. They are incompatible with each other. If you need more than one - you should
 reference [Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html) package. All features are packed inside.
+
+**If you want to speed up the conversion of some new Stanford software or you want to see new .NET samples for already existing distributions - 
+please mention this in [issues][issues]. It can really help you get it sooner.**
 
 Supported software distributions
 --------------------------------
