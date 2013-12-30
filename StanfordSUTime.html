@@ -52,14 +52,14 @@
 <a href="/Stanford.NLP.NET/StanfordCoreNLP.html">Stanford CoreNLP</a> pipeline and can be used to annotate documents with temporal information. 
 It is a deterministic rule-based system designed for extensibility.</p>
 
-  <p>SUTime was developed using <a href="http://www-nlp.stanford.edu/software/tokensregex.shtml">TokensRegex</a>, a generic framework for definining 
-patterns over text and mapping to semantic objects. An included set of powerpoint slides and the javadoc for SUTime provide 
+  <p>SUTime was developed using <a href="http://www-nlp.stanford.edu/software/tokensregex.shtml">TokensRegex</a>, a generic framework for defining 
+patterns over text and mapping to semantic objects. An included set of PowerPoint slides and the javadoc for SUTime provide 
 an overview of this package.</p>
 
   <p>SUTime annotations are provided automatically with the <a href="/Stanford.NLP.NET/StanfordCoreNLP.html">Stanford CoreNLP</a> pipeline by including 
 the <code>ner</code> annotator. When a time expression is identified, the <code>NamedEntityTagAnnotation</code> is set with one of four temporal types (<code>DATE</code>, 
 <code>TIME</code>, <code>DURATION</code>, and <code>SET</code>) and the <code>NormalizedNamedEntityTagAnnotation</code> is set to the value of the normalized temporal expression. 
-The temporal type and value corresponds to the <a href="http://www.timeml.org/site/publications/timeMLdocs/timeml_1.2.1.html#timex3">TIMEX3 standard</a> 
+The temporal type and value correspond to the <a href="http://www.timeml.org/site/publications/timeMLdocs/timeml_1.2.1.html#timex3">TIMEX3 standard</a> 
 for type and value. (Note the slightly weird and non-specific entity name <code>SET</code>, which refers to a set of times, such as a recurring event.)</p>
 </blockquote>
 
@@ -158,7 +158,7 @@ for type and value. (Note the slightly weird and non-specific entity name <code>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs4', 18)" onmouseover="showTip(event, 'fs4', 18)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 19)" onmouseover="showTip(event, 'fs5', 19)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 20)" onmouseover="showTip(event, 'fs6', 20)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 21)" onmouseover="showTip(event, 'fs11', 21)" class="i">util</span>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs4', 22)" onmouseover="showTip(event, 'fs4', 22)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 23)" onmouseover="showTip(event, 'fs5', 23)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 24)" onmouseover="showTip(event, 'fs6', 24)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs12', 25)" onmouseover="showTip(event, 'fs12', 25)" class="i">ling</span>
 
-<span class="c">// Path to the folder with model extracted from `stanford-corenlp-3.3.0-models.jar`</span>
+<span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.3.0-models.jar`</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 26)" onmouseover="showTip(event, 'fs13', 26)" class="i">jarRoot</span> <span class="o">=</span> 
     <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;</span><span class="s">\</span><span class="s">.</span><span class="s">.</span><span class="s">\</span><span class="s">.</span><span class="s">.</span><span class="s">\</span><span class="s">src</span><span class="s">\</span><span class="s">temp</span><span class="s">\</span><span class="s">stanford</span><span class="s">-</span><span class="s">corenlp</span><span class="s">-</span><span class="s">full</span><span class="s">-</span><span class="s">2013</span><span class="s">-</span><span class="s">11</span><span class="s">-</span><span class="s">12</span><span class="s">\</span><span class="s">stanford</span><span class="s">-</span><span class="s">corenlp</span><span class="s">-</span><span class="s">3</span><span class="s">.</span><span class="s">3</span><span class="s">.</span><span class="s">0</span><span class="s">-</span><span class="s">models</span><span class="s">\</span><span class="s">&quot;</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 27)" onmouseover="showTip(event, 'fs14', 27)" class="i">modelsDirectry</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs13', 28)" onmouseover="showTip(event, 'fs13', 28)" class="i">jarRoot</span> <span class="o">+</span> <span class="s">@&quot;</span><span class="s">edu</span><span class="s">\</span><span class="s">stanford</span><span class="s">\</span><span class="s">nlp</span><span class="s">\</span><span class="s">models</span><span class="s">\</span><span class="s">&quot;</span>
@@ -289,7 +289,7 @@ for type and value. (Note the slightly weird and non-specific entity name <code>
                     <li><a href="/Stanford.NLP.NET/index.html">Home page</a></li>
                     <li class="divider"></li>
                     <li><a href="https://www.nuget.org/packages?q=Stanford.NLP">Get Libraries via NuGet</a></li>
-                    <li><a href="http://stackoverflow.com/questions/tagged/stanford-nlp">Find Answer on StackOverflow</a></li>
+                    <li><a href="http://stackoverflow.com/questions/tagged/stanford-nlp">Find Answers on StackOverflow</a></li>
                     <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET">Source Code on GitHub</a></li>
                     <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">License</a></li>
                     <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
