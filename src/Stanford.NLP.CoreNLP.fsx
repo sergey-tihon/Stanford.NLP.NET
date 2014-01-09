@@ -13,17 +13,17 @@ let projectDescription = "Stanford CoreNLP provides a set of natural language an
 // Run IKVM compiler
 Target "RunIKVMCompiler" (fun _ ->
     restoreFolderFromUrl 
-        @".\temp\stanford-corenlp-full-2013-11-12" 
-        "http://nlp.stanford.edu/software/stanford-corenlp-full-2013-11-12.zip"
+        @".\temp\stanford-corenlp-full-2014-01-04" 
+        "http://nlp.stanford.edu/software/stanford-corenlp-full-2014-01-04.zip"
     restoreFolderFromFile
-        @".\temp\stanford-corenlp-full-2013-11-12\stanford-corenlp-3.3.0-models\edu"
-        @".\temp\stanford-corenlp-full-2013-11-12\stanford-corenlp-3.3.0-models.jar"
-    [IKVMcTask(@"temp\stanford-corenlp-full-2013-11-12\stanford-corenlp-3.3.0.jar", Version=version,
-           Dependencies = [IKVMcTask(@"temp\stanford-corenlp-full-2013-11-12\joda-time.jar", Version="2.1");
-                           IKVMcTask(@"temp\stanford-corenlp-full-2013-11-12\jollyday.jar", Version="0.4.7",
-                                Dependencies =[IKVMcTask(@"temp\stanford-corenlp-full-2013-11-12\joda-time.jar", Version="2.1")]);
-                           IKVMcTask(@"temp\stanford-corenlp-full-2013-11-12\ejml-0.23.jar", Version="0.23");
-                           IKVMcTask(@"temp\stanford-corenlp-full-2013-11-12\xom.jar", Version="1.2.8");])]
+        @".\temp\stanford-corenlp-full-2014-01-04\stanford-corenlp-3.3.1-models\edu"
+        @".\temp\stanford-corenlp-full-2014-01-04\stanford-corenlp-3.3.1-models.jar"
+    [IKVMcTask(@"temp\stanford-corenlp-full-2014-01-04\stanford-corenlp-3.3.1.jar", Version=version,
+           Dependencies = [IKVMcTask(@"temp\stanford-corenlp-full-2014-01-04\joda-time.jar", Version="2.1");
+                           IKVMcTask(@"temp\stanford-corenlp-full-2014-01-04\jollyday.jar", Version="0.4.7",
+                                Dependencies =[IKVMcTask(@"temp\stanford-corenlp-full-2014-01-04\joda-time.jar", Version="2.1")]);
+                           IKVMcTask(@"temp\stanford-corenlp-full-2014-01-04\ejml-0.23.jar", Version="0.23");
+                           IKVMcTask(@"temp\stanford-corenlp-full-2014-01-04\xom.jar", Version="1.2.10");])]
     |> IKVMCompile ikvmDir @".\Stanford.NLP.snk"
 )
 

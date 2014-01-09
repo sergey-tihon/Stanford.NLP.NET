@@ -115,7 +115,7 @@ let copyPackages fromDir toDir =
     |> Seq.iter   (fun x -> File.Copy(x, Path.Combine(toDir, Path.GetFileName(x)), true))
 
     
-let version = "3.3.0.0"
+let version = "3.3.1.0"
 let authors = ["The Stanford Natural Language Processing Group"]
 
 // Folders

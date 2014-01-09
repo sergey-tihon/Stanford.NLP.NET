@@ -40,23 +40,23 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management">
-      <HintPath>..\..\packages\FSharp.Management.0.1.0-alpha1\lib\net40\FSharp.Management.dll</HintPath>
+      <HintPath>..\..\packages\FSharp.Management.0.1.0\lib\net40\FSharp.Management.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management.PowerShell">
-      <HintPath>..\..\packages\FSharp.Management.0.1.0-alpha1\lib\net40\FSharp.Management.PowerShell.dll</HintPath>
+      <HintPath>..\..\packages\FSharp.Management.0.1.0\lib\net40\FSharp.Management.PowerShell.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management.PowerShell.ExternalRuntime">
-      <HintPath>..\..\packages\FSharp.Management.0.1.0-alpha1\lib\net40\FSharp.Management.PowerShell.ExternalRuntime.exe</HintPath>
+      <HintPath>..\..\packages\FSharp.Management.0.1.0\lib\net40\FSharp.Management.PowerShell.ExternalRuntime.exe</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management.WMI">
-      <HintPath>..\..\packages\FSharp.Management.0.1.0-alpha1\lib\net40\FSharp.Management.WMI.dll</HintPath>
+      <HintPath>..\..\packages\FSharp.Management.0.1.0\lib\net40\FSharp.Management.WMI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management.WMI.DesignTime">
-      <HintPath>..\..\packages\FSharp.Management.0.1.0-alpha1\lib\net40\FSharp.Management.WMI.DesignTime.dll</HintPath>
+      <HintPath>..\..\packages\FSharp.Management.0.1.0\lib\net40\FSharp.Management.WMI.DesignTime.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FsUnit.NUnit">

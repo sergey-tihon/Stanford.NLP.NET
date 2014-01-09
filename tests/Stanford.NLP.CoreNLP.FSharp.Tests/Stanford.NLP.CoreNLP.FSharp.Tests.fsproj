@@ -67,27 +67,27 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ejml-0.23">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.0.0\lib\ejml-0.23.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.1.0\lib\ejml-0.23.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management">
-      <HintPath>..\..\packages\FSharp.Management.0.1.0-alpha1\lib\net40\FSharp.Management.dll</HintPath>
+      <HintPath>..\..\packages\FSharp.Management.0.1.0\lib\net40\FSharp.Management.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management.PowerShell">
-      <HintPath>..\..\packages\FSharp.Management.0.1.0-alpha1\lib\net40\FSharp.Management.PowerShell.dll</HintPath>
+      <HintPath>..\..\packages\FSharp.Management.0.1.0\lib\net40\FSharp.Management.PowerShell.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management.PowerShell.ExternalRuntime">
-      <HintPath>..\..\packages\FSharp.Management.0.1.0-alpha1\lib\net40\FSharp.Management.PowerShell.ExternalRuntime.exe</HintPath>
+      <HintPath>..\..\packages\FSharp.Management.0.1.0\lib\net40\FSharp.Management.PowerShell.ExternalRuntime.exe</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management.WMI">
-      <HintPath>..\..\packages\FSharp.Management.0.1.0-alpha1\lib\net40\FSharp.Management.WMI.dll</HintPath>
+      <HintPath>..\..\packages\FSharp.Management.0.1.0\lib\net40\FSharp.Management.WMI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management.WMI.DesignTime">
-      <HintPath>..\..\packages\FSharp.Management.0.1.0-alpha1\lib\net40\FSharp.Management.WMI.DesignTime.dll</HintPath>
+      <HintPath>..\..\packages\FSharp.Management.0.1.0\lib\net40\FSharp.Management.WMI.DesignTime.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FsUnit.NUnit">
@@ -195,11 +195,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="joda-time">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.0.0\lib\joda-time.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.1.0\lib\joda-time.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="jollyday">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.0.0\lib\jollyday.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.1.0\lib\jollyday.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
@@ -210,15 +210,15 @@
       <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="stanford-corenlp-3.3.0">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.0.0\lib\stanford-corenlp-3.3.0.dll</HintPath>
+    <Reference Include="stanford-corenlp-3.3.1">
+      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.1.0\lib\stanford-corenlp-3.3.1.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="xom">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.0.0\lib\xom.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.1.0\lib\xom.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

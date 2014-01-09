@@ -1,7 +1,7 @@
 ﻿(*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../packages/Stanford.NLP.CoreNLP.3.3.0.0/lib/"
+#I "../../packages/Stanford.NLP.CoreNLP.3.3.1.0/lib/"
 #I "../../packages/IKVM.7.3.4830.0/lib/"
 
 (**
@@ -42,7 +42,7 @@ F# Sample of POS Tagging
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-corenlp-3.3.0.dll"
+#r "stanford-corenlp-3.3.1.dll"
 
 open java.util
 open java.io
@@ -52,9 +52,9 @@ open edu.stanford.nlp.time
 open edu.stanford.nlp.util
 open edu.stanford.nlp.ling
 
-// Path to the folder with models extracted from `stanford-corenlp-3.3.0-models.jar`
+// Path to the folder with models extracted from `stanford-corenlp-3.3.1-models.jar`
 let jarRoot = 
-    __SOURCE_DIRECTORY__ + @"\..\..\src\temp\stanford-corenlp-full-2013-11-12\stanford-corenlp-3.3.0-models\"
+    __SOURCE_DIRECTORY__ + @"\..\..\src\temp\stanford-corenlp-full-2014-01-04\stanford-corenlp-3.3.1-models\"
 let modelsDirectry = jarRoot + @"edu\stanford\nlp\models\"
 
 // Annotation pipeline configuration
