@@ -6,8 +6,8 @@
     <authors>@authors@</authors>
     <owners>Sergey Tihon</owners>
     <licenseUrl>http://www.gnu.org/licenses/gpl-2.0.html</licenseUrl>
-	<iconUrl>http://nlp.stanford.edu/img/nlp-logo-navbar.jpg</iconUrl>
-    <projectUrl>http://sergeytihon.wordpress.com/2013/07/12/stanford-named-entity-recognizer-ner-is-available-on-nuget/</projectUrl>
+    <iconUrl>http://nlp.stanford.edu/img/nlp-logo-navbar.jpg</iconUrl>
+    <projectUrl>http://sergey-tihon.github.io/Stanford.NLP.NET/StanfordNER.html</projectUrl>
     <description>@description@</description>
     <tags>nlp stanford NER CRF</tags>
     <dependencies>
