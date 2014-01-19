@@ -29,3 +29,6 @@
 * Applied new project structure (FSharp.ProjectScaffold)
 * All samples conveted into Unit Test
 * First version of documentaion was published
+
+#### 0.9.1-beta - January 9 2014
+* Stanford Core NLP was updated up to v3.3.1

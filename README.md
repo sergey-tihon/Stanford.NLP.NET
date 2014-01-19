@@ -1,33 +1,21 @@
-All samples were moved to [FSharp.NLP.Stanford](https://github.com/sergey-tihon/FSharp.NLP.Stanford) project.
+Stanford.NLP for .NET
+=====================
 
-The Stanford Natural Language Processing Samples, in F#
-===================================================
+`Stanford.NLP for .NET` is a port of Stanford NLP distributions to .NET.
 
-This project contains [Stanford NLP](http://www-nlp.stanford.edu/) assemblies (compiled from *.jar files using [IKVM.NET Bytecode Compiler](http://www.ikvm.net/userguide/ikvmc.html)) with samples translated to [F#](http://fsharp.org/).
+This project contains build scripts that recompile Stanford NLP `.jar` packages to .NET assemblies using [IKVM.NET](http://www.ikvm.net/), tests that help to be sure that recompiled packages are workable and [Stanford.NLP for .NET documentation site](http://sergey-tihon.github.io/Stanford.NLP.NET/) that hosts samples for all packages. All recompiled packages are available on [NuGet](https://www.nuget.org/packages?q=Stanford.NLP).
 
 
-### [Stanford Parser](http://www-nlp.stanford.edu/software/lex-parser.shtml) (v3.2.0 - 2013-06-20) [more](http://sergeytihon.wordpress.com/2013/02/05/nlp-stanford-parser-with-f-net/)
-
-Implementations of probabilistic natural language parsers, both highly optimized PCFG and dependency parsers, and a lexicalized PCFG parser in Java. Includes: [Online parser demo](http://nlp.stanford.edu:8080/parser/), [Stanford Dependencies](http://nlp.stanford.edu/software/stanford-dependencies.shtml) page, and [Parser FAQ](http://www-nlp.stanford.edu/software/parser-faq.shtml).
-
-Available on NuGet as [Stanford.NLP.Parser](https://www.nuget.org/packages/Stanford.NLP.Parser/)
-
-### [Stanford POS Tagger](http://www-nlp.stanford.edu/software/tagger.shtml) (v3.2.0 - 2013-06-20) [more](http://sergeytihon.wordpress.com/2013/02/08/nlp-stanford-pos-tagger-with-f-net/)
-
-A maximum-entropy (CMM) part-of-speech (POS) tagger for English, Arabic, Chinese, French, and German, in Java.
-
-Available on NuGet as [Stanford.NLP.POSTagger](https://www.nuget.org/packages/Stanford.NLP.POSTagger/)
-
-### [Stanford Named Entity Recognizer](http://www-nlp.stanford.edu/software/CRF-NER.shtml) (v3.2.0 - 2013-06-20) [more](http://sergeytihon.wordpress.com/2013/02/16/nlp-stanford-named-entity-recognizer-with-f-net/)
-
-A Conditional Random Field sequence model, together with well-engineered features for Named Entity Recognition in English and German. [Online NER demo](http://nlp.stanford.edu:8080/ner/)
-
-Available on NuGet as [Stanford.NLP.NER](https://www.nuget.org/packages/Stanford.NLP.NER/)
-
+Versioning
 ----------
 
-All libraries are distributed only with models which were used in code samples. Full model set is available on the [The Stanford Natural Language Processing Group](http://www-nlp.stanford.edu/software/index.shtml) site.
+Versioning model used for NuGet packages is aligned to versioning used by Stanford NLP Group. 
+For example, if you get `Stanford CoreNLP` distribution from [Stanford NLP site](http://www-nlp.stanford.edu/software/index.shtml) with version `3.3.1`, then the NuGet version of this package has a version `3.3.1.x`, where `x` is the greatest that is available on NuGet. Last number is used for internal versioning of .NET assemblies.
 
+Licensing
 ----------
+All these software distributions are open source, **licensed under the [GNU General Public License](http://www.gnu.org/licenses/gpl-2.0.html)** (v2 or later). Note that this is the *full* GPL, which allows many free uses, but *does not allow* its incorporation into any type of distributed [proprietary software](http://www.gnu.org/licenses/gpl-faq.html#GPLInProprietarySystem), even in part or in translation. **Commercial licensing** is also available; please contact [The Stanford Natural Language Processing Group](http://www-nlp.stanford.edu/) if you are interested. 
 
-**All these software distributions are open source, licensed under the GNU General Public License (v2 or later). Note that this is the full GPL, which allows many free uses, but does not allow its incorporation into any type of distributed proprietary software, even in part or in translation. Commercial licensing is also available; please contact [The Stanford Natural Language Processing Group](http://www-nlp.stanford.edu/) if you are interested.**
+##
+
+Project structure was created based on the structure proposed by [FSharp.ProjectScaffold](https://github.com/fsprojects/FSharp.ProjectScaffold).
