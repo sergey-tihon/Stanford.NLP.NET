@@ -16,6 +16,6 @@ Licensing
 ----------
 All these software distributions are open source, **licensed under the [GNU General Public License](http://www.gnu.org/licenses/gpl-2.0.html)** (v2 or later). Note that this is the *full* GPL, which allows many free uses, but *does not allow* its incorporation into any type of distributed [proprietary software](http://www.gnu.org/licenses/gpl-faq.html#GPLInProprietarySystem), even in part or in translation. **Commercial licensing** is also available; please contact [The Stanford Natural Language Processing Group](http://www-nlp.stanford.edu/) if you are interested. 
 
-##
+---
 
 Project structure was created based on the structure proposed by [FSharp.ProjectScaffold](https://github.com/fsprojects/FSharp.ProjectScaffold).
