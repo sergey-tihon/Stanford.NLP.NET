@@ -1,8 +1,8 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../packages/Stanford.NLP.CoreNLP.3.3.1.0/lib/"
-#I "../../packages/IKVM.7.3.4830.0/lib/"
+#I "../../packages/Stanford.NLP.CoreNLP.3.3.1.1/lib/"
+#I "../../packages/IKVM.7.4.5196.0/lib/"
 
 (**
 Stanford CoreNLP for .NET

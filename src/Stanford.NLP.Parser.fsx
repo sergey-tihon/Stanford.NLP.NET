@@ -13,13 +13,13 @@ let projectDescription = "A natural language parser is a program that works out 
 // Run IKVM compiler
 Target "RunIKVMCompiler" (fun _ ->
     restoreFolderFromUrl 
-        @".\temp\stanford-parser-full-2013-11-12" 
-        "http://nlp.stanford.edu/software/stanford-parser-full-2013-11-12.zip"
+        @".\temp\stanford-parser-full-2014-01-04" 
+        "http://www-nlp.stanford.edu/software/stanford-parser-full-2014-01-04.zip"
     restoreFolderFromFile
-        @".\temp\stanford-parser-full-2013-11-12\stanford-parser-3.3.0-models\edu" 
-        @".\temp\stanford-parser-full-2013-11-12\stanford-parser-3.3.0-models.jar"
-    [IKVMcTask(@"temp\stanford-parser-full-2013-11-12\stanford-parser.jar", Version=version,
-           Dependencies = [IKVMcTask(@"temp\stanford-parser-full-2013-11-12\ejml-0.23.jar", Version="0.23.0.0")])]
+        @".\temp\stanford-parser-full-2014-01-04\stanford-parser-3.3.1-models\edu" 
+        @".\temp\stanford-parser-full-2014-01-04\stanford-parser-3.3.1-models.jar"
+    [IKVMcTask(@"temp\stanford-parser-full-2014-01-04\stanford-parser.jar", Version=version,
+           Dependencies = [IKVMcTask(@"temp\stanford-parser-full-2014-01-04\ejml-0.23.jar", Version="0.23.0.0")])]
     |> IKVMCompile ikvmDir @".\Stanford.NLP.snk"
 )
 

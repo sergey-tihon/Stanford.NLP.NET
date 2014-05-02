@@ -32,3 +32,7 @@
 
 #### 0.9.1-beta - January 9 2014
 * Stanford Core NLP was updated up to v3.3.1
+
+#### 0.9.2-beta - May 2 2014
+* IKVM.NET was updated up to v7.4.5196.0
+* All packages were updated up to v3.3.1

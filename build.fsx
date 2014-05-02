@@ -105,9 +105,9 @@ Target "Release" DoNothing
 Target "All" DoNothing
 
 "Clean"
-//  ==> "RestorePackages"
-//  ==> "Build"
-//  ==> "RunTests"
+  //==> "RestorePackages"
+  //==> "Build"
+  //==> "RunTests"
   ==> "All"
 
 "All" 

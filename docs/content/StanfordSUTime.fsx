@@ -1,8 +1,8 @@
 ﻿(*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../packages/Stanford.NLP.CoreNLP.3.3.1.0/lib/"
-#I "../../packages/IKVM.7.3.4830.0/lib/"
+#I "../../packages/Stanford.NLP.CoreNLP.3.3.1.1/lib/"
+#I "../../packages/IKVM.7.4.5196.0/lib/"
 
 (**
 Stanford Temporal Tagger: SUTime for .NET
@@ -29,7 +29,7 @@ Stanford Temporal Tagger: SUTime for .NET
       The Stanford CoreNLP library can be <a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.CoreNLP</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2013-11-12.zip">
+    <form method="get" action="http://www-nlp.stanford.edu/software/stanford-corenlp-full-2014-01-04.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford CoreNLP ZIP archive with models (210Mb)</button>
     </form>

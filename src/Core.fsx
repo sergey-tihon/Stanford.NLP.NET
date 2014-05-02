@@ -50,8 +50,8 @@ let restoreFolderFromFile folder zipFile =
 // ================== IKVM Compiler=== =====================================
 
 let ikvmc = 
-    restoreFolderFromUrl @".\temp\ikvm-7.3.4830.0" "http://www.frijters.net/ikvmbin-7.3.4830.0.zip"
-    @".\temp\ikvm-7.3.4830.0\bin\ikvmc.exe"
+    restoreFolderFromUrl @".\temp\ikvm-7.4.5196.0" "http://www.frijters.net/ikvmbin-7.4.5196.0.zip"
+    @".\temp\ikvm-7.4.5196.0\bin\ikvmc.exe"
 
 let ildasm = @"c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\x64\ildasm.exe"
 let ilasm =  @"c:\Windows\Microsoft.NET\Framework64\v2.0.50727\ilasm.exe" 
@@ -115,7 +115,7 @@ let copyPackages fromDir toDir =
     |> Seq.iter   (fun x -> File.Copy(x, Path.Combine(toDir, Path.GetFileName(x)), true))
 
     
-let version = "3.3.1.0"
+let version = "3.3.1.1"
 let authors = ["The Stanford Natural Language Processing Group"]
 
 // Folders
