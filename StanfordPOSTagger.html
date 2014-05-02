@@ -74,7 +74,7 @@ but would like to support maintenance of these tools, Stanford NLP Group welcome
       The Stanford POS Tagger library can be <a href="https://www.nuget.org/packages/Stanford.NLP.POSTagger/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.POSTagger</pre>
     </div>
-    <form method="get" action="http://www-nlp.stanford.edu/software/stanford-postagger-full-2013-11-12.zip">
+    <form method="get" action="http://www-nlp.stanford.edu/software/stanford-postagger-full-2014-01-04.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford POS Tagger full archive with models (105Mb)</button>
     </form>
@@ -137,7 +137,7 @@ but would like to support maintenance of these tools, Stanford NLP Group welcome
 
 <span class="c">// Path to the folder with models</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 14)" onmouseover="showTip(event, 'fs10', 14)" class="i">modelsDirectry</span> <span class="o">=</span> 
-    <span class="k">__SOURCE_DIRECTORY__</span>  <span class="o">+</span> <span class="s">@&quot;</span><span class="s">.</span><span class="s">.</span><span class="s">\</span><span class="s">.</span><span class="s">.</span><span class="s">\</span><span class="s">.</span><span class="s">.</span><span class="s">\</span><span class="s">src</span><span class="s">\</span><span class="s">temp</span><span class="s">\</span><span class="s">stanford</span><span class="s">-</span><span class="s">postagger</span><span class="s">-</span><span class="s">full</span><span class="s">-</span><span class="s">2013</span><span class="s">-</span><span class="s">11</span><span class="s">-</span><span class="s">12</span><span class="s">\</span><span class="s">models</span><span class="s">\</span><span class="s">&quot;</span>
+    <span class="k">__SOURCE_DIRECTORY__</span>  <span class="o">+</span> <span class="s">@&quot;</span><span class="s">.</span><span class="s">.</span><span class="s">\</span><span class="s">.</span><span class="s">.</span><span class="s">\</span><span class="s">.</span><span class="s">.</span><span class="s">\</span><span class="s">src</span><span class="s">\</span><span class="s">temp</span><span class="s">\</span><span class="s">stanford</span><span class="s">-</span><span class="s">postagger</span><span class="s">-</span><span class="s">full</span><span class="s">-</span><span class="s">2014</span><span class="s">-</span><span class="s">01</span><span class="s">-</span><span class="s">04</span><span class="s">\</span><span class="s">models</span><span class="s">\</span><span class="s">&quot;</span>
 
 <span class="c">// Loading POS Tagger</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 15)" onmouseover="showTip(event, 'fs11', 15)" class="i">tagger</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 16)" onmouseover="showTip(event, 'fs12', 16)" class="i">MaxentTagger</span>(<span onmouseout="hideTip(event, 'fs10', 17)" onmouseover="showTip(event, 'fs10', 17)" class="i">modelsDirectry</span> <span class="o">+</span> <span class="s">&quot;</span><span class="s">wsj</span><span class="s">-</span><span class="s">0</span><span class="s">-</span><span class="s">18</span><span class="s">-</span><span class="s">bidirectional</span><span class="s">-</span><span class="s">nodistsim</span><span class="s">.</span><span class="s">tagger</span><span class="s">&quot;</span>)
