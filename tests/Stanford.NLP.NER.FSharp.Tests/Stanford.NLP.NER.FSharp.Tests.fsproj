@@ -190,7 +190,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="stanford-ner">
-      <HintPath>..\..\packages\Stanford.NLP.NER.3.3.1.1\lib\stanford-ner.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.NER.3.4.0.0\lib\stanford-ner.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

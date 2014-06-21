@@ -67,7 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ejml-0.23">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.1.1\lib\ejml-0.23.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.4.0.0\lib\ejml-0.23.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management">
@@ -194,12 +194,16 @@
       <HintPath>..\..\packages\IKVM.7.4.5196.0\lib\IKVM.Runtime.JNI.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="javax.json">
+      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.4.0.0\lib\javax.json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="joda-time">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.1.1\lib\joda-time.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.4.0.0\lib\joda-time.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="jollyday">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.1.1\lib\jollyday.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.4.0.0\lib\jollyday.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
@@ -210,15 +214,15 @@
       <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="stanford-corenlp-3.3.1">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.1.1\lib\stanford-corenlp-3.3.1.dll</HintPath>
+    <Reference Include="stanford-corenlp-3.4">
+      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.4.0.0\lib\stanford-corenlp-3.4.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="xom">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.3.1.1\lib\xom.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.CoreNLP.3.4.0.0\lib\xom.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

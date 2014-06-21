@@ -168,7 +168,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="seg">
-      <HintPath>..\..\packages\Stanford.NLP.Segmenter.3.3.1.1\lib\seg.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.Segmenter.3.4.0.0\lib\seg.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

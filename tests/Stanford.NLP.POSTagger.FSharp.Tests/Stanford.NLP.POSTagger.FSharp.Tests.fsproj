@@ -168,7 +168,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="stanford-postagger">
-      <HintPath>..\..\packages\Stanford.NLP.POSTagger.3.3.1.1\lib\stanford-postagger.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.POSTagger.3.4.0.0\lib\stanford-postagger.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

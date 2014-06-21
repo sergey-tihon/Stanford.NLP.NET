@@ -115,7 +115,7 @@ let copyPackages fromDir toDir =
     |> Seq.iter   (fun x -> File.Copy(x, Path.Combine(toDir, Path.GetFileName(x)), true))
 
     
-let version = "3.3.1.1"
+let version = "3.4.0.0"
 let authors = ["The Stanford Natural Language Processing Group"]
 
 // Folders
@@ -136,10 +136,9 @@ Target "CleanNuGet" (fun _ ->
 
 let copyFilesToNugetFolder() =
     XCopy ikvmDir (nugetDir @@ "lib")
-    !+ @"temp/nuget/lib/*.*"
-        -- @"temp/nuget/lib/*.dll"
-        |> ScanImmediately
-        |> Seq.iter (System.IO.File.Delete)    
+    !! @"temp/nuget/lib/*.*"
+      -- @"temp/nuget/lib/*.dll"
+      |> Seq.iter (System.IO.File.Delete)    
         
 // Default target
 Target "Default" (fun _ ->

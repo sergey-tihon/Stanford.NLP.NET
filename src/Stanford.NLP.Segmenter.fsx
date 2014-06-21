@@ -13,9 +13,9 @@ let projectDescription = "Tokenization of raw text is a standard pre-processing 
 // Run IKVM compiler
 Target "RunIKVMCompiler" (fun _ ->
     restoreFolderFromUrl 
-        @".\temp\stanford-segmenter-2014-01-04" 
-        "http://www-nlp.stanford.edu/software/stanford-segmenter-2014-01-04.zip"
-    [IKVMcTask(@"temp\stanford-segmenter-2014-01-04\seg.jar", Version=version)]
+        @".\temp\stanford-segmenter-2014-06-16" 
+        "http://nlp.stanford.edu/software/stanford-segmenter-2014-06-16.zip"
+    [IKVMcTask(@"temp\stanford-segmenter-2014-06-16\seg.jar", Version=version)]
     |> IKVMCompile ikvmDir @".\Stanford.NLP.snk"
 )
 

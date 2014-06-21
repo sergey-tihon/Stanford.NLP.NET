@@ -36,3 +36,6 @@
 #### 0.9.2-beta - May 2 2014
 * IKVM.NET was updated up to v7.4.5196.0
 * All packages were updated up to v3.3.1
+
+#### 0.9.3-beta - June 21 2014
+* All packages were updated up to v3.4

@@ -13,9 +13,9 @@ let projectDescription = "Stanford NER (also known as CRFClassifier) is a Java i
 // Run IKVM compiler
 Target "RunIKVMCompiler" (fun _ ->
     restoreFolderFromUrl 
-        @".\temp\stanford-ner-2014-01-04" 
-        "http://www-nlp.stanford.edu/software/stanford-ner-2014-01-04.zip"
-    [IKVMcTask(@"temp\stanford-ner-2014-01-04\stanford-ner.jar", Version=version)]
+        @".\temp\stanford-ner-2014-06-16" 
+        "http://nlp.stanford.edu/software/stanford-ner-2014-06-16.zip"
+    [IKVMcTask(@"temp\stanford-ner-2014-06-16\stanford-ner.jar", Version=version)]
     |> IKVMCompile ikvmDir @".\Stanford.NLP.snk"
 )
 

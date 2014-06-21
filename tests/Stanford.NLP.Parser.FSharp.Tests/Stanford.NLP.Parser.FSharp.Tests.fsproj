@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ejml-0.23">
-      <HintPath>..\..\packages\Stanford.NLP.Parser.3.3.1.1\lib\ejml-0.23.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.Parser.3.4.0.0\lib\ejml-0.23.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Management">
@@ -172,7 +172,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="stanford-parser">
-      <HintPath>..\..\packages\Stanford.NLP.Parser.3.3.1.1\lib\stanford-parser.dll</HintPath>
+      <HintPath>..\..\packages\Stanford.NLP.Parser.3.4.0.0\lib\stanford-parser.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
