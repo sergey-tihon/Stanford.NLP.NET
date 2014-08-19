@@ -170,6 +170,36 @@ If you don't need a commercial license, but would like to support maintenance of
 </tr>
 </table>
 
+<h2>C# Sample of Named Entity Recognition</h2>
+
+<table class="pre"><tr><td><pre lang="csharp"><span class="k">using</span> edu.stanford.nlp.ie.crf;
+<span class="k">using</span> Console = System.Console;
+
+<span class="k">namespace</span> ner
+{
+    <span class="k">class</span> Program
+    {
+        <span class="k">static</span> <span class="k">void</span> Main()
+        {
+            <span class="c">// Path to the folder with classifies models</span>
+            <span class="k">var</span> jarRoot = <span class="s">@"c:models\stanford-ner-2014-06-16"</span>;
+            <span class="k">var</span> classifiersDirecrory = jarRoot + <span class="s">@"\classifiers"</span>;
+
+            <span class="c">// Loading 3 class classifier model</span>
+            <span class="k">var</span> classifier = CRFClassifier.getClassifierNoExceptions(
+                classifiersDirecrory + <span class="s">@"\english.all.3class.distsim.crf.ser.gz"</span>);
+
+            <span class="k">var</span> s1 = <span class="s">"Good afternoon Rajat Raina, how are you today?"</span>;
+            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyToString(s1));
+
+            <span class="k">var</span> s2 = <span class="s">"I go to school at Stanford University, which is located in California."</span>;
+            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyWithInlineXML(s2));
+
+            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyToString(s2, <span class="s">"xml"</span>, <span class="k">true</span>));
+        }
+    }
+}</pre></td></tr></table>
+
 <p>Read more about Stanford Stanford Named Entity Recognizer on <a href="http://www-nlp.stanford.edu/software/CRF-NER.shtml">the official page</a>.</p>
 
 <h2>Relevant posts</h2>

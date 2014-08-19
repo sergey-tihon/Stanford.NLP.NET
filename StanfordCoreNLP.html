@@ -244,6 +244,53 @@ which allows many free uses, but not its use in distributed proprietary software
 </tr>
 </table>
 
+<h2>C# Sample of text annotation</h2>
+
+<table class="pre"><tr><td><pre lang="csharp"><span class="k">using</span> System;
+<span class="k">using</span> System.IO;
+<span class="k">using</span> java.util;
+<span class="k">using</span> java.io;
+<span class="k">using</span> edu.stanford.nlp.pipeline;
+<span class="k">using</span> Console = System.Console;
+
+<span class="k">namespace</span> corenlp
+{
+    <span class="k">class</span> Program
+    {
+        <span class="k">static</span> <span class="k">void</span> Main()
+        {
+            <span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.4-models.jar`</span>
+            <span class="k">var</span> jarRoot = <span class="s">@"c:\models\stanford-corenlp-full-2014-06-16\stanford-corenlp-3.4-models"</span>;
+
+            <span class="c">// Text for processing</span>
+            <span class="k">var</span> text = <span class="s">"Kosgi Santosh sent an email to Stanford University. He didn&amp;#39;t get a reply."</span>;
+
+            <span class="c">// Annotation pipeline configuration</span>
+            <span class="k">var</span> props = <span class="k">new</span> Properties();
+            props.setProperty(<span class="s">"annotators"</span>, <span class="s">"tokenize, ssplit, pos, lemma, ner, parse, dcoref"</span>);
+            props.setProperty(<span class="s">"sutime.binders"</span>, <span class="s">"0"</span>);
+
+            <span class="c">// We should change current directory, so StanfordCoreNLP could find all the model files automatically </span>
+            <span class="k">var</span> curDir = Environment.CurrentDirectory;
+            Directory.SetCurrentDirectory(jarRoot);
+            <span class="k">var</span> pipeline = <span class="k">new</span> StanfordCoreNLP(props);
+            Directory.SetCurrentDirectory(curDir);
+
+            <span class="c">// Annotation</span>
+            <span class="k">var</span> annotation = <span class="k">new</span> Annotation(text);
+            pipeline.annotate(annotation);
+
+            <span class="c">// Result - Pretty Print</span>
+            <span class="k">using</span> (<span class="k">var</span> stream = <span class="k">new</span> ByteArrayOutputStream())
+            {
+                pipeline.prettyPrint(annotation, <span class="k">new</span> PrintWriter(stream));
+                Console.WriteLine(stream.toString());
+                stream.close();
+            }
+        }
+    }
+}</pre></td></tr></table>
+
 <p>Read more about Stanford CoreNLP on <a href="http://www-nlp.stanford.edu/software/corenlp.shtml">the official page</a>.</p>
 
 <h2>Relevant posts</h2>

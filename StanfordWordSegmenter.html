@@ -167,6 +167,48 @@ but would like to support maintenance of these tools, Stanford NLP Group welcome
 </tr>
 </table>
 
+<h2>C# Sample of Word Segmentation</h2>
+
+<table class="pre"><tr><td><pre lang="csharp"><span class="k">using</span> edu.stanford.nlp.ie.crf;
+<span class="k">using</span> java.util;
+
+<span class="k">namespace</span> segmenter
+{
+    <span class="k">class</span> Program
+    {
+        <span class="k">static</span> <span class="k">void</span> Main()
+        {
+            <span class="c">// Path to the folder with models</span>
+            <span class="k">var</span> segmenterData = <span class="s">@"c:\models\stanford-segmenter-2014-06-16\data"</span>;
+            <span class="k">var</span> sampleData =  <span class="s">@"c:\models\stanford-segmenter-2014-06-16\test.simp.utf8"</span>;
+
+            <span class="c">// `test.simple.utf8` contains following text:</span>
+            <span class="c">// 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫</span>
+            <span class="c">// 困问题，推进和平与发展的崇高事业，创造一个美好的世界。</span>
+
+            <span class="c">// This is a very simple demo of calling the Chinese Word Segmenter programmatically.  </span>
+            <span class="c">// It assumes an input file in UTF8. This will run correctly in the distribution home </span>
+            <span class="c">// directory. To run in general, the properties for where to find dictionaries or</span>
+            <span class="c">// normalizations have to be set.</span>
+            <span class="c">// @author Christopher Manning</span>
+
+            <span class="c">// Setup Segmenter loading properties</span>
+            <span class="k">var</span> props = <span class="k">new</span> Properties();
+            props.setProperty(<span class="s">"sighanCorporaDict"</span>, segmenterData);
+            <span class="c">// Lines below are needed because CTBSegDocumentIteratorFactory accesses it</span>
+            props.setProperty(<span class="s">"serDictionary"</span>, segmenterData + <span class="s">@"\dict-chris6.ser.gz"</span>);
+            props.setProperty(<span class="s">"testFile"</span>, sampleData);
+            props.setProperty(<span class="s">"inputEncoding"</span>, <span class="s">"UTF-8"</span>);
+            props.setProperty(<span class="s">"sighanPostProcessing"</span>, <span class="s">"true"</span>);
+
+            <span class="c">// Load Word Segmenter</span>
+            <span class="k">var</span> segmenter = <span class="k">new</span> CRFClassifier(props);
+            segmenter.loadClassifierNoExceptions(segmenterData + <span class="s">@"\ctb.gz"</span>, props);
+            segmenter.classifyAndWriteAnswers(sampleData);
+        }
+    }
+}</pre></td></tr></table>
+
 <p>Read more about Stanford Word Segmenter on <a href="http://www-nlp.stanford.edu/software/segmenter.shtml">the official page</a>.</p>
 
 <h2>Relevant posts</h2>

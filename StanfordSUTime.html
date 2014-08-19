@@ -79,7 +79,7 @@ for type and value. (Note the slightly weird and non-specific entity name <code>
   <div class="span1"></div>
  </div></p>
 
-<h2>F# Sample of POS Tagging</h2>
+<h2>F# Sample of SUTime</h2>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip">
 <span class="l"> 1: </span>
@@ -212,6 +212,69 @@ for type and value. (Note the slightly weird and non-specific entity name <code>
 </td>
 </tr>
 </table>
+
+<h2>C# Sample of SUTime</h2>
+
+<table class="pre"><tr><td><pre lang="csharp"><span class="k">using</span> java.util;
+<span class="k">using</span> java.io;
+<span class="k">using</span> edu.stanford.nlp.pipeline;
+<span class="k">using</span> edu.stanford.nlp.tagger.maxent;
+<span class="k">using</span> edu.stanford.nlp.time;
+<span class="k">using</span> edu.stanford.nlp.util;
+<span class="k">using</span> edu.stanford.nlp.ling;
+<span class="k">using</span> Console = System.Console;
+
+<span class="k">namespace</span> sutime
+{
+    <span class="k">class</span> Program
+    {
+        <span class="k">private</span> <span class="k">static</span> <span class="k">void</span> Main()
+        {
+
+            <span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.4-models.jar`</span>
+            <span class="k">var</span> jarRoot = <span class="s">@"c:models\stanford-corenlp-full-2014-06-16\stanford-corenlp-3.4-models"</span>;
+            <span class="k">var</span> modelsDirectory = jarRoot + <span class="s">@"\edu\stanford\nlp\models"</span>;
+
+            <span class="c">// Annotation pipeline configuration</span>
+            <span class="k">var</span> pipeline = <span class="k">new</span> AnnotationPipeline();
+            pipeline.addAnnotator(<span class="k">new</span> PTBTokenizerAnnotator(<span class="k">false</span>));
+            pipeline.addAnnotator(<span class="k">new</span> WordsToSentencesAnnotator(<span class="k">false</span>));
+
+            <span class="c">// Loading POS Tagger and including them into pipeline</span>
+            <span class="k">var</span> tagger = <span class="k">new</span> MaxentTagger(modelsDirectory +
+                         <span class="s">@"\pos-tagger\english-bidirectional\english-bidirectional-distsim.tagger"</span>);
+            pipeline.addAnnotator(<span class="k">new</span> POSTaggerAnnotator(tagger));
+
+            <span class="c">// SUTime configuration</span>
+            <span class="k">var</span> sutimeRules = modelsDirectory + <span class="s">@"\sutime\defs.sutime.txt,"</span>
+                              + modelsDirectory + <span class="s">@"\sutime\english.holidays.sutime.txt,"</span>
+                              + modelsDirectory + <span class="s">@"\sutime\english.sutime.txt"</span>;
+            <span class="k">var</span> props = <span class="k">new</span> Properties();
+            props.setProperty(<span class="s">"sutime.rules"</span>, sutimeRules);
+            props.setProperty(<span class="s">"sutime.binders"</span>, <span class="s">"0"</span>);
+            pipeline.addAnnotator(<span class="k">new</span> TimeAnnotator(<span class="s">"sutime"</span>, props));
+
+            <span class="c">// Sample text for time expression extraction</span>
+            <span class="k">var</span> text = <span class="s">"Three interesting dates are 18 Feb 1997, the 20th of july and 4 days from today."</span>;
+            <span class="k">var</span> annotation = <span class="k">new</span> Annotation(text);
+            annotation.set(<span class="k">new</span> CoreAnnotations.DocDateAnnotation().getClass(), <span class="s">"2013-07-14"</span>);
+            pipeline.annotate(annotation);
+
+            Console.WriteLine(<span class="s">"{0}\n"</span>, annotation.get(<span class="k">new</span> CoreAnnotations.TextAnnotation().getClass()));
+
+            <span class="k">var</span> timexAnnsAll = annotation.get(<span class="k">new</span> TimeAnnotations.TimexAnnotations().getClass()) <span class="k">as</span> ArrayList;
+            <span class="k">foreach</span> (CoreMap cm <span class="k">in</span> timexAnnsAll)
+            {
+                <span class="k">var</span> tokens = cm.get(<span class="k">new</span> CoreAnnotations.TokensAnnotation().getClass()) <span class="k">as</span> List;
+                <span class="k">var</span> first = tokens.get(0);
+                <span class="k">var</span> last = tokens.get(tokens.size() - 1);
+                <span class="k">var</span> time = cm.get(<span class="k">new</span> TimeExpression.Annotation().getClass()) <span class="k">as</span> TimeExpression;
+                Console.WriteLine(<span class="s">"{0} [from char offset {1} to {2}] --&gt; {3}"</span>,
+                                  cm, first, last, time.getTemporal());
+            }
+        }
+    }
+}</pre></td></tr></table>
 
 <p>Read more about Stanford Temporal Tagger (SUTime) on <a href="http://www-nlp.stanford.edu/software/sutime.shtml">the official page</a>.</p>
 

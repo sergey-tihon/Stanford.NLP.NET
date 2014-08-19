@@ -238,6 +238,56 @@ If you don't need a commercial license, but would like to support maintenance of
 </tr>
 </table>
 
+<h2>C# Sample of sentence parsing</h2>
+
+<table class="pre"><tr><td><pre lang="csharp"><span class="k">using</span> java.io;
+<span class="k">using</span> edu.stanford.nlp.process;
+<span class="k">using</span> edu.stanford.nlp.ling;
+<span class="k">using</span> edu.stanford.nlp.trees;
+<span class="k">using</span> edu.stanford.nlp.parser.lexparser;
+<span class="k">using</span> Console = System.Console;
+
+<span class="k">namespace</span> parser
+{
+    <span class="k">class</span> Program
+    {
+        <span class="k">static</span> <span class="k">void</span> Main()
+        {
+            <span class="c">// Path to models extracted from `stanford-parser-3.4.0-models.jar`</span>
+            <span class="k">var</span> jarRoot = <span class="s">@"c:\models\stanford-parser-full-2014-06-16\stanford-parser-3.4-models"</span>;
+            <span class="k">var</span> modelsDirectory = jarRoot+<span class="s">@"\edu\stanford\nlp\models"</span>;
+
+            <span class="c">// Loading english PCFG parser from file</span>
+            <span class="k">var</span> lp = LexicalizedParser.loadModel(modelsDirectory + <span class="s">@"\lexparser\englishPCFG.ser.gz"</span>);
+
+            <span class="c">// This sample shows parsing a list of correctly tokenized words</span>
+            <span class="k">var</span> sent = <span class="k">new</span>[] { <span class="s">"This"</span>, <span class="s">"is"</span>, <span class="s">"an"</span>, <span class="s">"easy"</span>, <span class="s">"sentence"</span>, <span class="s">"."</span> };
+            <span class="k">var</span> rawWords = Sentence.toCoreLabelList(sent);
+            <span class="k">var</span> tree = lp.apply(rawWords);
+            tree.pennPrint();
+
+            <span class="c">// This option shows loading and using an explicit tokenizer</span>
+            <span class="k">var</span> sent2 = <span class="s">"This is another sentence."</span>;
+            <span class="k">var</span> tokenizerFactory = PTBTokenizer.factory(<span class="k">new</span> CoreLabelTokenFactory(), <span class="s">""</span>);
+            <span class="k">var</span> sent2Reader = <span class="k">new</span> StringReader(sent2);
+            <span class="k">var</span> rawWords2 = tokenizerFactory.getTokenizer(sent2Reader).tokenize();
+            sent2Reader.close();
+            <span class="k">var</span> tree2 = lp.apply(rawWords2);
+
+            <span class="c">// Extract dependencies from lexical tree</span>
+            <span class="k">var</span> tlp = <span class="k">new</span> PennTreebankLanguagePack();
+            <span class="k">var</span> gsf = tlp.grammaticalStructureFactory();
+            <span class="k">var</span> gs = gsf.newGrammaticalStructure(tree2);
+            <span class="k">var</span> tdl = gs.typedDependenciesCCprocessed();
+            Console.WriteLine(<span class="s">"\n{0}\n"</span>, tdl);
+
+            <span class="c">// Extract collapsed dependencies from parsed tree</span>
+            <span class="k">var</span> tp = <span class="k">new</span> TreePrint(<span class="s">"penn,typedDependenciesCollapsed"</span>);
+            tp.printTree(tree2);
+        }
+    }
+}</pre></td></tr></table>
+
 <p>Read more about Stanford Parser on <a href="http://www-nlp.stanford.edu/software/lex-parser.shtml">the official page</a>.</p>
 
 <h2>Relevant posts</h2>
