@@ -39,3 +39,6 @@
 
 #### 0.9.3-beta - June 21 2014
 * All packages were updated up to v3.4
+
+#### 0.9.4-beta - August 19 2014
+* C# samples were added
