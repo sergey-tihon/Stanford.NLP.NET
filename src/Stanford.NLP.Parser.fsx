@@ -1,7 +1,6 @@
 ﻿// include Fake lib
 #load @".\Core.fsx"
-open Fake 
-open Fake.AssemblyInfoFile
+open Fake
 open Fake.IKVM.Helpers
 
 // Assembly / NuGet package properties
@@ -12,23 +11,23 @@ let projectDescription = "A natural language parser is a program that works out 
 
 // Run IKVM compiler
 Target "RunIKVMCompiler" (fun _ ->
-    restoreFolderFromUrl 
-        @".\temp\stanford-parser-full-2014-06-16" 
-        "http://nlp.stanford.edu/software/stanford-parser-full-2014-06-16.zip"
+    restoreFolderFromUrl
+        @".\temp\stanford-parser-full-2014-10-31"
+        "http://nlp.stanford.edu/software/stanford-parser-full-2014-10-31.zip"
     restoreFolderFromFile
-        @".\temp\stanford-parser-full-2014-06-16\stanford-parser-3.4-models\edu" 
-        @".\temp\stanford-parser-full-2014-06-16\stanford-parser-3.4-models.jar"
-    [IKVMcTask(@"temp\stanford-parser-full-2014-06-16\stanford-parser.jar", Version=version,
-           Dependencies = [IKVMcTask(@"temp\stanford-parser-full-2014-06-16\ejml-0.23.jar", Version="0.23.0.0")])]
+        @".\temp\stanford-parser-full-2014-10-31\stanford-parser-3.5.0-models\edu"
+        @".\temp\stanford-parser-full-2014-10-31\stanford-parser-3.5.0-models.jar"
+    [IKVMcTask(@"temp\stanford-parser-full-2014-10-31\stanford-parser.jar", Version=version,
+           Dependencies = [IKVMcTask(@"temp\stanford-parser-full-2014-10-31\ejml-0.23.jar", Version="0.23.0.0")])]
     |> IKVMCompile ikvmDir @".\Stanford.NLP.snk"
 )
 
 // Create NuGet package
-Target "CreateNuGet" (fun _ ->     
+Target "CreateNuGet" (fun _ ->
     copyFilesToNugetFolder()
-        
+
     "Stanford.NLP.Parser.nuspec"
-      |> NuGet (fun p -> 
+      |> NuGet (fun p ->
             {p with
                 Project = projectName
                 Authors = authors

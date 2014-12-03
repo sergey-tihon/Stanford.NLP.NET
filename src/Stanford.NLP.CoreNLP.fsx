@@ -1,7 +1,6 @@
 ﻿// include Fake lib
 #load @".\Core.fsx"
-open Fake 
-open Fake.AssemblyInfoFile
+open Fake
 open Fake.IKVM.Helpers
 
 // Assembly / NuGet package properties
@@ -12,28 +11,28 @@ let projectDescription = "Stanford CoreNLP provides a set of natural language an
 
 // Run IKVM compiler
 Target "RunIKVMCompiler" (fun _ ->
-    restoreFolderFromUrl 
-        @".\temp\stanford-corenlp-full-2014-06-16" 
-        "http://nlp.stanford.edu/software/stanford-corenlp-full-2014-06-16.zip"
+    restoreFolderFromUrl
+        @".\temp\stanford-corenlp-full-2014-10-31"
+        "http://nlp.stanford.edu/software/stanford-corenlp-full-2014-10-31.zip"
     restoreFolderFromFile
-        @".\temp\stanford-corenlp-full-2014-06-16\stanford-corenlp-3.4-models\edu"
-        @".\temp\stanford-corenlp-full-2014-06-16\stanford-corenlp-3.4-models.jar"
-    [IKVMcTask(@"temp\stanford-corenlp-full-2014-06-16\stanford-corenlp-3.4.jar", Version=version,
-           Dependencies = [IKVMcTask(@"temp\stanford-corenlp-full-2014-06-16\joda-time.jar", Version="2.1")
-                           IKVMcTask(@"temp\stanford-corenlp-full-2014-06-16\jollyday.jar", Version="0.4.7",
-                                Dependencies =[IKVMcTask(@"temp\stanford-corenlp-full-2014-06-16\joda-time.jar", Version="2.1")])
-                           IKVMcTask(@"temp\stanford-corenlp-full-2014-06-16\ejml-0.23.jar", Version="0.23")
-                           IKVMcTask(@"temp\stanford-corenlp-full-2014-06-16\xom.jar", Version="1.2.10")
-                           IKVMcTask(@"temp\stanford-corenlp-full-2014-06-16\javax.json.jar", Version="1.0")])]
+        @".\temp\stanford-corenlp-full-2014-10-31\stanford-corenlp-3.5.0-models\edu"
+        @".\temp\stanford-corenlp-full-2014-10-31\stanford-corenlp-3.5.0-models.jar"
+    [IKVMcTask(@"temp\stanford-corenlp-full-2014-10-31\stanford-corenlp-3.5.0.jar", Version=version,
+           Dependencies = [IKVMcTask(@"temp\stanford-corenlp-full-2014-10-31\joda-time.jar", Version="2.1")
+                           IKVMcTask(@"temp\stanford-corenlp-full-2014-10-31\jollyday.jar", Version="0.4.7",
+                                Dependencies =[IKVMcTask(@"temp\stanford-corenlp-full-2014-10-31\joda-time.jar", Version="2.1")])
+                           IKVMcTask(@"temp\stanford-corenlp-full-2014-10-31\ejml-0.23.jar", Version="0.23")
+                           IKVMcTask(@"temp\stanford-corenlp-full-2014-10-31\xom.jar", Version="1.2.10")
+                           IKVMcTask(@"temp\stanford-corenlp-full-2014-10-31\javax.json.jar", Version="1.0")])]
     |> IKVMCompile ikvmDir @".\Stanford.NLP.snk"
 )
 
 // Create NuGet package
-Target "CreateNuGet" (fun _ ->     
+Target "CreateNuGet" (fun _ ->
     copyFilesToNugetFolder()
-        
+
     "Stanford.NLP.CoreNLP.nuspec"
-      |> NuGet (fun p -> 
+      |> NuGet (fun p ->
             {p with
                 Project = projectName
                 Authors = authors

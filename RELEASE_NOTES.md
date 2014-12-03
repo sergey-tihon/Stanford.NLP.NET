@@ -42,3 +42,7 @@
 
 #### 0.9.4-beta - August 19 2014
 * C# samples were added
+
+#### 0.9.5-beta - December 3 2014
+* All packages were updated up to v3.5.0
+* IKVM.NET was updated up to v8.0.5449 (RC0 for Java 8)

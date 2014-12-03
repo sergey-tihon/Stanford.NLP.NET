@@ -1,7 +1,6 @@
 ﻿// include Fake lib
 #load @".\Core.fsx"
-open Fake 
-open Fake.AssemblyInfoFile
+open Fake
 open Fake.IKVM.Helpers
 
 // Assembly / NuGet package properties
@@ -12,19 +11,19 @@ let projectDescription = "Tokenization of raw text is a standard pre-processing 
 
 // Run IKVM compiler
 Target "RunIKVMCompiler" (fun _ ->
-    restoreFolderFromUrl 
-        @".\temp\stanford-segmenter-2014-06-16" 
-        "http://nlp.stanford.edu/software/stanford-segmenter-2014-06-16.zip"
-    [IKVMcTask(@"temp\stanford-segmenter-2014-06-16\seg.jar", Version=version)]
+    restoreFolderFromUrl
+        @".\temp\stanford-segmenter-2014-10-26"
+        "http://nlp.stanford.edu/software/stanford-segmenter-2014-10-26.zip"
+    [IKVMcTask(@"temp\stanford-segmenter-2014-10-26\stanford-segmenter-3.5.0.jar", Version=version)]
     |> IKVMCompile ikvmDir @".\Stanford.NLP.snk"
 )
 
 // Create NuGet package
-Target "CreateNuGet" (fun _ ->     
+Target "CreateNuGet" (fun _ ->
     copyFilesToNugetFolder()
-        
+
     "Stanford.NLP.Segmenter.nuspec"
-      |> NuGet (fun p -> 
+      |> NuGet (fun p ->
             {p with
                 Project = projectName
                 Authors = authors
