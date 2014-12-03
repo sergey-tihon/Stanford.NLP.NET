@@ -12,7 +12,7 @@ open edu.stanford.nlp.util
 /// http://nlp.stanford.edu/software/sutime.shtml#Usage
 let [<Test>] ``SUTime Defaut Test : Three interesting dates`` () =
     let pipeline = AnnotationPipeline()
-    pipeline.addAnnotator(PTBTokenizerAnnotator(false))
+    pipeline.addAnnotator(TokenizerAnnotator(false))
     pipeline.addAnnotator(WordsToSentencesAnnotator(false))
 
     let tagger = MaxentTagger(Models.``pos-tagger``.``english-bidirectional``.``english-bidirectional-distsim.tagger``)

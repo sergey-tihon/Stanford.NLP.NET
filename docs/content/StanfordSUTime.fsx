@@ -59,7 +59,7 @@ let modelsDirectry = jarRoot + @"edu\stanford\nlp\models\"
 
 // Annotation pipeline configuration
 let pipeline = AnnotationPipeline()
-pipeline.addAnnotator(PTBTokenizerAnnotator(false))
+pipeline.addAnnotator(TokenizerAnnotator(false))
 pipeline.addAnnotator(WordsToSentencesAnnotator(false))
 
 // Loading POS Tagger and including them into pipeline
@@ -128,7 +128,7 @@ C# Sample of SUTime
     
                 // Annotation pipeline configuration
                 var pipeline = new AnnotationPipeline();
-                pipeline.addAnnotator(new PTBTokenizerAnnotator(false));
+                pipeline.addAnnotator(new TokenizerAnnotator(false));
                 pipeline.addAnnotator(new WordsToSentencesAnnotator(false));
     
                 // Loading POS Tagger and including them into pipeline
