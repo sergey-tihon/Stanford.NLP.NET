@@ -1,7 +1,7 @@
 ﻿[<AutoOpen>]
 module Stanford.NLP.Parser.Config
 
-let [<Literal>] jarRoot = __SOURCE_DIRECTORY__ + @"..\..\..\src\temp\stanford-parser-full-2014-06-16\stanford-parser-3.4-models\"
+let [<Literal>] jarRoot = __SOURCE_DIRECTORY__ + @"..\..\..\src\temp\stanford-parser-full-2014-10-31\stanford-parser-3.5.0-models\"
 let [<Literal>] modelsDirectry = jarRoot + @"edu\stanford\nlp\models\"
 type Models = FSharp.Management.FileSystem<path=modelsDirectry>
 
