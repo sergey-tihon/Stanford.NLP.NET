@@ -1,8 +1,8 @@
 ﻿(*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../packages/Stanford.NLP.NER.3.4.0.0/lib"
-#I "../../packages/IKVM.7.4.5196.0/lib/"
+#I "../../packages/Stanford.NLP.NER.3.5.0.0/lib"
+#I "../../packages/IKVM.8.0.5449.0/lib/"
 
 (**
 Stanford Named Entity Recognizer (NER) for .NET
@@ -36,9 +36,9 @@ Stanford Named Entity Recognizer (NER) for .NET
       The Stanford NER library can be <a href="https://www.nuget.org/packages/Stanford.NLP.NER/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.NER</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-ner-2014-06-16.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-ner-2014-10-26.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
-    Download Stanford NER ZIP archive with models (87Mb)</button>
+    Download Stanford NER ZIP archive with models</button>
     </form>
   </div>
   <div class="span1"></div>
@@ -55,7 +55,7 @@ open edu.stanford.nlp.ie.crf
 
 // Path to the folder with classifies models
 let classifiersDirecrory = 
-    __SOURCE_DIRECTORY__ + @"..\..\..\src\temp\stanford-ner-2014-06-16\classifiers\"
+    __SOURCE_DIRECTORY__ + @"..\..\..\src\temp\stanford-ner-2014-10-26\classifiers\"
 
 // Loading 3 class classifier model
 let classifier = 
@@ -99,7 +99,7 @@ C# Sample of Named Entity Recognition
             static void Main()
             {
                 // Path to the folder with classifies models
-                var jarRoot = @"c:models\stanford-ner-2014-06-16";
+                var jarRoot = @"c:models\stanford-ner-2014-10-26";
                 var classifiersDirecrory = jarRoot + @"\classifiers";
     
                 // Loading 3 class classifier model

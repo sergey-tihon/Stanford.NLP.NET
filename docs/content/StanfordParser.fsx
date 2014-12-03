@@ -1,8 +1,8 @@
 ﻿(*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../packages/Stanford.NLP.Parser.3.4.0.0/lib"
-#I "../../packages/IKVM.7.4.5196.0/lib/"
+#I "../../packages/Stanford.NLP.Parser.3.5.0.0/lib"
+#I "../../packages/IKVM.8.0.5449.0/lib/"
 
 (**
 Stanford Parser for .NET (A statistical parser)
@@ -40,9 +40,9 @@ Stanford Parser for .NET (A statistical parser)
       The Stanford Parser library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Parser/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.Parser</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-parser-full-2014-06-16.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-parser-full-2014-10-31.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
-    Download Stanford Parser ZIP archive with models (185Mb)</button>
+    Download Stanford Parser ZIP archive with models</button>
     </form>
   </div>
   <div class="span1"></div>
@@ -64,7 +64,7 @@ open edu.stanford.nlp.parser.lexparser
 // Path to models extracted from `stanford-parser-3.4.0-models.jar`
 let modelsDirectry = 
     __SOURCE_DIRECTORY__ 
-    + @"..\..\..\src\temp\stanford-parser-full-2014-06-16\stanford-parser-3.4-models\"
+    + @"..\..\..\src\temp\stanford-parser-full-2014-10-31\stanford-parser-3.5.0-models\"
     + @"edu\stanford\nlp\models\"
 
 // Loading english PCFG parser from file
@@ -138,8 +138,8 @@ C# Sample of sentence parsing
         {
             static void Main()
             {
-                // Path to models extracted from `stanford-parser-3.4.0-models.jar`
-                var jarRoot = @"c:\models\stanford-parser-full-2014-06-16\stanford-parser-3.4-models";
+                // Path to models extracted from `stanford-parser-3.5.0-models.jar`
+                var jarRoot = @"c:\models\stanford-parser-full-2014-10-31\stanford-parser-3.5.0-models";
                 var modelsDirectory = jarRoot+@"\edu\stanford\nlp\models";
         
                 // Loading english PCFG parser from file

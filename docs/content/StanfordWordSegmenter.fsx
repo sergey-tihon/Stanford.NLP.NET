@@ -1,8 +1,8 @@
 ﻿(*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../packages/Stanford.NLP.Segmenter.3.4.0.0/lib"
-#I "../../packages/IKVM.7.4.5196.0/lib/"
+#I "../../packages/Stanford.NLP.Segmenter.3.5.0.0/lib"
+#I "../../packages/IKVM.8.0.5449.0/lib/"
 
 (**
 Stanford Word Segmenter for .NET
@@ -29,9 +29,9 @@ Stanford Word Segmenter for .NET
       The Stanford Word Segmenter library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Segmenter/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.Segmenter</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-segmenter-2014-06-16.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-segmenter-2014-10-26.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
-    Download Stanford Word Segmenter archive with models (248Mb)</button>
+    Download Stanford Word Segmenter archive with models</button>
     </form>
   </div>
   <div class="span1"></div>
@@ -42,13 +42,13 @@ F# Sample of Word Segmentation
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "seg.dll"
+#r "stanford-segmenter-3.5.0.dll"
 
 open java.util
 open edu.stanford.nlp.ie.crf
 
 // Path to the folder with models
-let segmenterData = __SOURCE_DIRECTORY__ + @"..\..\..\src\temp\stanford-segmenter-2014-06-16\data\"
+let segmenterData = __SOURCE_DIRECTORY__ + @"..\..\..\src\temp\stanford-segmenter-2014-10-26\data\"
 let sampleData = __SOURCE_DIRECTORY__ + @"..\..\..\tests\data\test.simple.utf8";
 
 // `test.simple.utf8` contains following text:
@@ -77,7 +77,7 @@ segmenter.classifyAndWriteAnswers(sampleData)
 // [fsi: >]
 // [fsi:面对 新 世纪 ， 世界 各 国 人民 的 共同 愿望 是 ： 继续 发展 人类 以往 创造 的 一切 文明 成果 ， 克服 20 ]
 // [fsi:世纪 困扰 着 人类 的 战争 和 贫困 问题 ， 推进 和平 与 发展 的 崇高 事业 ， 创造 一 个 美好 的 世界 。]
-// [fsi:CRFClassifier tagged 80 words in 1 documents at 159.36 words per second.]
+// [fsi:CRFClassifier tagged 80 words in 1 documents at 74.56 words per second.]
 // [fsi:val it : unit = ()]
 (**
 C# Sample of Word Segmentation 
@@ -93,8 +93,8 @@ C# Sample of Word Segmentation
             static void Main()
             {
                 // Path to the folder with models
-                var segmenterData = @"c:\models\stanford-segmenter-2014-06-16\data";
-                var sampleData =  @"c:\models\stanford-segmenter-2014-06-16\test.simp.utf8";
+                var segmenterData = @"c:\models\stanford-segmenter-2014-10-26\data";
+                var sampleData =  @"c:\models\stanford-segmenter-2014-10-26\test.simp.utf8";
     
                 // `test.simple.utf8` contains following text:
                 // 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫
