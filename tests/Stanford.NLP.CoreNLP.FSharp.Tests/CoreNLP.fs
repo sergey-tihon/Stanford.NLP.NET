@@ -89,7 +89,7 @@ let [<Test>]``StanfordCoreNlpDemo.java with manual configuration`` () =
     "pos.model"     <== Models.``pos-tagger``.``english-bidirectional``.``english-bidirectional-distsim.tagger``
     "ner.model"     <== Models.ner.``english.all.3class.distsim.crf.ser.gz``
     "parse.model"   <== Models.lexparser.``englishPCFG.ser.gz``
-    
+
     "dcoref.demonym"            <== Models.dcoref.``demonyms.txt``
     "dcoref.states"             <== Models.dcoref.``state-abbreviations.txt``
     "dcoref.animate"            <== Models.dcoref.``animate.unigrams.txt``
@@ -103,9 +103,20 @@ let [<Test>]``StanfordCoreNlpDemo.java with manual configuration`` () =
     "dcoref.extra.gender"       <== Models.dcoref.``namegender.combine.txt``
     "dcoref.states.provinces"   <== Models.dcoref.statesandprovinces
     "dcoref.singleton.predictor"<== Models.dcoref.``singleton.predictor.ser``
-    "dcoref.big.gender.number"  <== Models.dcoref.``gender.data.gz``
-    
-    let sutimeRules = 
+    //"dcoref.big.gender.number"  <== Models.dcoref.``gender.data.gz``
+    "dcoref.big.gender.number"  <== Models.dcoref.``gender.map.ser.gz``
+
+    //"dcoref.signatures"         <== Models.dcoref.``ne.signatures.txt``
+    //let dcorefDictionary =
+    //    [|
+    //        Models.dcoref.``coref.dict1.tsv``
+    //        Models.dcoref.``coref.dict2.tsv``
+    //        Models.dcoref.``coref.dict3.tsv``
+    //        Models.dcoref.``coref.dict4.tsv``
+    //    |]
+    //"dcoref.dictlist" <== (dcorefDictionary |> String.concat ",")
+
+    let sutimeRules =
         [| Models.sutime.``defs.sutime.txt``
            Models.sutime.``english.holidays.sutime.txt``
            Models.sutime.``english.sutime.txt`` |]
