@@ -1,3 +1,5 @@
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/ftkg1n73xcibqwmx)](https://ci.appveyor.com/project/sergey-tihon/stanford-nlp-net)
+[![Travis build status](https://travis-ci.org/sergey-tihon/Stanford.NLP.NET.svg)](https://travis-ci.org/sergey-tihon/Stanford.NLP.NET)
 Stanford.NLP for .NET
 =====================
 
