@@ -76,9 +76,11 @@ let IKVMCompile workingDirectory keyFile tasks =
             failwithf "Process '%s' failed with exit code '%d'" fileName result
 
     let newKeyFile =
-        let file = workingDirectory @@ (Path.GetFileName(keyFile))
-        File.Copy(keyFile, file, true)
-        Path.GetFileName(file)
+        if (File.Exists keyFile) then
+            let file = workingDirectory @@ (Path.GetFileName(keyFile))
+            File.Copy(keyFile, file, true)
+            Path.GetFileName(file)
+        else keyFile
     let rec compile (task:IKVMcTask) =
         let getIKVMCommandLineArgs() =
             let sb = Text.StringBuilder()
@@ -95,7 +97,7 @@ let IKVMCompile workingDirectory keyFile tasks =
 
         File.Copy(task.JarFile, workingDirectory @@ (Path.GetFileName(task.JarFile)) ,true)
         startProcess ikvmc (getIKVMCommandLineArgs())
-        if (File.Exists(keyFile)) then
+        if (File.Exists(newKeyFile)) then
             let dllFile = task.JarFile |> getNewFileName ".dll"
             let ilFile  = task.JarFile |> getNewFileName ".il"
             startProcess ildasm (sprintf " /all /out=%s %s" ilFile dllFile)
