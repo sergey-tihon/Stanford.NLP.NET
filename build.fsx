@@ -132,11 +132,11 @@ let createNuGetPackage workingDir nuspec =
 // Clean build results
 
 Target "Clean" (fun _ ->
-    CleanDirs [root.bin.Path; root.temp.Path]
+    CleanDirs ["bin"; "temp"]
 )
 
 Target "CleanDocs" (fun _ ->
-    CleanDirs [root.docs.output.Path]
+    CleanDirs ["docs/output"]
 )
 
 // --------------------------------------------------------------------------------------
