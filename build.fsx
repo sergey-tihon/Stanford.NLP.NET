@@ -128,6 +128,8 @@ let createNuGetPackage workingDir nuspec =
             ToolPath = root.packages.``NuGet.CommandLine``.tools.``NuGet.exe`` })
         nuspec
 
+let keyFile = @"nuget\Stanford.NLP.snk"
+
 // --------------------------------------------------------------------------------------
 // Clean build results
 
@@ -156,7 +158,7 @@ Target "CompilerCoreNLP" (fun _ ->
                            IKVMcTask(coreNLPDir.``ejml-0.23.jar``, Version="0.23")
                            IKVMcTask(coreNLPDir.``xom.jar``, Version="1.2.10")
                            IKVMcTask(coreNLPDir.``javax.json.jar``, Version="1.0")])]
-    |> IKVMCompile ikvmDir root.nuget.``Stanford.NLP.snk``
+    |> IKVMCompile ikvmDir keyFile
 )
 
 Target "NuGetCoreNLP" (fun _ ->
@@ -173,7 +175,7 @@ Target "CompilerNER" (fun _ ->
     CreateDir ikvmDir
 
     [IKVMcTask(nerDir.``stanford-ner.jar``, Version=release.AssemblyVersion)]
-    |> IKVMCompile ikvmDir root.nuget.``Stanford.NLP.snk``
+    |> IKVMCompile ikvmDir keyFile
 )
 
 Target "NuGetNER" (fun _ ->
@@ -192,7 +194,7 @@ Target "CompilerParser" (fun _ ->
     restoreFolderFromFile (parserDir.Path + "..\\models") parserDir.``stanford-parser-3.5.0-models.jar``
     [IKVMcTask(parserDir.``stanford-parser.jar``, Version=release.AssemblyVersion,
            Dependencies = [IKVMcTask(parserDir.``ejml-0.23.jar``, Version="0.23.0.0")])]
-    |> IKVMCompile ikvmDir root.nuget.``Stanford.NLP.snk``
+    |> IKVMCompile ikvmDir keyFile
 )
 
 Target "NuGetParser" (fun _ ->
@@ -209,7 +211,7 @@ Target "CompilerPOS" (fun _ ->
     CreateDir ikvmDir
 
     [IKVMcTask(posDir.``stanford-postagger-3.5.0.jar``, Version=release.AssemblyVersion)]
-    |> IKVMCompile ikvmDir root.nuget.``Stanford.NLP.snk``
+    |> IKVMCompile ikvmDir keyFile
 )
 
 Target "NuGetPOS" (fun _ ->
@@ -226,7 +228,7 @@ Target "CompilerSegmenter" (fun _ ->
     CreateDir ikvmDir
 
     [IKVMcTask(segmenterDir.``stanford-segmenter-3.5.0.jar``, Version=release.AssemblyVersion)]
-    |> IKVMCompile ikvmDir root.nuget.``Stanford.NLP.snk``
+    |> IKVMCompile ikvmDir keyFile
 )
 
 Target "NuGetSegmenter" (fun _ ->
