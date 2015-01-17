@@ -123,7 +123,7 @@ let createNuGetPackage workingDir nuspec =
         { p with
             Version = release.NugetVersion
             ReleaseNotes = String.Join(Environment.NewLine, release.Notes)
-            OutputPath = root.bin.Path
+            OutputPath = "bin"
             AccessKey = getBuildParamOrDefault "nugetkey" ""
             Publish = hasBuildParam "nugetkey"
             WorkingDir = workingDir
