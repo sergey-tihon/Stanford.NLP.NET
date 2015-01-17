@@ -6,6 +6,9 @@
 *.user
 *.sln.docstates
 
+# Xamarin Studio / monodevelop user-specific
+*.userprefs
+
 # Build results
 
 [Dd]ebug/
@@ -172,13 +175,13 @@ TestResults.xml
 
 # Nuget outputs
 nuget/*.nupkg
+release.cmd
+release.sh
+localpackages/
+paket-files
+*.orig
+.paket/paket.exe
+docs/content/license.md
+docs/content/release-notes.md
 
-# ===================================================
-# Project specific directories and files
-# ===================================================
-
-# Download folder used for origin Stanford archives
-src/Download
-
-# Secret key
-src/Stanford.NLP.snk
+nuget/Stanford.NLP.snk

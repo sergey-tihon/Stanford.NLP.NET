@@ -3,12 +3,13 @@
   <metadata>
     <id>Stanford.NLP.POSTagger</id>
     <version>0.0.1</version>
-    <authors>@authors@</authors>
+    <authors>The Stanford Natural Language Processing Group</authors>
     <owners>Sergey Tihon</owners>
     <licenseUrl>http://www.gnu.org/licenses/gpl-2.0.html</licenseUrl>
     <iconUrl>http://nlp.stanford.edu/img/nlp-logo-navbar.jpg</iconUrl>
     <projectUrl>http://sergey-tihon.github.io/Stanford.NLP.NET/StanfordPOSTagger.html</projectUrl>
-    <description>@description@</description>
+    <summary>Stanford Log-linear Part-Of-Speech Tagger</summary>
+    <description>"A Part-Of-Speech Tagger (POS Tagger) is a piece of software that reads text in some language and assigns parts of speech to each word (and other token), such as noun, verb, adjective, etc., although generally computational applications use more fine-grained POS tags like 'noun-plural'.</description>
     <tags>nlp stanford POS tagger Part-Of-Speech</tags>
     <dependencies>
       <dependency id="IKVM" version="[8.0.5449]" />

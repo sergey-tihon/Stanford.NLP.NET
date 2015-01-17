@@ -3,12 +3,13 @@
   <metadata>
     <id>Stanford.NLP.Segmenter</id>
     <version>0.0.1</version>
-    <authors>@authors@</authors>
+    <authors>The Stanford Natural Language Processing Group</authors>
     <owners>Sergey Tihon</owners>
     <licenseUrl>http://www.gnu.org/licenses/gpl-2.0.html</licenseUrl>
     <iconUrl>http://nlp.stanford.edu/img/nlp-logo-navbar.jpg</iconUrl>
     <projectUrl>http://sergey-tihon.github.io/Stanford.NLP.NET/StanfordWordSegmenter.html</projectUrl>
-    <description>@description@</description>
+    <summary>Stanford Word Segmenter</summary>
+    <description>Tokenization of raw text is a standard pre-processing step for many NLP tasks. For English, tokenization usually involves punctuation splitting and separation of some affixes like possessives. Other languages require more extensive token pre-processing, which is usually called segmentation.</description>
     <tags>nlp stanford segmenter tokenization splitting</tags>
     <dependencies>
       <dependency id="IKVM" version="[8.0.5449]" />
