@@ -14,7 +14,7 @@ open System
 open System.IO
 open FSharp.Management
 
-type root = FileSystem<".">
+type root = FileSystem< __SOURCE_DIRECTORY__ >
 
 // --------------------------------------------------------------------------------------
 // Provide project-specific details
