@@ -430,4 +430,4 @@ Target "NuGet" DoNothing
 "ReleaseDocs"
   ==> "Release"
 
-RunTargetOrDefault "NuGet"
+RunTargetOrDefault "All"
