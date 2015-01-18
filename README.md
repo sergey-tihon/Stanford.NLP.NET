@@ -6,6 +6,12 @@ Stanford.NLP for .NET
 
 This project contains build scripts that recompile Stanford NLP `.jar` packages to .NET assemblies using [IKVM.NET](http://www.ikvm.net/), tests that help to be sure that recompiled packages are workable and [Stanford.NLP for .NET documentation site](http://sergey-tihon.github.io/Stanford.NLP.NET/) that hosts samples for all packages. All recompiled packages are available on [NuGet](https://www.nuget.org/packages?q=Stanford.NLP).
 
+- [![NuGet Status](http://img.shields.io/nuget/v/Stanford.NLP.CoreNLP.svg?style=flat)](https://www.nuget.org/packages/Stanford.NLP.CoreNLP/) - Stanford.NLP.CoreNLP
+- [![NuGet Status](http://img.shields.io/nuget/v/Stanford.NLP.NER.svg?style=flat)](https://www.nuget.org/packages/Stanford.NLP.NER/) - Stanford.NLP.NER
+- [![NuGet Status](http://img.shields.io/nuget/v/Stanford.NLP.Parser.svg?style=flat)](https://www.nuget.org/packages/Stanford.NLP.Parser/) - Stanford.NLP.Parser
+- [![NuGet Status](http://img.shields.io/nuget/v/Stanford.NLP.POSTagger.svg?style=flat)](https://www.nuget.org/packages/Stanford.NLP.POSTagger/) - Stanford.NLP.POSTagger
+- [![NuGet Status](http://img.shields.io/nuget/v/Stanford.NLP.Segmenter.svg?style=flat)](https://www.nuget.org/packages/Stanford.NLP.Segmenter/) - Stanford.NLP.Segmenter
+
 
 Versioning
 ----------
