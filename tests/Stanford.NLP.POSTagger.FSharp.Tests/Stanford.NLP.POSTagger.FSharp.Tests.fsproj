@@ -39,9 +39,8 @@
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
     </Reference>
-    <Reference Include="stanford-postagger-3.5.0">
-      <HintPath>..\..\bin\Stanford.NLP.POSTagger\lib\stanford-postagger-3.5.0.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="stanford-postagger-3.5.1">
+      <HintPath>..\..\bin\Stanford.NLP.POSTagger\lib\stanford-postagger-3.5.1.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

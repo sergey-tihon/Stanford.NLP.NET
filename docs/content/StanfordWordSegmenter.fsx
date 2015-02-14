@@ -1,8 +1,8 @@
 ﻿(*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../packages/Stanford.NLP.Segmenter.3.5.0.0/lib"
-#I "../../packages/IKVM.8.0.5449.0/lib/"
+#I "../../bin/Stanford.NLP.Segmenter/lib"
+#I "../../packages/IKVM/lib/"
 
 (**
 Stanford Word Segmenter for .NET
@@ -29,7 +29,7 @@ Stanford Word Segmenter for .NET
       The Stanford Word Segmenter library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Segmenter/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.Segmenter</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-segmenter-2014-10-26.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-segmenter-2015-01-29.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford Word Segmenter archive with models</button>
     </form>
@@ -42,13 +42,13 @@ F# Sample of Word Segmentation
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-segmenter-3.5.0.dll"
+#r "stanford-segmenter-3.5.1.dll"
 
 open java.util
 open edu.stanford.nlp.ie.crf
 
 // Path to the folder with models
-let segmenterData = __SOURCE_DIRECTORY__ + @"..\..\..\src\temp\stanford-segmenter-2014-10-26\data\"
+let segmenterData = __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-01-30\\data\"
 let sampleData = __SOURCE_DIRECTORY__ + @"..\..\..\tests\data\test.simple.utf8";
 
 // `test.simple.utf8` contains following text:
@@ -93,8 +93,8 @@ C# Sample of Word Segmentation
             static void Main()
             {
                 // Path to the folder with models
-                var segmenterData = @"c:\models\stanford-segmenter-2014-10-26\data";
-                var sampleData =  @"c:\models\stanford-segmenter-2014-10-26\test.simp.utf8";
+                var segmenterData = @"c:\models\stanford-segmenter-2015-01-30\data";
+                var sampleData =  @"c:\models\stanford-segmenter-2015-01-30\test.simp.utf8";
     
                 // `test.simple.utf8` contains following text:
                 // 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫

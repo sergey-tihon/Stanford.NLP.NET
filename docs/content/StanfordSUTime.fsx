@@ -1,8 +1,8 @@
 ﻿(*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../packages/Stanford.NLP.CoreNLP.3.5.0.0/lib/"
-#I "../../packages/IKVM.8.0.5449.0/lib/"
+#I "../../bin/Stanford.NLP.CoreNLP/lib/"
+#I "../../packages/IKVM/lib/"
 
 (**
 Stanford Temporal Tagger: SUTime for .NET
@@ -29,7 +29,7 @@ Stanford Temporal Tagger: SUTime for .NET
       The Stanford CoreNLP library can be <a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.CoreNLP</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2014-10-31.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2015-01-29.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford CoreNLP ZIP archive with models</button>
     </form>
@@ -42,7 +42,7 @@ F# Sample of SUTime
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-corenlp-3.5.0.dll"
+#r "stanford-corenlp-3.5.1.dll"
 
 open java.util
 open java.io
@@ -52,9 +52,9 @@ open edu.stanford.nlp.time
 open edu.stanford.nlp.util
 open edu.stanford.nlp.ling
 
-// Path to the folder with models extracted from `stanford-corenlp-3.5.0-models.jar`
+// Path to the folder with models extracted from `stanford-corenlp-3.5.1-models.jar`
 let jarRoot = 
-    __SOURCE_DIRECTORY__ + @"\..\..\src\temp\stanford-corenlp-full-2014-10-31\stanford-corenlp-3.5.0-models\"
+    __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-01-30\models\"
 let modelsDirectry = jarRoot + @"edu\stanford\nlp\models\"
 
 // Annotation pipeline configuration
@@ -122,8 +122,8 @@ C# Sample of SUTime
             private static void Main()
             {
     
-                // Path to the folder with models extracted from `stanford-corenlp-3.5.0-models.jar`
-                var jarRoot = @"c:\models\stanford-corenlp-full-2014-10-31\stanford-corenlp-3.5.0-models";
+                // Path to the folder with models extracted from `stanford-corenlp-3.5.1-models.jar`
+                var jarRoot = @"c:\models\stanford-corenlp-full-2015-01-30\stanford-corenlp-3.5.1-models";
                 var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
     
                 // Annotation pipeline configuration

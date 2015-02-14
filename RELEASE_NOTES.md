@@ -1,3 +1,6 @@
+#### 3.5.1 - February 13 2015
+* New version of Stanford NLP
+
 #### 3.5.0 - January 17 2015
 * Migration to ProjectScaffold template
 * Migration to Paket

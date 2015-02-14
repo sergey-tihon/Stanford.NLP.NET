@@ -1,8 +1,8 @@
 ﻿(*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
-#I "../../packages/Stanford.NLP.POSTagger.3.5.0.0/lib"
-#I "../../packages/IKVM.8.0.5449.0/lib/"
+#I "../../bin/Stanford.NLP.POSTagger/lib"
+#I "../../packages/IKVM/lib/"
 
 (**
 Stanford Log-linear Part-Of-Speech Tagger for .NET
@@ -33,7 +33,7 @@ Stanford Log-linear Part-Of-Speech Tagger for .NET
       The Stanford POS Tagger library can be <a href="https://www.nuget.org/packages/Stanford.NLP.POSTagger/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.POSTagger</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-postagger-full-2014-10-26.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-postagger-full-2015-01-29.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford POS Tagger full archive with models</button>
     </form>
@@ -46,7 +46,7 @@ F# Sample of POS Tagging
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-postagger-3.5.0.dll"
+#r "stanford-postagger-3.5.1.dll"
 
 open java.io
 open java.util
@@ -55,7 +55,7 @@ open edu.stanford.nlp.tagger.maxent
 
 // Path to the folder with models
 let modelsDirectry = 
-    __SOURCE_DIRECTORY__  + @"..\..\..\src\temp\stanford-postagger-full-2014-10-26\models\"
+    __SOURCE_DIRECTORY__  + @"..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2015-01-30\models"
 
 // Loading POS Tagger
 let tagger = MaxentTagger(modelsDirectry + "wsj-0-18-bidirectional-nodistsim.tagger")
@@ -98,7 +98,7 @@ tagTexrFromReader <| new StringReader(text)
         {
             static void Main()
             {
-                var jarRoot = @"c:\models\stanford-postagger-full-2014-10-26";
+                var jarRoot = @"c:\models\stanford-postagger-full-2015-01-30";
                 var modelsDirectory = jarRoot + @"\models";
     
                 // Loading POS Tagger

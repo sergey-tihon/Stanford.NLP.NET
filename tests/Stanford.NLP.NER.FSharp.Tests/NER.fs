@@ -14,7 +14,7 @@ open edu.stanford.nlp.ling
 // it shows how to run it on a single sentence, and how to do this
 // and produce an inline XML output format.
 
-let [<Literal>] classifiersRoot = __SOURCE_DIRECTORY__ + @"..\..\..\paket-files\nlp.stanford.edu\software\stanford-ner-2014-10-26.zip\stanford-ner-2014-10-26\classifiers\"
+let [<Literal>] classifiersRoot = __SOURCE_DIRECTORY__ + @"..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-01-30\classifiers\"
 let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"..\..\data"
 type Classifiers = FSharp.Management.FileSystem<classifiersRoot>
 type DataFiles = FSharp.Management.FileSystem<dataFilesRoot>
