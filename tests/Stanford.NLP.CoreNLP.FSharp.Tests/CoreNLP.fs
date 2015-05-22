@@ -58,6 +58,7 @@ let [<Test>]``StanfordCoreNlpDemo.java that change current directory`` () =
     let props = Properties()
     props.setProperty("annotators","tokenize, ssplit, pos, lemma, ner, parse, dcoref") |> ignore
     props.setProperty("sutime.binders","0") |> ignore
+    props.setProperty("ner.useSUTime","0") |> ignore
 
     // we should change current directory so StanfordCoreNLP could find all the model files
     let curDir = System.Environment.CurrentDirectory
@@ -89,6 +90,7 @@ let [<Test>]``StanfordCoreNlpDemo.java with manual configuration`` () =
     "pos.model"     <== Models.``pos-tagger``.``english-bidirectional``.``english-bidirectional-distsim.tagger``
     "ner.model"     <== Models.ner.``english.all.3class.distsim.crf.ser.gz``
     "ner.applyNumericClassifiers" <== "false"
+    "ner.useSUTime" <== "false"
     "parse.model"   <== Models.lexparser.``englishPCFG.ser.gz``
 
     "dcoref.demonym"            <== Models.dcoref.``demonyms.txt``
