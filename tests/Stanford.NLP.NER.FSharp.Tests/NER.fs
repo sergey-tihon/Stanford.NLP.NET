@@ -14,13 +14,13 @@ open edu.stanford.nlp.ling
 // it shows how to run it on a single sentence, and how to do this
 // and produce an inline XML output format.
 
-let [<Literal>] classifiersRoot = __SOURCE_DIRECTORY__ + @"..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-01-30\classifiers\"
+let [<Literal>] classifiersRoot = __SOURCE_DIRECTORY__ + @"..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-04-20\classifiers\"
 let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"..\..\data"
 type Classifiers = FSharp.Management.FileSystem<classifiersRoot>
 type DataFiles = FSharp.Management.FileSystem<dataFilesRoot>
 
-let [<Test>] ``Extract named entities from predefined phrase``() = 
-    let classifier = 
+let [<Test>] ``Extract named entities from predefined phrase``() =
+    let classifier =
         CRFClassifier.getClassifierNoExceptions(Classifiers.``english.all.3class.distsim.crf.ser.gz``)
 
     let s1 = "Good afternoon Rajat Raina, how are you today?"
@@ -36,8 +36,8 @@ let [<Test>] ``Extract named entities from predefined phrase``() =
         printfn "%d\n:%O\n" i coreLabel
     )
 
-let [<Test>] ``Extract named entities from file``() = 
-    let classifier = 
+let [<Test>] ``Extract named entities from file``() =
+    let classifier =
         CRFClassifier.getClassifierNoExceptions(Classifiers.``english.all.3class.distsim.crf.ser.gz``)
     let fileContent = System.IO.File.ReadAllText(DataFiles.``SampleText.txt``)
 
@@ -46,7 +46,7 @@ let [<Test>] ``Extract named entities from file``() =
 
     sentances
     |> Seq.cast<java.util.List>
-    |> Seq.iter (fun rawSentence -> 
+    |> Seq.iter (fun rawSentence ->
         let sentence = rawSentence.toArray()
         sentence |> should not' (be Empty)
         sentence

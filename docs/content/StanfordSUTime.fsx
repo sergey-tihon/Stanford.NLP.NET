@@ -1,5 +1,5 @@
 ﻿(*** hide ***)
-// This block of code is omitted in the generated HTML documentation. Use 
+// This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Stanford.NLP.CoreNLP/lib/"
 #I "../../packages/IKVM/lib/"
@@ -8,20 +8,20 @@
 Stanford Temporal Tagger: SUTime for .NET
 ==================================================
 
->[SUTime][goToOrigin] is a library for recognizing and normalizing time expressions. SUTime is available as part of the 
->[Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html) pipeline and can be used to annotate documents with temporal information. 
+>[SUTime][goToOrigin] is a library for recognizing and normalizing time expressions. SUTime is available as part of the
+>[Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html) pipeline and can be used to annotate documents with temporal information.
 >It is a deterministic rule-based system designed for extensibility.
 >
->SUTime was developed using [TokensRegex](http://www-nlp.stanford.edu/software/tokensregex.shtml), a generic framework for defining 
->patterns over text and mapping to semantic objects. An included set of PowerPoint slides and the javadoc for SUTime provide 
+>SUTime was developed using [TokensRegex](http://www-nlp.stanford.edu/software/tokensregex.shtml), a generic framework for defining
+>patterns over text and mapping to semantic objects. An included set of PowerPoint slides and the javadoc for SUTime provide
 >an overview of this package.
 >
->SUTime annotations are provided automatically with the [Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html) pipeline by including 
->the `ner` annotator. When a time expression is identified, the `NamedEntityTagAnnotation` is set with one of four temporal types (`DATE`, 
->`TIME`, `DURATION`, and `SET`) and the `NormalizedNamedEntityTagAnnotation` is set to the value of the normalized temporal expression. 
->The temporal type and value correspond to the [TIMEX3 standard](http://www.timeml.org/site/publications/timeMLdocs/timeml_1.2.1.html#timex3) 
+>SUTime annotations are provided automatically with the [Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html) pipeline by including
+>the `ner` annotator. When a time expression is identified, the `NamedEntityTagAnnotation` is set with one of four temporal types (`DATE`,
+>`TIME`, `DURATION`, and `SET`) and the `NormalizedNamedEntityTagAnnotation` is set to the value of the normalized temporal expression.
+>The temporal type and value correspond to the [TIMEX3 standard](http://www.timeml.org/site/publications/timeMLdocs/timeml_1.2.1.html#timex3)
 >for type and value. (Note the slightly weird and non-specific entity name `SET`, which refers to a set of times, such as a recurring event.)
- 
+
  <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
   <div class="span1"></div>
   <div class="span6">
@@ -29,7 +29,7 @@ Stanford Temporal Tagger: SUTime for .NET
       The Stanford CoreNLP library can be <a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.CoreNLP</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2015-01-29.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2015-04-20.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford CoreNLP ZIP archive with models</button>
     </form>
@@ -37,12 +37,12 @@ Stanford Temporal Tagger: SUTime for .NET
   <div class="span1"></div>
  </div>
 
-F# Sample of SUTime 
+F# Sample of SUTime
 -----------------------------
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-corenlp-3.5.1.dll"
+#r "stanford-corenlp-3.5.2.dll"
 
 open java.util
 open java.io
@@ -52,9 +52,9 @@ open edu.stanford.nlp.time
 open edu.stanford.nlp.util
 open edu.stanford.nlp.ling
 
-// Path to the folder with models extracted from `stanford-corenlp-3.5.1-models.jar`
-let jarRoot = 
-    __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-01-30\models\"
+// Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`
+let jarRoot =
+    __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-04-20\models\"
 let modelsDirectry = jarRoot + @"edu\stanford\nlp\models\"
 
 // Annotation pipeline configuration
@@ -63,12 +63,12 @@ pipeline.addAnnotator(TokenizerAnnotator(false))
 pipeline.addAnnotator(WordsToSentencesAnnotator(false))
 
 // Loading POS Tagger and including them into pipeline
-let tagger = 
+let tagger =
     MaxentTagger(modelsDirectry + @"pos-tagger\english-bidirectional\english-bidirectional-distsim.tagger")
 pipeline.addAnnotator(POSTaggerAnnotator(tagger))
 
 // SUTime configuration
-let sutimeRules = 
+let sutimeRules =
     [| modelsDirectry + @"sutime\defs.sutime.txt"
        modelsDirectry + @"sutime\english.holidays.sutime.txt"
        modelsDirectry + @"sutime\english.sutime.txt" |]
@@ -114,28 +114,28 @@ C# Sample of SUTime
     using edu.stanford.nlp.util;
     using edu.stanford.nlp.ling;
     using Console = System.Console;
-    
+
     namespace sutime
     {
         class Program
         {
             private static void Main()
             {
-    
+
                 // Path to the folder with models extracted from `stanford-corenlp-3.5.1-models.jar`
                 var jarRoot = @"c:\models\stanford-corenlp-full-2015-01-30\stanford-corenlp-3.5.1-models";
                 var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
-    
+
                 // Annotation pipeline configuration
                 var pipeline = new AnnotationPipeline();
                 pipeline.addAnnotator(new TokenizerAnnotator(false));
                 pipeline.addAnnotator(new WordsToSentencesAnnotator(false));
-    
+
                 // Loading POS Tagger and including them into pipeline
                 var tagger = new MaxentTagger(modelsDirectory +
                              @"\pos-tagger\english-bidirectional\english-bidirectional-distsim.tagger");
                 pipeline.addAnnotator(new POSTaggerAnnotator(tagger));
-    
+
                 // SUTime configuration
                 var sutimeRules = modelsDirectory + @"\sutime\defs.sutime.txt,"
                                   + modelsDirectory + @"\sutime\english.holidays.sutime.txt,"
@@ -144,15 +144,15 @@ C# Sample of SUTime
                 props.setProperty("sutime.rules", sutimeRules);
                 props.setProperty("sutime.binders", "0");
                 pipeline.addAnnotator(new TimeAnnotator("sutime", props));
-    
+
                 // Sample text for time expression extraction
                 var text = "Three interesting dates are 18 Feb 1997, the 20th of july and 4 days from today.";
                 var annotation = new Annotation(text);
                 annotation.set(new CoreAnnotations.DocDateAnnotation().getClass(), "2013-07-14");
                 pipeline.annotate(annotation);
-    
+
                 Console.WriteLine("{0}\n", annotation.get(new CoreAnnotations.TextAnnotation().getClass()));
-    
+
                 var timexAnnsAll = annotation.get(new TimeAnnotations.TimexAnnotations().getClass()) as ArrayList;
                 foreach (CoreMap cm in timexAnnsAll)
                 {

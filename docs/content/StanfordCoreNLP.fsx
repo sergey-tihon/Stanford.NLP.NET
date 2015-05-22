@@ -1,5 +1,5 @@
 (*** hide ***)
-// This block of code is omitted in the generated HTML documentation. Use 
+// This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Stanford.NLP.CoreNLP/lib/"
 #I "../../packages/IKVM/lib/"
@@ -8,21 +8,21 @@
 Stanford CoreNLP for .NET
 ========================
 
->[Stanford CoreNLP][goToOrigin] provides a set of natural language analysis tools which can take raw English language text input 
->and give the base forms of words, their parts of speech, whether they are names of companies, people, etc., normalize dates, times, 
->and numeric quantities, and mark up the structure of sentences in terms of phrases and word dependencies, and indicate which noun phrases 
->refer to the same entities. Stanford CoreNLP is an integrated framework, which makes it very easy to apply a bunch of language analysis 
->tools to a piece of text. Starting from plain text, you can run all the tools on it with just two lines of code. Its analyses provides the 
+>[Stanford CoreNLP][goToOrigin] provides a set of natural language analysis tools which can take raw English language text input
+>and give the base forms of words, their parts of speech, whether they are names of companies, people, etc., normalize dates, times,
+>and numeric quantities, and mark up the structure of sentences in terms of phrases and word dependencies, and indicate which noun phrases
+>refer to the same entities. Stanford CoreNLP is an integrated framework, which makes it very easy to apply a bunch of language analysis
+>tools to a piece of text. Starting from plain text, you can run all the tools on it with just two lines of code. Its analyses provides the
 >foundational building blocks for higher-level and domain-specific text understanding applications.
 >
->Stanford CoreNLP integrates all Stanford NLP tools, including the part-of-speech (POS) tagger, the named entity recognizer (NER), the parser, 
->the coreference resolution system, and the sentiment analysis tools, and provides model files for analysis of English. 
->The goal of this project is to enable people to quickly and painlessly get complete linguistic annotations of natural language texts. 
+>Stanford CoreNLP integrates all Stanford NLP tools, including the part-of-speech (POS) tagger, the named entity recognizer (NER), the parser,
+>the coreference resolution system, and the sentiment analysis tools, and provides model files for analysis of English.
+>The goal of this project is to enable people to quickly and painlessly get complete linguistic annotations of natural language texts.
 >It is designed to be highly flexible and extensible. With a single option, you can choose which tools should be enabled and which should be disabled.
 >
->The Stanford CoreNLP code is licensed under the [GNU General Public License][license] (v2 or later). Note that this is the full GPL, 
+>The Stanford CoreNLP code is licensed under the [GNU General Public License][license] (v2 or later). Note that this is the full GPL,
 >which allows many free uses, but not its use in distributed proprietary software.
- 
+
  <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
   <div class="span1"></div>
   <div class="span6">
@@ -30,7 +30,7 @@ Stanford CoreNLP for .NET
       The Stanford CoreNLP library can be <a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.CoreNLP</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2015-01-29.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2015-04-20.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford CoreNLP ZIP archive with models</button>
     </form>
@@ -43,7 +43,7 @@ F# Sample of text annotation
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-corenlp-3.5.1.dll"
+#r "stanford-corenlp-3.5.2.dll"
 
 open System
 open System.IO
@@ -51,8 +51,8 @@ open java.util
 open java.io
 open edu.stanford.nlp.pipeline
 
-// Path to the folder with models extracted from `stanford-corenlp-3.5.1-models.jar`
-let jarRoot = __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-01-30\models\"
+// Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`
+let jarRoot = __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-04-20\models\"
 
 // Text for processing
 let text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
@@ -129,34 +129,34 @@ C# Sample of text annotation
     using java.io;
     using edu.stanford.nlp.pipeline;
     using Console = System.Console;
-    
+
     namespace corenlp
     {
         class Program
         {
             static void Main()
             {
-                // Path to the folder with models extracted from `stanford-corenlp-3.5.1-models.jar`
-                var jarRoot = @"c:\models\stanford-corenlp-full-2015-01-30\stanford-corenlp-3.5.1-models\";
-    
+                // Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`
+                var jarRoot = @"c:\models\stanford-corenlp-full-2015-01-30\stanford-corenlp-3.5.2-models\";
+
                 // Text for processing
                 var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
-    
+
                 // Annotation pipeline configuration
                 var props = new Properties();
                 props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
                 props.setProperty("sutime.binders", "0");
-    
-                // We should change current directory, so StanfordCoreNLP could find all the model files automatically 
+
+                // We should change current directory, so StanfordCoreNLP could find all the model files automatically
                 var curDir = Environment.CurrentDirectory;
                 Directory.SetCurrentDirectory(jarRoot);
                 var pipeline = new StanfordCoreNLP(props);
                 Directory.SetCurrentDirectory(curDir);
-    
+
                 // Annotation
                 var annotation = new Annotation(text);
                 pipeline.annotate(annotation);
-    
+
                 // Result - Pretty Print
                 using (var stream = new ByteArrayOutputStream())
                 {

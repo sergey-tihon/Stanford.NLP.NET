@@ -1,5 +1,5 @@
 ﻿(*** hide ***)
-// This block of code is omitted in the generated HTML documentation. Use 
+// This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Stanford.NLP.Segmenter/lib"
 #I "../../packages/IKVM/lib/"
@@ -8,20 +8,20 @@
 Stanford Word Segmenter for .NET
 ================================
 
->Tokenization of raw text is a standard pre-processing step for many NLP tasks. For English, tokenization usually involves punctuation splitting 
+>Tokenization of raw text is a standard pre-processing step for many NLP tasks. For English, tokenization usually involves punctuation splitting
 >and separation of some affixes like possessives. Other languages require more extensive token pre-processing, which is usually called segmentation.
 >
->[The Stanford Word Segmenter][goToOrigin] currently supports Arabic and Chinese. The provided segmentation schemes have been found to work well 
+>[The Stanford Word Segmenter][goToOrigin] currently supports Arabic and Chinese. The provided segmentation schemes have been found to work well
 >for a variety of applications.
 >
 >Stanford NLP group recommend at least 1G of memory for documents that contain long sentences.
 >
->The segmenter is available for download, licensed under the [GNU General Public License][license] (v2 or later). Source is included. The package 
->includes components for command-line invocation and a Java API. The segmenter code is dual licensed (in a similar manner to MySQL, etc.). 
->Open source licensing is under the full GPL, which allows many free uses. For distributors of proprietary software, 
->[commercial licensing](http://otlportal.stanford.edu/techfinder/technology/ID=27276) is available. If you don't need a commercial license, 
+>The segmenter is available for download, licensed under the [GNU General Public License][license] (v2 or later). Source is included. The package
+>includes components for command-line invocation and a Java API. The segmenter code is dual licensed (in a similar manner to MySQL, etc.).
+>Open source licensing is under the full GPL, which allows many free uses. For distributors of proprietary software,
+>[commercial licensing](http://otlportal.stanford.edu/techfinder/technology/ID=27276) is available. If you don't need a commercial license,
 >but would like to support maintenance of these tools, Stanford NLP Group welcomes gift funding.
- 
+
  <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
   <div class="span1"></div>
   <div class="span6">
@@ -29,7 +29,7 @@ Stanford Word Segmenter for .NET
       The Stanford Word Segmenter library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Segmenter/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.Segmenter</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-segmenter-2015-01-29.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-segmenter-2015-04-20.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford Word Segmenter archive with models</button>
     </form>
@@ -37,26 +37,26 @@ Stanford Word Segmenter for .NET
   <div class="span1"></div>
  </div>
 
-F# Sample of Word Segmentation 
+F# Sample of Word Segmentation
 -----------------------------
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-segmenter-3.5.1.dll"
+#r "stanford-segmenter-3.5.2.dll"
 
 open java.util
 open edu.stanford.nlp.ie.crf
 
 // Path to the folder with models
-let segmenterData = __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-01-30\\data\"
+let segmenterData = __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-04-20\\data\"
 let sampleData = __SOURCE_DIRECTORY__ + @"..\..\..\tests\data\test.simple.utf8";
 
 // `test.simple.utf8` contains following text:
 // 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫
 // 困问题，推进和平与发展的崇高事业，创造一个美好的世界。
 
-// This is a very simple demo of calling the Chinese Word Segmenter programmatically.  
-// It assumes an input file in UTF8. This will run correctly in the distribution home 
+// This is a very simple demo of calling the Chinese Word Segmenter programmatically.
+// It assumes an input file in UTF8. This will run correctly in the distribution home
 // directory. To run in general, the properties for where to find dictionaries or
 // normalizations have to be set.
 // @author Christopher Manning
@@ -80,12 +80,12 @@ segmenter.classifyAndWriteAnswers(sampleData)
 // [fsi:CRFClassifier tagged 80 words in 1 documents at 74.56 words per second.]
 // [fsi:val it : unit = ()]
 (**
-C# Sample of Word Segmentation 
+C# Sample of Word Segmentation
 -----------------------------
     [lang=csharp]
     using edu.stanford.nlp.ie.crf;
     using java.util;
-    
+
     namespace segmenter
     {
         class Program
@@ -95,17 +95,17 @@ C# Sample of Word Segmentation
                 // Path to the folder with models
                 var segmenterData = @"c:\models\stanford-segmenter-2015-01-30\data";
                 var sampleData =  @"c:\models\stanford-segmenter-2015-01-30\test.simp.utf8";
-    
+
                 // `test.simple.utf8` contains following text:
                 // 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫
                 // 困问题，推进和平与发展的崇高事业，创造一个美好的世界。
-    
-                // This is a very simple demo of calling the Chinese Word Segmenter programmatically.  
-                // It assumes an input file in UTF8. This will run correctly in the distribution home 
+
+                // This is a very simple demo of calling the Chinese Word Segmenter programmatically.
+                // It assumes an input file in UTF8. This will run correctly in the distribution home
                 // directory. To run in general, the properties for where to find dictionaries or
                 // normalizations have to be set.
                 // @author Christopher Manning
-    
+
                 // Setup Segmenter loading properties
                 var props = new Properties();
                 props.setProperty("sighanCorporaDict", segmenterData);
@@ -114,7 +114,7 @@ C# Sample of Word Segmentation
                 props.setProperty("testFile", sampleData);
                 props.setProperty("inputEncoding", "UTF-8");
                 props.setProperty("sighanPostProcessing", "true");
-    
+
                 // Load Word Segmenter
                 var segmenter = new CRFClassifier(props);
                 segmenter.loadClassifierNoExceptions(segmenterData + @"\ctb.gz", props);

@@ -11,7 +11,7 @@ open edu.stanford.nlp.io
 open edu.stanford.nlp.trees
 open edu.stanford.nlp.semgraph
 
-let customAnnotationPrint (annotation:Annotation) = 
+let customAnnotationPrint (annotation:Annotation) =
     printfn "-------------"
     printfn "Custom print:"
     printfn "-------------"
@@ -46,9 +46,9 @@ let customAnnotationPrint (annotation:Annotation) =
             gov |> should not' (be Null)
             let dep = edge.getDependent()
             dep |> should not' (be Null)
-            printfn "%O(%s-%d,%s-%d)" 
+            printfn "%O(%s-%d,%s-%d)"
                 (edge.getRelation())
-                (gov.word()) (gov.index())  
+                (gov.word()) (gov.index())
                 (dep.word()) (dep.index())
 
 let [<Test>]``StanfordCoreNlpDemo.java that change current directory`` () =
@@ -68,7 +68,7 @@ let [<Test>]``StanfordCoreNlpDemo.java that change current directory`` () =
     // Annotation
     let annotation = Annotation(text)
     pipeline.annotate(annotation)
-    
+
     // Result - Pretty Print
     use stream = new ByteArrayOutputStream()
     pipeline.prettyPrint(annotation, new PrintWriter(stream))
@@ -88,6 +88,7 @@ let [<Test>]``StanfordCoreNlpDemo.java with manual configuration`` () =
     "annotators"    <== "tokenize, ssplit, pos, lemma, ner, parse, dcoref"
     "pos.model"     <== Models.``pos-tagger``.``english-bidirectional``.``english-bidirectional-distsim.tagger``
     "ner.model"     <== Models.ner.``english.all.3class.distsim.crf.ser.gz``
+    "ner.applyNumericClassifiers" <== "false"
     "parse.model"   <== Models.lexparser.``englishPCFG.ser.gz``
 
     "dcoref.demonym"            <== Models.dcoref.``demonyms.txt``
@@ -129,7 +130,7 @@ let [<Test>]``StanfordCoreNlpDemo.java with manual configuration`` () =
     // Annotation
     let annotation = Annotation(text)
     pipeline.annotate(annotation)
-    
+
     // Result - Pretty Print
     use stream = new ByteArrayOutputStream()
     pipeline.prettyPrint(annotation, new PrintWriter(stream))

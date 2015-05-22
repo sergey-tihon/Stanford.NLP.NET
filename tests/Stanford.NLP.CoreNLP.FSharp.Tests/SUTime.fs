@@ -18,7 +18,7 @@ let [<Test>] ``SUTime Defaut Test : Three interesting dates`` () =
     let tagger = MaxentTagger(Models.``pos-tagger``.``english-bidirectional``.``english-bidirectional-distsim.tagger``)
     pipeline.addAnnotator(POSTaggerAnnotator(tagger))
 
-    let sutimeRules = 
+    let sutimeRules =
         [| Models.sutime.``defs.sutime.txt``
            Models.sutime.``english.holidays.sutime.txt``
            Models.sutime.``english.sutime.txt`` |]

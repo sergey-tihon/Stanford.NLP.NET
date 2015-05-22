@@ -5,7 +5,7 @@ open FsUnit
 open java.util
 open edu.stanford.nlp.ie.crf
 
-let [<Literal>] segmenterData = __SOURCE_DIRECTORY__ + @"..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-01-30\data\"
+let [<Literal>] segmenterData = __SOURCE_DIRECTORY__ + @"..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-04-20\data\"
 type SegmenterData = FSharp.Management.FileSystem<segmenterData>
 
 let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"..\..\data"
@@ -18,7 +18,7 @@ type DataFiles = FSharp.Management.FileSystem<dataFilesRoot>
 //  normalizations have to be set.
 //  @author Christopher Manning
 
-let [<Test>] ``Chinese Word Segmenter``() = 
+let [<Test>] ``Chinese Word Segmenter``() =
     let props = Properties();
     props.setProperty("sighanCorporaDict", SegmenterData.Path) |> ignore
     props.setProperty("NormalizationTable", SegmenterData.``norm.simp.utf8``) |> ignore

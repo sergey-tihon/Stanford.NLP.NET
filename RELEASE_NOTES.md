@@ -1,3 +1,8 @@
+#### 3.5.2 - May 14 2015
+* CoreNLP - Switch to Universal Dependencies, add Chinese coreference system to CoreNLP
+* Parser - Switch to universal dependencies
+* NER - synch standalone and CoreNLP functionality
+
 #### 3.5.1 - February 13 2015
 * New version of Stanford NLP
 
