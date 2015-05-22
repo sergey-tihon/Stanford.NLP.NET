@@ -49,19 +49,19 @@
 <h1>Stanford CoreNLP for .NET</h1>
 
 <blockquote>
-  <p><a href="http://www-nlp.stanford.edu/software/corenlp.shtml">Stanford CoreNLP</a> provides a set of natural language analysis tools which can take raw English language text input 
-and give the base forms of words, their parts of speech, whether they are names of companies, people, etc., normalize dates, times, 
-and numeric quantities, and mark up the structure of sentences in terms of phrases and word dependencies, and indicate which noun phrases 
-refer to the same entities. Stanford CoreNLP is an integrated framework, which makes it very easy to apply a bunch of language analysis 
-tools to a piece of text. Starting from plain text, you can run all the tools on it with just two lines of code. Its analyses provides the 
+  <p><a href="http://www-nlp.stanford.edu/software/corenlp.shtml">Stanford CoreNLP</a> provides a set of natural language analysis tools which can take raw English language text input
+and give the base forms of words, their parts of speech, whether they are names of companies, people, etc., normalize dates, times,
+and numeric quantities, and mark up the structure of sentences in terms of phrases and word dependencies, and indicate which noun phrases
+refer to the same entities. Stanford CoreNLP is an integrated framework, which makes it very easy to apply a bunch of language analysis
+tools to a piece of text. Starting from plain text, you can run all the tools on it with just two lines of code. Its analyses provides the
 foundational building blocks for higher-level and domain-specific text understanding applications.</p>
 
-  <p>Stanford CoreNLP integrates all Stanford NLP tools, including the part-of-speech (POS) tagger, the named entity recognizer (NER), the parser, 
-the coreference resolution system, and the sentiment analysis tools, and provides model files for analysis of English. 
-The goal of this project is to enable people to quickly and painlessly get complete linguistic annotations of natural language texts. 
+  <p>Stanford CoreNLP integrates all Stanford NLP tools, including the part-of-speech (POS) tagger, the named entity recognizer (NER), the parser,
+the coreference resolution system, and the sentiment analysis tools, and provides model files for analysis of English.
+The goal of this project is to enable people to quickly and painlessly get complete linguistic annotations of natural language texts.
 It is designed to be highly flexible and extensible. With a single option, you can choose which tools should be enabled and which should be disabled.</p>
 
-  <p>The Stanford CoreNLP code is licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later). Note that this is the full GPL, 
+  <p>The Stanford CoreNLP code is licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later). Note that this is the full GPL,
 which allows many free uses, but not its use in distributed proprietary software.</p>
 </blockquote>
 
@@ -70,9 +70,9 @@ which allows many free uses, but not its use in distributed proprietary software
   <div class="span6">
     <div class="well well-small" id="nuget">
       The Stanford CoreNLP library can be <a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">installed from NuGet</a>:
-      <pre>PM> Install-Package Stanford.NLP.CoreNLP</pre>
+      <pre>PM&gt; Install-Package Stanford.NLP.CoreNLP</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2015-01-29.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2015-04-20.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford CoreNLP ZIP archive with models</button>
     </form>
@@ -165,7 +165,7 @@ which allows many free uses, but not its use in distributed proprietary software
 <td class="snippet"><pre class="fssnip">
 <span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Core.dll&quot;</span>
 <span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Util.dll&quot;</span>
-<span class="prep">#r</span> <span class="s">&quot;stanford-corenlp-3.5.1.dll&quot;</span>
+<span class="prep">#r</span> <span class="s">&quot;stanford-corenlp-3.5.2.dll&quot;</span>
 
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">System</span>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 2)" onmouseover="showTip(event, 'fs1', 2)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 3)" onmouseover="showTip(event, 'fs2', 3)" class="i">IO</span>
@@ -173,8 +173,8 @@ which allows many free uses, but not its use in distributed proprietary software
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 6)" onmouseover="showTip(event, 'fs3', 6)" class="i">java</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="i">io</span>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs6', 8)" onmouseover="showTip(event, 'fs6', 8)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 9)" onmouseover="showTip(event, 'fs7', 9)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 10)" onmouseover="showTip(event, 'fs8', 10)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 11)" onmouseover="showTip(event, 'fs9', 11)" class="i">pipeline</span>
 
-<span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.5.1-models.jar`</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="i">jarRoot</span> <span class="o">=</span> <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-01-30\models\&quot;</span>
+<span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="i">jarRoot</span> <span class="o">=</span> <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-04-20\models\&quot;</span>
 
 <span class="c">// Text for processing</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 13)" onmouseover="showTip(event, 'fs11', 13)" class="i">text</span> <span class="o">=</span> <span class="s">&quot;Kosgi Santosh sent an email to Stanford University. He didn&#39;t get a reply.&quot;</span>;
@@ -247,7 +247,54 @@ which allows many free uses, but not its use in distributed proprietary software
 
 <h2>C# Sample of text annotation</h2>
 
-<table class="pre"><tr><td><pre lang="csharp"><span class="k">using</span> System;
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+<span class="l">25: </span>
+<span class="l">26: </span>
+<span class="l">27: </span>
+<span class="l">28: </span>
+<span class="l">29: </span>
+<span class="l">30: </span>
+<span class="l">31: </span>
+<span class="l">32: </span>
+<span class="l">33: </span>
+<span class="l">34: </span>
+<span class="l">35: </span>
+<span class="l">36: </span>
+<span class="l">37: </span>
+<span class="l">38: </span>
+<span class="l">39: </span>
+<span class="l">40: </span>
+<span class="l">41: </span>
+<span class="l">42: </span>
+<span class="l">43: </span>
+<span class="l">44: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip" lang="csharp"><span class="k">using</span> System;
 <span class="k">using</span> System.IO;
 <span class="k">using</span> java.util;
 <span class="k">using</span> java.io;
@@ -260,18 +307,18 @@ which allows many free uses, but not its use in distributed proprietary software
     {
         <span class="k">static</span> <span class="k">void</span> Main()
         {
-            <span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.5.1-models.jar`</span>
-            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"c:\models\stanford-corenlp-full-2015-01-30\stanford-corenlp-3.5.1-models\";
+            <span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`</span>
+            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"c:\models\stanford-corenlp-full-2015-01-30\stanford-corenlp-3.5.2-models\";
 
             // Text for processing
-            var text = "</span>Kosgi Santosh sent an email to Stanford University. He didn&amp;#39;t get a reply.<span class="s">";
+            var text = "</span>Kosgi Santosh sent an email to Stanford University. He didn't get a reply.<span class="s">";
 
             // Annotation pipeline configuration
             var props = new Properties();
             props.setProperty("</span>annotators<span class="s">", "</span>tokenize, ssplit, pos, lemma, ner, parse, dcoref<span class="s">");
             props.setProperty("</span>sutime.binders<span class="s">", "</span>0");
 
-            <span class="c">// We should change current directory, so StanfordCoreNLP could find all the model files automatically </span>
+            <span class="c">// We should change current directory, so StanfordCoreNLP could find all the model files automatically</span>
             <span class="k">var</span> curDir <span class="o">=</span> Environment.CurrentDirectory;
             Directory.SetCurrentDirectory(jarRoot);
             <span class="k">var</span> pipeline <span class="o">=</span> <span class="k">new</span> StanfordCoreNLP(props);
