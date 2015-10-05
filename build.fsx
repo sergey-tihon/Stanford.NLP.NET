@@ -50,7 +50,7 @@ let restoreFolderFromFile folder zipFile =
         zipFile |> unZipTo folder
 
 // Location of IKVM Compiler & ildasm / ilasm
-let ikvmc = root.``paket-files``.``www.frijters.net``.``ikvm-8.0.5449.1``.bin.``ikvmc.exe``
+let ikvmc = root.``paket-files``.``www.frijters.net``.``ikvm-8.1.5717.0``.bin.``ikvmc.exe``
 let ildasm = @"c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\x64\ildasm.exe"
 let ilasm =  @"c:\Windows\Microsoft.NET\Framework64\v2.0.50727\ilasm.exe"
 

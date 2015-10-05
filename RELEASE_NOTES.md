@@ -1,3 +1,6 @@
+#### 3.5.2.1 - Oct 5 2015
+* IKVM.NET was updated up to v8.1.5717
+
 #### 3.5.2 - May 22 2015
 * CoreNLP - Switch to Universal Dependencies, add Chinese coreference system to CoreNLP
 * Parser - Switch to universal dependencies

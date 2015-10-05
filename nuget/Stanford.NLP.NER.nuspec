@@ -12,7 +12,7 @@
     <description>Stanford NER (also known as CRFClassifier) is a Java implementation of a Named Entity Recognizer. Named Entity Recognition (NER) labels sequences of words in a text which are the names of things, such as person and company names, or gene and protein names. The software provides a general (arbitrary order) implementation of linear chain Conditional Random Field (CRF) sequence models, coupled with well-engineered feature extractors for Named Entity Recognition.</description>
     <tags>nlp stanford NER CRF</tags>
     <dependencies>
-      <dependency id="IKVM" version="[8.0.5449.1]" />
+      <dependency id="IKVM" version="[8.1.5717]" />
     </dependencies>
   </metadata>
 </package>
