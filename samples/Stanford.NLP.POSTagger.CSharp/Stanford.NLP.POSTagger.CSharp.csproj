@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="stanford-postagger-3.5.2, Version=3.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Stanford.NLP.POSTagger\lib\stanford-postagger-3.5.2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -194,13 +198,6 @@
     </Reference>
     <Reference Include="IKVM.Runtime">
       <HintPath>..\..\packages\IKVM\lib\IKVM.Runtime.dll</HintPath>
-      <Private>True</Private>
-      <Paket>True</Paket>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="stanford-postagger-3.5.2">
-      <HintPath>..\..\packages\Stanford.NLP.POSTagger\lib\stanford-postagger-3.5.2.dll</HintPath>
       <Private>True</Private>
       <Paket>True</Paket>
     </Reference>

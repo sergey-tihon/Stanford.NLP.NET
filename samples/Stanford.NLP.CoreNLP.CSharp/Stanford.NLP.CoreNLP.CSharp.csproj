@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="stanford-corenlp-3.5.2, Version=3.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-3.5.2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -216,11 +220,6 @@
     </Reference>
     <Reference Include="jollyday">
       <HintPath>..\..\packages\Stanford.NLP.CoreNLP\lib\jollyday.dll</HintPath>
-      <Private>True</Private>
-      <Paket>True</Paket>
-    </Reference>
-    <Reference Include="stanford-corenlp-3.5.2">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP\lib\stanford-corenlp-3.5.2.dll</HintPath>
       <Private>True</Private>
       <Paket>True</Paket>
     </Reference>

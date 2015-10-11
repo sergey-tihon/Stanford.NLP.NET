@@ -15,14 +15,7 @@ NUGET
     NuGet.CommandLine (2.8.6)
     NUnit (2.6.3)
     NUnit.Runners (2.6.3)
-    Stanford.NLP.CoreNLP (3.5.2.1)
-      IKVM (8.1.5717)
-    Stanford.NLP.NER (3.5.2.1)
-      IKVM (8.1.5717)
-    Stanford.NLP.POSTagger (3.5.2.1)
-      IKVM (8.1.5717)
-    Stanford.NLP.Segmenter (3.5.2.1)
-      IKVM (8.1.5717)
+    
 HTTP
   remote: http://www.frijters.net
   specs:
