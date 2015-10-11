@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.CoreNLP.CSharp", "Stanford.NLP.CoreNLP.CSharp\Stanford.NLP.CoreNLP.CSharp.csproj", "{0F34E183-4968-4269-9848-D907AFB6CB31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.NER.CSharp", "Stanford.NLP.NER.CSharp\Stanford.NLP.NER.CSharp.csproj", "{4D9AF4ED-B531-4A80-BBEB-828101BD3F9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.Parser.CSharp", "Stanford.NLP.Parser.CSharp\Stanford.NLP.Parser.CSharp.csproj", "{C4ED4982-19EF-4BAB-A92D-91C572A9E4A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.POSTagger.CSharp", "Stanford.NLP.POSTagger.CSharp\Stanford.NLP.POSTagger.CSharp.csproj", "{82549D93-4302-4F74-A23C-A0576705AC82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.Segmenter.CSharp", "Stanford.NLP.Segmenter.CSharp\Stanford.NLP.Segmenter.CSharp.csproj", "{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.SUTime.CSharp", "Stanford.NLP.SUTime.CSharp\Stanford.NLP.SUTime.CSharp.csproj", "{82EEB2DD-C4C0-4414-B353-190F13716B2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F34E183-4968-4269-9848-D907AFB6CB31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F34E183-4968-4269-9848-D907AFB6CB31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F34E183-4968-4269-9848-D907AFB6CB31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F34E183-4968-4269-9848-D907AFB6CB31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9AF4ED-B531-4A80-BBEB-828101BD3F9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9AF4ED-B531-4A80-BBEB-828101BD3F9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9AF4ED-B531-4A80-BBEB-828101BD3F9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9AF4ED-B531-4A80-BBEB-828101BD3F9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4ED4982-19EF-4BAB-A92D-91C572A9E4A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4ED4982-19EF-4BAB-A92D-91C572A9E4A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4ED4982-19EF-4BAB-A92D-91C572A9E4A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4ED4982-19EF-4BAB-A92D-91C572A9E4A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82549D93-4302-4F74-A23C-A0576705AC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82549D93-4302-4F74-A23C-A0576705AC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82549D93-4302-4F74-A23C-A0576705AC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82549D93-4302-4F74-A23C-A0576705AC82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82EEB2DD-C4C0-4414-B353-190F13716B2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82EEB2DD-C4C0-4414-B353-190F13716B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82EEB2DD-C4C0-4414-B353-190F13716B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82EEB2DD-C4C0-4414-B353-190F13716B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

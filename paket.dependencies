@@ -16,3 +16,8 @@ http http://nlp.stanford.edu/software/stanford-ner-2015-04-20.zip
 http http://nlp.stanford.edu/software/stanford-parser-full-2015-04-20.zip
 http http://nlp.stanford.edu/software/stanford-postagger-full-2015-04-20.zip
 http http://nlp.stanford.edu/software/stanford-segmenter-2015-04-20.zip
+
+nuget Stanford.NLP.CoreNLP
+nuget Stanford.NLP.NER
+nuget Stanford.NLP.POSTagger
+nuget Stanford.NLP.Segmenter
