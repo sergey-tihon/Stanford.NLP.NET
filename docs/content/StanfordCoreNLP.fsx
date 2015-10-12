@@ -60,7 +60,7 @@ let text = "Kosgi Santosh sent an email to Stanford University. He didn't get a 
 // Annotation pipeline configuration
 let props = Properties()
 props.setProperty("annotators","tokenize, ssplit, pos, lemma, ner, parse, dcoref") |> ignore
-props.setProperty("sutime.binders","0") |> ignore
+props.setProperty("ner.useSUTime","0") |> ignore
 
 // We should change current directory, so StanfordCoreNLP could find all the model files automatically
 let curDir = Environment.CurrentDirectory
@@ -130,14 +130,14 @@ C# Sample of text annotation
     using edu.stanford.nlp.pipeline;
     using Console = System.Console;
 
-    namespace corenlp
+    namespace Stanford.NLP.CoreNLP.CSharp
     {
         class Program
         {
             static void Main()
             {
                 // Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`
-                var jarRoot = @"c:\models\stanford-corenlp-full-2015-01-30\stanford-corenlp-3.5.2-models\";
+                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-04-20\models";
 
                 // Text for processing
                 var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
@@ -145,7 +145,7 @@ C# Sample of text annotation
                 // Annotation pipeline configuration
                 var props = new Properties();
                 props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
-                props.setProperty("sutime.binders", "0");
+                props.setProperty("ner.useSUTime", "0");
 
                 // We should change current directory, so StanfordCoreNLP could find all the model files automatically
                 var curDir = Environment.CurrentDirectory;

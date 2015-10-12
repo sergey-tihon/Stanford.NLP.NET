@@ -92,13 +92,13 @@ tagTexrFromReader <| new StringReader(text)
     using edu.stanford.nlp.tagger.maxent;
     using Console = System.Console;
 
-    namespace postagger
+    namespace Stanford.NLP.POSTagger.CSharp
     {
         class Program
         {
             static void Main()
             {
-                var jarRoot = @"c:\models\stanford-postagger-full-2015-04-20";
+                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2015-04-20";
                 var modelsDirectory = jarRoot + @"\models";
 
                 // Loading POS Tagger

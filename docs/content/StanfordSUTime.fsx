@@ -115,15 +115,15 @@ C# Sample of SUTime
     using edu.stanford.nlp.ling;
     using Console = System.Console;
 
-    namespace sutime
+    namespace Stanford.NLP.SUTime.CSharp
     {
         class Program
         {
             private static void Main()
             {
 
-                // Path to the folder with models extracted from `stanford-corenlp-3.5.1-models.jar`
-                var jarRoot = @"c:\models\stanford-corenlp-full-2015-01-30\stanford-corenlp-3.5.1-models";
+                // Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`
+                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-04-20\models";
                 var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
 
                 // Annotation pipeline configuration

@@ -86,15 +86,15 @@ C# Sample of Word Segmentation
     using edu.stanford.nlp.ie.crf;
     using java.util;
 
-    namespace segmenter
+    namespace Stanford.NLP.Segmenter.CSharp
     {
         class Program
         {
             static void Main()
             {
                 // Path to the folder with models
-                var segmenterData = @"c:\models\stanford-segmenter-2015-04-20\data";
-                var sampleData =  @"c:\models\stanford-segmenter-2015-04-20\test.simp.utf8";
+                var segmenterData = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-04-20\data";
+                var sampleData = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-04-20\test.simp.utf8";
 
                 // `test.simple.utf8` contains following text:
                 // 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫

@@ -11,7 +11,7 @@ namespace Stanford.NLP.CoreNLP.CSharp
     {
         static void Main()
         {
-            // Path to the folder with models extracted from `stanford-parser-3.5.2-models.jar`
+            // Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`
             var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-04-20\models";
 
             // Text for processing
@@ -19,8 +19,8 @@ namespace Stanford.NLP.CoreNLP.CSharp
 
             // Annotation pipeline configuration
             var props = new Properties();
-            props.setProperty("annotators", "tokenize, ssplit, pos, lemma, parse");//ner fails -> dcoref depends on ner
-            props.setProperty("sutime.binders", "0");
+            props.setProperty("annotators", "tokenize, ssplit, pos, lemma, parse, ner,dcoref");
+            props.setProperty("ner.useSUTime", "0");
 
             // We should change current directory, so StanfordCoreNLP could find all the model files automatically
             var curDir = Environment.CurrentDirectory;
