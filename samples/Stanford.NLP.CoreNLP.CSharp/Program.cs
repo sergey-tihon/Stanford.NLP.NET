@@ -19,8 +19,8 @@ namespace Stanford.NLP.CoreNLP.CSharp
 
             // Annotation pipeline configuration
             var props = new Properties();
-            props.setProperty("annotators", "tokenize, ssplit, pos, lemma, parse");//ner fails -> dcoref depends on ner
-            props.setProperty("sutime.binders", "0");
+            props.setProperty("annotators", "tokenize, ssplit, pos, lemma, parse, ner,dcoref");
+            props.setProperty("ner.useSUTime", "0");
 
             // We should change current directory, so StanfordCoreNLP could find all the model files automatically
             var curDir = Environment.CurrentDirectory;
