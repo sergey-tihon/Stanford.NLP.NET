@@ -136,7 +136,7 @@ C# Sample of text annotation
         {
             static void Main()
             {
-                // Path to the folder with models extracted from `stanford-parser-3.5.2-models.jar`
+                // Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`
                 var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-04-20\models";
 
                 // Text for processing
