@@ -132,14 +132,14 @@ C# Sample of sentence parsing
     using edu.stanford.nlp.parser.lexparser;
     using Console = System.Console;
 
-    namespace parser
+    namespace Stanford.NLP.Parser.CSharp
     {
         class Program
         {
             static void Main()
             {
                 // Path to models extracted from `stanford-parser-3.5.2-models.jar`
-                var jarRoot = @"c:\models\stanford-parser-full-2015-01-30\stanford-parser-3.5.2-models";
+                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2015-04-20\models\";
                 var modelsDirectory = jarRoot+@"\edu\stanford\nlp\models";
 
                 // Loading english PCFG parser from file
