@@ -85,8 +85,7 @@ but would like to support maintenance of these tools, Stanford NLP Group welcome
 
 <h2>F# Sample of POS Tagging</h2>
 
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l"> 1: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
 <span class="l"> 4: </span>
@@ -124,10 +123,8 @@ but would like to support maintenance of these tools, Stanford NLP Group welcome
 <span class="l">36: </span>
 <span class="l">37: </span>
 <span class="l">38: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Core.dll&quot;</span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Core.dll&quot;</span>
 <span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Util.dll&quot;</span>
 <span class="prep">#r</span> <span class="s">&quot;stanford-postagger-3.5.2.dll&quot;</span>
 
@@ -165,15 +162,13 @@ but would like to support maintenance of these tools, Stanford NLP Group welcome
 <span class="fsi">noun/JJ ,/, verb/JJ ,/, adjective/JJ ,/, etc./FW ,/, although/IN generally/RB computational/JJ </span>
 <span class="fsi">applications/NNS use/VBP more/RBR fine-grained/JJ POS/NNP tags/NNS like/IN `/`` noun-plural/JJ &#39;/&#39;&#39; ./.</span>
 <span class="fsi">val it : unit = ()</span>
-</pre>
-</td>
+</code></pre></td>
 </tr>
 </table>
 
 <h2>C# Sample of POS Tagging</h2>
 
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l"> 1: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
 <span class="l"> 4: </span>
@@ -206,21 +201,20 @@ but would like to support maintenance of these tools, Stanford NLP Group welcome
 <span class="l">31: </span>
 <span class="l">32: </span>
 <span class="l">33: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip" lang="csharp"><span class="k">using</span> java.io;
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp"><span class="k">using</span> java.io;
 <span class="k">using</span> java.util;
 <span class="k">using</span> edu.stanford.nlp.ling;
 <span class="k">using</span> edu.stanford.nlp.tagger.maxent;
 <span class="k">using</span> Console <span class="o">=</span> System.Console;
 
-<span class="k">namespace</span> postagger
+<span class="k">namespace</span> Stanford.NLP.POSTagger.CSharp
 {
     <span class="k">class</span> Program
     {
         <span class="k">static</span> <span class="k">void</span> Main()
         {
-            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"c:\models\stanford-postagger-full-2015-04-20"</span>;
+            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2015-04-20"</span>;
             <span class="k">var</span> modelsDirectory <span class="o">=</span> jarRoot <span class="o">+</span> <span class="s">@"\models"</span>;
 
             <span class="c">// Loading POS Tagger</span>
@@ -240,7 +234,7 @@ but would like to support maintenance of these tools, Stanford NLP Group welcome
             }
         }
     }
-}</pre></td></tr></table>
+}</code></pre></td></tr></table>
 
 <p>Read more about Stanford POS Tagger on <a href="http://www-nlp.stanford.edu/software/tagger.shtml">the official page</a>.</p>
 

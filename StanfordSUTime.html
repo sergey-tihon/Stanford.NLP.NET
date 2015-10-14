@@ -81,8 +81,7 @@ for type and value. (Note the slightly weird and non-specific entity name <code>
 
 <h2>F# Sample of SUTime</h2>
 
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l"> 1: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
 <span class="l"> 4: </span>
@@ -144,10 +143,8 @@ for type and value. (Note the slightly weird and non-specific entity name <code>
 <span class="l">60: </span>
 <span class="l">61: </span>
 <span class="l">62: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Core.dll&quot;</span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Core.dll&quot;</span>
 <span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Util.dll&quot;</span>
 <span class="prep">#r</span> <span class="s">&quot;stanford-corenlp-3.5.2.dll&quot;</span>
 
@@ -209,15 +206,13 @@ for type and value. (Note the slightly weird and non-specific entity name <code>
 <span class="fsi">the 20th of july [from char offset &#39;the&#39; to &#39;july&#39;] --&gt; 2013-07-20</span>
 <span class="fsi">4 days from today [from char offset &#39;4&#39; to &#39;today&#39;] --&gt; 2013-07-18</span>
 <span class="fsi">val it : unit = ()</span>
-</pre>
-</td>
+</code></pre></td>
 </tr>
 </table>
 
 <h2>C# Sample of SUTime</h2>
 
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l"> 1: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
 <span class="l"> 4: </span>
@@ -277,9 +272,8 @@ for type and value. (Note the slightly weird and non-specific entity name <code>
 <span class="l">58: </span>
 <span class="l">59: </span>
 <span class="l">60: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip" lang="csharp"><span class="k">using</span> java.util;
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp"><span class="k">using</span> java.util;
 <span class="k">using</span> java.io;
 <span class="k">using</span> edu.stanford.nlp.pipeline;
 <span class="k">using</span> edu.stanford.nlp.tagger.maxent;
@@ -288,15 +282,15 @@ for type and value. (Note the slightly weird and non-specific entity name <code>
 <span class="k">using</span> edu.stanford.nlp.ling;
 <span class="k">using</span> Console <span class="o">=</span> System.Console;
 
-<span class="k">namespace</span> sutime
+<span class="k">namespace</span> Stanford.NLP.SUTime.CSharp
 {
     <span class="k">class</span> Program
     {
         <span class="k">private</span> <span class="k">static</span> <span class="k">void</span> Main()
         {
 
-            <span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.5.1-models.jar`</span>
-            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"c:\models\stanford-corenlp-full-2015-01-30\stanford-corenlp-3.5.1-models"</span>;
+            <span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`</span>
+            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-04-20\models"</span>;
             <span class="k">var</span> modelsDirectory <span class="o">=</span> jarRoot <span class="o">+</span> <span class="s">@"\edu\stanford\nlp\models"</span>;
 
             <span class="c">// Annotation pipeline configuration</span>
@@ -338,7 +332,7 @@ for type and value. (Note the slightly weird and non-specific entity name <code>
             }
         }
     }
-}</pre></td></tr></table>
+}</code></pre></td></tr></table>
 
 <p>Read more about Stanford Temporal Tagger (SUTime) on <a href="http://www-nlp.stanford.edu/software/sutime.shtml">the official page</a>.</p>
 
