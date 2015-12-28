@@ -29,7 +29,7 @@ Stanford Word Segmenter for .NET
       The Stanford Word Segmenter library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Segmenter/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.Segmenter</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-segmenter-2015-04-20.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-segmenter-2015-12-09.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford Word Segmenter archive with models</button>
     </form>
@@ -48,7 +48,7 @@ open java.util
 open edu.stanford.nlp.ie.crf
 
 // Path to the folder with models
-let segmenterData = __SOURCE_DIRECTORY__ + @"\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-04-20\data\"
+let segmenterData = __SOURCE_DIRECTORY__ + @"\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-12-09\data\"
 let sampleData = __SOURCE_DIRECTORY__ + @"\..\..\tests\data\test.simple.utf8";
 
 // `test.simple.utf8` contains following text:
@@ -93,8 +93,8 @@ C# Sample of Word Segmentation
             static void Main()
             {
                 // Path to the folder with models
-                var segmenterData = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-04-20\data";
-                var sampleData = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-04-20\test.simp.utf8";
+                var segmenterData = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-12-09\data";
+                var sampleData = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-12-09\test.simp.utf8";
 
                 // `test.simple.utf8` contains following text:
                 // 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫

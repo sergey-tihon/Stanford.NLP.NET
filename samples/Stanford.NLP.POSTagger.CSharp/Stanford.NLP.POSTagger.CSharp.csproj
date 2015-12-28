@@ -32,9 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="stanford-postagger-3.5.2, Version=3.5.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\Stanford.NLP.POSTagger\lib\stanford-postagger-3.5.2.dll</HintPath>
+    <Reference Include="slf4j-api">
+      <HintPath>..\..\bin\Stanford.NLP.POSTagger\lib\slf4j-api.dll</HintPath>
+    </Reference>
+    <Reference Include="stanford-postagger-3.6.0">
+      <HintPath>..\..\bin\Stanford.NLP.POSTagger\lib\stanford-postagger-3.6.0.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

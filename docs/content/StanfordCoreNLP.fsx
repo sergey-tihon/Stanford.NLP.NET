@@ -30,7 +30,7 @@ Stanford CoreNLP for .NET
       The Stanford CoreNLP library can be <a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.CoreNLP</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2015-04-20.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford CoreNLP ZIP archive with models</button>
     </form>
@@ -51,8 +51,8 @@ open java.util
 open java.io
 open edu.stanford.nlp.pipeline
 
-// Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`
-let jarRoot = __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-04-20\models\"
+// Path to the folder with models extracted from `stanford-corenlp-3.6.0-models.jar`
+let jarRoot = __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-12-09\models\"
 
 // Text for processing
 let text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
@@ -136,8 +136,8 @@ C# Sample of text annotation
         {
             static void Main()
             {
-                // Path to the folder with models extracted from `stanford-corenlp-3.5.2-models.jar`
-                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-04-20\models";
+                // Path to the folder with models extracted from `stanford-corenlp-3.6.0-models.jar`
+                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-12-09\models";
 
                 // Text for processing
                 var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";

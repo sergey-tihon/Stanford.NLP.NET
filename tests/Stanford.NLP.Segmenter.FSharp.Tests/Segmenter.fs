@@ -5,7 +5,7 @@ open FsUnit
 open java.util
 open edu.stanford.nlp.ie.crf
 
-let [<Literal>] segmenterData = __SOURCE_DIRECTORY__ + @"..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-04-20\data\"
+let [<Literal>] segmenterData = __SOURCE_DIRECTORY__ + @"..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-12-09\data\"
 type SegmenterData = FSharp.Management.FileSystem<segmenterData>
 
 let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"..\..\data"

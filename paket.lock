@@ -15,15 +15,14 @@ NUGET
     NuGet.CommandLine (2.8.6)
     NUnit (2.6.3)
     NUnit.Runners (2.6.3)
-    
 HTTP
   remote: http://www.frijters.net
   specs:
     ikvmbin-8.1.5717.0.zip (/ikvmbin-8.1.5717.0.zip)
   remote: http://nlp.stanford.edu
   specs:
-    stanford-corenlp-full-2015-04-20.zip (/software/stanford-corenlp-full-2015-04-20.zip)
-    stanford-ner-2015-04-20.zip (/software/stanford-ner-2015-04-20.zip)
-    stanford-parser-full-2015-04-20.zip (/software/stanford-parser-full-2015-04-20.zip)
-    stanford-postagger-full-2015-04-20.zip (/software/stanford-postagger-full-2015-04-20.zip)
-    stanford-segmenter-2015-04-20.zip (/software/stanford-segmenter-2015-04-20.zip)
+    stanford-corenlp-full-2015-12-09.zip (/software/stanford-corenlp-full-2015-12-09.zip)
+    stanford-ner-2015-12-09.zip (/software/stanford-ner-2015-12-09.zip)
+    stanford-parser-full-2015-12-09.zip (/software/stanford-parser-full-2015-12-09.zip)
+    stanford-postagger-full-2015-12-09.zip (/software/stanford-postagger-full-2015-12-09.zip)
+    stanford-segmenter-2015-12-09.zip (/software/stanford-segmenter-2015-12-09.zip)

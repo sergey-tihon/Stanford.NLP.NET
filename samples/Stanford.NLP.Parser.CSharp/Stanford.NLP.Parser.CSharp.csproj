@@ -35,6 +35,9 @@
     <Reference Include="ejml-0.23">
       <HintPath>..\..\bin\Stanford.NLP.Parser\lib\ejml-0.23.dll</HintPath>
     </Reference>
+    <Reference Include="slf4j-api">
+      <HintPath>..\..\bin\Stanford.NLP.Parser\lib\slf4j-api.dll</HintPath>
+    </Reference>
     <Reference Include="stanford-parser">
       <HintPath>..\..\bin\Stanford.NLP.Parser\lib\stanford-parser.dll</HintPath>
     </Reference>

@@ -36,7 +36,7 @@ Stanford Named Entity Recognizer (NER) for .NET
       The Stanford NER library can be <a href="https://www.nuget.org/packages/Stanford.NLP.NER/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.NER</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-ner-2015-04-20.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-ner-2015-12-09.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford NER ZIP archive with models</button>
     </form>
@@ -55,7 +55,7 @@ open edu.stanford.nlp.ie.crf
 
 // Path to the folder with classifiers models
 let classifiersDirecrory =
-    __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-04-20\classifiers\"
+    __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-12-09\classifiers\"
 
 // Loading 3 class classifier model
 let classifier =
@@ -99,7 +99,7 @@ C# Sample of Named Entity Recognition
             static void Main()
             {
                 // Path to the folder with classifiers models
-                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-04-20";
+                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-12-09";
                 var classifiersDirecrory = jarRoot + @"\classifiers";
 
                 // Loading 3 class classifier model

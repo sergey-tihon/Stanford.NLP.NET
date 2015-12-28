@@ -8,13 +8,13 @@ namespace Stanford.NLP.NER.CSharp
         static void Main()
         {
             // Path to the folder with classifies models
-            var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-04-20";
+            var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-12-09";
             var classifiersDirecrory = jarRoot + @"\classifiers";
 
             // Loading 3 class classifier model
             var classifier =CRFClassifier.getClassifierNoExceptions(
                 classifiersDirecrory + @"\english.all.3class.distsim.crf.ser.gz");
-            
+
             var s1 = "Good afternoon Rajat Raina, how are you today?";
             Console.WriteLine("{0}\n", classifier.classifyToString(s1));
 

@@ -125,7 +125,7 @@ let createNuGetPackage workingDir nuspec =
             ReleaseNotes = String.Join(Environment.NewLine, release.Notes)
             OutputPath = "bin"
             AccessKey = getBuildParamOrDefault "nugetkey" ""
-            Publish = hasBuildParam "nugetkey"
+            Publish = false//hasBuildParam "nugetkey"
             WorkingDir = workingDir
             ToolPath = root.packages.``NuGet.CommandLine``.tools.``NuGet.exe`` })
         nuspec
@@ -146,20 +146,21 @@ Target "CleanDocs" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.CoreNLP and build NuGet package
 
-type coreNLPDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-corenlp-full-2015-04-20``
+type coreNLPDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-corenlp-full-2015-12-09``
 
 Target "CompilerCoreNLP" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.CoreNLP\lib"
     CreateDir ikvmDir
-    restoreFolderFromFile (coreNLPDir.Path + "models") coreNLPDir.``stanford-corenlp-3.5.2-models.jar``
+    restoreFolderFromFile (coreNLPDir.Path + "models") coreNLPDir.``stanford-corenlp-3.6.0-models.jar``
 
-    [IKVMcTask(coreNLPDir.``stanford-corenlp-3.5.2.jar``, Version=release.AssemblyVersion,
-           Dependencies = [IKVMcTask(coreNLPDir.``joda-time.jar``, Version="2.1")
+    [IKVMcTask(coreNLPDir.``stanford-corenlp-3.6.0.jar``, Version=release.AssemblyVersion,
+           Dependencies = [IKVMcTask(coreNLPDir.``joda-time.jar``, Version="2.9")
                            IKVMcTask(coreNLPDir.``jollyday.jar``, Version="0.4.7",
-                                Dependencies =[IKVMcTask(coreNLPDir.``joda-time.jar``, Version="2.1")])
+                                Dependencies =[IKVMcTask(coreNLPDir.``joda-time.jar``, Version="2.9")])
                            IKVMcTask(coreNLPDir.``ejml-0.23.jar``, Version="0.23")
                            IKVMcTask(coreNLPDir.``xom.jar``, Version="1.2.10")
-                           IKVMcTask(coreNLPDir.``javax.json.jar``, Version="1.0")])]
+                           IKVMcTask(coreNLPDir.``javax.json.jar``, Version="1.0.4")
+                           IKVMcTask(coreNLPDir.``slf4j-api.jar``, Version="1.7.2")])]
     |> IKVMCompile ikvmDir keyFile
 )
 
@@ -170,13 +171,14 @@ Target "NuGetCoreNLP" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.NET and build NuGet package
 
-type nerDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-ner-2015-04-20``
+type nerDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-ner-2015-12-09``
 
 Target "CompilerNER" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.NER\lib"
     CreateDir ikvmDir
 
-    [IKVMcTask(nerDir.``stanford-ner.jar``, Version=release.AssemblyVersion)]
+    [IKVMcTask(nerDir.``stanford-ner.jar``, Version=release.AssemblyVersion,
+        Dependencies = [IKVMcTask(nerDir.lib.``slf4j-api.jar``, Version="1.7.2")])]
     |> IKVMCompile ikvmDir keyFile
 )
 
@@ -187,15 +189,16 @@ Target "NuGetNER" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.Parser and build NuGet package
 
-type parserDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-parser-full-2015-04-20``
+type parserDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-parser-full-2015-12-09``
 
 Target "CompilerParser" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.Parser\lib"
     CreateDir ikvmDir
 
-    restoreFolderFromFile (parserDir.Path + "models") parserDir.``stanford-parser-3.5.2-models.jar``
+    restoreFolderFromFile (parserDir.Path + "models") parserDir.``stanford-parser-3.6.0-models.jar``
     [IKVMcTask(parserDir.``stanford-parser.jar``, Version=release.AssemblyVersion,
-           Dependencies = [IKVMcTask(parserDir.``ejml-0.23.jar``, Version="0.23.0.0")])]
+           Dependencies = [IKVMcTask(parserDir.``ejml-0.23.jar``, Version="0.23.0.0")
+                           IKVMcTask(parserDir.``slf4j-api.jar``, Version="1.7.2")])]
     |> IKVMCompile ikvmDir keyFile
 )
 
@@ -206,13 +209,14 @@ Target "NuGetParser" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.POSTagger and build NuGet package
 
-type posDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-postagger-full-2015-04-20``
+type posDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-postagger-full-2015-12-09``
 
 Target "CompilerPOS" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.POSTagger\lib"
     CreateDir ikvmDir
 
-    [IKVMcTask(posDir.``stanford-postagger-3.5.2.jar``, Version=release.AssemblyVersion)]
+    [IKVMcTask(posDir.``stanford-postagger-3.6.0.jar``, Version=release.AssemblyVersion,
+        Dependencies = [IKVMcTask(posDir.lib.``slf4j-api.jar``, Version="1.7.2")])]
     |> IKVMCompile ikvmDir keyFile
 )
 
@@ -223,13 +227,14 @@ Target "NuGetPOS" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.Segmenter and build NuGet package
 
-type segmenterDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-segmenter-2015-04-20``
+type segmenterDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-segmenter-2015-12-09``
 
 Target "CompilerSegmenter" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.Segmenter\lib"
     CreateDir ikvmDir
 
-    [IKVMcTask(segmenterDir.``stanford-segmenter-3.5.2.jar``, Version=release.AssemblyVersion)]
+    [IKVMcTask(segmenterDir.``stanford-segmenter-3.6.0.jar``, Version=release.AssemblyVersion,
+        Dependencies=[IKVMcTask(segmenterDir.``slf4j-api.jar``, Version="1.7.2")])]
     |> IKVMCompile ikvmDir keyFile
 )
 
@@ -420,6 +425,7 @@ Target "NuGet" DoNothing
   ==> "GenerateHelp"
   ==> "GenerateReferenceDocs"
   ==> "GenerateDocs"
+  ==> "ReleaseDocs"
 
 "CleanDocs"
   ==> "GenerateHelpDebug"

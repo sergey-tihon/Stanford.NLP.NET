@@ -32,9 +32,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="stanford-corenlp-3.5.2, Version=3.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ejml-0.23, Version=0.23.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-3.5.2.dll</HintPath>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\ejml-0.23.dll</HintPath>
+    </Reference>
+    <Reference Include="javax.json, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\javax.json.dll</HintPath>
+    </Reference>
+    <Reference Include="joda-time, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\joda-time.dll</HintPath>
+    </Reference>
+    <Reference Include="jollyday, Version=0.4.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\jollyday.dll</HintPath>
+    </Reference>
+    <Reference Include="slf4j-api">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-api.dll</HintPath>
+    </Reference>
+    <Reference Include="stanford-corenlp-3.6.0">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-3.6.0.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,6 +61,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="xom, Version=1.2.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\xom.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -198,33 +220,6 @@
     </Reference>
     <Reference Include="IKVM.Runtime">
       <HintPath>..\..\packages\IKVM\lib\IKVM.Runtime.dll</HintPath>
-      <Private>True</Private>
-      <Paket>True</Paket>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="ejml-0.23">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP\lib\ejml-0.23.dll</HintPath>
-      <Private>True</Private>
-      <Paket>True</Paket>
-    </Reference>
-    <Reference Include="javax.json">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP\lib\javax.json.dll</HintPath>
-      <Private>True</Private>
-      <Paket>True</Paket>
-    </Reference>
-    <Reference Include="joda-time">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP\lib\joda-time.dll</HintPath>
-      <Private>True</Private>
-      <Paket>True</Paket>
-    </Reference>
-    <Reference Include="jollyday">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP\lib\jollyday.dll</HintPath>
-      <Private>True</Private>
-      <Paket>True</Paket>
-    </Reference>
-    <Reference Include="xom">
-      <HintPath>..\..\packages\Stanford.NLP.CoreNLP\lib\xom.dll</HintPath>
       <Private>True</Private>
       <Paket>True</Paket>
     </Reference>

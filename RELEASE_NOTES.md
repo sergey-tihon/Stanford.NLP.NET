@@ -1,3 +1,6 @@
+#### 3.6.0.0 - December 25 2015
+* New version of Stanford NLP (3.6)
+
 #### 3.5.2.1 - Oct 5 2015
 * IKVM.NET was updated up to v8.1.5717
 

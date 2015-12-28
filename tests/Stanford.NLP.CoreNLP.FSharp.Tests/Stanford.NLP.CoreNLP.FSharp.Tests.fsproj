@@ -68,34 +68,31 @@
   <ItemGroup>
     <Reference Include="ejml-0.23">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\ejml-0.23.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="javax.json">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\javax.json.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="joda-time">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\joda-time.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="jollyday">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\jollyday.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
     </Reference>
-    <Reference Include="stanford-corenlp-3.5.2">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-3.5.2.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="slf4j-api">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-api.dll</HintPath>
+    </Reference>
+    <Reference Include="stanford-corenlp-3.6.0">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-3.6.0.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="xom">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\xom.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

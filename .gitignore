@@ -183,5 +183,6 @@ paket-files
 .paket/paket.exe
 docs/content/license.md
 docs/content/release-notes.md
+.fake/
 
 nuget/Stanford.NLP.snk

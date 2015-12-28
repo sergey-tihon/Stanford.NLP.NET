@@ -61,6 +61,9 @@
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
     </Reference>
+    <Reference Include="slf4j-api">
+      <HintPath>..\..\bin\Stanford.NLP.NER\lib\slf4j-api.dll</HintPath>
+    </Reference>
     <Reference Include="stanford-ner">
       <HintPath>..\..\bin\Stanford.NLP.NER\lib\stanford-ner.dll</HintPath>
       <Private>True</Private>

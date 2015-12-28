@@ -32,8 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="stanford-ner, Version=3.5.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="slf4j-api">
+      <HintPath>..\..\bin\Stanford.NLP.NER\lib\slf4j-api.dll</HintPath>
+    </Reference>
+    <Reference Include="stanford-ner">
       <HintPath>..\..\bin\Stanford.NLP.NER\lib\stanford-ner.dll</HintPath>
     </Reference>
     <Reference Include="System" />
