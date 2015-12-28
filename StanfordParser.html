@@ -82,7 +82,7 @@ If you don't need a commercial license, but would like to support maintenance of
       The Stanford Parser library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Parser/">installed from NuGet</a>:
       <pre>PM&gt; Install-Package Stanford.NLP.Parser</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-parser-full-2015-04-20.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-parser-full-2015-12-09.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford Parser ZIP archive with models</button>
     </form>
@@ -172,10 +172,10 @@ If you don't need a commercial license, but would like to support maintenance of
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 10)" onmouseover="showTip(event, 'fs3', 10)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 11)" onmouseover="showTip(event, 'fs4', 11)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 12)" onmouseover="showTip(event, 'fs5', 12)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 13)" onmouseover="showTip(event, 'fs7', 13)" class="i">trees</span>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 14)" onmouseover="showTip(event, 'fs3', 14)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 15)" onmouseover="showTip(event, 'fs4', 15)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 16)" onmouseover="showTip(event, 'fs5', 16)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 17)" onmouseover="showTip(event, 'fs8', 17)" class="i">parser</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 18)" onmouseover="showTip(event, 'fs9', 18)" class="i">lexparser</span>
 
-<span class="c">// Path to models extracted from `stanford-parser-3.5.2-models.jar`</span>
+<span class="c">// Path to models extracted from `stanford-parser-3.6.0-models.jar`</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 19)" onmouseover="showTip(event, 'fs10', 19)" class="i">modelsDirectry</span> <span class="o">=</span>
     <span class="k">__SOURCE_DIRECTORY__</span>
-    <span class="o">+</span> <span class="s">@&quot;..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2015-04-20\models&quot;</span>
+    <span class="o">+</span> <span class="s">@&quot;..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2015-12-09\models&quot;</span>
     <span class="o">+</span> <span class="s">@&quot;edu\stanford\nlp\models\&quot;</span>
 
 <span class="c">// Loading english PCFG parser from file</span>
@@ -298,8 +298,8 @@ If you don't need a commercial license, but would like to support maintenance of
     {
         <span class="k">static</span> <span class="k">void</span> Main()
         {
-            <span class="c">// Path to models extracted from `stanford-parser-3.5.2-models.jar`</span>
-            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2015-04-20\models\";
+            <span class="c">// Path to models extracted from `stanford-parser-3.6.0-models.jar`</span>
+            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2015-12-09\models\";
             var modelsDirectory = jarRoot+@"</span>\edu\stanford\nlp\models<span class="s">";
 
             // Loading english PCFG parser from file
