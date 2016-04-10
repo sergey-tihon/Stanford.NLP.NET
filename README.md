@@ -19,8 +19,12 @@ Versioning
 Versioning model used for NuGet packages is aligned to versioning used by Stanford NLP Group. 
 For example, if you get `Stanford CoreNLP` distribution from [Stanford NLP site](http://www-nlp.stanford.edu/software/index.shtml) with version `3.3.1`, then the NuGet version of this package has a version `3.3.1.x`, where `x` is the greatest that is available on NuGet. Last number is used for internal versioning of .NET assemblies.
 
-Licensing
-----------
+Licensing of the code/content of this repo
+---------------------------
+The source code of this repo(build scripts, integration tests, docs and samples) under the [MIT](LICENSE) license.
+
+Licensing of NuGet packages
+---------------------------
 All these software distributions are open source, **licensed under the [GNU General Public License](http://www.gnu.org/licenses/gpl-2.0.html)** (v2 or later). Note that this is the *full* GPL, which allows many free uses, but *does not allow* its incorporation into any type of distributed [proprietary software](http://www.gnu.org/licenses/gpl-faq.html#GPLInProprietarySystem), even in part or in translation. **Commercial licensing** is also available; please contact [The Stanford Natural Language Processing Group](http://www-nlp.stanford.edu/) if you are interested. 
 
 ---
