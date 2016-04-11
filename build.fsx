@@ -14,7 +14,8 @@ open System
 open System.IO
 open FSharp.Management
 
-type root = FileSystem< __SOURCE_DIRECTORY__ >
+let [<Literal>]RootFolder = __SOURCE_DIRECTORY__
+type root = FileSystem<RootFolder>
 
 // --------------------------------------------------------------------------------------
 // Provide project-specific details

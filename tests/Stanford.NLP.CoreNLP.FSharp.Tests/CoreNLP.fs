@@ -87,7 +87,7 @@ let [<Test>]``StanfordCoreNlpDemo.java with manual configuration`` () =
     let props = Properties()
     let (<==) key value = props.setProperty(key, value) |> ignore
     "annotators"    <== "tokenize, ssplit, pos, lemma, ner, parse, dcoref"
-    "pos.model"     <== Models.``pos-tagger``.``english-bidirectional``.``english-bidirectional-distsim.tagger``
+    "pos.model"     <== Models.``pos-tagger``.``english-left3words``.``english-left3words-distsim.tagger``
     "ner.model"     <== Models.ner.``english.all.3class.distsim.crf.ser.gz``
     "ner.applyNumericClassifiers" <== "false"
     "ner.useSUTime" <== "false"

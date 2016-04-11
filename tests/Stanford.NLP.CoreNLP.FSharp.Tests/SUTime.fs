@@ -15,7 +15,7 @@ let [<Test>] ``SUTime Defaut Test : Three interesting dates`` () =
     pipeline.addAnnotator(TokenizerAnnotator(false))
     pipeline.addAnnotator(WordsToSentencesAnnotator(false))
 
-    let tagger = MaxentTagger(Models.``pos-tagger``.``english-bidirectional``.``english-bidirectional-distsim.tagger``)
+    let tagger = MaxentTagger(Models.``pos-tagger``.``english-left3words``.``english-left3words-distsim.tagger``)
     pipeline.addAnnotator(POSTaggerAnnotator(tagger))
 
     let sutimeRules =
