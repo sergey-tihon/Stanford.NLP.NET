@@ -147,21 +147,25 @@ Target "CleanDocs" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.CoreNLP and build NuGet package
 
-type coreNLPDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-corenlp-full-2015-12-09``
+type coreNLPDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-corenlp-full-2016-10-31``
 
 Target "CompilerCoreNLP" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.CoreNLP\lib"
     CreateDir ikvmDir
-    restoreFolderFromFile (coreNLPDir.Path + "models") coreNLPDir.``stanford-corenlp-3.6.0-models.jar``
 
-    [IKVMcTask(coreNLPDir.``stanford-corenlp-3.6.0.jar``, Version=release.AssemblyVersion,
+    coreNLPDir.``stanford-corenlp-3.7.0-models.jar``
+    |> restoreFolderFromFile (Path.Combine(coreNLPDir.Path, "models"))
+
+    [IKVMcTask(coreNLPDir.``stanford-corenlp-3.7.0.jar``, Version=release.AssemblyVersion,
            Dependencies = [IKVMcTask(coreNLPDir.``joda-time.jar``, Version="2.9")
                            IKVMcTask(coreNLPDir.``jollyday.jar``, Version="0.4.7",
                                 Dependencies =[IKVMcTask(coreNLPDir.``joda-time.jar``, Version="2.9")])
                            IKVMcTask(coreNLPDir.``ejml-0.23.jar``, Version="0.23")
                            IKVMcTask(coreNLPDir.``xom.jar``, Version="1.2.10")
                            IKVMcTask(coreNLPDir.``javax.json.jar``, Version="1.0.4")
-                           IKVMcTask(coreNLPDir.``slf4j-api.jar``, Version="1.7.2")])]
+                           IKVMcTask(coreNLPDir.``slf4j-api.jar``, Version="1.7.2")
+                           IKVMcTask(coreNLPDir.``slf4j-simple.jar``, Version="1.7.2")
+                           IKVMcTask(coreNLPDir.``protobuf.jar``, Version="2.6.1")])]
     |> IKVMCompile ikvmDir keyFile
 )
 

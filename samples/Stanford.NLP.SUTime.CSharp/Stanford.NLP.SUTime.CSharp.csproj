@@ -51,8 +51,14 @@
     <Reference Include="slf4j-api">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-api.dll</HintPath>
     </Reference>
-    <Reference Include="stanford-corenlp-3.6.0">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-3.6.0.dll</HintPath>
+    <Reference Include="slf4j-simple">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-simple.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="stanford-corenlp-3.7.0">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-3.7.0.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -75,7 +81,7 @@
     <None Include="paket.references" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

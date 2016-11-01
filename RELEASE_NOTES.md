@@ -1,3 +1,8 @@
+#### 3.7.0.0-beta - November 1, 2016
+* New version of Stanford NLP (3.7-beta)
+* KBP Annotator, improved coreference, Arabic pipeline
+* Known issues: https://github.com/stanfordnlp/CoreNLP/issues/293
+
 #### 3.6.0.0 - December 25 2015
 * New version of Stanford NLP (3.6)
 
