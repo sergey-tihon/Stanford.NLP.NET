@@ -5,6 +5,7 @@ nuget NUnit 2.6.3
 nuget NUnit.Runners 2.6.3
 nuget Nuget.CommandLine
 nuget FAKE
+nuget Mono.Cecil
 
 nuget IKVM
 nuget FSharp.Management

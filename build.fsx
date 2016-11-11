@@ -2,9 +2,10 @@
 // FAKE build script
 // --------------------------------------------------------------------------------------
 
-#r @"packages/FAKE/tools/FakeLib.dll"
+#r "packages/FAKE/tools/FakeLib.dll"
 #r "System.IO.Compression.FileSystem.dll"
 #r "packages/FSharp.Management/lib/net40/FSharp.Management.dll"
+#r "packages/Mono.Cecil/lib/net45/Mono.Cecil.dll"
 
 open Microsoft.FSharp.Core.Printf
 open Fake
@@ -12,7 +13,9 @@ open Fake.Git
 open Fake.ReleaseNotesHelper
 open System
 open System.IO
+open System.Reflection
 open FSharp.Management
+open Mono.Cecil
 
 let [<Literal>]RootFolder = __SOURCE_DIRECTORY__
 type root = FileSystem<RootFolder>
@@ -52,8 +55,6 @@ let restoreFolderFromFile folder zipFile =
 
 // Location of IKVM Compiler & ildasm / ilasm
 let ikvmc = root.``paket-files``.``www.frijters.net``.``ikvm-8.1.5717.0``.bin.``ikvmc.exe``
-let ildasm = @"c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\x64\ildasm.exe"
-let ilasm =  @"c:\Windows\Microsoft.NET\Framework64\v2.0.50727\ilasm.exe"
 
 type IKVMcTask(jar:string) =
     member val JarFile = jar
@@ -99,11 +100,13 @@ let IKVMCompile workingDirectory keyFile tasks =
         File.Copy(task.JarFile, workingDirectory @@ (Path.GetFileName(task.JarFile)) ,true)
         startProcess ikvmc (getIKVMCommandLineArgs())
         if (File.Exists(newKeyFile)) then
+            let key = FullName newKeyFile
+                      |> File.ReadAllBytes
+                      |> StrongNameKeyPair
             let dllFile = task.JarFile |> getNewFileName ".dll"
-            let ilFile  = task.JarFile |> getNewFileName ".il"
-            startProcess ildasm (sprintf " /all /out=%s %s" ilFile dllFile)
-            File.Delete(dllFile)
-            startProcess ilasm  (sprintf " /dll /key=%s %s" (newKeyFile) ilFile)
+            ModuleDefinition
+                .ReadModule(dllFile)
+                .Write(dllFile, WriterParameters(StrongNameKeyPair=key))
     tasks |> Seq.iter compile
 
 let copyPackages fromDir toDir =
