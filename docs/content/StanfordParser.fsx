@@ -72,7 +72,7 @@ let lp = LexicalizedParser.loadModel(modelsDirectry + @"lexparser\englishPCFG.se
 
 // This sample shows parsing a list of correctly tokenized words
 let sent = [|"This"; "is"; "an"; "easy"; "sentence"; "." |]
-let rawWords = Sentence.toCoreLabelList(sent)
+let rawWords = SentenceUtils.toCoreLabelList(sent)
 let tree = lp.apply(rawWords)
 tree.pennPrint()
 // [fsi:>]
@@ -147,7 +147,7 @@ C# Sample of sentence parsing
 
                 // This sample shows parsing a list of correctly tokenized words
                 var sent = new[] { "This", "is", "an", "easy", "sentence", "." };
-                var rawWords = Sentence.toCoreLabelList(sent);
+                var rawWords = SentenceUtils.toCoreLabelList(sent);
                 var tree = lp.apply(rawWords);
                 tree.pennPrint();
 

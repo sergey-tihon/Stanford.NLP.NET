@@ -9,7 +9,7 @@ open edu.stanford.nlp.ling
 open edu.stanford.nlp.trees
 open edu.stanford.nlp.parser.lexparser
 
-let models = 
+let models =
     [|  Models.lexparser.``englishPCFG.ser.gz``
         Models.lexparser.``englishPCFG.caseless.ser.gz``
         Models.lexparser.``englishFactored.ser.gz``
@@ -20,7 +20,7 @@ let models =
 let [<Test>] ``Parse easy sentence`` (lp:LexicalizedParser) =
     // This option shows parsing a list of correctly tokenized words
     let sent = [|"This"; "is"; "an"; "easy"; "sentence"; "." |]
-    let rawWords = Sentence.toCoreLabelList(sent)
+    let rawWords = SentenceUtils.toCoreLabelList(sent)
     let parse = lp.apply(rawWords)
     parse |> should not' (be Null)
     parse.pennPrint()
@@ -54,7 +54,7 @@ let [<Test>] ``Loading sentences from file and tokenizing`` (lp:LexicalizedParse
     DocumentPreprocessor(DataFiles.``SampleText.txt``)
     |> toSeq
     |> Seq.cast<java.util.List>
-    |> Seq.iter (fun sentence -> 
+    |> Seq.iter (fun sentence ->
         let parse = lp.apply(sentence);
         parse |> should not' (be Empty)
         parse.pennPrint();

@@ -197,16 +197,15 @@ Target "NuGetNER" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.Parser and build NuGet package
 
-type parserDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-parser-full-2015-12-09``
+type parserDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-parser-full-2016-10-31``
 
 Target "CompilerParser" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.Parser\lib"
     CreateDir ikvmDir
 
-    restoreFolderFromFile (parserDir.Path + "models") parserDir.``stanford-parser-3.6.0-models.jar``
+    restoreFolderFromFile (parserDir.Path + "models") parserDir.``stanford-parser-3.7.0-models.jar``
     [IKVMcTask(parserDir.``stanford-parser.jar``, Version=release.AssemblyVersion,
-           Dependencies = [IKVMcTask(parserDir.``ejml-0.23.jar``, Version="0.23.0.0")
-                           IKVMcTask(parserDir.``slf4j-api.jar``, Version="1.7.2")])]
+           Dependencies = [IKVMcTask(parserDir.``ejml-0.23.jar``, Version="0.23.0.0")])]
     |> IKVMCompile ikvmDir keyFile
 )
 

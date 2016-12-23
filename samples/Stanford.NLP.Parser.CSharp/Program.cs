@@ -12,7 +12,7 @@ namespace Stanford.NLP.Parser.CSharp
         static void Main()
         {
             // Path to models extracted from `stanford-parser-3.6.0-models.jar`
-            var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2015-12-09\models\";
+            var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2016-10-31\models\";
             var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
 
             // Loading english PCFG parser from file
@@ -20,7 +20,7 @@ namespace Stanford.NLP.Parser.CSharp
 
             // This sample shows parsing a list of correctly tokenized words
             var sent = new[] { "This", "is", "an", "easy", "sentence", "." };
-            var rawWords = Sentence.toCoreLabelList(sent);
+            var rawWords = SentenceUtils.toCoreLabelList(sent);
             var tree = lp.apply(rawWords);
             tree.pennPrint();
 
