@@ -47,47 +47,40 @@
             <div class="span9" id="main">
                 
 <h1>Stanford Named Entity Recognizer (NER) for .NET</h1>
-
 <blockquote>
-  <p><a href="http://www-nlp.stanford.edu/software/CRF-NER.shtml">Stanford NER</a> is an implementation of a Named Entity Recognizer. Named Entity Recognition (NER) labels sequences of words in a text
+<p><a href="http://www-nlp.stanford.edu/software/CRF-NER.shtml">Stanford NER</a> is an implementation of a Named Entity Recognizer. Named Entity Recognition (NER) labels sequences of words in a text
 which are the names of things, such as person and company names, or gene and protein names. It comes with well-engineered feature extractors
 for Named Entity Recognition, and many options for defining feature extractors. Included with the download are good named entity recognizers
 for English, particularly for the 3 classes (<code>PERSON</code>, <code>ORGANIZATION</code>, <code>LOCATION</code>), and Stanford NLP Group also makes available on <a href="http://www-nlp.stanford.edu/software/CRF-NER.shtml">the original page</a>
 various other models for different languages and circumstances, including models trained on just the <a href="http://www.cnts.ua.ac.be/conll2003/ner/">CoNLL 2003</a>
 English training data. The distributional similarity features in some models improve performance but the models require considerably more memory.</p>
-
-  <p>Stanford NER is also known as CRFClassifier. The software provides a general implementation of (arbitrary order) linear chain
+<p>Stanford NER is also known as CRFClassifier. The software provides a general implementation of (arbitrary order) linear chain
 Conditional Random Field (CRF) sequence models. That is, by training your own models, you can actually use this code to build sequence models
 for any task.</p>
-
-  <p>You can look at a PowerPoint Introduction to NER and the Stanford NER package <a href="http://www-nlp.stanford.edu/software/jenny-ner-2007.ppt">ppt</a>
+<p>You can look at a PowerPoint Introduction to NER and the Stanford NER package <a href="http://www-nlp.stanford.edu/software/jenny-ner-2007.ppt">ppt</a>
 <a href="http://www-nlp.stanford.edu/software/jenny-ner-2007.pdf">pdf</a> or the <a href="http://www-nlp.stanford.edu/software/crf-faq.shtml">FAQ</a>, which has
 some information on training models. Further documentation is provided in the included README and in the javadocs.</p>
-
-  <p>Stanford NER is available for download, licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later). Source is included.
+<p>Stanford NER is available for download, licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later). Source is included.
 The package includes components for command-line invocation, running as a server, and a Java API. Stanford NER code is dual licensed
 (in a similar manner to MySQL, etc.). Open source licensing is under the full GPL, which allows many free uses.
 For distributors of proprietary software, <a href="http://otlportal.stanford.edu/techfinder/technology/ID=24628">commercial licensing</a> is available.
 If you don't need a commercial license, but would like to support maintenance of these tools, Stanford NLP Group welcomes gifts.</p>
 </blockquote>
-
 <p><div class="row" style="margin-left: auto; margin-right: auto; display: block;">
-  <div class="span1"></div>
-  <div class="span6">
-    <div class="well well-small" id="nuget">
-      The Stanford NER library can be <a href="https://www.nuget.org/packages/Stanford.NLP.NER/">installed from NuGet</a>:
-      <pre>PM&gt; Install-Package Stanford.NLP.NER</pre>
-    </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-ner-2015-12-09.zip">
-    <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
-    Download Stanford NER ZIP archive with models</button>
-    </form>
-  </div>
-  <div class="span1"></div>
- </div></p>
-
+<div class="span1"></div>
+<div class="span6">
+<div class="well well-small" id="nuget">
+The Stanford NER library can be <a href="https://www.nuget.org/packages/Stanford.NLP.NER/">installed from NuGet</a>:
+<pre>PM&gt; Install-Package Stanford.NLP.NER</pre>
+</div>
+<form method="get" action="http://nlp.stanford.edu/software/stanford-ner-2016-10-31.zip">
+<button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
+Download Stanford NER ZIP archive with models</button>
+</form>
+</div>
+<div class="span1"></div>
+</div></p>
 <h2>F# Sample of Named Entity Recognition</h2>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
@@ -134,7 +127,7 @@ If you don't need a commercial license, but would like to support maintenance of
 
 <span class="c">// Path to the folder with classifiers models</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="i">classifiersDirecrory</span> <span class="o">=</span>
-    <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-12-09\classifiers\&quot;</span>
+    <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;..\..\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31\classifiers\&quot;</span>
 
 <span class="c">// Loading 3 class classifier model</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="i">classifier</span> <span class="o">=</span>
@@ -166,9 +159,7 @@ If you don't need a commercial license, but would like to support maintenance of
 </code></pre></td>
 </tr>
 </table>
-
 <h2>C# Sample of Named Entity Recognition</h2>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
@@ -207,28 +198,26 @@ If you don't need a commercial license, but would like to support maintenance of
         <span class="k">static</span> <span class="k">void</span> Main()
         {
             <span class="c">// Path to the folder with classifiers models</span>
-            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-12-09"</span>;
+            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31"</span>;
             <span class="k">var</span> classifiersDirecrory <span class="o">=</span> jarRoot <span class="o">+</span> <span class="s">@"\classifiers"</span>;
 
             <span class="c">// Loading 3 class classifier model</span>
             <span class="k">var</span> classifier <span class="o">=</span> CRFClassifier.getClassifierNoExceptions(
                 classifiersDirecrory <span class="o">+</span> <span class="s">@"\english.all.3class.distsim.crf.ser.gz"</span>);
 
-            <span class="k">var</span> s1 <span class="o">=</span> <span class="s">"Good afternoon Rajat Raina, how are you today?"</span>;
-            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyToString(s1));
+            <span class="k">var</span> s<span class="n">1</span> <span class="o">=</span> <span class="s">"Good afternoon Rajat Raina, how are you today?"</span>;
+            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyToString(s<span class="n">1</span>));
 
-            <span class="k">var</span> s2 <span class="o">=</span> <span class="s">"I go to school at Stanford University, which is located in California."</span>;
-            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyWithInlineXML(s2));
+            <span class="k">var</span> s<span class="n">2</span> <span class="o">=</span> <span class="s">"I go to school at Stanford University, which is located in California."</span>;
+            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyWithInlineXML(s<span class="n">2</span>));
 
-            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyToString(s2, <span class="s">"xml"</span>, <span class="k">true</span>));
+            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyToString(s<span class="n">2</span>, <span class="s">"xml"</span>, <span class="k">true</span>));
         }
     }
-}</code></pre></td></tr></table>
-
+}
+</code></pre></td></tr></table>
 <p>Read more about Stanford Stanford Named Entity Recognizer on <a href="http://www-nlp.stanford.edu/software/CRF-NER.shtml">the official page</a>.</p>
-
 <h2>Relevant posts</h2>
-
 <ul>
 <li><a href="http://sergeytihon.wordpress.com/2013/07/12/stanford-named-entity-recognizer-ner-is-available-on-nuget/">Stanford Named Entity Recognizer (NER) is available on NuGet.</a></li>
 <li><a href="http://sergeytihon.wordpress.com/2013/02/16/nlp-stanford-named-entity-recognizer-with-f-net/">NLP: Stanford Named Entity Recognizer with F# (.NET).</a></li>

@@ -47,51 +47,43 @@
             <div class="span9" id="main">
                 
 <h1>Stanford Parser for .NET (A statistical parser)</h1>
-
 <blockquote>
-  <p><a href="http://www-nlp.stanford.edu/software/lex-parser.shtml">A natural language parser</a> is a program that works out the grammatical structure of sentences, for instance, which groups of words
+<p><a href="http://www-nlp.stanford.edu/software/lex-parser.shtml">A natural language parser</a> is a program that works out the grammatical structure of sentences, for instance, which groups of words
 go together (as "phrases") and which words are the subject or object of a verb. Probabilistic parsers use knowledge of language gained from hand-parsed
 sentences to try to produce the most likely analysis of new sentences. These statistical parsers still make some mistakes, but commonly work
 rather well. Their development was one of the biggest breakthroughs in natural language processing in the 1990s. You can
 <a href="http://nlp.stanford.edu:8080/parser/">try out our parser online</a>.</p>
-
-  <p>The lexicalized probabilistic parser implements a factored product model, with separate PCFG phrase structure and lexical dependency experts,
+<p>The lexicalized probabilistic parser implements a factored product model, with separate PCFG phrase structure and lexical dependency experts,
 whose preferences are combined by efficient exact inference, using an A* algorithm. Alternatively the software can be used simply as an accurate
 unlexicalized stochastic context-free grammar parser. Either of these yields a good performance statistical parsing system.
 A GUI is provided for viewing the phrase structure tree output of the parser.</p>
-
-  <p>As well as providing an English parser, the parser can be and has been adapted to work with other languages. A Chinese parser based on
+<p>As well as providing an English parser, the parser can be and has been adapted to work with other languages. A Chinese parser based on
 the Chinese Treebank, a German parser based on the Negra corpus and Arabic parsers based on the Penn Arabic Treebank are also included.
 The parser has also been used for other languages, such as Italian, Bulgarian, and Portuguese.</p>
-
-  <p>The parser provides <a href="http://www-nlp.stanford.edu/software/stanford-dependencies.shtml">Stanford Dependencies</a> output as well as phrase
+<p>The parser provides <a href="http://www-nlp.stanford.edu/software/stanford-dependencies.shtml">Stanford Dependencies</a> output as well as phrase
 structure trees. Typed dependencies are otherwise known grammatical relations. This style of output is available only for English and Chinese.
 For more details, please refer to the <a href="http://www-nlp.stanford.edu/software/stanford-dependencies.shtml">Stanford Dependencies webpage</a>.</p>
-
-  <p>The parser is available for download, licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later). Source is included.
+<p>The parser is available for download, licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later). Source is included.
 The package includes components for command-line invocation, a Java parsing GUI, and a Java API. The parser code is dual licensed
 (in a similar manner to MySQL, etc.). Open source licensing is under the full GPL, which allows many free uses. For distributors of
 proprietary software, <a href="http://otlportal.stanford.edu/techfinder/technology/ID=24472">commercial licensing</a> is available.
 If you don't need a commercial license, but would like to support maintenance of these tools, Stanford NLP Group welcomes gift funding.</p>
 </blockquote>
-
 <p><div class="row" style="margin-left: auto; margin-right: auto; display: block;">
-  <div class="span1"></div>
-  <div class="span6">
-    <div class="well well-small" id="nuget">
-      The Stanford Parser library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Parser/">installed from NuGet</a>:
-      <pre>PM&gt; Install-Package Stanford.NLP.Parser</pre>
-    </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-parser-full-2015-12-09.zip">
-    <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
-    Download Stanford Parser ZIP archive with models</button>
-    </form>
-  </div>
-  <div class="span1"></div>
- </div></p>
-
+<div class="span1"></div>
+<div class="span6">
+<div class="well well-small" id="nuget">
+The Stanford Parser library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Parser/">installed from NuGet</a>:
+<pre>PM&gt; Install-Package Stanford.NLP.Parser</pre>
+</div>
+<form method="get" action="http://nlp.stanford.edu/software/stanford-parser-full-2016-10-31.zip">
+<button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
+Download Stanford Parser ZIP archive with models</button>
+</form>
+</div>
+<div class="span1"></div>
+</div></p>
 <h2>F# Sample of sentence parsing</h2>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
@@ -172,10 +164,10 @@ If you don't need a commercial license, but would like to support maintenance of
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 10)" onmouseover="showTip(event, 'fs3', 10)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 11)" onmouseover="showTip(event, 'fs4', 11)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 12)" onmouseover="showTip(event, 'fs5', 12)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 13)" onmouseover="showTip(event, 'fs7', 13)" class="i">trees</span>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 14)" onmouseover="showTip(event, 'fs3', 14)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 15)" onmouseover="showTip(event, 'fs4', 15)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 16)" onmouseover="showTip(event, 'fs5', 16)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 17)" onmouseover="showTip(event, 'fs8', 17)" class="i">parser</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 18)" onmouseover="showTip(event, 'fs9', 18)" class="i">lexparser</span>
 
-<span class="c">// Path to models extracted from `stanford-parser-3.6.0-models.jar`</span>
+<span class="c">// Path to models extracted from `stanford-parser-3.7.0-models.jar`</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 19)" onmouseover="showTip(event, 'fs10', 19)" class="i">modelsDirectry</span> <span class="o">=</span>
     <span class="k">__SOURCE_DIRECTORY__</span>
-    <span class="o">+</span> <span class="s">@&quot;..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2015-12-09\models&quot;</span>
+    <span class="o">+</span> <span class="s">@&quot;..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2016-10-31\models&quot;</span>
     <span class="o">+</span> <span class="s">@&quot;edu\stanford\nlp\models\&quot;</span>
 
 <span class="c">// Loading english PCFG parser from file</span>
@@ -183,7 +175,7 @@ If you don't need a commercial license, but would like to support maintenance of
 
 <span class="c">// This sample shows parsing a list of correctly tokenized words</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 24)" onmouseover="showTip(event, 'fs14', 24)" class="i">sent</span> <span class="o">=</span> [|<span class="s">&quot;This&quot;</span>; <span class="s">&quot;is&quot;</span>; <span class="s">&quot;an&quot;</span>; <span class="s">&quot;easy&quot;</span>; <span class="s">&quot;sentence&quot;</span>; <span class="s">&quot;.&quot;</span> |]
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 25)" onmouseover="showTip(event, 'fs15', 25)" class="i">rawWords</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs16', 26)" onmouseover="showTip(event, 'fs16', 26)" class="t">Sentence</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 27)" onmouseover="showTip(event, 'fs17', 27)" class="f">toCoreLabelList</span>(<span onmouseout="hideTip(event, 'fs14', 28)" onmouseover="showTip(event, 'fs14', 28)" class="i">sent</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 25)" onmouseover="showTip(event, 'fs15', 25)" class="i">rawWords</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs16', 26)" onmouseover="showTip(event, 'fs16', 26)" class="t">SentenceUtils</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 27)" onmouseover="showTip(event, 'fs17', 27)" class="f">toCoreLabelList</span>(<span onmouseout="hideTip(event, 'fs14', 28)" onmouseover="showTip(event, 'fs14', 28)" class="i">sent</span>)
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 29)" onmouseover="showTip(event, 'fs18', 29)" class="i">tree</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 30)" onmouseover="showTip(event, 'fs11', 30)" class="i">lp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs19', 31)" onmouseover="showTip(event, 'fs19', 31)" class="f">apply</span>(<span onmouseout="hideTip(event, 'fs15', 32)" onmouseover="showTip(event, 'fs15', 32)" class="i">rawWords</span>)
 <span onmouseout="hideTip(event, 'fs18', 33)" onmouseover="showTip(event, 'fs18', 33)" class="i">tree</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs20', 34)" onmouseover="showTip(event, 'fs20', 34)" class="f">pennPrint</span>()
 <span class="fsi">&gt;</span>
@@ -234,9 +226,7 @@ If you don't need a commercial license, but would like to support maintenance of
 </code></pre></td>
 </tr>
 </table>
-
 <h2>C# Sample of sentence parsing</h2>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
@@ -298,8 +288,8 @@ If you don't need a commercial license, but would like to support maintenance of
     {
         <span class="k">static</span> <span class="k">void</span> Main()
         {
-            <span class="c">// Path to models extracted from `stanford-parser-3.6.0-models.jar`</span>
-            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2015-12-09\models\";
+            <span class="c">// Path to models extracted from `stanford-parser-3.7.0-models.jar`</span>
+            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2016-10-31\models\";
             var modelsDirectory = jarRoot+@"</span>\edu\stanford\nlp\models<span class="s">";
 
             // Loading english PCFG parser from file
@@ -307,7 +297,7 @@ If you don't need a commercial license, but would like to support maintenance of
 
             // This sample shows parsing a list of correctly tokenized words
             var sent = new[] { "</span>This<span class="s">", "</span><span class="k">is</span><span class="s">", "</span>an<span class="s">", "</span>easy<span class="s">", "</span>sentence<span class="s">", "</span><span class="o">.</span><span class="s">" };
-            var rawWords = Sentence.toCoreLabelList(sent);
+            var rawWords = SentenceUtils.toCoreLabelList(sent);
             var tree = lp.apply(rawWords);
             tree.pennPrint();
 
@@ -324,19 +314,17 @@ If you don't need a commercial license, but would like to support maintenance of
             var gsf = tlp.grammaticalStructureFactory();
             var gs = gsf.newGrammaticalStructure(tree2);
             var tdl = gs.typedDependenciesCCprocessed();
-            Console.WriteLine("</span>\n{0}\n<span class="s">", tdl);
+            Console.WriteLine("</span>\n{<span class="n">0</span>}\n<span class="s">", tdl);
 
             // Extract collapsed dependencies from parsed tree
             var tp = new TreePrint("</span>penn,typedDependenciesCollapsed");
-            tp.printTree(tree2);
+            tp.printTree(tree<span class="n">2</span>);
         }
     }
-}</code></pre></td></tr></table>
-
+}
+</code></pre></td></tr></table>
 <p>Read more about Stanford Parser on <a href="http://www-nlp.stanford.edu/software/lex-parser.shtml">the official page</a>.</p>
-
 <h2>Relevant posts</h2>
-
 <ul>
 <li><a href="http://sergeytihon.wordpress.com/2013/07/11/stanford-parser-is-available-on-nuget/">Stanford Parser is available on NuGet for F# and C#.</a></li>
 <li><a href="http://sergeytihon.wordpress.com/2013/06/26/fsharp-nlp-stanford-parser-available-on-nuget/">FSharp.NLP.Stanford.Parser available on NuGet.</a></li>
@@ -356,17 +344,17 @@ If you don't need a commercial license, but would like to support maintenance of
 <div class="tip" id="fs10">val modelsDirectry : string<br /><br />Full name: StanfordParser.modelsDirectry</div>
 <div class="tip" id="fs11">val lp : LexicalizedParser<br /><br />Full name: StanfordParser.lp</div>
 <div class="tip" id="fs12">Multiple items<br />type LexicalizedParser =<br />&#160;&#160;inherit ParserGrammar<br />&#160;&#160;new : lex:Lexicon * bg:BinaryGrammar * ug:UnaryGrammar * dg:DependencyGrammar * stateIndex:Index * wordIndex:Index * tagIndex:Index * op:Options -&gt; LexicalizedParser<br />&#160;&#160;val lex : Lexicon<br />&#160;&#160;val bg : BinaryGrammar<br />&#160;&#160;val ug : UnaryGrammar<br />&#160;&#160;val dg : DependencyGrammar<br />&#160;&#160;val stateIndex : Index<br />&#160;&#160;val wordIndex : Index<br />&#160;&#160;val tagIndex : Index<br />&#160;&#160;val reranker : Reranker<br />&#160;&#160;member defaultCoreNLPFlags : unit -&gt; string[]<br />&#160;&#160;...<br /><br />Full name: edu.stanford.nlp.parser.lexparser.LexicalizedParser<br /><br />--------------------<br />LexicalizedParser(lex: Lexicon, bg: BinaryGrammar, ug: UnaryGrammar, dg: DependencyGrammar, stateIndex: edu.stanford.nlp.util.Index, wordIndex: edu.stanford.nlp.util.Index, tagIndex: edu.stanford.nlp.util.Index, op: Options) : unit</div>
-<div class="tip" id="fs13">LexicalizedParser.loadModel() : LexicalizedParser<br />LexicalizedParser.loadModel(ois: ObjectInputStream) : LexicalizedParser<br />LexicalizedParser.loadModel(parserFileOrUrl: string, extraFlags: java.util.List) : LexicalizedParser<br />LexicalizedParser.loadModel(op: Options, params extraFlags: string []) : LexicalizedParser<br />LexicalizedParser.loadModel(parserFileOrUrl: string, params extraFlags: string []) : LexicalizedParser<br />LexicalizedParser.loadModel(parserFileOrUrl: string, op: Options, params extraFlags: string []) : LexicalizedParser</div>
+<div class="tip" id="fs13">LexicalizedParser.loadModel() : LexicalizedParser<br />LexicalizedParser.loadModel(ois: ObjectInputStream) : LexicalizedParser<br />LexicalizedParser.loadModel(parserFileOrUrl: string, extraFlags: java.util.List) : LexicalizedParser<br />LexicalizedParser.loadModel(op: Options, [&lt;System.ParamArray&gt;] extraFlags: string []) : LexicalizedParser<br />LexicalizedParser.loadModel(parserFileOrUrl: string, [&lt;System.ParamArray&gt;] extraFlags: string []) : LexicalizedParser<br />LexicalizedParser.loadModel(parserFileOrUrl: string, op: Options, [&lt;System.ParamArray&gt;] extraFlags: string []) : LexicalizedParser</div>
 <div class="tip" id="fs14">val sent : string []<br /><br />Full name: StanfordParser.sent</div>
 <div class="tip" id="fs15">val rawWords : java.util.List<br /><br />Full name: StanfordParser.rawWords</div>
-<div class="tip" id="fs16">type Sentence =<br />&#160;&#160;static member extractNgram : list:List * start:int * end:int -&gt; string<br />&#160;&#160;static member listToOriginalTextString : list:List -&gt; string + 1 overload<br />&#160;&#160;static member listToString : list:List -&gt; string + 2 overloads<br />&#160;&#160;static member toCoreLabelList : params words:string[] -&gt; List + 1 overload<br />&#160;&#160;static member toTaggedList : lex:List * tags:List -&gt; ArrayList<br />&#160;&#160;static member toUntaggedList : params words:string[] -&gt; ArrayList + 1 overload<br />&#160;&#160;static member toWordList : params words:string[] -&gt; List<br />&#160;&#160;static member wordToString : o:obj * justValue:bool -&gt; string + 1 overload<br /><br />Full name: edu.stanford.nlp.ling.Sentence</div>
-<div class="tip" id="fs17">Sentence.toCoreLabelList(words: java.util.List) : java.util.List<br />Sentence.toCoreLabelList(params words: string []) : java.util.List</div>
+<div class="tip" id="fs16">type SentenceUtils =<br />&#160;&#160;static member extractNgram : list:List * start:int * end:int -&gt; string<br />&#160;&#160;static member listToOriginalTextString : list:List -&gt; string + 1 overload<br />&#160;&#160;static member listToString : list:List -&gt; string + 2 overloads<br />&#160;&#160;static member toCoreLabelList : [&lt;ParamArray&gt;] words:string[] -&gt; List + 1 overload<br />&#160;&#160;static member toTaggedList : lex:List * tags:List -&gt; ArrayList<br />&#160;&#160;static member toUntaggedList : [&lt;ParamArray&gt;] words:string[] -&gt; ArrayList + 1 overload<br />&#160;&#160;static member toWordList : [&lt;ParamArray&gt;] words:string[] -&gt; List<br />&#160;&#160;static member wordToString : o:obj * justValue:bool -&gt; string + 1 overload<br /><br />Full name: edu.stanford.nlp.ling.SentenceUtils</div>
+<div class="tip" id="fs17">SentenceUtils.toCoreLabelList(words: java.util.List) : java.util.List<br />SentenceUtils.toCoreLabelList([&lt;System.ParamArray&gt;] words: string []) : java.util.List</div>
 <div class="tip" id="fs18">val tree : Tree<br /><br />Full name: StanfordParser.tree</div>
 <div class="tip" id="fs19">edu.stanford.nlp.parser.common.ParserGrammar.apply(obj: obj) : obj<br />edu.stanford.nlp.parser.common.ParserGrammar.apply(words: java.util.List) : Tree</div>
 <div class="tip" id="fs20">Tree.pennPrint() : unit<br />Tree.pennPrint(ps: PrintStream) : unit<br />Tree.pennPrint(pw: PrintWriter) : unit<br />Tree.pennPrint(ps: PrintStream, printOnlyLabelValue: bool) : unit<br />Tree.pennPrint(pw: PrintWriter, printOnlyLabelValue: bool) : unit</div>
 <div class="tip" id="fs21">val sent2 : string<br /><br />Full name: StanfordParser.sent2</div>
 <div class="tip" id="fs22">val tokenizerFactory : TokenizerFactory<br /><br />Full name: StanfordParser.tokenizerFactory</div>
-<div class="tip" id="fs23">Multiple items<br />type PTBTokenizer =<br />&#160;&#160;inherit AbstractTokenizer<br />&#160;&#160;new : r:Reader * tokenFactory:LexedTokenFactory * options:string -&gt; PTBTokenizer<br />&#160;&#160;static member coreLabelFactory : unit -&gt; TokenizerFactory<br />&#160;&#160;static member factory : unit -&gt; TokenizerFactory + 2 overloads<br />&#160;&#160;static member getNewlineToken : unit -&gt; string<br />&#160;&#160;static member labelList2Text : ptbWords:List -&gt; string<br />&#160;&#160;static member main : args:string[] -&gt; unit<br />&#160;&#160;static member newPTBTokenizer : r:Reader -&gt; PTBTokenizer + 1 overload<br />&#160;&#160;static member ptb2Text : ptbText:string -&gt; string + 2 overloads<br />&#160;&#160;static member ptbToken2Text : ptbText:string -&gt; string<br />&#160;&#160;nested type PTBTokenizerFactory<br /><br />Full name: edu.stanford.nlp.process.PTBTokenizer<br /><br />--------------------<br />PTBTokenizer(r: Reader, tokenFactory: LexedTokenFactory, options: string) : unit</div>
+<div class="tip" id="fs23">Multiple items<br />type PTBTokenizer =<br />&#160;&#160;inherit AbstractTokenizer<br />&#160;&#160;new : r:Reader * tokenFactory:LexedTokenFactory * options:string -&gt; PTBTokenizer<br />&#160;&#160;static member coreLabelFactory : unit -&gt; TokenizerFactory + 1 overload<br />&#160;&#160;static member factory : unit -&gt; TokenizerFactory + 2 overloads<br />&#160;&#160;static member getNewlineToken : unit -&gt; string<br />&#160;&#160;static member labelList2Text : ptbWords:List -&gt; string<br />&#160;&#160;static member main : args:string[] -&gt; unit<br />&#160;&#160;static member newPTBTokenizer : r:Reader -&gt; PTBTokenizer + 1 overload<br />&#160;&#160;static member ptb2Text : ptbText:string -&gt; string + 2 overloads<br />&#160;&#160;static member ptbToken2Text : ptbText:string -&gt; string<br />&#160;&#160;nested type PTBTokenizerFactory<br /><br />Full name: edu.stanford.nlp.process.PTBTokenizer<br /><br />--------------------<br />PTBTokenizer(r: Reader, tokenFactory: LexedTokenFactory, options: string) : unit</div>
 <div class="tip" id="fs24">PTBTokenizer.factory() : TokenizerFactory<br />PTBTokenizer.factory(tokenizeNLs: bool, invertible: bool) : TokenizerFactory<br />PTBTokenizer.factory(factory: LexedTokenFactory, options: string) : TokenizerFactory</div>
 <div class="tip" id="fs25">Multiple items<br />type CoreLabelTokenFactory =<br />&#160;&#160;new : unit -&gt; CoreLabelTokenFactory + 1 overload<br />&#160;&#160;member ``&lt;bridge&gt;makeToken`` : unit -&gt; CoreMap + 2 overloads<br />&#160;&#160;member makeToken : unit -&gt; CoreLabel + 5 overloads<br /><br />Full name: edu.stanford.nlp.process.CoreLabelTokenFactory<br /><br />--------------------<br />CoreLabelTokenFactory() : unit<br />CoreLabelTokenFactory(addIndices: bool) : unit</div>
 <div class="tip" id="fs26">val sent2Reader : StringReader<br /><br />Full name: StanfordParser.sent2Reader</div>
