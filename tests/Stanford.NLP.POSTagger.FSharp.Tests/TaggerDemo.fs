@@ -7,18 +7,18 @@ open java.util
 open edu.stanford.nlp.ling
 open edu.stanford.nlp.tagger.maxent;
 
-let tagReader (reader:Reader) = 
+let tagReader (reader:Reader) =
     let sentances = MaxentTagger.tokenizeText(reader).toArray()
     sentances |> should not' (be Empty)
 
     sentances |> Seq.iter (fun sentence ->
         sentence |> should be ofExactType<ArrayList>
         let tSentence = tagger.tagSentence(sentence :?> ArrayList)
-        printfn "%O" (Sentence.listToString(tSentence, false))
+        printfn "%O" (SentenceUtils.listToString(tSentence, false))
     )
 
 
-let [<Test>] ``Tag file``() = 
+let [<Test>] ``Tag file``() =
     let fileName = DataFiles.``SampleText.txt``
     tagReader (new BufferedReader(new FileReader(fileName)))
 

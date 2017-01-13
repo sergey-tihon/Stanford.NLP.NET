@@ -32,8 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ejml-0.23">
-      <HintPath>..\..\bin\Stanford.NLP.Parser\lib\ejml-0.23.dll</HintPath>
+    <Reference Include="joda-time">
+      <HintPath>..\..\bin\Stanford.NLP.Parser\lib\joda-time.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="jollyday-0.4.9">
+      <HintPath>..\..\bin\Stanford.NLP.Parser\lib\jollyday-0.4.9.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="stanford-parser">
       <HintPath>..\..\bin\Stanford.NLP.Parser\lib\stanford-parser.dll</HintPath>

@@ -14,8 +14,8 @@ namespace Stanford.NLP.SUTime.CSharp
         private static void Main()
         {
 
-            // Path to the folder with models extracted from `stanford-corenlp-3.6.0-models.jar`
-            var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-12-09\models";
+            // Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
+            var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models";
             var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
 
             // Annotation pipeline configuration

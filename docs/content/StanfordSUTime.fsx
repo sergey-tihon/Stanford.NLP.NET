@@ -29,7 +29,7 @@ Stanford Temporal Tagger: SUTime for .NET
       The Stanford CoreNLP library can be <a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.CoreNLP</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2016-10-31.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford CoreNLP ZIP archive with models</button>
     </form>
@@ -42,7 +42,7 @@ F# Sample of SUTime
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-corenlp-3.5.2.dll"
+#r "stanford-corenlp-3.7.0.dll"
 
 open java.util
 open java.io
@@ -52,9 +52,9 @@ open edu.stanford.nlp.time
 open edu.stanford.nlp.util
 open edu.stanford.nlp.ling
 
-// Path to the folder with models extracted from `stanford-corenlp-3.6.0-models.jar`
+// Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
 let jarRoot =
-    __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-12-09\models\"
+    __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models\"
 let modelsDirectry = jarRoot + @"edu\stanford\nlp\models\"
 
 // Annotation pipeline configuration
@@ -122,8 +122,8 @@ C# Sample of SUTime
             private static void Main()
             {
 
-                // Path to the folder with models extracted from `stanford-corenlp-3.6.0-models.jar`
-                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2015-12-09\models";
+                // Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
+                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models";
                 var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
 
                 // Annotation pipeline configuration

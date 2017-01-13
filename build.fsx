@@ -182,9 +182,9 @@ Target "CompilerCoreNLP" (fun _ ->
     |> restoreFolderFromFile (Path.Combine(coreNLPDir.Path, "models"))
 
     [IKVMcTask(coreNLPDir.``stanford-corenlp-3.7.0.jar``, Version=release.AssemblyVersion,
-           Dependencies = [IKVMcTask(coreNLPDir.``joda-time.jar``, Version="2.9")
-                           IKVMcTask(coreNLPDir.``jollyday.jar``, Version="0.4.7",
-                                Dependencies =[IKVMcTask(coreNLPDir.``joda-time.jar``, Version="2.9")])
+           Dependencies = [IKVMcTask(coreNLPDir.``joda-time.jar``, Version="2.9.4")
+                           IKVMcTask(coreNLPDir.``jollyday.jar``, Version="0.4.9",
+                                Dependencies =[IKVMcTask(coreNLPDir.``joda-time.jar``, Version="2.9.4")])
                            IKVMcTask(coreNLPDir.``ejml-0.23.jar``, Version="0.23")
                            IKVMcTask(coreNLPDir.``xom.jar``, Version="1.2.10")
                            IKVMcTask(coreNLPDir.``javax.json.jar``, Version="1.0.4")
@@ -201,15 +201,17 @@ Target "NuGetCoreNLP" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.NET and build NuGet package
 
-type nerDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-ner-2015-12-09``
+type nerDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-ner-2016-10-31``
 
 Target "CompilerNER" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.NER\lib"
     CreateDir ikvmDir
 
     [IKVMcTask(nerDir.``stanford-ner.jar``, Version=release.AssemblyVersion,
-        Dependencies = [IKVMcTask(nerDir.lib.``slf4j-api.jar``, Version="1.7.2")])]
-    |> IKVMCompile ikvmDir keyFile
+        Dependencies = [IKVMcTask(nerDir.lib.``jollyday-0.4.9.jar``, Version="0.4.9",
+                            Dependencies =[IKVMcTask(nerDir.lib.``joda-time.jar``, Version="2.9.4")])]
+     )
+    ]|> IKVMCompile ikvmDir keyFile
 )
 
 Target "NuGetNER" (fun _ ->
@@ -227,7 +229,8 @@ Target "CompilerParser" (fun _ ->
 
     restoreFolderFromFile (parserDir.Path + "models") parserDir.``stanford-parser-3.7.0-models.jar``
     [IKVMcTask(parserDir.``stanford-parser.jar``, Version=release.AssemblyVersion,
-           Dependencies = [IKVMcTask(parserDir.``ejml-0.23.jar``, Version="0.23.0.0")])]
+           Dependencies = [IKVMcTask(parserDir.``ejml-0.23.jar``, Version="0.23.0.0")
+                           IKVMcTask(coreNLPDir.``slf4j-api.jar``, Version="1.7.12")])]
     |> IKVMCompile ikvmDir keyFile
 )
 
@@ -238,14 +241,14 @@ Target "NuGetParser" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.POSTagger and build NuGet package
 
-type posDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-postagger-full-2015-12-09``
+type posDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-postagger-full-2016-10-31``
 
 Target "CompilerPOS" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.POSTagger\lib"
     CreateDir ikvmDir
 
-    [IKVMcTask(posDir.``stanford-postagger-3.6.0.jar``, Version=release.AssemblyVersion,
-        Dependencies = [IKVMcTask(posDir.lib.``slf4j-api.jar``, Version="1.7.2")])]
+    [IKVMcTask(posDir.``stanford-postagger-3.7.0.jar``, Version=release.AssemblyVersion,
+        Dependencies = [])]
     |> IKVMCompile ikvmDir keyFile
 )
 
@@ -256,14 +259,14 @@ Target "NuGetPOS" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.Segmenter and build NuGet package
 
-type segmenterDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-segmenter-2015-12-09``
+type segmenterDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-segmenter-2016-10-31``
 
 Target "CompilerSegmenter" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.Segmenter\lib"
     CreateDir ikvmDir
 
-    [IKVMcTask(segmenterDir.``stanford-segmenter-3.6.0.jar``, Version=release.AssemblyVersion,
-        Dependencies=[IKVMcTask(segmenterDir.``slf4j-api.jar``, Version="1.7.2")])]
+    [IKVMcTask(segmenterDir.``stanford-segmenter-3.7.0.jar``, Version=release.AssemblyVersion,
+        Dependencies=[])]
     |> IKVMCompile ikvmDir keyFile
 )
 

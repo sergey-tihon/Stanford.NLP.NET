@@ -10,7 +10,7 @@ namespace Stanford.NLP.POSTagger.CSharp
     {
         static void Main()
         {
-            var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2015-12-09";
+            var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31";
             var modelsDirectory = jarRoot + @"\models";
 
             // Loading POS Tagger
@@ -25,7 +25,7 @@ namespace Stanford.NLP.POSTagger.CSharp
             foreach (ArrayList sentence in sentences)
             {
                 var taggedSentence = tagger.tagSentence(sentence);
-                Console.WriteLine(Sentence.listToString(taggedSentence, false));
+                Console.WriteLine(SentenceUtils.listToString(taggedSentence, false));
             }
         }
     }

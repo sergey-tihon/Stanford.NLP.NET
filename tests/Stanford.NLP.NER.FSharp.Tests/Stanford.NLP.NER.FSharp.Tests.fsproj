@@ -61,8 +61,13 @@
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
     </Reference>
-    <Reference Include="slf4j-api">
-      <HintPath>..\..\bin\Stanford.NLP.NER\lib\slf4j-api.dll</HintPath>
+    <Reference Include="joda-time">
+      <HintPath>..\..\bin\Stanford.NLP.Parser\lib\joda-time.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="jollyday-0.4.9">
+      <HintPath>..\..\bin\Stanford.NLP.Parser\lib\jollyday-0.4.9.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="stanford-ner">
       <HintPath>..\..\bin\Stanford.NLP.NER\lib\stanford-ner.dll</HintPath>
@@ -72,7 +77,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
   </ItemGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

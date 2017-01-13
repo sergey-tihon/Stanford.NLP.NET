@@ -1,5 +1,5 @@
-#### 3.7.0.0 - December 23, 2016
-* New version of Stanford NLP 3.7.0 for CoreNLP and Parser
+#### 3.7.0.0 - January 14, 2017
+* New version of Stanford NLP 3.7.0 for all packages
 
 #### 3.7.0.0-beta - November 1, 2016
 * New version of Stanford NLP (3.7-beta)

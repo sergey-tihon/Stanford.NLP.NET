@@ -33,7 +33,7 @@ Stanford Log-linear Part-Of-Speech Tagger for .NET
       The Stanford POS Tagger library can be <a href="https://www.nuget.org/packages/Stanford.NLP.POSTagger/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.POSTagger</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-postagger-full-2015-12-09.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-postagger-full-2016-10-31.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford POS Tagger full archive with models</button>
     </form>
@@ -46,7 +46,7 @@ F# Sample of POS Tagging
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-postagger-3.5.2.dll"
+#r "stanford-postagger-3.7.0.dll"
 
 open java.io
 open java.util
@@ -55,7 +55,7 @@ open edu.stanford.nlp.tagger.maxent
 
 // Path to the folder with models
 let modelsDirectry =
-    __SOURCE_DIRECTORY__  + @"..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2015-12-09\models"
+    __SOURCE_DIRECTORY__  + @"..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31\models"
 
 // Loading POS Tagger
 let tagger = MaxentTagger(modelsDirectry + "wsj-0-18-bidirectional-nodistsim.tagger")
@@ -65,7 +65,7 @@ let tagTexrFromReader (reader:Reader) =
 
     sentances |> Seq.iter (fun sentence ->
         let taggedSentence = tagger.tagSentence(sentence :?> ArrayList)
-        printfn "%O" (Sentence.listToString(taggedSentence, false))
+        printfn "%O" (SentenceUtils.listToString(taggedSentence, false))
     )
 
 
@@ -98,7 +98,7 @@ tagTexrFromReader <| new StringReader(text)
         {
             static void Main()
             {
-                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2015-12-09";
+                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31";
                 var modelsDirectory = jarRoot + @"\models";
 
                 // Loading POS Tagger
@@ -114,7 +114,7 @@ tagTexrFromReader <| new StringReader(text)
                 foreach (ArrayList sentence in sentences)
                 {
                     var taggedSentence = tagger.tagSentence(sentence);
-                    Console.WriteLine(Sentence.listToString(taggedSentence, false));
+                    Console.WriteLine(SentenceUtils.listToString(taggedSentence, false));
                 }
             }
         }

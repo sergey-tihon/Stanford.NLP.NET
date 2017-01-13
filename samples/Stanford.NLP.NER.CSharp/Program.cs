@@ -8,7 +8,7 @@ namespace Stanford.NLP.NER.CSharp
         static void Main()
         {
             // Path to the folder with classifies models
-            var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2015-12-09";
+            var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31";
             var classifiersDirecrory = jarRoot + @"\classifiers";
 
             // Loading 3 class classifier model

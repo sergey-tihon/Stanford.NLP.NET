@@ -40,7 +40,7 @@ Stanford Parser for .NET (A statistical parser)
       The Stanford Parser library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Parser/">installed from NuGet</a>:
       <pre>PM> Install-Package Stanford.NLP.Parser</pre>
     </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-parser-full-2015-12-09.zip">
+    <form method="get" action="http://nlp.stanford.edu/software/stanford-parser-full-2016-10-31.zip">
     <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
     Download Stanford Parser ZIP archive with models</button>
     </form>
@@ -61,10 +61,10 @@ open edu.stanford.nlp.ling
 open edu.stanford.nlp.trees
 open edu.stanford.nlp.parser.lexparser
 
-// Path to models extracted from `stanford-parser-3.6.0-models.jar`
+// Path to models extracted from `stanford-parser-3.7.0-models.jar`
 let modelsDirectry =
     __SOURCE_DIRECTORY__
-    + @"..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2015-12-09\models"
+    + @"..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2016-10-31\models"
     + @"edu\stanford\nlp\models\"
 
 // Loading english PCFG parser from file
@@ -138,8 +138,8 @@ C# Sample of sentence parsing
         {
             static void Main()
             {
-                // Path to models extracted from `stanford-parser-3.6.0-models.jar`
-                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2015-12-09\models\";
+                // Path to models extracted from `stanford-parser-3.7.0-models.jar`
+                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2016-10-31\models\";
                 var modelsDirectory = jarRoot+@"\edu\stanford\nlp\models";
 
                 // Loading english PCFG parser from file
