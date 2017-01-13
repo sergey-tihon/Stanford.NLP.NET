@@ -6,6 +6,7 @@
 #r "System.IO.Compression.FileSystem.dll"
 #r "packages/FSharp.Management/lib/net40/FSharp.Management.dll"
 #r "packages/Mono.Cecil/lib/net45/Mono.Cecil.dll"
+#r "System.IO.Compression.dll"
 
 open Microsoft.FSharp.Core.Printf
 open Fake
@@ -13,6 +14,7 @@ open Fake.Git
 open Fake.ReleaseNotesHelper
 open System
 open System.IO
+open System.IO.Compression
 open System.Reflection
 open FSharp.Management
 open Mono.Cecil
@@ -45,7 +47,27 @@ let release = LoadReleaseNotes "RELEASE_NOTES.md"
 // --------------------------------------------------------------------------------------
 // IKVM.NET compilation helpers
 
+let fixFileNames path =
+    use file = File.Open(path, FileMode.Open, FileAccess.ReadWrite)
+    use archive = new ZipArchive(file, ZipArchiveMode.Update)
+    archive.Entries
+    |> Seq.toList
+    |> List.filter(fun x -> x.FullName.Contains(":"))
+    |> List.iter (fun entry ->
+        printfn "%s " entry.FullName
+        let newName = entry.FullName.Replace(":","_")
+        let newEntry = archive.CreateEntry(newName)
+        begin
+            use a = entry.Open()
+            use b = newEntry.Open()
+            a.CopyTo(b)
+        end
+        entry.Delete()
+       )
+
 let unZipTo toDir file =
+    printfn "Renaming files inside zip archive ..."
+    fixFileNames file
     printfn "Unzipping file '%s' to '%s'" file toDir
     Compression.ZipFile.ExtractToDirectory(file, toDir)
 
