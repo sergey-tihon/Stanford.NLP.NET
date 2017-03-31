@@ -25,7 +25,7 @@ namespace Stanford.NLP.SUTime.CSharp
 
             // Loading POS Tagger and including them into pipeline
             var tagger = new MaxentTagger(modelsDirectory +
-                                          @"\pos-tagger\english-bidirectional\english-bidirectional-distsim.tagger");
+                                          @"\pos-tagger\english-left3words\english-left3words-distsim.tagger");
             pipeline.addAnnotator(new POSTaggerAnnotator(tagger));
 
             // SUTime configuration

@@ -64,7 +64,7 @@ pipeline.addAnnotator(WordsToSentencesAnnotator(false))
 
 // Loading POS Tagger and including them into pipeline
 let tagger =
-    MaxentTagger(modelsDirectry + @"pos-tagger\english-bidirectional\english-bidirectional-distsim.tagger")
+    MaxentTagger(modelsDirectry + @"pos-tagger\english-left3words\english-left3words-distsim.tagger")
 pipeline.addAnnotator(POSTaggerAnnotator(tagger))
 
 // SUTime configuration
@@ -133,7 +133,7 @@ C# Sample of SUTime
 
                 // Loading POS Tagger and including them into pipeline
                 var tagger = new MaxentTagger(modelsDirectory +
-                             @"\pos-tagger\english-bidirectional\english-bidirectional-distsim.tagger");
+                             @"\pos-tagger\english-left3words\english-left3words-distsim.tagger");
                 pipeline.addAnnotator(new POSTaggerAnnotator(tagger));
 
                 // SUTime configuration
