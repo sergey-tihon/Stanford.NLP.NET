@@ -1,10 +1,14 @@
 @echo off
 cls
 
-.paket\paket.bootstrapper.exe
+cd data
+
+..\.paket\paket.exe restore
 if errorlevel 1 (
   exit /b %errorlevel%
 )
+
+cd ..
 
 .paket\paket.exe restore
 if errorlevel 1 (

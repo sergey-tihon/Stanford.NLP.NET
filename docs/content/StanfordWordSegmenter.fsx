@@ -2,7 +2,7 @@
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Stanford.NLP.Segmenter/lib"
-#I "../../packages/IKVM/lib/"
+#I "../../packages/test/IKVM/lib/"
 
 (**
 Stanford Word Segmenter for .NET
@@ -48,7 +48,7 @@ open java.util
 open edu.stanford.nlp.ie.crf
 
 // Path to the folder with models
-let segmenterData = __SOURCE_DIRECTORY__ + @"\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2016-10-31\data\"
+let segmenterData = __SOURCE_DIRECTORY__ + @"\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2016-10-31\data\"
 let sampleData = __SOURCE_DIRECTORY__ + @"\..\..\tests\data\test.simple.utf8";
 
 // `test.simple.utf8` contains following text:
@@ -93,7 +93,7 @@ C# Sample of Word Segmentation
             static void Main()
             {
                 // Path to the folder with models
-                var segmenterData = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2016-10-31\data";
+                var segmenterData = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2016-10-31\data";
                 var sampleData = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-10-31\test.simp.utf8";
 
                 // `test.simple.utf8` contains following text:

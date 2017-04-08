@@ -2,7 +2,7 @@
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Stanford.NLP.NER/lib"
-#I "../../packages/IKVM/lib/"
+#I "../../packages/test/IKVM/lib/"
 
 (**
 Stanford Named Entity Recognizer (NER) for .NET
@@ -55,7 +55,7 @@ open edu.stanford.nlp.ie.crf
 
 // Path to the folder with classifiers models
 let classifiersDirecrory =
-    __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31\classifiers\"
+    __SOURCE_DIRECTORY__ + @"..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31\classifiers\"
 
 // Loading 3 class classifier model
 let classifier =
@@ -99,7 +99,7 @@ C# Sample of Named Entity Recognition
             static void Main()
             {
                 // Path to the folder with classifiers models
-                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31";
+                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31";
                 var classifiersDirecrory = jarRoot + @"\classifiers";
 
                 // Loading 3 class classifier model

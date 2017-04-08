@@ -2,7 +2,7 @@
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Stanford.NLP.Parser/lib"
-#I "../../packages/IKVM/lib/"
+#I "../../packages/test/IKVM/lib/"
 
 (**
 Stanford Parser for .NET (A statistical parser)
@@ -64,7 +64,7 @@ open edu.stanford.nlp.parser.lexparser
 // Path to models extracted from `stanford-parser-3.7.0-models.jar`
 let modelsDirectry =
     __SOURCE_DIRECTORY__
-    + @"..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2016-10-31\models"
+    + @"..\..\data\paket-files\nlp.stanford.edu\stanford-parser-full-2016-10-31\models"
     + @"edu\stanford\nlp\models\"
 
 // Loading english PCFG parser from file
@@ -139,7 +139,7 @@ C# Sample of sentence parsing
             static void Main()
             {
                 // Path to models extracted from `stanford-parser-3.7.0-models.jar`
-                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2016-10-31\models\";
+                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-parser-full-2016-10-31\models\";
                 var modelsDirectory = jarRoot+@"\edu\stanford\nlp\models";
 
                 // Loading english PCFG parser from file

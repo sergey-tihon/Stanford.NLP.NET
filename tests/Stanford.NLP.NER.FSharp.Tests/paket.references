@@ -1,4 +1,5 @@
-IKVM
 FSharp.Management
-NUnit
-FsUnit
+group Test
+    IKVM
+    Expecto
+    FSharp.Core

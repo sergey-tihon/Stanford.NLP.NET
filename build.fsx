@@ -12,6 +12,7 @@ open Microsoft.FSharp.Core.Printf
 open Fake
 open Fake.Git
 open Fake.ReleaseNotesHelper
+open Fake.Testing.Expecto
 open System
 open System.IO
 open System.IO.Compression
@@ -20,6 +21,7 @@ open FSharp.Management
 open Mono.Cecil
 
 let [<Literal>]RootFolder = __SOURCE_DIRECTORY__
+//Environment.CurrentDirectory <- RootFolder
 type root = FileSystem<RootFolder>
 
 // --------------------------------------------------------------------------------------
@@ -28,7 +30,7 @@ type root = FileSystem<RootFolder>
 let project = "Stanford.NLP.NET"
 let solutionFile  = "Stanford.NLP.NET.sln"
 // Pattern specifying assemblies to be tested using NUnit
-let testAssemblies = "tests/**/bin/Release/*Tests*.dll"
+let testAssemblies = "tests/**/bin/Release/*Tests.exe"
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
@@ -75,8 +77,8 @@ let restoreFolderFromFile folder zipFile =
     if not <| Directory.Exists folder then
         zipFile |> unZipTo folder
 
-// Location of IKVM Compiler & ildasm / ilasm
-let ikvmc = root.``paket-files``.``www.frijters.net``.``ikvm-8.1.5717.0``.bin.``ikvmc.exe``
+// Location of IKVM Compiler
+let ikvmc = root.data.``paket-files``.``www.frijters.net``.``ikvm-8.1.5717.0``.bin.``ikvmc.exe``
 
 type IKVMcTask(jar:string) =
     member val JarFile = jar
@@ -172,7 +174,7 @@ Target "CleanDocs" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.CoreNLP and build NuGet package
 
-type coreNLPDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-corenlp-full-2016-10-31``
+type coreNLPDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-corenlp-full-2016-10-31``
 
 Target "CompilerCoreNLP" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.CoreNLP\lib"
@@ -201,7 +203,7 @@ Target "NuGetCoreNLP" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.NET and build NuGet package
 
-type nerDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-ner-2016-10-31``
+type nerDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-ner-2016-10-31``
 
 Target "CompilerNER" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.NER\lib"
@@ -221,7 +223,7 @@ Target "NuGetNER" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.Parser and build NuGet package
 
-type parserDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-parser-full-2016-10-31``
+type parserDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-parser-full-2016-10-31``
 
 Target "CompilerParser" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.Parser\lib"
@@ -241,7 +243,7 @@ Target "NuGetParser" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.POSTagger and build NuGet package
 
-type posDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-postagger-full-2016-10-31``
+type posDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-postagger-full-2016-10-31``
 
 Target "CompilerPOS" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.POSTagger\lib"
@@ -259,7 +261,7 @@ Target "NuGetPOS" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.Segmenter and build NuGet package
 
-type segmenterDir = root.``paket-files``.``nlp.stanford.edu``.``stanford-segmenter-2016-10-31``
+type segmenterDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-segmenter-2016-10-31``
 
 Target "CompilerSegmenter" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.Segmenter\lib"
@@ -286,11 +288,10 @@ Target "BuildTests" (fun _ ->
 
 Target "RunTests" (fun _ ->
     !! testAssemblies
-    |> NUnit (fun p ->
+    |> Expecto (fun p ->
         { p with
-            DisableShadowCopy = true
-            TimeOut = TimeSpan.FromMinutes 60.
-            OutputFile = "TestResults.xml" })
+            Parallel = false } )
+    |> ignore
 )
 
 // --------------------------------------------------------------------------------------
@@ -448,10 +449,8 @@ Target "NuGet" DoNothing
 "NuGet"
   ==> "BuildTests"
   ==> "RunTests"
-  =?> ("GenerateReferenceDocs",isLocalBuild && not isMono)
-  =?> ("GenerateDocs",isLocalBuild && not isMono)
   ==> "All"
-  =?> ("ReleaseDocs",isLocalBuild && not isMono)
+
 
 "CleanDocs"
   ==> "GenerateHelp"

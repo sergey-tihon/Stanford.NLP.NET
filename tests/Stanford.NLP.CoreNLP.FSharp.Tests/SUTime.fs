@@ -1,7 +1,6 @@
 ﻿module Stanford.NLP.CoreNLP.SUTimeTests
 
-open NUnit.Framework
-open FsUnit
+open Expecto
 open java.util
 open edu.stanford.nlp.tagger.maxent
 open edu.stanford.nlp.ling
@@ -10,7 +9,8 @@ open edu.stanford.nlp.time
 open edu.stanford.nlp.util
 
 /// http://nlp.stanford.edu/software/sutime.shtml#Usage
-let [<Test>] ``SUTime Defaut Test : Three interesting dates`` () =
+let [<Tests>] suTimeTest =
+  testCase "SUTime Defaut Test : Three interesting dates" <| fun _ ->
     let pipeline = AnnotationPipeline()
     pipeline.addAnnotator(TokenizerAnnotator(false))
     pipeline.addAnnotator(WordsToSentencesAnnotator(false))
@@ -35,14 +35,14 @@ let [<Test>] ``SUTime Defaut Test : Three interesting dates`` () =
 
     printfn "%O\n" (annotation.get(CoreAnnotations.TextAnnotation().getClass()))
     let timexAnnsAll = annotation.get(TimeAnnotations.TimexAnnotations().getClass()) :?> java.util.ArrayList
-    timexAnnsAll |> should not' (be Empty)
+    Expect.isGreaterThan (timexAnnsAll.size()) 0 "No timex annotations found"
 
     for cm in timexAnnsAll |> Seq.cast<CoreMap> do
         let tokens = cm.get(CoreAnnotations.TokensAnnotation().getClass()) :?> java.util.List
-        tokens.size() |> should be (greaterThan 0)
+        Expect.isGreaterThan (tokens.size()) 0 "No tokens found"
         let first = tokens.get(0)
         let last = tokens.get(tokens.size() - 1)
         let time = cm.get(TimeExpression.Annotation().getClass()) :?> TimeExpression
-        time |> should not' (be Null)
+        Expect.isNotNull time "Time expression is null"
         printfn "%A [from char offset '%A' to '%A'] --> %A"
             cm first last (time.getTemporal())

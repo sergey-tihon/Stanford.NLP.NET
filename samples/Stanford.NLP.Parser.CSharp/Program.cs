@@ -12,7 +12,7 @@ namespace Stanford.NLP.Parser.CSharp
         static void Main()
         {
             // Path to models extracted from `stanford-parser-3.6.0-models.jar`
-            var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-parser-full-2016-10-31\models\";
+            var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-parser-full-2016-10-31\models\";
             var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
 
             // Loading english PCFG parser from file

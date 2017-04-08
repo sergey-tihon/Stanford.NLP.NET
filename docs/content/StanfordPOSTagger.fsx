@@ -2,7 +2,7 @@
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Stanford.NLP.POSTagger/lib"
-#I "../../packages/IKVM/lib/"
+#I "../../packages/test/IKVM/lib/"
 
 (**
 Stanford Log-linear Part-Of-Speech Tagger for .NET
@@ -55,7 +55,7 @@ open edu.stanford.nlp.tagger.maxent
 
 // Path to the folder with models
 let modelsDirectry =
-    __SOURCE_DIRECTORY__  + @"..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31\models"
+    __SOURCE_DIRECTORY__  + @"..\..\data\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31\models"
 
 // Loading POS Tagger
 let tagger = MaxentTagger(modelsDirectry + "wsj-0-18-bidirectional-nodistsim.tagger")
@@ -98,7 +98,7 @@ tagTexrFromReader <| new StringReader(text)
         {
             static void Main()
             {
-                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31";
+                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31";
                 var modelsDirectory = jarRoot + @"\models";
 
                 // Loading POS Tagger

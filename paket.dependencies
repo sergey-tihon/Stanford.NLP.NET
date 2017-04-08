@@ -1,19 +1,21 @@
 source https://nuget.org/api/v2
+framework: net45
 
-nuget FSharp.Formatting
-nuget NUnit 2.6.3
-nuget NUnit.Runners 2.6.3
-nuget Nuget.CommandLine
 nuget FAKE
-nuget Mono.Cecil
-
-nuget IKVM
 nuget FSharp.Management
-nuget FsUnit 1.3.0.1
+nuget Mono.Cecil
+nuget Nuget.CommandLine
 
-http http://www.frijters.net/ikvmbin-8.1.5717.0.zip
-http http://nlp.stanford.edu/software/stanford-corenlp-full-2016-10-31.zip
-http http://nlp.stanford.edu/software/stanford-ner-2016-10-31.zip
-http http://nlp.stanford.edu/software/stanford-parser-full-2016-10-31.zip
-http http://nlp.stanford.edu/software/stanford-postagger-full-2016-10-31.zip
-http http://nlp.stanford.edu/software/stanford-segmenter-2016-10-31.zip
+group Test
+    source https://nuget.org/api/v2
+    framework: net45
+
+    nuget IKVM
+    nuget Expecto
+    nuget FSharp.Core redirects:force
+
+group Docs
+    source https://nuget.org/api/v2
+    framework: net45
+
+    nuget FSharp.Formatting

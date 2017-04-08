@@ -2,7 +2,7 @@
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Stanford.NLP.CoreNLP/lib/"
-#I "../../packages/IKVM/lib/"
+#I "../../packages/test/IKVM/lib/"
 
 (**
 Stanford Temporal Tagger: SUTime for .NET
@@ -54,7 +54,7 @@ open edu.stanford.nlp.ling
 
 // Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
 let jarRoot =
-    __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models\"
+    __SOURCE_DIRECTORY__ + @"..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models\"
 let modelsDirectry = jarRoot + @"edu\stanford\nlp\models\"
 
 // Annotation pipeline configuration
@@ -123,7 +123,7 @@ C# Sample of SUTime
             {
 
                 // Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
-                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models";
+                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models";
                 var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
 
                 // Annotation pipeline configuration

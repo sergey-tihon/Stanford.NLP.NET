@@ -2,7 +2,7 @@
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Stanford.NLP.CoreNLP/lib/"
-#I "../../packages/IKVM/lib/"
+#I "../../packages/test/IKVM/lib/"
 
 (**
 Stanford CoreNLP for .NET
@@ -52,7 +52,7 @@ open java.io
 open edu.stanford.nlp.pipeline
 
 // Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
-let jarRoot = __SOURCE_DIRECTORY__ + @"..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models\"
+let jarRoot = __SOURCE_DIRECTORY__ + @"..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models\"
 
 // Text for processing
 let text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
@@ -137,7 +137,7 @@ C# Sample of text annotation
             static void Main()
             {
                 // Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
-                var jarRoot = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models";
+                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models";
 
                 // Text for processing
                 var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
