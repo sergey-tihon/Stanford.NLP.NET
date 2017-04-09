@@ -132,7 +132,7 @@ let IKVMCompile workingDirectory keyFile tasks =
         then
             printfn "Task '%s' already compiled" task.JarFile
         else
-            File.Copy(task.JarFile, workingDirectory @@ (Path.GetFileName(task.JarFile)) ,true)
+            //File.Copy(task.JarFile, workingDirectory @@ (Path.GetFileName(task.JarFile)) ,true)
             ikvmc <| getIKVMCommandLineArgs()
             if (File.Exists(newKeyFile)) then
                 let key = FullName newKeyFile

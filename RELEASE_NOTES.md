@@ -1,3 +1,6 @@
+#### 3.7.0.1 - April 10, 2017
+* Fixed references between assemblies
+
 #### 3.7.0.0 - January 14, 2017
 * New version of Stanford NLP 3.7.0 for all packages
 
