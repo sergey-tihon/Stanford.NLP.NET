@@ -121,33 +121,33 @@ Download Stanford POS Tagger full archive with models</button>
 <span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Util.dll&quot;</span>
 <span class="prep">#r</span> <span class="s">&quot;stanford-postagger-3.7.0.dll&quot;</span>
 
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">java</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">io</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="i">java</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 4)" onmouseover="showTip(event, 'fs3', 4)" class="i">util</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs4', 5)" onmouseover="showTip(event, 'fs4', 5)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 6)" onmouseover="showTip(event, 'fs5', 6)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 7)" onmouseover="showTip(event, 'fs6', 7)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 8)" onmouseover="showTip(event, 'fs7', 8)" class="i">ling</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs4', 9)" onmouseover="showTip(event, 'fs4', 9)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 10)" onmouseover="showTip(event, 'fs5', 10)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 11)" onmouseover="showTip(event, 'fs6', 11)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 12)" onmouseover="showTip(event, 'fs8', 12)" class="i">tagger</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 13)" onmouseover="showTip(event, 'fs9', 13)" class="i">maxent</span>
+<span class="k">open</span> <span class="i">java</span><span class="o">.</span><span class="i">io</span>
+<span class="k">open</span> <span class="i">java</span><span class="o">.</span><span class="i">util</span>
+<span class="k">open</span> <span class="i">edu</span><span class="o">.</span><span class="i">stanford</span><span class="o">.</span><span class="i">nlp</span><span class="o">.</span><span class="i">ling</span>
+<span class="k">open</span> <span class="i">edu</span><span class="o">.</span><span class="i">stanford</span><span class="o">.</span><span class="i">nlp</span><span class="o">.</span><span class="i">tagger</span><span class="o">.</span><span class="i">maxent</span>
 
 <span class="c">// Path to the folder with models</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 14)" onmouseover="showTip(event, 'fs10', 14)" class="i">modelsDirectry</span> <span class="o">=</span>
-    <span class="k">__SOURCE_DIRECTORY__</span>  <span class="o">+</span> <span class="s">@&quot;..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31\models&quot;</span>
+<span class="k">let</span> <span class="i">modelsDirectry</span> <span class="o">=</span>
+    <span class="k">__SOURCE_DIRECTORY__</span>  <span class="o">+</span> <span class="s">@&quot;..\..\data\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31\models&quot;</span>
 
 <span class="c">// Loading POS Tagger</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 15)" onmouseover="showTip(event, 'fs11', 15)" class="i">tagger</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 16)" onmouseover="showTip(event, 'fs12', 16)" class="t">MaxentTagger</span>(<span onmouseout="hideTip(event, 'fs10', 17)" onmouseover="showTip(event, 'fs10', 17)" class="i">modelsDirectry</span> <span class="o">+</span> <span class="s">&quot;wsj-0-18-bidirectional-nodistsim.tagger&quot;</span>)
+<span class="k">let</span> <span class="i">tagger</span> <span class="o">=</span> <span class="i">MaxentTagger</span>(<span class="i">modelsDirectry</span> <span class="o">+</span> <span class="s">&quot;wsj-0-18-bidirectional-nodistsim.tagger&quot;</span>)
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 18)" onmouseover="showTip(event, 'fs13', 18)" class="f">tagTexrFromReader</span> (<span onmouseout="hideTip(event, 'fs14', 19)" onmouseover="showTip(event, 'fs14', 19)" class="i">reader</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs15', 20)" onmouseover="showTip(event, 'fs15', 20)" class="t">Reader</span>) <span class="o">=</span>
-    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 21)" onmouseover="showTip(event, 'fs16', 21)" class="i">sentances</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 22)" onmouseover="showTip(event, 'fs12', 22)" class="t">MaxentTagger</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 23)" onmouseover="showTip(event, 'fs17', 23)" class="f">tokenizeText</span>(<span onmouseout="hideTip(event, 'fs14', 24)" onmouseover="showTip(event, 'fs14', 24)" class="i">reader</span>)<span class="o">.</span><span class="f">toArray</span>()
+<span class="k">let</span> <span class="i">tagTexrFromReader</span> (<span class="i">reader</span><span class="o">:</span><span class="i">Reader</span>) <span class="o">=</span>
+    <span class="k">let</span> <span class="i">sentances</span> <span class="o">=</span> <span class="i">MaxentTagger</span><span class="o">.</span><span class="i">tokenizeText</span>(<span class="i">reader</span>)<span class="o">.</span><span class="i">toArray</span>()
 
-    <span onmouseout="hideTip(event, 'fs16', 25)" onmouseover="showTip(event, 'fs16', 25)" class="i">sentances</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs18', 26)" onmouseover="showTip(event, 'fs18', 26)" class="t">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs19', 27)" onmouseover="showTip(event, 'fs19', 27)" class="f">iter</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs20', 28)" onmouseover="showTip(event, 'fs20', 28)" class="i">sentence</span> <span class="k">-&gt;</span>
-        <span class="k">let</span> <span onmouseout="hideTip(event, 'fs21', 29)" onmouseover="showTip(event, 'fs21', 29)" class="i">taggedSentence</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 30)" onmouseover="showTip(event, 'fs11', 30)" class="i">tagger</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs22', 31)" onmouseover="showTip(event, 'fs22', 31)" class="f">tagSentence</span>(<span onmouseout="hideTip(event, 'fs20', 32)" onmouseover="showTip(event, 'fs20', 32)" class="i">sentence</span> <span class="o">:?&gt;</span> <span onmouseout="hideTip(event, 'fs23', 33)" onmouseover="showTip(event, 'fs23', 33)" class="t">ArrayList</span>)
-        <span onmouseout="hideTip(event, 'fs24', 34)" onmouseover="showTip(event, 'fs24', 34)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%O</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs25', 35)" onmouseover="showTip(event, 'fs25', 35)" class="t">SentenceUtils</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs26', 36)" onmouseover="showTip(event, 'fs26', 36)" class="f">listToString</span>(<span onmouseout="hideTip(event, 'fs21', 37)" onmouseover="showTip(event, 'fs21', 37)" class="i">taggedSentence</span>, <span class="k">false</span>))
+    <span class="i">sentances</span> <span class="o">|&gt;</span> <span class="i">Seq</span><span class="o">.</span><span class="i">iter</span> (<span class="k">fun</span> <span class="i">sentence</span> <span class="k">-&gt;</span>
+        <span class="k">let</span> <span class="i">taggedSentence</span> <span class="o">=</span> <span class="i">tagger</span><span class="o">.</span><span class="i">tagSentence</span>(<span class="i">sentence</span> <span class="o">:?&gt;</span> <span class="i">ArrayList</span>)
+        <span class="i">printfn</span> <span class="s">&quot;%O&quot;</span> (<span class="i">SentenceUtils</span><span class="o">.</span><span class="i">listToString</span>(<span class="i">taggedSentence</span>, <span class="k">false</span>))
     )
 
 
 <span class="c">// Text for tagging</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs27', 38)" onmouseover="showTip(event, 'fs27', 38)" class="i">text</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;A Part-Of-Speech Tagger (POS Tagger) is a piece of software that reads text in some language</span>
+<span class="k">let</span> <span class="i">text</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;A Part-Of-Speech Tagger (POS Tagger) is a piece of software that reads text in some language</span>
 <span class="s">and assigns parts of speech to each word (and other token), such as noun, verb, adjective, etc., although</span>
 <span class="s">generally computational applications use more fine-grained POS tags like &#39;noun-plural&#39;.&quot;&quot;&quot;</span>
 
-<span onmouseout="hideTip(event, 'fs13', 39)" onmouseover="showTip(event, 'fs13', 39)" class="f">tagTexrFromReader</span> <span class="o">&lt;|</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs28', 40)" onmouseover="showTip(event, 'fs28', 40)" class="t">StringReader</span>(<span onmouseout="hideTip(event, 'fs27', 41)" onmouseover="showTip(event, 'fs27', 41)" class="i">text</span>)
+<span class="i">tagTexrFromReader</span> <span class="o">&lt;|</span> <span class="k">new</span> <span class="i">StringReader</span>(<span class="i">text</span>)
 <span class="fsi">&gt;</span>
 <span class="fsi">A/DT Part-Of-Speech/NNP Tagger/NNP -LRB-/-LRB- POS/NNP Tagger/NNP -RRB-/-RRB- is/VBZ a/DT piece/NN of/IN </span>
 <span class="fsi">software/NN that/WDT reads/VBZ text/NN in/IN some/DT language/NN and/CC assigns/VBZ parts/NNS of/IN </span>
@@ -205,7 +205,7 @@ Download Stanford POS Tagger full archive with models</button>
     {
         <span class="k">static</span> <span class="k">void</span> Main()
         {
-            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31"</span>;
+            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31"</span>;
             <span class="k">var</span> modelsDirectory <span class="o">=</span> jarRoot <span class="o">+</span> <span class="s">@"\models"</span>;
 
             <span class="c">// Loading POS Tagger</span>
@@ -234,34 +234,6 @@ Download Stanford POS Tagger full archive with models</button>
 <li><a href="http://sergeytihon.wordpress.com/2013/02/08/nlp-stanford-pos-tagger-with-f-net/">NLP: Stanford POS Tagger with F# (.NET)</a></li>
 </ul>
 
-<div class="tip" id="fs1">namespace java</div>
-<div class="tip" id="fs2">namespace java.io</div>
-<div class="tip" id="fs3">namespace java.util</div>
-<div class="tip" id="fs4">namespace edu</div>
-<div class="tip" id="fs5">namespace edu.stanford</div>
-<div class="tip" id="fs6">namespace edu.stanford.nlp</div>
-<div class="tip" id="fs7">namespace edu.stanford.nlp.ling</div>
-<div class="tip" id="fs8">namespace edu.stanford.nlp.tagger</div>
-<div class="tip" id="fs9">namespace edu.stanford.nlp.tagger.maxent</div>
-<div class="tip" id="fs10">val modelsDirectry : string<br /><br />Full name: StanfordPOSTagger.modelsDirectry</div>
-<div class="tip" id="fs11">val tagger : MaxentTagger<br /><br />Full name: StanfordPOSTagger.tagger</div>
-<div class="tip" id="fs12">Multiple items<br />type MaxentTagger =<br />&#160;&#160;inherit Tagger<br />&#160;&#160;new : unit -&gt; MaxentTagger + 6 overloads<br />&#160;&#160;member addTag : tag:string -&gt; int<br />&#160;&#160;member apply : in:List -&gt; List + 1 overload<br />&#160;&#160;member getTag : index:int -&gt; string<br />&#160;&#160;member getTagIndex : tag:string -&gt; int<br />&#160;&#160;member numTags : unit -&gt; int<br />&#160;&#160;member outputTaggedSentence : sentence:List * outputLemmas:bool * outputStyle:OutputStyle * outputVerbosity:bool * numSentences:int * separator:string * writer:Writer -&gt; unit<br />&#160;&#160;member ``process`` : sentences:List -&gt; List<br />&#160;&#160;member runTagger : document:Iterable * writer:BufferedWriter * outputStyle:OutputStyle -&gt; unit + 1 overload<br />&#160;&#160;member runTaggerSGML : reader:BufferedReader * writer:BufferedWriter * outputStyle:OutputStyle -&gt; unit<br />&#160;&#160;...<br /><br />Full name: edu.stanford.nlp.tagger.maxent.MaxentTagger<br /><br />--------------------<br />MaxentTagger() : unit<br />MaxentTagger(config: TaggerConfig) : unit<br />MaxentTagger(modelFile: string) : unit<br />MaxentTagger(modelStream: InputStream) : unit<br />MaxentTagger(modelFile: string, config: Properties) : unit<br />MaxentTagger(modelFile: string, config: Properties, printLoading: bool) : unit<br />MaxentTagger(modelStream: InputStream, config: Properties, printLoading: bool) : unit</div>
-<div class="tip" id="fs13">val tagTexrFromReader : reader:Reader -&gt; unit<br /><br />Full name: StanfordPOSTagger.tagTexrFromReader</div>
-<div class="tip" id="fs14">val reader : Reader</div>
-<div class="tip" id="fs15">type Reader =<br />&#160;&#160;member close : unit -&gt; unit<br />&#160;&#160;member mark : readAheadLimit:int -&gt; unit<br />&#160;&#160;member markSupported : unit -&gt; bool<br />&#160;&#160;member read : unit -&gt; int + 3 overloads<br />&#160;&#160;member ready : unit -&gt; bool<br />&#160;&#160;member reset : unit -&gt; unit<br />&#160;&#160;member skip : n:int64 -&gt; int64<br /><br />Full name: java.io.Reader</div>
-<div class="tip" id="fs16">val sentances : obj []</div>
-<div class="tip" id="fs17">MaxentTagger.tokenizeText(r: Reader) : List<br />MaxentTagger.tokenizeText(r: Reader, tokenizerFactory: edu.stanford.nlp.process.TokenizerFactory) : List</div>
-<div class="tip" id="fs18">module Seq<br /><br />from Microsoft.FSharp.Collections</div>
-<div class="tip" id="fs19">val iter : action:(&#39;T -&gt; unit) -&gt; source:seq&lt;&#39;T&gt; -&gt; unit<br /><br />Full name: Microsoft.FSharp.Collections.Seq.iter</div>
-<div class="tip" id="fs20">val sentence : obj</div>
-<div class="tip" id="fs21">val taggedSentence : List</div>
-<div class="tip" id="fs22">MaxentTagger.tagSentence(sentence: List) : List<br />MaxentTagger.tagSentence(sentence: List, reuseTags: bool) : List</div>
-<div class="tip" id="fs23">Multiple items<br />type ArrayList =<br />&#160;&#160;inherit AbstractList<br />&#160;&#160;new : unit -&gt; ArrayList + 2 overloads<br />&#160;&#160;member add : e:obj -&gt; bool + 1 overload<br />&#160;&#160;member addAll : c:Collection -&gt; bool + 1 overload<br />&#160;&#160;member clear : unit -&gt; unit<br />&#160;&#160;member clone : unit -&gt; obj<br />&#160;&#160;member contains : o:obj -&gt; bool<br />&#160;&#160;member ensureCapacity : minCapacity:int -&gt; unit<br />&#160;&#160;member forEach : action:Consumer -&gt; unit<br />&#160;&#160;member get : index:int -&gt; obj<br />&#160;&#160;member indexOf : o:obj -&gt; int<br />&#160;&#160;...<br /><br />Full name: java.util.ArrayList<br /><br />--------------------<br />ArrayList() : unit<br />ArrayList(initialCapacity: int) : unit<br />ArrayList(c: Collection) : unit</div>
-<div class="tip" id="fs24">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
-<div class="tip" id="fs25">type SentenceUtils =<br />&#160;&#160;static member extractNgram : list:List * start:int * end:int -&gt; string<br />&#160;&#160;static member listToOriginalTextString : list:List -&gt; string + 1 overload<br />&#160;&#160;static member listToString : list:List -&gt; string + 2 overloads<br />&#160;&#160;static member toCoreLabelList : [&lt;ParamArray&gt;] words:string[] -&gt; List + 1 overload<br />&#160;&#160;static member toTaggedList : lex:List * tags:List -&gt; ArrayList<br />&#160;&#160;static member toUntaggedList : lex:List -&gt; ArrayList + 1 overload<br />&#160;&#160;static member toWordList : [&lt;ParamArray&gt;] words:string[] -&gt; List<br />&#160;&#160;static member wordToString : o:obj * justValue:bool -&gt; string + 1 overload<br /><br />Full name: edu.stanford.nlp.ling.SentenceUtils</div>
-<div class="tip" id="fs26">SentenceUtils.listToString(list: List) : string<br />SentenceUtils.listToString(list: List, justValue: bool) : string<br />SentenceUtils.listToString(list: List, justValue: bool, separator: string) : string</div>
-<div class="tip" id="fs27">val text : string<br /><br />Full name: StanfordPOSTagger.text</div>
-<div class="tip" id="fs28">Multiple items<br />type StringReader =<br />&#160;&#160;inherit Reader<br />&#160;&#160;new : s:string -&gt; StringReader<br />&#160;&#160;member close : unit -&gt; unit<br />&#160;&#160;member mark : readAheadLimit:int -&gt; unit<br />&#160;&#160;member markSupported : unit -&gt; bool<br />&#160;&#160;member read : unit -&gt; int + 1 overload<br />&#160;&#160;member ready : unit -&gt; bool<br />&#160;&#160;member reset : unit -&gt; unit<br />&#160;&#160;member skip : ns:int64 -&gt; int64<br /><br />Full name: java.io.StringReader<br /><br />--------------------<br />StringReader(s: string) : unit</div>
 
             </div>
             <div class="span3">

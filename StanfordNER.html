@@ -123,31 +123,31 @@ Download Stanford NER ZIP archive with models</button>
 <span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Util.dll&quot;</span>
 <span class="prep">#r</span> <span class="s">&quot;stanford-ner.dll&quot;</span>
 
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">ie</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">crf</span>
+<span class="k">open</span> <span class="i">edu</span><span class="o">.</span><span class="i">stanford</span><span class="o">.</span><span class="i">nlp</span><span class="o">.</span><span class="i">ie</span><span class="o">.</span><span class="i">crf</span>
 
 <span class="c">// Path to the folder with classifiers models</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="i">classifiersDirecrory</span> <span class="o">=</span>
-    <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;..\..\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31\classifiers\&quot;</span>
+<span class="k">let</span> <span class="i">classifiersDirecrory</span> <span class="o">=</span>
+    <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31\classifiers\&quot;</span>
 
 <span class="c">// Loading 3 class classifier model</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="i">classifier</span> <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs8', 8)" onmouseover="showTip(event, 'fs8', 8)" class="t">CRFClassifier</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 9)" onmouseover="showTip(event, 'fs9', 9)" class="f">getClassifierNoExceptions</span>(
-        <span onmouseout="hideTip(event, 'fs6', 10)" onmouseover="showTip(event, 'fs6', 10)" class="i">classifiersDirecrory</span> <span class="o">+</span> <span class="s">&quot;english.all.3class.distsim.crf.ser.gz&quot;</span>)
+<span class="k">let</span> <span class="i">classifier</span> <span class="o">=</span>
+    <span class="i">CRFClassifier</span><span class="o">.</span><span class="i">getClassifierNoExceptions</span>(
+        <span class="i">classifiersDirecrory</span> <span class="o">+</span> <span class="s">&quot;english.all.3class.distsim.crf.ser.gz&quot;</span>)
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 11)" onmouseover="showTip(event, 'fs10', 11)" class="i">s1</span> <span class="o">=</span> <span class="s">&quot;Good afternoon Rajat Raina, how are you today?&quot;</span>
-<span onmouseout="hideTip(event, 'fs11', 12)" onmouseover="showTip(event, 'fs11', 12)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%s</span><span class="s"></span><span class="e">\n</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs7', 13)" onmouseover="showTip(event, 'fs7', 13)" class="i">classifier</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs12', 14)" onmouseover="showTip(event, 'fs12', 14)" class="f">classifyToString</span>(<span onmouseout="hideTip(event, 'fs10', 15)" onmouseover="showTip(event, 'fs10', 15)" class="i">s1</span>))
+<span class="k">let</span> <span class="i">s1</span> <span class="o">=</span> <span class="s">&quot;Good afternoon Rajat Raina, how are you today?&quot;</span>
+<span class="i">printfn</span> <span class="s">&quot;%s\n&quot;</span> (<span class="i">classifier</span><span class="o">.</span><span class="i">classifyToString</span>(<span class="i">s1</span>))
 <span class="fsi">&gt; </span>
 <span class="fsi">Good/O afternoon/O Rajat/PERSON Raina/PERSON,/O how/O are/O you/O today/O?/O</span>
 <span class="fsi">val it : unit = ()</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 16)" onmouseover="showTip(event, 'fs13', 16)" class="i">s2</span> <span class="o">=</span> <span class="s">&quot;I go to school at Stanford University, which is located in California.&quot;</span>
-<span onmouseout="hideTip(event, 'fs11', 17)" onmouseover="showTip(event, 'fs11', 17)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%s</span><span class="s"></span><span class="e">\n</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs7', 18)" onmouseover="showTip(event, 'fs7', 18)" class="i">classifier</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 19)" onmouseover="showTip(event, 'fs14', 19)" class="f">classifyWithInlineXML</span>(<span onmouseout="hideTip(event, 'fs13', 20)" onmouseover="showTip(event, 'fs13', 20)" class="i">s2</span>))
+<span class="k">let</span> <span class="i">s2</span> <span class="o">=</span> <span class="s">&quot;I go to school at Stanford University, which is located in California.&quot;</span>
+<span class="i">printfn</span> <span class="s">&quot;%s\n&quot;</span> (<span class="i">classifier</span><span class="o">.</span><span class="i">classifyWithInlineXML</span>(<span class="i">s2</span>))
 <span class="fsi">&gt; </span>
 <span class="fsi">I go to school at &lt;ORGANIZATION&gt;Stanford University&lt;/ORGANIZATION&gt;, which is </span>
 <span class="fsi">located in &lt;LOCATION&gt;California&lt;/LOCATION&gt;.</span>
 <span class="fsi">val it : unit = ()</span>
 
-<span onmouseout="hideTip(event, 'fs11', 21)" onmouseover="showTip(event, 'fs11', 21)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%s</span><span class="s"></span><span class="e">\n</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs7', 22)" onmouseover="showTip(event, 'fs7', 22)" class="i">classifier</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs12', 23)" onmouseover="showTip(event, 'fs12', 23)" class="f">classifyToString</span>(<span onmouseout="hideTip(event, 'fs13', 24)" onmouseover="showTip(event, 'fs13', 24)" class="i">s2</span>, <span class="s">&quot;xml&quot;</span>, <span class="k">true</span>));
+<span class="i">printfn</span> <span class="s">&quot;%s\n&quot;</span> (<span class="i">classifier</span><span class="o">.</span><span class="i">classifyToString</span>(<span class="i">s2</span>, <span class="s">&quot;xml&quot;</span>, <span class="k">true</span>));
 <span class="fsi">&gt; </span>
 <span class="fsi">&lt;wi num=&quot;0&quot; entity=&quot;O&quot;&gt;I&lt;/wi&gt; &lt;wi num=&quot;1&quot; entity=&quot;O&quot;&gt;go&lt;/wi&gt; &lt;wi num=&quot;2&quot; entity=&quot;O&quot;&gt;to&lt;/wi&gt; </span>
 <span class="fsi">&lt;wi num=&quot;3&quot; entity=&quot;O&quot;&gt;school&lt;/wi&gt; &lt;wi num=&quot;4&quot; entity=&quot;O&quot;&gt;at&lt;/wi&gt; </span>
@@ -198,7 +198,7 @@ Download Stanford NER ZIP archive with models</button>
         <span class="k">static</span> <span class="k">void</span> Main()
         {
             <span class="c">// Path to the folder with classifiers models</span>
-            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31"</span>;
+            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31"</span>;
             <span class="k">var</span> classifiersDirecrory <span class="o">=</span> jarRoot <span class="o">+</span> <span class="s">@"\classifiers"</span>;
 
             <span class="c">// Loading 3 class classifier model</span>
@@ -223,20 +223,6 @@ Download Stanford NER ZIP archive with models</button>
 <li><a href="http://sergeytihon.wordpress.com/2013/02/16/nlp-stanford-named-entity-recognizer-with-f-net/">NLP: Stanford Named Entity Recognizer with F# (.NET).</a></li>
 </ul>
 
-<div class="tip" id="fs1">namespace edu</div>
-<div class="tip" id="fs2">namespace edu.stanford</div>
-<div class="tip" id="fs3">namespace edu.stanford.nlp</div>
-<div class="tip" id="fs4">namespace edu.stanford.nlp.ie</div>
-<div class="tip" id="fs5">namespace edu.stanford.nlp.ie.crf</div>
-<div class="tip" id="fs6">val classifiersDirecrory : string<br /><br />Full name: StanfordNER.classifiersDirecrory</div>
-<div class="tip" id="fs7">val classifier : CRFClassifier<br /><br />Full name: StanfordNER.classifier</div>
-<div class="tip" id="fs8">Multiple items<br />type CRFClassifier =<br />&#160;&#160;inherit AbstractSequenceClassifier<br />&#160;&#160;new : flags:SeqClassifierFlags -&gt; CRFClassifier + 2 overloads<br />&#160;&#160;member classify : document:List -&gt; List<br />&#160;&#160;member classifyGibbs : document:List -&gt; List + 1 overload<br />&#160;&#160;member classifyMaxEnt : document:List -&gt; List<br />&#160;&#160;member classifyWithGlobalInformation : tokenSeq:List * doc:CoreMap * sent:CoreMap -&gt; List<br />&#160;&#160;member combine : crf:CRFClassifier * weight:float -&gt; unit<br />&#160;&#160;member documentToDataAndLabels : document:List -&gt; Triple<br />&#160;&#160;member documentsToDataAndLabels : documents:Collection -&gt; Triple<br />&#160;&#160;member documentsToDataAndLabelsList : documents:Collection -&gt; List<br />&#160;&#160;member dropFeaturesBelowThreshold : threshold:float -&gt; unit<br />&#160;&#160;...<br /><br />Full name: edu.stanford.nlp.ie.crf.CRFClassifier<br /><br />--------------------<br />CRFClassifier(flags: edu.stanford.nlp.sequences.SeqClassifierFlags) : unit<br />CRFClassifier(props: java.util.Properties) : unit<br />CRFClassifier(crf: CRFClassifier) : unit</div>
-<div class="tip" id="fs9">CRFClassifier.getClassifierNoExceptions(loadPath: string) : CRFClassifier</div>
-<div class="tip" id="fs10">val s1 : string<br /><br />Full name: StanfordNER.s1</div>
-<div class="tip" id="fs11">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
-<div class="tip" id="fs12">edu.stanford.nlp.ie.AbstractSequenceClassifier.classifyToString(sentences: string) : string<br />edu.stanford.nlp.ie.AbstractSequenceClassifier.classifyToString(sentences: string, outputFormat: string, preserveSpacing: bool) : string</div>
-<div class="tip" id="fs13">val s2 : string<br /><br />Full name: StanfordNER.s2</div>
-<div class="tip" id="fs14">edu.stanford.nlp.ie.AbstractSequenceClassifier.classifyWithInlineXML(sentences: string) : string</div>
 
             </div>
             <div class="span3">
