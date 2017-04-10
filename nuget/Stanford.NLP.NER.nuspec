@@ -6,7 +6,7 @@
     <authors>The Stanford Natural Language Processing Group</authors>
     <owners>Sergey Tihon</owners>
     <licenseUrl>http://www.gnu.org/licenses/gpl-2.0.html</licenseUrl>
-    <iconUrl>http://nlp.stanford.edu/img/nlp-logo-navbar.jpg</iconUrl>
+    <iconUrl>https://nlp.stanford.edu/static/img/logos/nlp-logo.gif</iconUrl>
     <projectUrl>http://sergey-tihon.github.io/Stanford.NLP.NET/StanfordNER.html</projectUrl>
     <summary>Stanford Named Entity Recognizer (NER)</summary>
     <description>Stanford NER (also known as CRFClassifier) is a Java implementation of a Named Entity Recognizer. Named Entity Recognition (NER) labels sequences of words in a text which are the names of things, such as person and company names, or gene and protein names. The software provides a general (arbitrary order) implementation of linear chain Conditional Random Field (CRF) sequence models, coupled with well-engineered feature extractors for Named Entity Recognition.</description>
