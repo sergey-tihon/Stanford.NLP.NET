@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Sergey Tihon">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600,700|Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/custom.css" rel='stylesheet' type='text/css'>
+    <script src="http://sergey-tihon.github.io/Stanford.NLP.NET//content/tips.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/snippets.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript">
+      function init() {
+          try {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+          } catch(e) { /* For local development only */ }
+      }
+      window.addEventListener("load", init, false);
+    </script>
+    
+  <title>Frequently asked questions (FAQ) - Stanford.NLP.NET</title>
+  <meta name="description" content="Questions and Answers">
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-43389710-2', 'sergey-tihon.github.io');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+
+  <div class="snlp-navbar">
+  <div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://sergey-tihon.github.io/Stanford.NLP.NET/">Stanford.NLP.NET</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET/">home</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//samples.html">samples</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//projects.html">projects</a></li>
+          <li class="active"><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//faq.html">faq</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </div>
+  </div>
+
+  <div class="snlp-content-wrapper">
+  
+<div class="snlp-heading">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Frequently asked questions (FAQ)</h1>
+      <p>Questions and Answers</p>
+      <p class="links">
+        <a href="https://twitter.com/stanfordnlp"><i class="fa fa-twitter"></i> follow</a>
+        <a href="http://stackoverflow.com/questions/tagged/stanford-nlp"><i class="fa fa-stack-overflow"></i> ask</a>
+        <a href="https://github.com/sergey-tihon/Stanford.NLP.NET"><i class="fa fa-github"></i> contribute</a>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container snlp-content">
+  <div class="row">
+    <div class="col-md-1 col-lg-2"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <h3><a name="How-this-works-Where-is-C-source-code-for-Stanford-NLP-NET" class="anchor" href="#How-this-works-Where-is-C-source-code-for-Stanford-NLP-NET">How this works? Where is C# source code for Stanford.NLP.NET?</a></h3>
+<p><code>Stanford.NLP.NET</code> built on top of <a href="http://weblog.ikvm.net/">IKVM.NET</a> (<code>Java</code> VM that run on top of <code>.NET</code> VM). There is no <code>C#</code> source code and no efforts for <code>Java-&gt;C#</code> code translation. This project uses <a href="http://www.ikvm.net/userguide/ikvmc.html">IKVM.NET Bytecode Compiler</a> that convert <code>Java</code> bytecode (<code>*.jar</code>) to <code>.NET</code> (<code>*.dll</code>).</p>
+<h3><a name="I-heard-that-IKVM-NET-is-dead-what-will-be-with-this-project" class="anchor" href="#I-heard-that-IKVM-NET-is-dead-what-will-be-with-this-project">I heard that IKVM.NET is dead, what will be with this project?</a></h3>
+<p>Yes, there is an official announcement of <a href="http://weblog.ikvm.net/2017/04/21/TheEndOfIKVMNET.aspx">The End of IKVM.NET</a>, but it does not mean the end of <code>Stanford.NLP.NET</code>. Current stable version of <code>IKVM.NET</code> has perfect support of <code>Java 8</code> and we have confirmation from <code>Stanford NLP</code> group, that <code>CoreNLP</code> will remain <code>Java 8</code> compatible for foreseeable future.</p>
+<p><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/foxyjackfox">@foxyjackfox</a> <a href="https://twitter.com/sergey_tihon">@sergey_tihon</a> We think CoreNLP can remain Java 8 compatible for the currently foreseeable future.</p>&amp;mdash; Stanford NLP Group (@stanfordnlp) <a href="https://twitter.com/stanfordnlp/status/856538474089820161">April 24, 2017</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<h3><a name="What-NuGet-package-should-I-reference-and-use" class="anchor" href="#What-NuGet-package-should-I-reference-and-use">What NuGet package should I reference and use?</a></h3>
+<p>It really depends on your task, you always should try to choose one (referencing of more than one package is not supported scenario). If you task is rather complicated or you do not know which one to choose - use <a href="samples/CoreNLP.html">Stanford.NLP.CoreNLP</a>. This is an umbrella package that integrates all Stanford tools.</p>
+<h3><a name="Stanford-NLP-CoreNLP-not-loading-models" class="anchor" href="#Stanford-NLP-CoreNLP-not-loading-models">Stanford.NLP.CoreNLP not loading models</a></h3>
+<p>This is probably <a href="http://stackoverflow.com/questions/40814503/stanford-nlp-for-net-not-loading-models">the most common problem</a> with <code>CoreNLP</code> (especially for newcomers). <code>stanfrod-corenlp-ful-*.zip</code> archive contains files <code>stanford-corenlp-3.7.0-models.jar</code> with models inside ( this is zip archive). In Java world, you add this <code>jar</code> on the class path, and it automatically resolve location of models inside the archive.</p>
+<p>CoreNLP has a file <a href="https://github.com/stanfordnlp/CoreNLP/blob/ef653d4f64f82b0395f72d43cc7add8e61752fee/src/edu/stanford/nlp/pipeline/DefaultPaths.java">DefaultPaths.java</a> that specify path to model file. So when you instantiate <code>StanfordCoreNLP</code> with <code>Properties</code> object that does not specify models location, you should guarantee that models could be found by default path (related to <code>Environment.CurrentDirectory</code>).</p>
+<p>The simplest way to guarantee existence of files like <code>Environment.CurrentDirectory + "edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz"</code> is to unzip jar archive to the folder, sand temporary change the current directory to unzipped folder.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp"><span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">"nlp.stanford.edu/stanford-corenlp-full-2016-10-31/jar-modules/"</span>;
+<span class="o">.</span><span class="o">.</span><span class="o">.</span>
+<span class="k">var</span> curDir <span class="o">=</span> Environment.CurrentDirectory;
+Directory.SetCurrentDirectory(jarRoot);
+<span class="k">var</span> pipeline <span class="o">=</span> <span class="k">new</span> StanfordCoreNLP(props);
+Directory.SetCurrentDirectory(curDir);
+</code></pre></td></tr></table>
+<p>The other way is to specify paths to all models that your pipeline need (it actually depends on the list of <code>annotators</code>).
+This option is more complicated because you have to find correct property keys, and specify paths to all used model. But it may be useful if you want to minimize the size of you deployment package.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp"><span class="k">var</span> props <span class="o">=</span> <span class="k">new</span> Properties();
+props.put(<span class="s">"annotators"</span>, <span class="s">"tokenize, ssplit, pos, lemma, ner, depparse"</span>);
+props.put(<span class="s">"ner.model"</span>,
+          <span class="s">"edu/stanford/nlp/models/ner/english.all.3class.distsim.crf.ser.gz"</span>);
+props.put(<span class="s">"ner.applyNumericClassifiers"</span>, <span class="s">"false"</span>);
+<span class="k">var</span> pipeline <span class="o">=</span> <span class="k">new</span> StanfordCoreNLP(props);
+</code></pre></td></tr></table>
+<h3><a name="StackOverflow-Exception" class="anchor" href="#StackOverflow-Exception">StackOverflow Exception</a></h3>
+<p>You probably try to execute code under <code>IIS Express</code>. So you have two options here: <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/issues/15#issuecomment-77526331">deploy to real IIS</a> or <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/issues/43#issuecomment-190186401">run under 64bit version of IIS Express</a>. In VS2015 it was under Tools&gt; Options&gt; Projects and Solutions &gt; Web Projects &gt; Use the 64 bit version of IIS Express for web sites and projects</p>
+
+
+
+    </div>
+    <div class="col-md-1 col-lg-2"></div>
+  </div>
+</div>
+
+  </div>
+
+  <a class="gh-forkme" href="https://github.com/sergey-tihon/Stanford.NLP.NET"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</body>
+</html>

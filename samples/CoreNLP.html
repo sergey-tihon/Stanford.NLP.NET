@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Sergey Tihon">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600,700|Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/custom.css" rel='stylesheet' type='text/css'>
+    <script src="http://sergey-tihon.github.io/Stanford.NLP.NET//content/tips.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/snippets.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript">
+      function init() {
+          try {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+          } catch(e) { /* For local development only */ }
+      }
+      window.addEventListener("load", init, false);
+    </script>
+    
+  <title>Stanford.NLP.CoreNLP - Stanford.NLP.NET</title>
+  <meta name="description" content="What is Stanford.NLP.CoreNLP?">
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-43389710-2', 'sergey-tihon.github.io');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+
+  <div class="snlp-navbar">
+  <div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://sergey-tihon.github.io/Stanford.NLP.NET/">Stanford.NLP.NET</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET/">home</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//samples.html">samples</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//projects.html">projects</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//faq.html">faq</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </div>
+  </div>
+
+  <div class="snlp-content-wrapper">
+  
+<div class="snlp-heading">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Stanford.NLP.CoreNLP</h1>
+      <p>What is Stanford.NLP.CoreNLP?</p>
+      <p class="links">
+        <a href="https://twitter.com/stanfordnlp"><i class="fa fa-twitter"></i> follow</a>
+        <a href="http://stackoverflow.com/questions/tagged/stanford-nlp"><i class="fa fa-stack-overflow"></i> ask</a>
+        <a href="https://github.com/sergey-tihon/Stanford.NLP.NET"><i class="fa fa-github"></i> contribute</a>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container snlp-content">
+  <div class="row">
+    <div class="col-md-1 col-lg-2"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <p><div class="snlp-actions">
+<div class="row">
+<div class="col-sm-6">
+<h2>Install NuGet package</h2>
+<i class="fa" aria-hidden="true"><img src="/images/nuget.png" style="width:40px;" /></i>
+<h3 class="actionlink">
+<a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">Stanford.NLP.CoreNLP</a>
+</h3>
+</div>
+<div class="col-sm-6">
+<h2>Download models</h2>
+<i class="fa fa-download" aria-hidden="true"></i>
+<h3 class="actionlink">
+<a href="http://nlp.stanford.edu/software/stanford-corenlp-full-2016-10-31.zip">Download CoreNLP 3.7.0</a>
+</h3>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-6">
+<h2>Check out .NET Samples</h2>
+<i class="fa fa-book" aria-hidden="true"></i>
+<h3 class="actionlink">
+<a href="/samples.html#Stanford-CoreNLP">Open .NET Samples</a>
+</h3>
+</div>
+<div class="col-sm-6">
+<h2>Read official Java docs</h2>
+<i class="fa" aria-hidden="true"><img src="/images/logo.jpg" style="width:40px;" /></i>
+<h3 class="actionlink">
+<a href="https://stanfordnlp.github.io/CoreNLP/">Go to CoreNLP page</a>
+</h3>
+</div>
+</div>
+</div></p>
+<blockquote>
+<p><strong>Stanford CoreNLP</strong> provides a set of natural language analysis tools which can take raw English language text input and give the base forms of words, their parts of speech, whether they are names of companies, people, etc., normalize dates, times, and numeric quantities, and mark up the structure of sentences in terms of phrases and word dependencies, and indicate which noun phrases refer to the same entities. Stanford CoreNLP is an integrated framework, which makes it very easy to apply a bunch of language analysis tools to a piece of text. Starting from plain text, you can run all the tools on it with just two lines of code. Its analyses provides the foundational building blocks for higher-level and domain-specific text understanding applications.</p>
+<p><code>Stanford CoreNLP integrates all Stanford NLP tools</code>, including the part-of-speech (POS) tagger, the named entity recognizer (NER), the parser, the coreference resolution system, and the sentiment analysis tools, and provides model files for analysis of English. The goal of this project is to enable people to quickly and painlessly get complete linguistic annotations of natural language texts. It is designed to be highly flexible and extensible. With a single option, you can choose which tools should be enabled and which should be disabled.</p>
+<p>The Stanford CoreNLP code is licensed under the <strong>GNU General Public License</strong> (v2 or later). Note that this is the full GPL, which allows many free uses, but not its use in distributed proprietary software.</p>
+</blockquote>
+
+
+
+    </div>
+    <div class="col-md-1 col-lg-2"></div>
+  </div>
+</div>
+
+  </div>
+
+  <a class="gh-forkme" href="https://github.com/sergey-tihon/Stanford.NLP.NET"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</body>
+</html>

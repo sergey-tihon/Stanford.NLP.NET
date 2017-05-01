@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Sergey Tihon">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600,700|Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/custom.css" rel='stylesheet' type='text/css'>
+    <script src="http://sergey-tihon.github.io/Stanford.NLP.NET//content/tips.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/snippets.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript">
+      function init() {
+          try {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+          } catch(e) { /* For local development only */ }
+      }
+      window.addEventListener("load", init, false);
+    </script>
+    
+  <title>Getting started with Stanford NER - Stanford.NLP.NET</title>
+  <meta name="description" content="Package: Stanford.NLP.NER">
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-43389710-2', 'sergey-tihon.github.io');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+
+  <div class="snlp-navbar">
+  <div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://sergey-tihon.github.io/Stanford.NLP.NET/">Stanford.NLP.NET</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET/">home</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//samples.html">samples</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//projects.html">projects</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//faq.html">faq</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </div>
+  </div>
+
+  <div class="snlp-content-wrapper">
+  
+<div class="snlp-heading">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Getting started with Stanford NER</h1>
+      <p>Package: Stanford.NLP.NER</p>
+      <p class="links">
+        <a href="https://twitter.com/stanfordnlp"><i class="fa fa-twitter"></i> follow</a>
+        <a href="http://stackoverflow.com/questions/tagged/stanford-nlp"><i class="fa fa-stack-overflow"></i> ask</a>
+        <a href="https://github.com/sergey-tihon/Stanford.NLP.NET"><i class="fa fa-github"></i> contribute</a>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container snlp-content">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-sm-12 col-md-12 col-lg-10">
+      <h2><a name="F-Sample-of-Named-Entity-Recognition" class="anchor" href="#F-Sample-of-Named-Entity-Recognition">F# Sample of Named Entity Recognition</a></h2>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+<span class="l">25: </span>
+<span class="l">26: </span>
+<span class="l">27: </span>
+<span class="l">28: </span>
+<span class="l">29: </span>
+<span class="l">30: </span>
+<span class="l">31: </span>
+<span class="l">32: </span>
+<span class="l">33: </span>
+<span class="l">34: </span>
+<span class="l">35: </span>
+<span class="l">36: </span>
+<span class="l">37: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Core.dll&quot;</span>
+<span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Util.dll&quot;</span>
+<span class="prep">#r</span> <span class="s">&quot;stanford-ner.dll&quot;</span>
+
+<span class="k">open</span> <span class="i">edu</span><span class="o">.</span><span class="i">stanford</span><span class="o">.</span><span class="i">nlp</span><span class="o">.</span><span class="i">ie</span><span class="o">.</span><span class="i">crf</span>
+
+<span class="c">// Path to the folder with classifiers models</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">classifiersDirecrory</span> <span class="o">=</span>
+    <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31\classifiers\&quot;</span>
+
+<span class="c">// Loading 3 class classifier model</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">classifier</span> <span class="o">=</span>
+    <span class="i">CRFClassifier</span><span class="o">.</span><span class="i">getClassifierNoExceptions</span>(
+        <span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="i">classifiersDirecrory</span> <span class="o">+</span> <span class="s">&quot;english.all.3class.distsim.crf.ser.gz&quot;</span>)
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs3', 4)" onmouseover="showTip(event, 'fs3', 4)" class="i">s1</span> <span class="o">=</span> <span class="s">&quot;Good afternoon Rajat Raina, how are you today?&quot;</span>
+<span onmouseout="hideTip(event, 'fs4', 5)" onmouseover="showTip(event, 'fs4', 5)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%s</span><span class="s"></span><span class="e">\n</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs2', 6)" onmouseover="showTip(event, 'fs2', 6)" class="i">classifier</span><span class="o">.</span><span class="i">classifyToString</span>(<span onmouseout="hideTip(event, 'fs3', 7)" onmouseover="showTip(event, 'fs3', 7)" class="i">s1</span>))
+<span class="fsi">&gt; </span>
+<span class="fsi">Good/O afternoon/O Rajat/PERSON Raina/PERSON,/O how/O are/O you/O today/O?/O</span>
+<span class="fsi">val it : unit = ()</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 8)" onmouseover="showTip(event, 'fs5', 8)" class="i">s2</span> <span class="o">=</span> <span class="s">&quot;I go to school at Stanford University, which is located in California.&quot;</span>
+<span onmouseout="hideTip(event, 'fs4', 9)" onmouseover="showTip(event, 'fs4', 9)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%s</span><span class="s"></span><span class="e">\n</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs2', 10)" onmouseover="showTip(event, 'fs2', 10)" class="i">classifier</span><span class="o">.</span><span class="i">classifyWithInlineXML</span>(<span onmouseout="hideTip(event, 'fs5', 11)" onmouseover="showTip(event, 'fs5', 11)" class="i">s2</span>))
+<span class="fsi">&gt; </span>
+<span class="fsi">I go to school at &lt;ORGANIZATION&gt;Stanford University&lt;/ORGANIZATION&gt;, which is </span>
+<span class="fsi">located in &lt;LOCATION&gt;California&lt;/LOCATION&gt;.</span>
+<span class="fsi">val it : unit = ()</span>
+
+<span onmouseout="hideTip(event, 'fs4', 12)" onmouseover="showTip(event, 'fs4', 12)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%s</span><span class="s"></span><span class="e">\n</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs2', 13)" onmouseover="showTip(event, 'fs2', 13)" class="i">classifier</span><span class="o">.</span><span class="i">classifyToString</span>(<span onmouseout="hideTip(event, 'fs5', 14)" onmouseover="showTip(event, 'fs5', 14)" class="i">s2</span>, <span class="s">&quot;xml&quot;</span>, <span class="k">true</span>));
+<span class="fsi">&gt; </span>
+<span class="fsi">&lt;wi num=&quot;0&quot; entity=&quot;O&quot;&gt;I&lt;/wi&gt; &lt;wi num=&quot;1&quot; entity=&quot;O&quot;&gt;go&lt;/wi&gt; &lt;wi num=&quot;2&quot; entity=&quot;O&quot;&gt;to&lt;/wi&gt; </span>
+<span class="fsi">&lt;wi num=&quot;3&quot; entity=&quot;O&quot;&gt;school&lt;/wi&gt; &lt;wi num=&quot;4&quot; entity=&quot;O&quot;&gt;at&lt;/wi&gt; </span>
+<span class="fsi">&lt;wi num=&quot;5&quot; entity=&quot;ORGANIZATION&quot;&gt;Stanford&lt;/wi&gt; &lt;wi num=&quot;6&quot; entity=&quot;ORGANIZATION&quot;&gt;University&lt;/wi&gt;</span>
+<span class="fsi">&lt;wi num=&quot;7&quot; entity=&quot;O&quot;&gt;,&lt;/wi&gt; &lt;wi num=&quot;8&quot; entity=&quot;O&quot;&gt;which&lt;/wi&gt; &lt;wi num=&quot;9&quot; entity=&quot;O&quot;&gt;is&lt;/wi&gt;</span>
+<span class="fsi">&lt;wi num=&quot;10&quot; entity=&quot;O&quot;&gt;located&lt;/wi&gt; &lt;wi num=&quot;11&quot; entity=&quot;O&quot;&gt;in&lt;/wi&gt; </span>
+<span class="fsi">&lt;wi num=&quot;12&quot; entity=&quot;LOCATION&quot;&gt;California&lt;/wi&gt;&lt;wi num=&quot;13&quot; entity=&quot;O&quot;&gt;.&lt;/wi&gt;</span>
+<span class="fsi">val it : unit = ()</span>
+</code></pre></td>
+</tr>
+</table>
+<h2><a name="C-Sample-of-Named-Entity-Recognition" class="anchor" href="#C-Sample-of-Named-Entity-Recognition">C# Sample of Named Entity Recognition</a></h2>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+<span class="l">25: </span>
+<span class="l">26: </span>
+<span class="l">27: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp"><span class="k">using</span> edu.stanford.nlp.ie.crf;
+<span class="k">using</span> Console <span class="o">=</span> System.Console;
+
+<span class="k">namespace</span> Stanford.NLP.NER.CSharp
+{
+    <span class="k">class</span> Program
+    {
+        <span class="k">static</span> <span class="k">void</span> Main()
+        {
+            <span class="c">// Path to the folder with classifiers models</span>
+            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31"</span>;
+            <span class="k">var</span> classifiersDirecrory <span class="o">=</span> jarRoot <span class="o">+</span> <span class="s">@"\classifiers"</span>;
+
+            <span class="c">// Loading 3 class classifier model</span>
+            <span class="k">var</span> classifier <span class="o">=</span> CRFClassifier.getClassifierNoExceptions(
+                classifiersDirecrory <span class="o">+</span> <span class="s">@"\english.all.3class.distsim.crf.ser.gz"</span>);
+
+            <span class="k">var</span> s<span class="n">1</span> <span class="o">=</span> <span class="s">"Good afternoon Rajat Raina, how are you today?"</span>;
+            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyToString(s<span class="n">1</span>));
+
+            <span class="k">var</span> s<span class="n">2</span> <span class="o">=</span> <span class="s">"I go to school at Stanford University, which is located in California."</span>;
+            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyWithInlineXML(s<span class="n">2</span>));
+
+            Console.WriteLine(<span class="s">"{0}\n"</span>, classifier.classifyToString(s<span class="n">2</span>, <span class="s">"xml"</span>, <span class="k">true</span>));
+        }
+    }
+}
+</code></pre></td></tr></table>
+
+
+<div class="tip" id="fs1">val classifiersDirecrory : string<br /><br />Full name: NER.Sample.classifiersDirecrory</div>
+<div class="tip" id="fs2">val classifier : obj<br /><br />Full name: NER.Sample.classifier</div>
+<div class="tip" id="fs3">val s1 : string<br /><br />Full name: NER.Sample.s1</div>
+<div class="tip" id="fs4">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
+<div class="tip" id="fs5">val s2 : string<br /><br />Full name: NER.Sample.s2</div>
+
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>
+
+  </div>
+
+  <a class="gh-forkme" href="https://github.com/sergey-tihon/Stanford.NLP.NET"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</body>
+</html>

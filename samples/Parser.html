@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Sergey Tihon">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600,700|Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/custom.css" rel='stylesheet' type='text/css'>
+    <script src="http://sergey-tihon.github.io/Stanford.NLP.NET//content/tips.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/snippets.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript">
+      function init() {
+          try {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+          } catch(e) { /* For local development only */ }
+      }
+      window.addEventListener("load", init, false);
+    </script>
+    
+  <title>Stanford.NLP.Parser - Stanford.NLP.NET</title>
+  <meta name="description" content="What is Stanford.NLP.Parser?">
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-43389710-2', 'sergey-tihon.github.io');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+
+  <div class="snlp-navbar">
+  <div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://sergey-tihon.github.io/Stanford.NLP.NET/">Stanford.NLP.NET</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET/">home</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//samples.html">samples</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//projects.html">projects</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//faq.html">faq</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </div>
+  </div>
+
+  <div class="snlp-content-wrapper">
+  
+<div class="snlp-heading">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Stanford.NLP.Parser</h1>
+      <p>What is Stanford.NLP.Parser?</p>
+      <p class="links">
+        <a href="https://twitter.com/stanfordnlp"><i class="fa fa-twitter"></i> follow</a>
+        <a href="http://stackoverflow.com/questions/tagged/stanford-nlp"><i class="fa fa-stack-overflow"></i> ask</a>
+        <a href="https://github.com/sergey-tihon/Stanford.NLP.NET"><i class="fa fa-github"></i> contribute</a>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container snlp-content">
+  <div class="row">
+    <div class="col-md-1 col-lg-2"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <p><div class="snlp-actions">
+<div class="row">
+<div class="col-sm-6">
+<h2>Install NuGet package</h2>
+<i class="fa" aria-hidden="true"><img src="/images/nuget.png" style="width:40px;" /></i>
+<h3 class="actionlink">
+<a href="https://www.nuget.org/packages/Stanford.NLP.Parser/">Stanford.NLP.Parser</a>
+</h3>
+</div>
+<div class="col-sm-6">
+<h2>Download models</h2>
+<i class="fa fa-download" aria-hidden="true"></i>
+<h3 class="actionlink">
+<a href="http://nlp.stanford.edu/software/stanford-parser-full-2016-10-31.zip">Download Parser 3.7.0</a>
+</h3>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-6">
+<h2>Check out .NET Samples</h2>
+<i class="fa fa-book" aria-hidden="true"></i>
+<h3 class="actionlink">
+<a href="/samples.html#Stanford-Parser">Open .NET Samples</a>
+</h3>
+</div>
+<div class="col-sm-6">
+<h2>Read official Java docs</h2>
+<i class="fa" aria-hidden="true"><img src="/images/logo.jpg" style="width:40px;" /></i>
+<h3 class="actionlink">
+<a href="https://nlp.stanford.edu/software/lex-parser.shtml">Go to Parser page</a>
+</h3>
+</div>
+</div>
+</div></p>
+<blockquote>
+<p>A natural language parser is a program that works out the grammatical <strong>structure of sentences</strong>, for instance, which groups of words go together (as "phrases") and which words are the <strong>subject</strong> or <strong>object</strong> of a verb. Probabilistic parsers use knowledge of language gained from hand-parsed sentences to try to produce the <em>most likely</em> analysis of new sentences. These statistical parsers still make some mistakes, but commonly work rather well. Their development was one of the biggest breakthroughs in natural language processing in the 1990s. You can <a href="http://nlp.stanford.edu:8080/parser/">try out our parser online</a>.</p>
+<p>The lexicalized probabilistic parser implements a factored product model, with separate <code>PCFG</code> phrase structure and lexical dependency experts, whose preferences are combined by efficient exact inference, using an <code>A*</code> algorithm. Alternatively the software can be used simply as an accurate unlexicalized stochastic context-free grammar parser. Either of these yields a good performance statistical parsing system. A GUI (Java) is provided for viewing the phrase structure tree output of the parser.</p>
+<p>As well as providing an <strong>English</strong> parser, the parser can be and has been adapted to work with other languages. A <strong>Chinese</strong> parser based on the Chinese Treebank, a <strong>German</strong> parser based on the Negra corpus and <strong>Arabic</strong> parsers based on the Penn Arabic Treebank are also included. The parser has also been used for other languages, such as Italian, Bulgarian, and Portuguese.</p>
+<p>The parser provides <a href="https://nlp.stanford.edu/software/stanford-dependencies.shtml">Stanford Dependencies</a> output as well as phrase structure trees. Typed dependencies are otherwise known <strong>grammatical relations</strong>. This style of output is available only for English and Chinese. For more details, please refer to the <a href="https://nlp.stanford.edu/software/stanford-dependencies.shtml">Stanford Dependencies webpage</a>.</p>
+<p>The parser is available for download, licensed under the <code>GNU General Public License</code> (v2 or later). Source is included. The package includes components for command-line invocation, a Java parsing GUI, and a Java API. The parser code is dual licensed (in a similar manner to MySQL, etc.). Open source licensing is under the full GPL, which allows many free uses. For distributors of proprietary software, commercial licensing is available.</p>
+</blockquote>
+
+
+
+    </div>
+    <div class="col-md-1 col-lg-2"></div>
+  </div>
+</div>
+
+  </div>
+
+  <a class="gh-forkme" href="https://github.com/sergey-tihon/Stanford.NLP.NET"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</body>
+</html>

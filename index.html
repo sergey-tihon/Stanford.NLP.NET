@@ -2,23 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Stanford NLP Software for .NET
-</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Port of Stanford NLP libraries for .NET">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Sergey Tihon">
-
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-
-    <link type="text/css" rel="stylesheet" href="/Stanford.NLP.NET/content/style.css" />
-    <script type="text/javascript" src="/Stanford.NLP.NET/content/tips.js"></script>
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600,700|Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/custom.css" rel='stylesheet' type='text/css'>
+    <script src="http://sergey-tihon.github.io/Stanford.NLP.NET//content/tips.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/snippets.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript">
+      function init() {
+          try {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+          } catch(e) { /* For local development only */ }
+      }
+      window.addEventListener("load", init, false);
+    </script>
+    
+  <title>Stanford NLP Software for .NET</title>
+
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -32,124 +45,157 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <div class="masthead">
-            <ul class="nav nav-pills pull-right">
-                <li><a href="http://sergey-tihon.github.io/Stanford.NLP.Fsharp/">Stanford.NLP.Fsharp</a></li>
-                <li><a href="http://www-nlp.stanford.edu/">The Stanford NLP Group</a></li>
-                <li><a href="http://fsharp.org">fsharp.org</a></li>
-                <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET">github page</a></li>
-            </ul>
-            <h3 class="muted"><a href="/Stanford.NLP.NET/index.html">Stanford.NLP.NET</a></h3>
-        </div>
-        <hr />
-        <div class="row">
-            <div class="span9" id="main">
-                
-<h1>Stanford NLP Software for .NET</h1>
-<img src="img/cover.png" style="float:right;width:363px;margin: 0px 0px 10px 10px;" />
-<p>The Stanford NLP Group makes parts of Natural Language Processing software available to everyone. These are statistical NLP
-toolkits for various major computational linguistics problems. They can be incorporated into applications with human language
-technology needs.</p>
-<h2>Getting started</h2>
-<ul>
-<li>Choose the package that is the most suitable for your task. If your task is complex and you need a deep analysis - select <a href="/Stanford.NLP.NET/StanfordCoreNLP.html">Stanford CoreNLP</a>.</li>
-<li>Install selected <a href="https://www.nuget.org/packages?q=Stanford.NLP">NuGet package</a>.</li>
-<li>Download original ZIP archive for selected package from The Stanford NLP Group site. (Direct links are mentioned on the packages pages)</li>
-<li>Unzip <code>*.jar</code> file with models if such one exists.</li>
-<li>You are ready to start, please look at examples.</li>
-</ul>
-<p>Note: Do not try to reference several NuGet packages from your solution. They are incompatible with each other. If you need more than one - you should
-reference <a href="/Stanford.NLP.NET/StanfordCoreNLP.html">Stanford CoreNLP</a> package. All features are packed inside.</p>
-<p><strong>If you want to speed up the conversion of some new Stanford software or you want to see new .NET samples for already existing distributions -
-please mention this in <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/issues">issues</a>. It can really help you get it sooner.</strong></p>
-<h2>Supported software distributions</h2>
-<p>All these software distributions are open source, licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later). Note that this is
-the full GPL, which allows many free uses, but does not allow its incorporation into any type of distributed proprietary software,
-even in part or in translation. Commercial licensing is also available; please contact
-<a href="http://www-nlp.stanford.edu/">The Stanford Natural Language Processing Group</a> if you are interested.</p>
-<div class="span9" style="margin-left: 0px;">
-    <div class="row-fluid">
-        <div class="span4">
-            <h2>Stanford CoreNLP</h2>
-            <p style="min-height: 110px;">
-               An integrated suite of natural language processing tools for English and (mainland) Chinese, including tokenization, 
-               part-of-speech tagging, named entity recognition, parsing, and coreference.<br/>
-            See also: <a href="http://nlp.stanford.edu:8080/corenlp/">Online CoreNLP demo</a>.</p>
-            <p><a class="btn" href="/Stanford.NLP.NET/StanfordCoreNLP.html">View details »</a></p>
-        </div><!--/span-->
-        <div class="span4">
-            <h2>Stanford Parser</h2>
-            <p style="min-height: 110px;">
-               Implementations of probabilistic natural language parsers: highly optimized PCFG and dependency parsers, a 
-               lexicalized PCFG parser, and a deep learning reranker.<br/>
-               See also: <a href="http://nlp.stanford.edu:8080/parser/">Online parser demo</a> and 
-               the <a href="http://nlp.stanford.edu/software/stanford-dependencies.shtml">Stanford Dependencies page</a>.</p>
-            <p><a class="btn" href="/Stanford.NLP.NET/StanfordParser.html">View details »</a></p>
-        </div><!--/span-->
-        <div class="span4">
-            <h2>Stanford POS Tagger</h2>
-            <p style="min-height: 110px;">
-               A maximum-entropy (CMM) part-of-speech (POS) tagger for English, Arabic, Chinese, French, and German.</p>
-            <p><a class="btn" href="/Stanford.NLP.NET/StanfordPOSTagger.html">View details »</a></p>
-        </div><!--/span-->
-    </div><!--/row-->
-    <div class="row-fluid">
-        <div class="span4">
-            <h2>Stanford Named Entity Recognizer</h2>
-            <p style="min-height: 110px;">
-               A Conditional Random Field sequence model, together with well-engineered features for Named Entity Recognition in English, Chinese, and German.<br/>
-               See also: <a href="http://nlp.stanford.edu:8080/ner/">Online NER demo</a></p>
-            <p><a class="btn" href="/Stanford.NLP.NET/StanfordNER.html">View details »</a></p>
-        </div><!--/span-->
-        <div class="span4">
-            <h2>Stanford Word Segmenter</h2>
-            <p style="min-height: 110px;">
-                A CRF-based word segmenter. Supports Arabic and Chinese.</p>
-            <p><a class="btn" href="/Stanford.NLP.NET/StanfordWordSegmenter.html">View details »</a></p>
-        </div><!--/span-->
-        <div class="span4">
-            <h2>Stanford Temporal Tagger (SUTime)</h2>
-            <p style="min-height: 110px;">
-               A rule-based temporal tagger for English text.<br/>
-               See also: <a href="http://nlp.stanford.edu:8080/sutime">Online SUTime demo</a></p>
-            <p><a class="btn" href="/Stanford.NLP.NET/StanfordSUTime.html">View details »</a></p>
-        </div><!--/span-->
-    </div><!--/row-->
-</div>
-<h2>Contributing</h2>
-<p>The project is hosted on <a href="https://github.com/sergey-tihon/Stanford.NLP.NET">GitHub</a> where you can <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/issues">report issues</a>, fork
-the project and submit pull requests. You might also want to read <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/README.md">library notes</a>
-to understand how it works.</p>
 
-
-            </div>
-            <div class="span3">
-                <img src="img/logo.jpg" alt="Stanford.NLP.NET" style="width: 111px; height: 112px; margin: 10px 0px 0px 20px; border-style: none;" />
-                <ul class="nav nav-list" id="menu">
-                    <li class="nav-header">Stanford.NLP.NET</li>
-                    <li><a href="/Stanford.NLP.NET/index.html">Home page</a></li>
-                    <li class="divider"></li>
-                    <li><a href="https://www.nuget.org/packages?q=Stanford.NLP">Get Libraries via NuGet</a></li>
-                    <li><a href="http://stackoverflow.com/questions/tagged/stanford-nlp">Find Answers on StackOverflow</a></li>
-                    <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET">Source Code on GitHub</a></li>
-                    <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">License</a></li>
-                    <li><a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-
-                    <li class="nav-header">Supported distributions</li>
-                    <li><a href="/Stanford.NLP.NET/StanfordCoreNLP.html">Stanford CoreNLP</a></li>
-                    <li><a href="/Stanford.NLP.NET/StanfordParser.html">Stanford Parser</a></li>
-                    <li><a href="/Stanford.NLP.NET/StanfordPOSTagger.html">Stanford POS Tagger</a></li>
-                    <li><a href="/Stanford.NLP.NET/StanfordNER.html">Stanford Named Entity Recognizer</a></li>
-                    <li><a href="/Stanford.NLP.NET/StanfordWordSegmenter.html">Stanford Word Segmenter</a></li>
-                    <li><a href="/Stanford.NLP.NET/StanfordSUTime.html">Stanford Temporal Tagger (SUTime)</a></li>
-
-                    <li class="nav-header">Documentation</li>
-                    <li><a href="http://www-nlp.stanford.edu/software/index.shtml">API Reference</a></li>
-                </ul>
-            </div>
-        </div>
+  <div class="snlp-navbar">
+  <div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://sergey-tihon.github.io/Stanford.NLP.NET/">Stanford.NLP.NET</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="http://sergey-tihon.github.io/Stanford.NLP.NET/">home</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//samples.html">samples</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//projects.html">projects</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//faq.html">faq</a></li>
+        </ul>
+      </div>
     </div>
-    <a href="https://github.com/sergey-tihon/Stanford.NLP.NET"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+  </nav>
+  </div>
+  </div>
+
+  <div class="snlp-content-wrapper">
+  
+<div class="snlp-heading snlp-hp-heading">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Stanford.NLP.NET</h1>
+      <p>The Stanford Natural Language Processing Software for .NET!</p>
+      <p class="links">
+        <a href="https://twitter.com/stanfordnlp"><i class="fa fa-twitter"></i> follow</a>
+        <a href="http://stackoverflow.com/questions/tagged/stanford-nlp"><i class="fa fa-stack-overflow"></i> ask</a>
+        <a href="https://github.com/sergey-tihon/Stanford.NLP.NET"><i class="fa fa-github"></i> contribute</a>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="snlp-homepage">
+<div class="container snlp-buzzwords">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 panel panel-danger" >
+      <div class="panel-body">
+        <h2><a href="samples/CoreNLP.html">Stanford.NLP.CoreNLP</a></h2>
+        <i class="fa" aria-hidden="true"><img src="images/logo.jpg" style="width:80px;" /></i>
+          <a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">
+            <img src="https://buildstats.info/nuget/Stanford.NLP.CoreNLP" style="max-width:100%;">
+          </a>
+        <p style="min-height: 110px;">
+          An integrated suite of natural language processing tools for English and (mainland) Chinese, including tokenization,
+          part-of-speech tagging, named entity recognition, parsing, and coreference.<br/>
+          See also: <a href="http://corenlp.run">corenlp.run</a> and <a href="http://nlp.stanford.edu:8080/corenlp/">online CoreNLP demo</a>.</p>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2><a href="samples/Parser.html">Stanford.NLP.Parser</a></h2>
+      <i class="fa" aria-hidden="true"><img src="images/logo.jpg" class="logo-sq" /></i>
+      <a href="https://www.nuget.org/packages/Stanford.NLP.Parser/">
+          <img src="https://buildstats.info/nuget/Stanford.NLP.Parser" style="max-width:100%;">
+        </a>
+      <p style="min-height: 110px;">
+        Probabilistic natural language parsers: highly optimized PCFG and dependency parsers, a
+        lexicalized PCFG parser, and a deep learning reranker.<br/>
+        See also: <a href="http://nlp.stanford.edu:8080/parser/">online parser demo</a>.</p>
+    </div>
+    <div class="col-sm-6">
+      <h2><a href="samples/NER.html">Stanford.NLP.NER</a></h2>
+      <i class="fa" aria-hidden="true"><img src="images/logo.jpg" class="logo-sq" /></i>
+      <a href="https://www.nuget.org/packages/Stanford.NLP.NER/">
+        <img src="https://buildstats.info/nuget/Stanford.NLP.NER" style="max-width:100%;">
+      </a>
+      <p style="min-height: 110px;">
+        A Conditional Random Field sequence model, together with well-engineered features for Named Entity Recognition in English, Chinese, and German.<br/>
+        See also: <a href="http://nlp.stanford.edu:8080/ner/">online NER demo</a></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2><a href="samples/POSTagger.html">Stanford.NLP.POSTagger</a></h2>
+      <i class="fa" aria-hidden="true"><img src="images/logo.jpg" class="logo-sq" /></i>
+      <a href="https://www.nuget.org/packages/Stanford.NLP.POSTagger/">
+        <img src="https://buildstats.info/nuget/Stanford.NLP.POSTagger" style="max-width:100%;">
+      </a>
+      <p style="min-height: 110px;">
+        Log-linear Part-Of-Speech Tagger for English, Arabic, Chinese, French, and German. The software that reads text in some language and assigns parts of speech to each word (and other token).</p>
+    </div>
+    <div class="col-sm-6">
+      <h2><a href="samples/Segmenter.html">Stanford.NLP.Segmenter</a></h2>
+      <i class="fa" aria-hidden="true"><img src="images/logo.jpg" class="logo-sq" /></i>
+      <a href="https://www.nuget.org/packages/Stanford.NLP.Segmenter/">
+        <img src="https://buildstats.info/nuget/Stanford.NLP.Segmenter" style="max-width:100%;">
+      </a>
+      <p style="min-height: 110px;">
+        A CRF-based word segmenter (tokenizer). Supports Arabic and Chinese (can be used for English, French, and Spanish.).</p>
+    </div>
+  </div>
+</div>
+
+<div class="snlp-gettingstarted">
+<div class="container" style="padding:20px 0px 30px 0px">
+  <div class="row">
+    <div class="col-md-1 col-lg-2"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <h2>Getting started</h2>
+      <ol>
+        <li>Choose the package that is the most suitable for your task. If your task is complex and you need a deep analysis - select <a href="samples/CoreNLP.html">Stanford CoreNLP</a></li>
+        <li>Install selected <a href="https://www.nuget.org/packages?q=Stanford.NLP">NuGet package</a>.</li>
+        <li>Download original ZIP archive for selected package from The Stanford NLP Group site. (Direct links are mentioned on the packages pages)</li>
+        <li>Unzip <code>*.jar</code> file with models if such one exists</li>
+        <li>You are ready to start, please look at <a href="samples.html">samples</a>.</li>
+      </ol>
+      <code>
+        <b>Note:</b> Do not try to reference several NuGet packages from your project. They are incompatible with each other! If you need more than one - you should reference <a href="samples/CoreNLP.html">Stanford CoreNLP</a> package. All features are packed inside.
+      </code>
+    </div>
+    <div class="col-md-1 col-lg-2"></div>
+  </div>
+</div>
+</div>
+
+<div class="snlp-footer">
+<div class="container">
+  <div class="row" style="padding:20px 0px 80px 0px">
+    <div class="col-md-6">
+      <h2>Licensing</h2>
+      <p>All these software distributions are open source, <b>licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later)</b>. Note that this is the <i>full</i> GPL, which allows many free uses, but <i>does not</i> allow its incorporation into any type of distributed proprietary software, even in part or in translation. <b>Commercial licensing</b> is also available; please contact <a href="http://www-nlp.stanford.edu/">The Stanford Natural Language Processing Group</a> if you are interested.</p>
+    </div>
+    <div class="col-lg-6 col-md-7 col-sm-7">
+      <h2>Versioning</h2>
+      <p>Versioning model used for NuGet packages is aligned to versioning used by Stanford NLP Group. For example, if you get <code>Stanford CoreNLP</code> distribution from <a href="https://nlp.stanford.edu/software/index.shtml">Stanford NLP site</a> with version <code>3.7.0</code>, then the NuGet version of this package has a version <code>3.7.0.x</code>, where <code>x</code> is the greatest that is available on NuGet. Last number is used for internal versioning of .NET assemblies.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+
+  </div>
+
+  <a class="gh-forkme" href="https://github.com/sergey-tihon/Stanford.NLP.NET"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 </body>
 </html>

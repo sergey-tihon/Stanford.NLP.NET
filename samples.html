@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Sergey Tihon">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600,700|Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/custom.css" rel='stylesheet' type='text/css'>
+    <script src="http://sergey-tihon.github.io/Stanford.NLP.NET//content/tips.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/snippets.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript">
+      function init() {
+          try {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+          } catch(e) { /* For local development only */ }
+      }
+      window.addEventListener("load", init, false);
+    </script>
+    
+  <title>Samples and Links - Stanford.NLP.NET</title>
+  <meta name="description" content="Explore Stanford.NLP.NET through samples!">
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-43389710-2', 'sergey-tihon.github.io');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+
+  <div class="snlp-navbar">
+  <div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://sergey-tihon.github.io/Stanford.NLP.NET/">Stanford.NLP.NET</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET/">home</a></li>
+          <li class="active"><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//samples.html">samples</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//projects.html">projects</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//faq.html">faq</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </div>
+  </div>
+
+  <div class="snlp-content-wrapper">
+  
+<div class="snlp-heading">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Samples and Links</h1>
+      <p>Explore Stanford.NLP.NET through samples!</p>
+      <p class="links">
+        <a href="https://twitter.com/stanfordnlp"><i class="fa fa-twitter"></i> follow</a>
+        <a href="http://stackoverflow.com/questions/tagged/stanford-nlp"><i class="fa fa-stack-overflow"></i> ask</a>
+        <a href="https://github.com/sergey-tihon/Stanford.NLP.NET"><i class="fa fa-github"></i> contribute</a>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container snlp-content">
+  <div class="row">
+    <div class="col-md-1 col-lg-2"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <p>You can also contribute more examples by sending us a pull
+request <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/tree/master/docs/source/samples">for the samples directory</a> or just edit this page!</p>
+<hr />
+<h2><a name="Stanford-CoreNLP" class="anchor" href="#Stanford-CoreNLP">Stanford CoreNLP</a></h2>
+<ul>
+<li><a href="samples/CoreNLP.html">What is Stanford.NLP.CoreNLP?</a></li>
+<li><a href="samples/CoreNLP.Pipeline.html">Building and using a Stanford CoreNLP pipeline</a></li>
+<li><a href="samples/CoreNLP.SUTime.html">SUTime - recognizing and normalizing time expressions</a></li>
+</ul>
+<p><strong>Related links</strong>:</p>
+<ul>
+<li><a href="https://github.com/evelinag/SentimentAnalysisDemo">Sentiment analysis of tweets</a></li>
+<li><a href="https://automatagears.com/articles/sentiment-analysis-in-fsharp/">Sentiment Analysis in F#</a></li>
+<li><a href="https://www.rhyous.com/2014/10/20/splitting-sentences-in-c-using-stanford-nlp/">Splitting sentences in C# using Stanford.NLP</a></li>
+<li><a href="https://sergeytihon.com/2013/10/26/stanford-corenlp-is-available-on-nuget-for-fc-devs/">Stanford CoreNLP is available on NuGet for F#/C# devs</a></li>
+</ul>
+<hr />
+<h2><a name="Stanford-Parser" class="anchor" href="#Stanford-Parser">Stanford Parser</a></h2>
+<ul>
+<li><a href="samples/Parser.html">What is Stanford.NLP.Parser?</a></li>
+<li><a href="samples/Parser.Sample.html">Getting started with Stanford Parser</a></li>
+</ul>
+<p><strong>Relevant links</strong>:</p>
+<ul>
+<li><a href="https://blogs.msdn.microsoft.com/dsyme/2013/02/05/using-a-java-framework-with-f-the-stanford-parser-for-nlp/">Using a Java Framework with F#: The Stanford Parser for NLP</a></li>
+<li><a href="http://sergeytihon.wordpress.com/2013/07/21/fsharp-nlp-stanford-parser-justification-or-stackoverflow-questions-understanding/">FSharp.NLP.Stanford.Parser justification or StackOverflow questions understanding.</a></li>
+<li><a href="http://sergeytihon.wordpress.com/2013/02/05/nlp-stanford-parser-with-f-net/">NLP: Stanford Parser with F# (.NET).</a></li>
+</ul>
+<hr />
+<h2><a name="Stanford-Named-Entity-Recognizer-NER" class="anchor" href="#Stanford-Named-Entity-Recognizer-NER">Stanford Named Entity Recognizer (NER)</a></h2>
+<ul>
+<li><a href="samples/NER.html">What is Stanford.NLP.NER?</a></li>
+<li><a href="samples/NER.Sample.html">Getting started with Stanford NER</a></li>
+</ul>
+<p><strong>Related links</strong>:</p>
+<ul>
+<li><a href="http://www.stewh.com/2013/11/extracting-named-entities-in-c-using-the-stanford-nlp-parser/">Extracting named entities in C# using the Stanford NLP Parser</a></li>
+</ul>
+<hr />
+<h2><a name="Stanford-Log-linear-Part-Of-Speech-POS-Tagger" class="anchor" href="#Stanford-Log-linear-Part-Of-Speech-POS-Tagger">Stanford Log-linear Part-Of-Speech (POS) Tagger</a></h2>
+<ul>
+<li><a href="samples/POSTagger.html">What is Stanford.NLP.POSTagger?</a></li>
+<li><a href="samples/POSTagger.Sample.html">Getting started with Stanford POS Tagger</a></li>
+</ul>
+<hr />
+<h2><a name="Stanford-Word-Segmenter" class="anchor" href="#Stanford-Word-Segmenter">Stanford Word Segmenter</a></h2>
+<ul>
+<li><a href="samples/Segmenter.html">What is Stanford.NLP.Segmenter?</a></li>
+<li><a href="samples/Segmenter.Sample.html">Getting started with Stanford Word Segmenter</a></li>
+</ul>
+
+
+
+    </div>
+    <div class="col-md-1 col-lg-2"></div>
+  </div>
+</div>
+
+  </div>
+
+  <a class="gh-forkme" href="https://github.com/sergey-tihon/Stanford.NLP.NET"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</body>
+</html>
