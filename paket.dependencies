@@ -18,4 +18,6 @@ group Docs
     source https://nuget.org/api/v2
     framework: net45
 
-    nuget FSharp.Formatting
+    nuget Suave
+    nuget DotLiquid
+    nuget FSharp.Formatting 2.14.2

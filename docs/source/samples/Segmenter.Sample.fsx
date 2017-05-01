@@ -1,41 +1,16 @@
-﻿(*** hide ***)
+﻿(**
+ - tagline: Package: Stanford.NLP.Segmenter
+
+# Getting started with Stanford Word Segmenter
+*)
+
+(*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Stanford.NLP.Segmenter/lib"
 #I "../../packages/test/IKVM/lib/"
 
 (**
-Stanford Word Segmenter for .NET
-================================
-
->Tokenization of raw text is a standard pre-processing step for many NLP tasks. For English, tokenization usually involves punctuation splitting
->and separation of some affixes like possessives. Other languages require more extensive token pre-processing, which is usually called segmentation.
->
->[The Stanford Word Segmenter][goToOrigin] currently supports Arabic and Chinese. The provided segmentation schemes have been found to work well
->for a variety of applications.
->
->Stanford NLP group recommend at least 1G of memory for documents that contain long sentences.
->
->The segmenter is available for download, licensed under the [GNU General Public License][license] (v2 or later). Source is included. The package
->includes components for command-line invocation and a Java API. The segmenter code is dual licensed (in a similar manner to MySQL, etc.).
->Open source licensing is under the full GPL, which allows many free uses. For distributors of proprietary software,
->[commercial licensing](http://otlportal.stanford.edu/techfinder/technology/ID=27276) is available. If you don't need a commercial license,
->but would like to support maintenance of these tools, Stanford NLP Group welcomes gift funding.
-
- <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
-  <div class="span1"></div>
-  <div class="span6">
-    <div class="well well-small" id="nuget">
-      The Stanford Word Segmenter library can be <a href="https://www.nuget.org/packages/Stanford.NLP.Segmenter/">installed from NuGet</a>:
-      <pre>PM> Install-Package Stanford.NLP.Segmenter</pre>
-    </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-segmenter-2016-10-31.zip">
-    <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
-    Download Stanford Word Segmenter archive with models</button>
-    </form>
-  </div>
-  <div class="span1"></div>
- </div>
 
 F# Sample of Word Segmentation
 -----------------------------
@@ -48,7 +23,8 @@ open java.util
 open edu.stanford.nlp.ie.crf
 
 // Path to the folder with models
-let segmenterData = __SOURCE_DIRECTORY__ + @"\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2016-10-31\data\"
+let segmenterData =
+    __SOURCE_DIRECTORY__ + @"\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2016-10-31\data\"
 let sampleData = __SOURCE_DIRECTORY__ + @"\..\..\tests\data\test.simple.utf8";
 
 // `test.simple.utf8` contains following text:
@@ -93,8 +69,8 @@ C# Sample of Word Segmentation
             static void Main()
             {
                 // Path to the folder with models
-                var segmenterData = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2016-10-31\data";
-                var sampleData = @"..\..\..\..\paket-files\nlp.stanford.edu\stanford-segmenter-2015-10-31\test.simp.utf8";
+                var segmenterData = @"nlp.stanford.edu\stanford-segmenter-2016-10-31\data";
+                var sampleData = @"nlp.stanford.edu\stanford-segmenter-2015-10-31\test.simp.utf8";
 
                 // `test.simple.utf8` contains following text:
                 // 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫
@@ -122,17 +98,5 @@ C# Sample of Word Segmentation
             }
         }
     }
-
-*)
-
-(**
-Read more about Stanford Word Segmenter on [the official page][goToOrigin].
-
-  [goToOrigin]: http://www-nlp.stanford.edu/software/segmenter.shtml
-  [license]: https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt
-
-Relevant posts
---------------
-*   [Stanford Word Segmenter is available on NuGet](http://sergeytihon.wordpress.com/2013/09/09/stanford-word-segmenter-is-available-on-nuget/)
 
 *)

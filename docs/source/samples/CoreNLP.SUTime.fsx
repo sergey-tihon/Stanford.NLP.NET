@@ -1,41 +1,24 @@
-﻿(*** hide ***)
+﻿(**
+ - tagline: Package: Stanford.NLP.CoreNLP
+
+# SUTime - recognizing and normalizing time expressions
+*)
+
+(*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin/Stanford.NLP.CoreNLP/lib/"
 #I "../../packages/test/IKVM/lib/"
 
 (**
-Stanford Temporal Tagger: SUTime for .NET
-==================================================
 
->[SUTime][goToOrigin] is a library for recognizing and normalizing time expressions. SUTime is available as part of the
->[Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html) pipeline and can be used to annotate documents with temporal information.
->It is a deterministic rule-based system designed for extensibility.
+>[SUTime](http://www-nlp.stanford.edu/software/sutime.shtml) is a library for recognizing and normalizing time expressions. SUTime is available as part of the [Stanford CoreNLP](CoreNLP.html) pipeline and can be used to annotate documents with temporal information. It is a deterministic rule-based system designed for extensibility.
 >
->SUTime was developed using [TokensRegex](http://www-nlp.stanford.edu/software/tokensregex.shtml), a generic framework for defining
->patterns over text and mapping to semantic objects. An included set of PowerPoint slides and the javadoc for SUTime provide
->an overview of this package.
+>SUTime was developed using [TokensRegex](http://www-nlp.stanford.edu/software/tokensregex.shtml), a generic framework for defining patterns over text and mapping to semantic objects. An included set of [PowerPoint slides](https://nlp.stanford.edu/software/SUTime.pptx) and the [javadoc for SUTime](http://nlp.stanford.edu/nlp/javadoc/javanlp/edu/stanford/nlp/time/SUTime.html) provide an overview of this package.
 >
->SUTime annotations are provided automatically with the [Stanford CoreNLP](/Stanford.NLP.NET/StanfordCoreNLP.html) pipeline by including
->the `ner` annotator. When a time expression is identified, the `NamedEntityTagAnnotation` is set with one of four temporal types (`DATE`,
->`TIME`, `DURATION`, and `SET`) and the `NormalizedNamedEntityTagAnnotation` is set to the value of the normalized temporal expression.
->The temporal type and value correspond to the [TIMEX3 standard](http://www.timeml.org/site/publications/timeMLdocs/timeml_1.2.1.html#timex3)
->for type and value. (Note the slightly weird and non-specific entity name `SET`, which refers to a set of times, such as a recurring event.)
-
- <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
-  <div class="span1"></div>
-  <div class="span6">
-    <div class="well well-small" id="nuget">
-      The Stanford CoreNLP library can be <a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">installed from NuGet</a>:
-      <pre>PM> Install-Package Stanford.NLP.CoreNLP</pre>
-    </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2016-10-31.zip">
-    <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
-    Download Stanford CoreNLP ZIP archive with models</button>
-    </form>
-  </div>
-  <div class="span1"></div>
- </div>
+>SUTime annotations are provided automatically with the [Stanford CoreNLP](CoreNLP.html) pipeline by including
+>the `ner` annotator. When a time expression is identified, the `NamedEntityTagAnnotation` is set with one of four temporal types (`DATE`, `TIME`, `DURATION`, and `SET`) and the `NormalizedNamedEntityTagAnnotation` is set to the value of the normalized temporal expression.
+>The temporal type and value correspond to the [TIMEX3 standard](http://www.timeml.org/site/publications/timeMLdocs/timeml_1.2.1.html#timex3) for type and value. (Note the slightly weird and non-specific entity name `SET`, which refers to a set of times, such as a recurring event.)
 
 F# Sample of SUTime
 -----------------------------
@@ -169,14 +152,3 @@ C# Sample of SUTime
 
 *)
 
-(**
-Read more about Stanford Temporal Tagger (SUTime) on [the official page][goToOrigin].
-
-  [goToOrigin]: http://www-nlp.stanford.edu/software/sutime.shtml
-  [license]: https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt
-
-Relevant posts
---------------
-*   [Stanford CoreNLP is available on NuGet for F#/C# devs](http://sergeytihon.wordpress.com/2013/10/26/stanford-corenlp-is-available-on-nuget-for-fc-devs/)
-
-*)

@@ -10,12 +10,18 @@ GROUP Docs
 FRAMEWORK: NET45
 NUGET
   remote: https://www.nuget.org/api/v2
+    DotLiquid (2.0.64)
     FSharp.Compiler.Service (2.0.0.6)
-    FSharp.Formatting (2.14.4)
+    FSharp.Core (4.1.12)
+      System.ValueTuple (>= 4.3)
+    FSharp.Formatting (2.14.2)
       FSharp.Compiler.Service (2.0.0.6)
       FSharpVSPowerTools.Core (>= 2.3 < 2.4)
     FSharpVSPowerTools.Core (2.3)
       FSharp.Compiler.Service (>= 2.0.0.3)
+    Suave (2.1)
+      FSharp.Core (>= 4.0.0.1)
+    System.ValueTuple (4.3)
 
 GROUP Test
 FRAMEWORK: NET45

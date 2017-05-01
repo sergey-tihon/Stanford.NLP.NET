@@ -1,0 +1,126 @@
+{% extends "page.html" %}
+{% block head %}
+  <title>Stanford NLP Software for .NET</title>
+{% endblock %}
+
+{% block content %}
+<div class="snlp-heading snlp-hp-heading">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Stanford.NLP.NET</h1>
+      <p>The Stanford Natural Language Processing Software for .NET!</p>
+      <p class="links">
+        <a href="https://twitter.com/stanfordnlp"><i class="fa fa-twitter"></i> follow</a>
+        <a href="http://stackoverflow.com/questions/tagged/stanford-nlp"><i class="fa fa-stack-overflow"></i> ask</a>
+        <a href="https://github.com/sergey-tihon/Stanford.NLP.NET"><i class="fa fa-github"></i> contribute</a>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="snlp-homepage">
+<div class="container snlp-buzzwords">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 panel panel-danger" >
+      <div class="panel-body">
+        <h2><a href="samples/CoreNLP.html">Stanford.NLP.CoreNLP</a></h2>
+        <i class="fa" aria-hidden="true"><img src="images/logo.jpg" style="width:80px;" /></i>
+          <a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">
+            <img src="https://buildstats.info/nuget/Stanford.NLP.CoreNLP" style="max-width:100%;">
+          </a>
+        <p style="min-height: 110px;">
+          An integrated suite of natural language processing tools for English and (mainland) Chinese, including tokenization,
+          part-of-speech tagging, named entity recognition, parsing, and coreference.<br/>
+          See also: <a href="http://corenlp.run">corenlp.run</a> and <a href="http://nlp.stanford.edu:8080/corenlp/">online CoreNLP demo</a>.</p>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2><a href="samples/Parser.html">Stanford.NLP.Parser</a></h2>
+      <i class="fa" aria-hidden="true"><img src="images/logo.jpg" class="logo-sq" /></i>
+      <a href="https://www.nuget.org/packages/Stanford.NLP.Parser/">
+          <img src="https://buildstats.info/nuget/Stanford.NLP.Parser" style="max-width:100%;">
+        </a>
+      <p style="min-height: 110px;">
+        Probabilistic natural language parsers: highly optimized PCFG and dependency parsers, a
+        lexicalized PCFG parser, and a deep learning reranker.<br/>
+        See also: <a href="http://nlp.stanford.edu:8080/parser/">online parser demo</a>.</p>
+    </div>
+    <div class="col-sm-6">
+      <h2><a href="samples/NER.html">Stanford.NLP.NER</a></h2>
+      <i class="fa" aria-hidden="true"><img src="images/logo.jpg" class="logo-sq" /></i>
+      <a href="https://www.nuget.org/packages/Stanford.NLP.NER/">
+        <img src="https://buildstats.info/nuget/Stanford.NLP.NER" style="max-width:100%;">
+      </a>
+      <p style="min-height: 110px;">
+        A Conditional Random Field sequence model, together with well-engineered features for Named Entity Recognition in English, Chinese, and German.<br/>
+        See also: <a href="http://nlp.stanford.edu:8080/ner/">online NER demo</a></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2><a href="samples/POSTagger.html">Stanford.NLP.POSTagger</a></h2>
+      <i class="fa" aria-hidden="true"><img src="images/logo.jpg" class="logo-sq" /></i>
+      <a href="https://www.nuget.org/packages/Stanford.NLP.POSTagger/">
+        <img src="https://buildstats.info/nuget/Stanford.NLP.POSTagger" style="max-width:100%;">
+      </a>
+      <p style="min-height: 110px;">
+        Log-linear Part-Of-Speech Tagger for English, Arabic, Chinese, French, and German. The software that reads text in some language and assigns parts of speech to each word (and other token).</p>
+    </div>
+    <div class="col-sm-6">
+      <h2><a href="samples/Segmenter.html">Stanford.NLP.Segmenter</a></h2>
+      <i class="fa" aria-hidden="true"><img src="images/logo.jpg" class="logo-sq" /></i>
+      <a href="https://www.nuget.org/packages/Stanford.NLP.Segmenter/">
+        <img src="https://buildstats.info/nuget/Stanford.NLP.Segmenter" style="max-width:100%;">
+      </a>
+      <p style="min-height: 110px;">
+        A CRF-based word segmenter (tokenizer). Supports Arabic and Chinese (can be used for English, French, and Spanish.).</p>
+    </div>
+  </div>
+</div>
+
+<div class="snlp-gettingstarted">
+<div class="container" style="padding:20px 0px 30px 0px">
+  <div class="row">
+    <div class="col-md-1 col-lg-2"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <h2>Getting started</h2>
+      <ol>
+        <li>Choose the package that is the most suitable for your task. If your task is complex and you need a deep analysis - select <a href="samples/CoreNLP.html">Stanford CoreNLP</a></li>
+        <li>Install selected <a href="https://www.nuget.org/packages?q=Stanford.NLP">NuGet package</a>.</li>
+        <li>Download original ZIP archive for selected package from The Stanford NLP Group site. (Direct links are mentioned on the packages pages)</li>
+        <li>Unzip <code>*.jar</code> file with models if such one exists</li>
+        <li>You are ready to start, please look at <a href="samples.html">samples</a>.</li>
+      </ol>
+      <code>
+        <b>Note:</b> Do not try to reference several NuGet packages from your project. They are incompatible with each other! If you need more than one - you should reference <a href="samples/CoreNLP.html">Stanford CoreNLP</a> package. All features are packed inside.
+      </code>
+    </div>
+    <div class="col-md-1 col-lg-2"></div>
+  </div>
+</div>
+</div>
+
+<div class="snlp-footer">
+<div class="container">
+  <div class="row" style="padding:20px 0px 80px 0px">
+    <div class="col-md-6">
+      <h2>Licensing</h2>
+      <p>All these software distributions are open source, <b>licensed under the <a href="https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt">GNU General Public License</a> (v2 or later)</b>. Note that this is the <i>full</i> GPL, which allows many free uses, but <i>does not</i> allow its incorporation into any type of distributed proprietary software, even in part or in translation. <b>Commercial licensing</b> is also available; please contact <a href="http://www-nlp.stanford.edu/">The Stanford Natural Language Processing Group</a> if you are interested.</p>
+    </div>
+    <div class="col-lg-6 col-md-7 col-sm-7">
+      <h2>Versioning</h2>
+      <p>Versioning model used for NuGet packages is aligned to versioning used by Stanford NLP Group. For example, if you get <code>Stanford CoreNLP</code> distribution from <a href="https://nlp.stanford.edu/software/index.shtml">Stanford NLP site</a> with version <code>3.7.0</code>, then the NuGet version of this package has a version <code>3.7.0.x</code>, where <code>x</code> is the greatest that is available on NuGet. Last number is used for internal versioning of .NET assemblies.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+{% endblock %}

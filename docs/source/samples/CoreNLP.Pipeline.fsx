@@ -1,42 +1,16 @@
+(**
+ - tagline: Package: Stanford.NLP.CoreNLP
+
+# Building and using a Stanford CoreNLP pipeline
+
+*)
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin/Stanford.NLP.CoreNLP/lib/"
-#I "../../packages/test/IKVM/lib/"
+#I "../../../bin/Stanford.NLP.CoreNLP/lib/"
+#I "../../../packages/test/IKVM/lib/"
 
 (**
-Stanford CoreNLP for .NET
-========================
-
->[Stanford CoreNLP][goToOrigin] provides a set of natural language analysis tools which can take raw English language text input
->and give the base forms of words, their parts of speech, whether they are names of companies, people, etc., normalize dates, times,
->and numeric quantities, and mark up the structure of sentences in terms of phrases and word dependencies, and indicate which noun phrases
->refer to the same entities. Stanford CoreNLP is an integrated framework, which makes it very easy to apply a bunch of language analysis
->tools to a piece of text. Starting from plain text, you can run all the tools on it with just two lines of code. Its analyses provides the
->foundational building blocks for higher-level and domain-specific text understanding applications.
->
->Stanford CoreNLP integrates all Stanford NLP tools, including the part-of-speech (POS) tagger, the named entity recognizer (NER), the parser,
->the coreference resolution system, and the sentiment analysis tools, and provides model files for analysis of English.
->The goal of this project is to enable people to quickly and painlessly get complete linguistic annotations of natural language texts.
->It is designed to be highly flexible and extensible. With a single option, you can choose which tools should be enabled and which should be disabled.
->
->The Stanford CoreNLP code is licensed under the [GNU General Public License][license] (v2 or later). Note that this is the full GPL,
->which allows many free uses, but not its use in distributed proprietary software.
-
- <div class="row" style="margin-left: auto; margin-right: auto; display: block;">
-  <div class="span1"></div>
-  <div class="span6">
-    <div class="well well-small" id="nuget">
-      The Stanford CoreNLP library can be <a href="https://www.nuget.org/packages/Stanford.NLP.CoreNLP/">installed from NuGet</a>:
-      <pre>PM> Install-Package Stanford.NLP.CoreNLP</pre>
-    </div>
-    <form method="get" action="http://nlp.stanford.edu/software/stanford-corenlp-full-2016-10-31.zip">
-    <button type="submit" class="btn btn-large btn-info" style="margin-left: auto; margin-right: auto; display: block;">
-    Download Stanford CoreNLP ZIP archive with models</button>
-    </form>
-  </div>
-  <div class="span1"></div>
- </div>
 
 F# Sample of text annotation
 ----------------------------
@@ -52,7 +26,7 @@ open java.io
 open edu.stanford.nlp.pipeline
 
 // Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
-let jarRoot = __SOURCE_DIRECTORY__ + @"..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models\"
+let jarRoot = __SOURCE_DIRECTORY__ + @"/../../../data/paket-files/nlp.stanford.edu/stanford-corenlp-full-2016-10-31/models/"
 
 // Text for processing
 let text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
@@ -137,7 +111,7 @@ C# Sample of text annotation
             static void Main()
             {
                 // Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
-                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models";
+                var jarRoot = @"nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models";
 
                 // Text for processing
                 var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
@@ -168,14 +142,9 @@ C# Sample of text annotation
         }
     }
 *)
+
 (**
 Read more about Stanford CoreNLP on [the official page][goToOrigin].
-
   [goToOrigin]: http://www-nlp.stanford.edu/software/corenlp.shtml
   [license]: https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt
-
-Relevant posts
---------------
-*   [Stanford CoreNLP is available on NuGet for F#/C# devs.](http://sergeytihon.wordpress.com/2013/10/26/stanford-corenlp-is-available-on-nuget-for-fc-devs/)
-
 *)
