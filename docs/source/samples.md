@@ -11,6 +11,7 @@ ___
 ## Stanford CoreNLP
 
 * [What is Stanford.NLP.CoreNLP?](samples/CoreNLP.html)
+* [Simple CoreNLP](samples/CoreNLP.Simple.html)
 * [Building and using a Stanford CoreNLP pipeline](samples/CoreNLP.Pipeline.html)
 * [SUTime - recognizing and normalizing time expressions](samples/CoreNLP.SUTime.html)
 
