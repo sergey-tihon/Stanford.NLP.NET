@@ -1,0 +1,26 @@
+type file
+id Stanford.NLP.Segmenter
+owners
+    Sergey Tihon
+authors
+    The Stanford Natural Language Processing Group
+projectUrl
+    http://sergey-tihon.github.io/Stanford.NLP.NET/
+iconUrl
+    https://nlp.stanford.edu/static/img/logos/nlp-logo.gif
+licenseUrl
+    http://www.gnu.org/licenses/gpl-2.0.html
+requireLicenseAcceptance
+    true
+copyright
+    Copyright 2017
+tags
+    nlp stanford segmenter tokenization splitting IKVM
+summary
+    Stanford Word Segmenter
+description
+    Tokenization of raw text is a standard pre-processing step for many NLP tasks. For English, tokenization usually involves punctuation splitting and separation of some affixes like possessives. Other languages require more extensive token pre-processing, which is usually called segmentation.
+files
+    ../bin/Stanford.NLP.Segmenter/lib/*.dll ==> lib
+dependencies
+    IKVM 8.1.5717

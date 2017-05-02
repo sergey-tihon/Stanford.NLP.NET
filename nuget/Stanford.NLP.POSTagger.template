@@ -1,0 +1,26 @@
+type file
+id Stanford.NLP.POSTagger
+owners
+    Sergey Tihon
+authors
+    The Stanford Natural Language Processing Group
+projectUrl
+    http://sergey-tihon.github.io/Stanford.NLP.NET/
+iconUrl
+    https://nlp.stanford.edu/static/img/logos/nlp-logo.gif
+licenseUrl
+    http://www.gnu.org/licenses/gpl-2.0.html
+requireLicenseAcceptance
+    true
+copyright
+    Copyright 2017
+tags
+    nlp stanford POS tagger Part-Of-Speech IKVM
+summary
+    Stanford Log-linear Part-Of-Speech Tagger
+description
+    A Part-Of-Speech Tagger (POS Tagger) is a piece of software that reads text in some language and assigns parts of speech to each word (and other token), such as noun, verb, adjective, etc., although generally computational applications use more fine-grained POS tags like 'noun-plural'.
+files
+    ../bin/Stanford.NLP.POSTagger/lib/*.dll ==> lib
+dependencies
+    IKVM 8.1.5717

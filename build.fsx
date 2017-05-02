@@ -151,23 +151,24 @@ let copyPackages fromDir toDir =
     |> Seq.filter (fun x -> Path.GetExtension(x) = ".nupkg")
     |> Seq.iter   (fun x -> File.Copy(x, Path.Combine(toDir, Path.GetFileName(x)), true))
 
-let removeNotAssembliesFrom dir =
-    !! (dir + @"/*.*")
-      -- (dir + @"/*.dll")
-      |> Seq.iter (System.IO.File.Delete)
-
-let createNuGetPackage workingDir nuspec =
-    removeNotAssembliesFrom (workingDir+"\\lib")
-    NuGet (fun p ->
+let createNuGetPackage template =
+    Paket.Pack(fun p ->
         { p with
-            Version = release.NugetVersion
-            ReleaseNotes = String.Join(Environment.NewLine, release.Notes)
+            TemplateFile = template
             OutputPath = "bin"
-            AccessKey = getBuildParamOrDefault "nugetkey" ""
-            Publish = false//hasBuildParam "nugetkey"
-            WorkingDir = workingDir
-            ToolPath = root.packages.``NuGet.CommandLine``.tools.``NuGet.exe`` })
-        nuspec
+            Version = release.NugetVersion
+            ReleaseNotes = toLines release.Notes})
+
+    // NuGet (fun p ->
+    //     { p with
+    //         Version = release.NugetVersion
+    //         ReleaseNotes = String.Join(Environment.NewLine, release.Notes)
+    //         OutputPath = "bin"
+    //         AccessKey = getBuildParamOrDefault "nugetkey" ""
+    //         Publish = false//hasBuildParam "nugetkey"
+    //         WorkingDir = workingDir
+    //         ToolPath = root.packages.``NuGet.CommandLine``.tools.``NuGet.exe`` })
+    //     nuspec
 
 let keyFile = @"nuget\Stanford.NLP.snk"
 
@@ -208,7 +209,7 @@ Target "CompilerCoreNLP" (fun _ ->
 )
 
 Target "NuGetCoreNLP" (fun _ ->
-    createNuGetPackage "bin/Stanford.NLP.CoreNLP" root.nuget.``Stanford.NLP.CoreNLP.nuspec``
+    createNuGetPackage root.nuget.``Stanford.NLP.CoreNLP.template``
 )
 
 // --------------------------------------------------------------------------------------
@@ -228,7 +229,7 @@ Target "CompilerNER" (fun _ ->
 )
 
 Target "NuGetNER" (fun _ ->
-    createNuGetPackage "bin/Stanford.NLP.NER" root.nuget.``Stanford.NLP.NER.nuspec``
+    createNuGetPackage root.nuget.``Stanford.NLP.NER.template``
 )
 
 // --------------------------------------------------------------------------------------
@@ -248,7 +249,7 @@ Target "CompilerParser" (fun _ ->
 )
 
 Target "NuGetParser" (fun _ ->
-    createNuGetPackage "bin/Stanford.NLP.Parser" root.nuget.``Stanford.NLP.Parser.nuspec``
+    createNuGetPackage root.nuget. ``Stanford.NLP.Parser.template``
 )
 
 // --------------------------------------------------------------------------------------
@@ -266,7 +267,7 @@ Target "CompilerPOS" (fun _ ->
 )
 
 Target "NuGetPOS" (fun _ ->
-    createNuGetPackage "bin/Stanford.NLP.POSTagger" root.nuget.``Stanford.NLP.POSTagger.nuspec``
+    createNuGetPackage root.nuget.``Stanford.NLP.POSTagger.template``
 )
 
 // --------------------------------------------------------------------------------------
@@ -284,7 +285,7 @@ Target "CompilerSegmenter" (fun _ ->
 )
 
 Target "NuGetSegmenter" (fun _ ->
-    createNuGetPackage "bin/Stanford.NLP.Segmenter" root.nuget.``Stanford.NLP.Segmenter.nuspec``
+    createNuGetPackage root.nuget.``Stanford.NLP.Segmenter.template``
 )
 
 

@@ -4,7 +4,6 @@ NUGET
     FAKE (4.61)
     FSharp.Management (0.4.3)
     Mono.Cecil (0.9.6.4)
-    NuGet.CommandLine (3.5)
 
 GROUP Docs
 FRAMEWORK: NET45

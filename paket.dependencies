@@ -4,7 +4,6 @@ framework: net45
 nuget FAKE
 nuget FSharp.Management
 nuget Mono.Cecil
-nuget Nuget.CommandLine
 
 group Test
     source https://nuget.org/api/v2
