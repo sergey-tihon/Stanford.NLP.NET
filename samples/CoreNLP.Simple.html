@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Sergey Tihon">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600,700|Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/custom.css" rel='stylesheet' type='text/css'>
+    <script src="http://sergey-tihon.github.io/Stanford.NLP.NET//content/tips.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://sergey-tihon.github.io/Stanford.NLP.NET//content/snippets.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript">
+      function init() {
+          try {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+          } catch(e) { /* For local development only */ }
+      }
+      window.addEventListener("load", init, false);
+    </script>
+    
+  <title>Simple CoreNLP - Stanford.NLP.NET</title>
+  <meta name="description" content="Package: Stanford.NLP.CoreNLP">
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-43389710-2', 'sergey-tihon.github.io');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+
+  <div class="snlp-navbar">
+  <div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://sergey-tihon.github.io/Stanford.NLP.NET/">Stanford.NLP.NET</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET/">home</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//samples.html">samples</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//projects.html">projects</a></li>
+          <li class=""><a href="http://sergey-tihon.github.io/Stanford.NLP.NET//faq.html">faq</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </div>
+  </div>
+
+  <div class="snlp-content-wrapper">
+  
+<div class="snlp-heading">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Simple CoreNLP</h1>
+      <p>Package: Stanford.NLP.CoreNLP</p>
+      <p class="links">
+        <a href="https://twitter.com/stanfordnlp"><i class="fa fa-twitter"></i> follow</a>
+        <a href="http://stackoverflow.com/questions/tagged/stanford-nlp"><i class="fa fa-stack-overflow"></i> ask</a>
+        <a href="https://github.com/sergey-tihon/Stanford.NLP.NET"><i class="fa fa-github"></i> contribute</a>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container snlp-content">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-sm-12 col-md-12 col-lg-10">
+      <p>This page is direct translation of the <a href="https://stanfordnlp.github.io/CoreNLP/simple.html">original Simple CoreNLP page</a></p>
+<h3><a name="Simple-CoreNLP" class="anchor" href="#Simple-CoreNLP">Simple CoreNLP</a></h3>
+<p>In addition to the fully-featured annotator pipeline interface to CoreNLP, Stanford provides a simple API for users who do not need a lot of customization. The intended audience of this package is users of <code>CoreNLP</code> who want <strong>"just use nlp"</strong> to work as fast and easily as possible, and do not care about the details of the behaviors of the algorithms.</p>
+<p>An example usage is given below:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Core.dll&quot;</span>
+<span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Util.dll&quot;</span>
+<span class="prep">#r</span> <span class="s">&quot;stanford-corenlp-3.7.0.dll&quot;</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">System</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">java</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">util</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="i">simple</span>
+
+<span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs8', 8)" onmouseover="showTip(event, 'fs8', 8)" class="i">jarRoot</span> <span class="o">=</span> (<span class="k">__SOURCE_DIRECTORY__</span>)<span class="o">+</span> <span class="s">@&quot;/../../../data/paket-files/nlp.stanford.edu/&quot;</span>
+                                    <span class="o">+</span> <span class="s">@&quot;stanford-corenlp-full-2016-10-31/models/&quot;</span>
+<span onmouseout="hideTip(event, 'fs1', 9)" onmouseover="showTip(event, 'fs1', 9)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 10)" onmouseover="showTip(event, 'fs9', 10)" class="i">IO</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 11)" onmouseover="showTip(event, 'fs10', 11)" class="t">Directory</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 12)" onmouseover="showTip(event, 'fs11', 12)" class="f">SetCurrentDirectory</span>(<span onmouseout="hideTip(event, 'fs8', 13)" onmouseover="showTip(event, 'fs8', 13)" class="i">jarRoot</span>)
+
+<span class="c">// Custom properties for annotators</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 14)" onmouseover="showTip(event, 'fs12', 14)" class="i">props</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs13', 15)" onmouseover="showTip(event, 'fs13', 15)" class="t">Properties</span>()
+<span onmouseout="hideTip(event, 'fs12', 16)" onmouseover="showTip(event, 'fs12', 16)" class="i">props</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 17)" onmouseover="showTip(event, 'fs14', 17)" class="f">setProperty</span>(<span class="s">&quot;ner.useSUTime&quot;</span>,<span class="s">&quot;0&quot;</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs15', 18)" onmouseover="showTip(event, 'fs15', 18)" class="f">ignore</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 19)" onmouseover="showTip(event, 'fs16', 19)" class="i">sent</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs17', 20)" onmouseover="showTip(event, 'fs17', 20)" class="t">Sentence</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs17', 21)" onmouseover="showTip(event, 'fs17', 21)" class="t">Sentence</span>(<span class="s">&quot;Lucy is in the sky with diamonds.&quot;</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 22)" onmouseover="showTip(event, 'fs18', 22)" class="i">nerTags</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs19', 23)" onmouseover="showTip(event, 'fs19', 23)" class="t">List</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs16', 24)" onmouseover="showTip(event, 'fs16', 24)" class="i">sent</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs20', 25)" onmouseover="showTip(event, 'fs20', 25)" class="f">nerTags</span>(<span onmouseout="hideTip(event, 'fs12', 26)" onmouseover="showTip(event, 'fs12', 26)" class="i">props</span>);
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs21', 27)" onmouseover="showTip(event, 'fs21', 27)" class="i">firstPOSTag</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs22', 28)" onmouseover="showTip(event, 'fs22', 28)" class="t">string</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs16', 29)" onmouseover="showTip(event, 'fs16', 29)" class="i">sent</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs23', 30)" onmouseover="showTip(event, 'fs23', 30)" class="f">posTag</span>(<span class="n">0</span>);
+<span class="fsi">&gt; </span>
+<span class="fsi">val sent : Sentence = Lucy is in the sky with diamonds.</span>
+<span class="fsi">val nerTags : List = seq [&quot;PERSON&quot;; &quot;O&quot;; &quot;O&quot;; &quot;O&quot;; ...]</span>
+<span class="fsi">val firstPOSTag : string = &quot;NNP&quot;</span>
+</code></pre></td>
+</tr>
+</table>
+<p>The API is included in the <code>CoreNLP</code> release from <code>3.6.0</code> onwards. Visit the <a href="https://stanfordnlp.github.io/CoreNLP/download.html">download page</a> to download CoreNLP; make sure to set current directory to folder with model!</p>
+<code>
+    <b>Note:</b> If you use Simple CoreNLP API, your current directory always should be set to the root folder of unzipped model, since Simple CoreNLP loads models lazily. <a href="../faq.html#Stanford-NLP-CoreNLP-not-loading-models">Read more about model loading</a>
+</code>
+<h3><a name="Advantages-and-Disadvantages" class="anchor" href="#Advantages-and-Disadvantages">Advantages and Disadvantages</a></h3>
+<p>This interface offers a number of advantages (and a few disadvantages – see below) over the default annotator pipeline:</p>
+<ul>
+<li><p><strong>Intuitive Syntax</strong> Conceptually, documents and sentences are stored as objects, and have functions corresponding to annotations you would like to retrieve from them.</p></li>
+<li><p><strong>Lazy Computation</strong> Annotations are run as needed only when requested. This allows you to “change your mind” later in a program and request new annotations.</p></li>
+<li><p><strong>No <code>NullPointerException</code>s</strong> Lazy computation allows us to ensure that no function will ever return null. Items which may not exist are wrapped inside of an <code>Optional</code> to clearly mark that they may be empty.</p></li>
+<li><p><strong>Fast, Robust Serialization</strong> All objects are backed by <a href="https://developers.google.com/protocol-buffers/?hl=en">protocol buffers</a>, meaning that serialization and deserialization is both very easy and very fast. In addition to being easily readable from other languages, our experiments show this to be over an order of magnitude faster than the default Java serialization.</p></li>
+<li><p><strong>Maintains Thread Safety</strong> Like the <code>CoreNLP</code> pipeline, this wrapper is thread-safe.</p></li>
+</ul>
+<p>In exchange for these advantages, users should be aware of a few disadvantages:</p>
+<ul>
+<li><p><strong>Less Customizability</strong> Although the ability to pass properties to annotators is supported, it is significantly more clunky than the annotation pipeline interface, and is generally discouraged.</p></li>
+<li><p><strong>Possible Nondeterminism</strong> There is no guarantee that the same algorithm will be used to compute the requested function on each invocation. For example, if a dependency parse is requested, followed by a constituency parse, we will compute the dependency parse with the <a href="https://nlp.stanford.edu/software/nndep.shtml">Neural Dependency Parser</a>, and then use the <a href="https://nlp.stanford.edu/software/lex-parser.shtml">Stanford Parser</a> for the constituency parse. If, however, you request the constituency parse before the dependency parse, we will use the Stanford Parser for both.</p></li>
+</ul>
+<h3><a name="Usage" class="anchor" href="#Usage">Usage</a></h3>
+<p>There are two main classes in the interface: <code>Document</code> and <code>Sentence</code>. Tokens are represented as array elements in a sentence; e.g., to get the lemma of a token, get the lemmas array from the sentence and index it at the appropriate index. A constructor is provided for both the <code>Document</code> and <code>Sentence</code> class. For the former, the text is treated as an entire document containing potentially multiple sentences. For the latter, the text is forced to be interpreted as a single sentence.</p>
+<p>An example program using the interface is given below:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs4', 31)" onmouseover="showTip(event, 'fs4', 31)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 32)" onmouseover="showTip(event, 'fs5', 32)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 33)" onmouseover="showTip(event, 'fs6', 33)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 34)" onmouseover="showTip(event, 'fs7', 34)" class="i">simple</span>
+
+<span class="c">// Create a document. No computation is done yet.</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs24', 35)" onmouseover="showTip(event, 'fs24', 35)" class="i">doc</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs25', 36)" onmouseover="showTip(event, 'fs25', 36)" class="t">Document</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs25', 37)" onmouseover="showTip(event, 'fs25', 37)" class="t">Document</span>(<span class="s">&quot;add your text here! It can contain multiple sentences.&quot;</span>);
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs26', 38)" onmouseover="showTip(event, 'fs26', 38)" class="i">sentences</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs24', 39)" onmouseover="showTip(event, 'fs24', 39)" class="i">doc</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs27', 40)" onmouseover="showTip(event, 'fs27', 40)" class="f">sentences</span>()<span class="o">.</span><span class="f">toArray</span>()
+<span class="k">for</span> <span onmouseout="hideTip(event, 'fs28', 41)" onmouseover="showTip(event, 'fs28', 41)" class="i">sentObj</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs26', 42)" onmouseover="showTip(event, 'fs26', 42)" class="i">sentences</span> <span class="k">do</span>  <span class="c">// Will iterate over two sentences</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs29', 43)" onmouseover="showTip(event, 'fs29', 43)" class="i">sent</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs17', 44)" onmouseover="showTip(event, 'fs17', 44)" class="t">Sentence</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs28', 45)" onmouseover="showTip(event, 'fs28', 45)" class="i">sentObj</span> <span class="o">:?&gt;</span> <span onmouseout="hideTip(event, 'fs17', 46)" onmouseover="showTip(event, 'fs17', 46)" class="t">Sentence</span>
+    <span class="c">// We&#39;re only asking for words -- no need to load any models yet</span>
+    <span onmouseout="hideTip(event, 'fs30', 47)" onmouseover="showTip(event, 'fs30', 47)" class="t">Console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs31', 48)" onmouseover="showTip(event, 'fs31', 48)" class="f">WriteLine</span>(<span class="s">&quot;The second word of the sentence &#39;{0}&#39; is {1}&quot;</span>, <span onmouseout="hideTip(event, 'fs29', 49)" onmouseover="showTip(event, 'fs29', 49)" class="i">sent</span>, <span onmouseout="hideTip(event, 'fs29', 50)" onmouseover="showTip(event, 'fs29', 50)" class="i">sent</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs32', 51)" onmouseover="showTip(event, 'fs32', 51)" class="f">word</span>(<span class="n">1</span>));
+    <span class="c">// When we ask for the lemma, it will load and run the part of speech tagger</span>
+    <span onmouseout="hideTip(event, 'fs30', 52)" onmouseover="showTip(event, 'fs30', 52)" class="t">Console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs31', 53)" onmouseover="showTip(event, 'fs31', 53)" class="f">WriteLine</span>(<span class="s">&quot;The third lemma of the sentence &#39;{0}&#39; is {1}&quot;</span>, <span onmouseout="hideTip(event, 'fs29', 54)" onmouseover="showTip(event, 'fs29', 54)" class="i">sent</span>, <span onmouseout="hideTip(event, 'fs29', 55)" onmouseover="showTip(event, 'fs29', 55)" class="i">sent</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs33', 56)" onmouseover="showTip(event, 'fs33', 56)" class="f">lemma</span>(<span class="n">2</span>));
+    <span class="c">// When we ask for the parse, it will load and run the parser</span>
+    <span onmouseout="hideTip(event, 'fs30', 57)" onmouseover="showTip(event, 'fs30', 57)" class="t">Console</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs31', 58)" onmouseover="showTip(event, 'fs31', 58)" class="f">WriteLine</span>(<span class="s">&quot;The parse of the sentence &#39;{0}&#39; is {1}&quot;</span>, <span onmouseout="hideTip(event, 'fs29', 59)" onmouseover="showTip(event, 'fs29', 59)" class="i">sent</span>, <span onmouseout="hideTip(event, 'fs29', 60)" onmouseover="showTip(event, 'fs29', 60)" class="i">sent</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs34', 61)" onmouseover="showTip(event, 'fs34', 61)" class="f">parse</span>());
+<span class="fsi">&gt; </span>
+<span class="fsi">The second word of the sentence &#39;add your text here!&#39; is your</span>
+<span class="fsi">The third lemma of the sentence &#39;add your text here!&#39; is text</span>
+<span class="fsi">The parse of the sentence &#39;add your text here!&#39; is (ROOT (S (VP (VB add) (NP (PRP$ your) (NN text)) (ADVP (RB here))) (. !)))</span>
+<span class="fsi">The second word of the sentence &#39;It can contain multiple sentences.&#39; is can</span>
+<span class="fsi">The third lemma of the sentence &#39;It can contain multiple sentences.&#39; is contain</span>
+<span class="fsi">The parse of the sentence &#39;It can contain multiple sentences.&#39; is (ROOT (S (NP (PRP It)) (VP (MD can) (VP (VB contain) (NP (JJ multiple) (NNS sentences)))) (. .)))</span>
+</code></pre></td>
+</tr>
+</table>
+<h3><a name="Supported-Annotators" class="anchor" href="#Supported-Annotators">Supported Annotators</a></h3>
+<p>The interface is not guaranteed to support all of the annotators in the CoreNLP pipeline. However, most common annotators are supported. A list of these, and their invocation, is given below. Functionality is the plain-english description of the task to be performed. The second column lists the analogous CoreNLP annotator for that task. The implementing class and function describe the class and function used in this wrapper to perform the same tasks.</p>
+<table>
+<thead>
+<tr class="header">
+<th><p>Functionality</p></th>
+<th><p>Anootator in CoreNLP</p></th>
+<th><p>Implementation class</p></th>
+<th><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>Tokenization</p></td>
+<td><p>tokenize</p></td>
+<td><p><code>Sentence</code></p></td>
+<td><p><code>.words()</code> / <code>.word(int)</code></p></td>
+</tr>
+<tr class="even">
+<td><p>Sentence Splitting</p></td>
+<td><p>ssplit</p></td>
+<td><p><code>Document</code></p></td>
+<td><p><code>.sentences()</code> / <code>.sentence(int)</code></p></td>
+</tr>
+<tr class="odd">
+<td><p>Part of Speech Tagging</p></td>
+<td><p>pos</p></td>
+<td><p><code>Sentence</code></p></td>
+<td><p><code>.posTags()</code> / <code>.posTag(int)</code></p></td>
+</tr>
+<tr class="even">
+<td><p>Lemmatization</p></td>
+<td><p>lemma</p></td>
+<td><p><code>Sentence</code></p></td>
+<td><p><code>.lemmas()</code> / <code>.lemma(int)</code></p></td>
+</tr>
+<tr class="odd">
+<td><p>Named Entity Recognition</p></td>
+<td><p>ner</p></td>
+<td><p><code>Sentence</code></p></td>
+<td><p><code>.nerTags()</code> / <code>.nerTag(int)</code></p></td>
+</tr>
+<tr class="even">
+<td><p>Constituency Parsing</p></td>
+<td><p>parse</p></td>
+<td><p><code>Sentence</code></p></td>
+<td><p><code>.parse()</code></p></td>
+</tr>
+<tr class="odd">
+<td><p>Dependency Parsing</p></td>
+<td><p>depparse</p></td>
+<td><p><code>Sentence</code></p></td>
+<td><p><code>.governor(int)</code> / <code>.incomingDependencyLabel(int)</code></p></td>
+</tr>
+<tr class="even">
+<td><p>Coreference Resolution</p></td>
+<td><p>dcoref</p></td>
+<td><p><code>Document</code></p></td>
+<td><p><code>.coref()</code></p></td>
+</tr>
+<tr class="odd">
+<td><p>Natural Logic Polarity</p></td>
+<td><p>natlog</p></td>
+<td><p><code>Sentence</code></p></td>
+<td><p><code>.natlogPolarities()</code> / <code>natlogPolarity(int)</code></p></td>
+</tr>
+<tr class="even">
+<td><p>Open Information Extraction</p></td>
+<td><p>openie</p></td>
+<td><p><code>Sentence</code></p></td>
+<td><p><code>.openie()</code> / <code>.openieTriples()</code></p></td>
+</tr>
+</tbody>
+</table>
+
+<h3><a name="Miscellaneous-Extras" class="anchor" href="#Miscellaneous-Extras">Miscellaneous Extras</a></h3>
+<p>Some potentially useful utility functions are implemented in the <code>SentenceAlgorithms</code> class. These can be called from a <code>Sentence</code> object with, e.g.:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs4', 62)" onmouseover="showTip(event, 'fs4', 62)" class="i">edu</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 63)" onmouseover="showTip(event, 'fs5', 63)" class="i">stanford</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 64)" onmouseover="showTip(event, 'fs6', 64)" class="i">nlp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs35', 65)" onmouseover="showTip(event, 'fs35', 65)" class="i">ie</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs36', 66)" onmouseover="showTip(event, 'fs36', 66)" class="i">machinereading</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs37', 67)" onmouseover="showTip(event, 'fs37', 67)" class="i">structure</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs38', 68)" onmouseover="showTip(event, 'fs38', 68)" class="i">sent2</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs17', 69)" onmouseover="showTip(event, 'fs17', 69)" class="t">Sentence</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs17', 70)" onmouseover="showTip(event, 'fs17', 70)" class="t">Sentence</span>(<span class="s">&quot;your text should go here&quot;</span>);
+<span onmouseout="hideTip(event, 'fs38', 71)" onmouseover="showTip(event, 'fs38', 71)" class="i">sent2</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 72)" onmouseover="showTip(event, 'fs39', 72)" class="f">algorithms</span>()<span class="o">.</span><span class="f">headOfSpan</span>(<span class="k">new</span> <span onmouseout="hideTip(event, 'fs40', 73)" onmouseover="showTip(event, 'fs40', 73)" class="t">Span</span>(<span class="n">0</span>, <span class="n">2</span>));  <span class="c">// Should return 1</span>
+<span class="fsi">&gt; </span>
+<span class="fsi">val sent2 : Sentence = your text should go here</span>
+<span class="fsi">val it : int = 1</span>
+</code></pre></td>
+</tr>
+</table>
+<p>A selection of useful algorithms are:</p>
+<ul>
+<li><p><strong>headOfSpan(Span)</strong> Finds the index of the head word of the given span. So, for example, <em>United States</em> president <em>Barack Obama</em> would return <em>Obama</em>.</p></li>
+<li><p><strong>dependencyPathBetween(int, int)</strong> Returns the dependency path between the words at the given two indices. This is returned as a list of <code>string</code> objects, meant primarily as an input to a featurizer.</p></li>
+</ul>
+
+
+<div class="tip" id="fs1">namespace System</div>
+<div class="tip" id="fs2">namespace java</div>
+<div class="tip" id="fs3">namespace java.util</div>
+<div class="tip" id="fs4">namespace edu</div>
+<div class="tip" id="fs5">namespace edu.stanford</div>
+<div class="tip" id="fs6">namespace edu.stanford.nlp</div>
+<div class="tip" id="fs7">namespace edu.stanford.nlp.simple</div>
+<div class="tip" id="fs8">val jarRoot : string<br /><br />Full name: CoreNLP.Simple.jarRoot</div>
+<div class="tip" id="fs9">namespace System.IO</div>
+<div class="tip" id="fs10">type Directory =<br />&#160;&#160;static member CreateDirectory : path:string -&gt; DirectoryInfo + 1 overload<br />&#160;&#160;static member Delete : path:string -&gt; unit + 1 overload<br />&#160;&#160;static member EnumerateDirectories : path:string -&gt; IEnumerable&lt;string&gt; + 2 overloads<br />&#160;&#160;static member EnumerateFileSystemEntries : path:string -&gt; IEnumerable&lt;string&gt; + 2 overloads<br />&#160;&#160;static member EnumerateFiles : path:string -&gt; IEnumerable&lt;string&gt; + 2 overloads<br />&#160;&#160;static member Exists : path:string -&gt; bool<br />&#160;&#160;static member GetAccessControl : path:string -&gt; DirectorySecurity + 1 overload<br />&#160;&#160;static member GetCreationTime : path:string -&gt; DateTime<br />&#160;&#160;static member GetCreationTimeUtc : path:string -&gt; DateTime<br />&#160;&#160;static member GetCurrentDirectory : unit -&gt; string<br />&#160;&#160;...<br /><br />Full name: System.IO.Directory</div>
+<div class="tip" id="fs11">IO.Directory.SetCurrentDirectory(path: string) : unit</div>
+<div class="tip" id="fs12">val props : Properties<br /><br />Full name: CoreNLP.Simple.props</div>
+<div class="tip" id="fs13">Multiple items<br />type Properties =<br />&#160;&#160;inherit Hashtable<br />&#160;&#160;new : unit -&gt; Properties + 1 overload<br />&#160;&#160;member getProperty : key:string -&gt; string + 1 overload<br />&#160;&#160;member list : out:PrintStream -&gt; unit + 1 overload<br />&#160;&#160;member load : reader:Reader -&gt; unit + 1 overload<br />&#160;&#160;member loadFromXML : in:InputStream -&gt; unit<br />&#160;&#160;member propertyNames : unit -&gt; Enumeration<br />&#160;&#160;member save : out:OutputStream * comments:string -&gt; unit<br />&#160;&#160;member setProperty : key:string * value:string -&gt; obj<br />&#160;&#160;member store : out:OutputStream * comments:string -&gt; unit + 1 overload<br />&#160;&#160;member storeToXML : os:OutputStream * comment:string -&gt; unit + 1 overload<br />&#160;&#160;...<br /><br />Full name: java.util.Properties<br /><br />--------------------<br />Properties() : unit<br />Properties(defaults: Properties) : unit</div>
+<div class="tip" id="fs14">Properties.setProperty(key: string, value: string) : obj</div>
+<div class="tip" id="fs15">val ignore : value:&#39;T -&gt; unit<br /><br />Full name: Microsoft.FSharp.Core.Operators.ignore</div>
+<div class="tip" id="fs16">val sent : Sentence<br /><br />Full name: CoreNLP.Simple.sent</div>
+<div class="tip" id="fs17">Multiple items<br />type Sentence =<br />&#160;&#160;new : sentence:CoreMap -&gt; Sentence + 5 overloads<br />&#160;&#160;member algorithms : unit -&gt; SentenceAlgorithms<br />&#160;&#160;member asCoreLabels : [&lt;ParamArray&gt;] functions:Function[] -&gt; List<br />&#160;&#160;member asCoreMap : [&lt;ParamArray&gt;] functions:Function[] -&gt; CoreMap<br />&#160;&#160;member cased : unit -&gt; Sentence<br />&#160;&#160;member caseless : unit -&gt; Sentence<br />&#160;&#160;member characterOffsetBegin : unit -&gt; List + 1 overload<br />&#160;&#160;member characterOffsetEnd : unit -&gt; List + 1 overload<br />&#160;&#160;member coref : unit -&gt; Map<br />&#160;&#160;member dependencyGraph : unit -&gt; SemanticGraph + 3 overloads<br />&#160;&#160;...<br /><br />Full name: edu.stanford.nlp.simple.Sentence<br /><br />--------------------<br />Sentence(sentence: edu.stanford.nlp.util.CoreMap) : unit<br />Sentence(tokens: List) : unit<br />Sentence(proto: edu.stanford.nlp.pipeline.CoreNLPProtos.Sentence) : unit<br />Sentence(text: string) : unit<br />Sentence(sentence: edu.stanford.nlp.naturalli.SentenceFragment) : unit<br />Sentence(text: string, props: Properties) : unit</div>
+<div class="tip" id="fs18">val nerTags : List<br /><br />Full name: CoreNLP.Simple.nerTags</div>
+<div class="tip" id="fs19">Multiple items<br />type List =<br />&#160;&#160;member add : e:obj -&gt; bool + 1 overload<br />&#160;&#160;member addAll : c:Collection -&gt; bool + 1 overload<br />&#160;&#160;member clear : unit -&gt; unit<br />&#160;&#160;member contains : o:obj -&gt; bool<br />&#160;&#160;member containsAll : c:Collection -&gt; bool<br />&#160;&#160;member equals : o:obj -&gt; bool<br />&#160;&#160;member get : index:int -&gt; obj<br />&#160;&#160;member hashCode : unit -&gt; int<br />&#160;&#160;member indexOf : o:obj -&gt; int<br />&#160;&#160;member isEmpty : unit -&gt; bool<br />&#160;&#160;...<br />&#160;&#160;nested type __DefaultMethods<br /><br />Full name: java.util.List<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of Head: &#39;T * Tail: &#39;T list<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list<br />&#160;&#160;member Head : &#39;T<br />&#160;&#160;member IsEmpty : bool<br />&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;member Length : int<br />&#160;&#160;member Tail : &#39;T list<br />&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;static member Empty : &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List&lt;_&gt;</div>
+<div class="tip" id="fs20">Sentence.nerTags() : List<br />Sentence.nerTags(props: Properties) : List</div>
+<div class="tip" id="fs21">val firstPOSTag : string<br /><br />Full name: CoreNLP.Simple.firstPOSTag</div>
+<div class="tip" id="fs22">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs23">Sentence.posTag(index: int) : string</div>
+<div class="tip" id="fs24">val doc : Document<br /><br />Full name: CoreNLP.Simple.doc</div>
+<div class="tip" id="fs25">Multiple items<br />type Document =<br />&#160;&#160;new : proto:Document -&gt; Document + 5 overloads<br />&#160;&#160;member asAnnotation : unit -&gt; Annotation<br />&#160;&#160;member cased : unit -&gt; Document<br />&#160;&#160;member caseless : unit -&gt; Document<br />&#160;&#160;member coref : unit -&gt; Map + 1 overload<br />&#160;&#160;member docid : unit -&gt; Optional<br />&#160;&#160;member equals : o:obj -&gt; bool<br />&#160;&#160;member hashCode : unit -&gt; int<br />&#160;&#160;member json : [&lt;ParamArray&gt;] functions:Function[] -&gt; string<br />&#160;&#160;member jsonMinified : [&lt;ParamArray&gt;] functions:Function[] -&gt; string<br />&#160;&#160;...<br /><br />Full name: edu.stanford.nlp.simple.Document<br /><br />--------------------<br />Document(proto: edu.stanford.nlp.pipeline.CoreNLPProtos.Document) : unit<br />Document(text: string) : unit<br />Document(ann: edu.stanford.nlp.pipeline.Annotation) : unit<br />Document(props: Properties, text: string) : unit<br />Document(props: Properties, ann: edu.stanford.nlp.pipeline.Annotation) : unit<br />Document(props: Properties, proto: edu.stanford.nlp.pipeline.CoreNLPProtos.Document) : unit</div>
+<div class="tip" id="fs26">val sentences : obj []<br /><br />Full name: CoreNLP.Simple.sentences</div>
+<div class="tip" id="fs27">Document.sentences() : List<br />Document.sentences(props: Properties) : List</div>
+<div class="tip" id="fs28">val sentObj : obj</div>
+<div class="tip" id="fs29">val sent : Sentence</div>
+<div class="tip" id="fs30">type Console =<br />&#160;&#160;static member BackgroundColor : ConsoleColor with get, set<br />&#160;&#160;static member Beep : unit -&gt; unit + 1 overload<br />&#160;&#160;static member BufferHeight : int with get, set<br />&#160;&#160;static member BufferWidth : int with get, set<br />&#160;&#160;static member CapsLock : bool<br />&#160;&#160;static member Clear : unit -&gt; unit<br />&#160;&#160;static member CursorLeft : int with get, set<br />&#160;&#160;static member CursorSize : int with get, set<br />&#160;&#160;static member CursorTop : int with get, set<br />&#160;&#160;static member CursorVisible : bool with get, set<br />&#160;&#160;...<br /><br />Full name: System.Console</div>
+<div class="tip" id="fs31">Console.WriteLine() : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Console.WriteLine(value: uint64) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Console.WriteLine(value: uint32) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Console.WriteLine(value: string) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Console.WriteLine(value: float32) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Console.WriteLine(value: obj) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Console.WriteLine(value: int64) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Console.WriteLine(value: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Console.WriteLine(value: float) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />Console.WriteLine(value: decimal) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em></div>
+<div class="tip" id="fs32">Sentence.word(index: int) : string</div>
+<div class="tip" id="fs33">Sentence.lemma(index: int) : string</div>
+<div class="tip" id="fs34">Sentence.parse() : edu.stanford.nlp.trees.Tree<br />Sentence.parse(props: Properties) : edu.stanford.nlp.trees.Tree</div>
+<div class="tip" id="fs35">namespace edu.stanford.nlp.ie</div>
+<div class="tip" id="fs36">namespace edu.stanford.nlp.ie.machinereading</div>
+<div class="tip" id="fs37">namespace edu.stanford.nlp.ie.machinereading.structure</div>
+<div class="tip" id="fs38">val sent2 : Sentence<br /><br />Full name: CoreNLP.Simple.sent2</div>
+<div class="tip" id="fs39">Sentence.algorithms() : SentenceAlgorithms</div>
+<div class="tip" id="fs40">Multiple items<br />type Span =<br />&#160;&#160;new : [&lt;ParamArray&gt;] spans:Span[] -&gt; Span + 1 overload<br />&#160;&#160;member contains : otherSpan:Span -&gt; bool + 1 overload<br />&#160;&#160;member ``end`` : unit -&gt; int<br />&#160;&#160;member equals : other:obj -&gt; bool<br />&#160;&#160;member expandToInclude : otherSpan:Span -&gt; unit<br />&#160;&#160;member forEach : :Consumer -&gt; unit<br />&#160;&#160;member hashCode : unit -&gt; int<br />&#160;&#160;member isAfter : otherSpan:Span -&gt; bool<br />&#160;&#160;member isBefore : otherSpan:Span -&gt; bool<br />&#160;&#160;member iterator : unit -&gt; Iterator<br />&#160;&#160;...<br /><br />Full name: edu.stanford.nlp.ie.machinereading.structure.Span<br /><br />--------------------<br />Span([&lt;ParamArray&gt;] spans: Span []) : unit<br />Span(s: int, e: int) : unit</div>
+
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>
+
+  </div>
+
+  <a class="gh-forkme" href="https://github.com/sergey-tihon/Stanford.NLP.NET"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</body>
+</html>
