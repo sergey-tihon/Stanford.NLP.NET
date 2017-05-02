@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}"
+	ProjectSection(SolutionItems) = preProject
+		docs\docs.fsx = docs\docs.fsx
+		docs\helpers.fs = docs\helpers.fs
+		docs\liquid.fs = docs\liquid.fs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BF60BC93-E09B-4E5F-9D85-95A519479D54}"
 	ProjectSection(SolutionItems) = preProject
@@ -12,23 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BF60BC93
 		paket.lock = paket.lock
 		README.md = README.md
 		RELEASE_NOTES.md = RELEASE_NOTES.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{83F16175-43B1-4C90-A1EE-8E351C33435D}"
-	ProjectSection(SolutionItems) = preProject
-		docs\tools\generate.fsx = docs\tools\generate.fsx
-		docs\tools\templates\template.cshtml = docs\tools\templates\template.cshtml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{8E6D5255-776D-4B61-85F9-73C37AA1FB9A}"
-	ProjectSection(SolutionItems) = preProject
-		docs\content\index.fsx = docs\content\index.fsx
-		docs\content\StanfordCoreNLP.fsx = docs\content\StanfordCoreNLP.fsx
-		docs\content\StanfordNER.fsx = docs\content\StanfordNER.fsx
-		docs\content\StanfordParser.fsx = docs\content\StanfordParser.fsx
-		docs\content\StanfordPOSTagger.fsx = docs\content\StanfordPOSTagger.fsx
-		docs\content\StanfordSUTime.fsx = docs\content\StanfordSUTime.fsx
-		docs\content\StanfordWordSegmenter.fsx = docs\content\StanfordWordSegmenter.fsx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{ED8079DD-2B06-4030-9F0F-DC548F98E1C4}"
@@ -71,6 +59,37 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.Segmenter.CSharp", "samples\Stanford.NLP.Segmenter.CSharp\Stanford.NLP.Segmenter.CSharp.csproj", "{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.SUTime.CSharp", "samples\Stanford.NLP.SUTime.CSharp\Stanford.NLP.SUTime.CSharp.csproj", "{82EEB2DD-C4C0-4414-B353-190F13716B2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{DF0763FE-B1E0-46F9-8345-749EA79EB041}"
+	ProjectSection(SolutionItems) = preProject
+		docs\source\faq.md = docs\source\faq.md
+		docs\source\index.html = docs\source\index.html
+		docs\source\projects.md = docs\source\projects.md
+		docs\source\samples.md = docs\source\samples.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{4F64151E-B033-48C4-A61B-A1884039FA92}"
+	ProjectSection(SolutionItems) = preProject
+		docs\templates\code.html = docs\templates\code.html
+		docs\templates\content.html = docs\templates\content.html
+		docs\templates\page.html = docs\templates\page.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{612252BC-CCB7-4673-BD2B-FE4917B6B4CB}"
+	ProjectSection(SolutionItems) = preProject
+		docs\source\samples\CoreNLP.md = docs\source\samples\CoreNLP.md
+		docs\source\samples\CoreNLP.Pipeline.fsx = docs\source\samples\CoreNLP.Pipeline.fsx
+		docs\source\samples\CoreNLP.Simple.fsx = docs\source\samples\CoreNLP.Simple.fsx
+		docs\source\samples\CoreNLP.SUTime.fsx = docs\source\samples\CoreNLP.SUTime.fsx
+		docs\source\samples\NER.md = docs\source\samples\NER.md
+		docs\source\samples\NER.Sample.fsx = docs\source\samples\NER.Sample.fsx
+		docs\source\samples\Parser.md = docs\source\samples\Parser.md
+		docs\source\samples\Parser.Sample.fsx = docs\source\samples\Parser.Sample.fsx
+		docs\source\samples\POSTagger.md = docs\source\samples\POSTagger.md
+		docs\source\samples\POSTagger.Sample.fsx = docs\source\samples\POSTagger.Sample.fsx
+		docs\source\samples\Segmenter.md = docs\source\samples\Segmenter.md
+		docs\source\samples\Segmenter.Sample.fsx = docs\source\samples\Segmenter.Sample.fsx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,8 +146,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{83F16175-43B1-4C90-A1EE-8E351C33435D} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
-		{8E6D5255-776D-4B61-85F9-73C37AA1FB9A} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{E789C72A-5CFD-436B-8EF1-61AA2852A89F} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 		{12355230-0BA7-4B40-8C04-F67810E027A8} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 		{4B69DF10-DB06-4440-8434-52DC03ED19F6} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
@@ -141,5 +158,8 @@ Global
 		{82549D93-4302-4F74-A23C-A0576705AC82} = {F3548FA9-EC99-422B-825A-37CB9CF4C74B}
 		{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8} = {F3548FA9-EC99-422B-825A-37CB9CF4C74B}
 		{82EEB2DD-C4C0-4414-B353-190F13716B2C} = {F3548FA9-EC99-422B-825A-37CB9CF4C74B}
+		{DF0763FE-B1E0-46F9-8345-749EA79EB041} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
+		{4F64151E-B033-48C4-A61B-A1884039FA92} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
+		{612252BC-CCB7-4673-BD2B-FE4917B6B4CB} = {DF0763FE-B1E0-46F9-8345-749EA79EB041}
 	EndGlobalSection
 EndGlobal
