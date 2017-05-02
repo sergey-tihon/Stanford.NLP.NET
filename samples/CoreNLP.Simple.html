@@ -151,9 +151,9 @@
 </code></pre></td>
 </tr>
 </table>
-<p>The API is included in the <code>CoreNLP</code> release from <code>3.6.0</code> onwards. Visit the <a href="https://stanfordnlp.github.io/CoreNLP/download.html">download page</a> to download CoreNLP; make sure to set current directory to folder with model!</p>
+<p>The API is included in the <code>CoreNLP</code> release from <code>3.6.0</code> onwards. Visit the <a href="https://stanfordnlp.github.io/CoreNLP/download.html">download page</a> to download CoreNLP; make sure to set current directory to folder with models!</p>
 <code>
-    <b>Note:</b> If you use Simple CoreNLP API, your current directory always should be set to the root folder of unzipped model, since Simple CoreNLP loads models lazily. <a href="../faq.html#Stanford-NLP-CoreNLP-not-loading-models">Read more about model loading</a>
+    <b>Note:</b> If you use Simple CoreNLP API, your current directory should always be set to the root folder of an unzipped model, since Simple CoreNLP loads models lazily. <a href="../faq.html#Stanford-NLP-CoreNLP-not-loading-models">Read more about model loading</a>
 </code>
 <h3><a name="Advantages-and-Disadvantages" class="anchor" href="#Advantages-and-Disadvantages">Advantages and Disadvantages</a></h3>
 <p>This interface offers a number of advantages (and a few disadvantages – see below) over the default annotator pipeline:</p>
@@ -313,8 +313,8 @@
 </table>
 <p>A selection of useful algorithms are:</p>
 <ul>
-<li><p><strong>headOfSpan(Span)</strong> Finds the index of the head word of the given span. So, for example, <em>United States</em> president <em>Barack Obama</em> would return <em>Obama</em>.</p></li>
-<li><p><strong>dependencyPathBetween(int, int)</strong> Returns the dependency path between the words at the given two indices. This is returned as a list of <code>string</code> objects, meant primarily as an input to a featurizer.</p></li>
+<li><p><strong><code>headOfSpan(Span)</code></strong> Finds the index of the head word of the given span. So, for example, <em>United States</em> president <em>Barack Obama</em> would return <em>Obama</em>.</p></li>
+<li><p><strong><code>dependencyPathBetween(int, int)</code></strong> Returns the dependency path between the words at the given two indices. This is returned as a list of <code>string</code> objects, meant primarily as an input to a featurizer.</p></li>
 </ul>
 
 
