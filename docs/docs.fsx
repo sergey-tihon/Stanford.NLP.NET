@@ -29,7 +29,7 @@ open Fake.Git
 // --------------------------------------------------------------------------------------
 
 // Where to push generated documentation
-let publishSite = "http://sergey-tihon.github.io/Stanford.NLP.NET/" //Use something like "//127.0.0.1:8080" to test locally
+let publishSite = "https://sergey-tihon.github.io/Stanford.NLP.NET/" //Use something like "//127.0.0.1:8080" to test locally
 let githubLink = "https://github.com/sergey-tihon/Stanford.NLP.NET"
 let publishBranch = "gh-pages"
 
