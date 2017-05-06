@@ -1,15 +1,15 @@
-FRAMEWORK: NET45
+FRAMEWORK: NET461
 NUGET
   remote: https://www.nuget.org/api/v2
-    FAKE (4.61)
-    FSharp.Management (0.4.3)
+    FAKE (4.61.1)
+    FSharp.Management (0.4.4)
     Mono.Cecil (0.9.6.4)
 
 GROUP Docs
-FRAMEWORK: NET45
+FRAMEWORK: NET461
 NUGET
   remote: https://www.nuget.org/api/v2
-    DotLiquid (2.0.84)
+    DotLiquid (2.0.93)
     FSharp.Compiler.Service (2.0.0.6)
     FSharp.Core (4.1.17)
       System.ValueTuple (>= 4.3)
@@ -23,16 +23,16 @@ NUGET
     System.ValueTuple (4.3)
 
 GROUP Test
-FRAMEWORK: NET45
+FRAMEWORK: NET461
 NUGET
   remote: https://www.nuget.org/api/v2
-    Argu (3.7)
-    Expecto (4.2.1)
+    Argu (3.7) - redirects: force
+    Expecto (4.2.1) - redirects: force
       Argu (>= 3.7)
       FSharp.Core (>= 4.1.12)
       Mono.Cecil (>= 0.9.6.4)
     FSharp.Core (4.1.17) - redirects: force
       System.ValueTuple (>= 4.3)
     IKVM (8.1.5717)
-    Mono.Cecil (0.9.6.4)
+    Mono.Cecil (0.9.6.4) - redirects: force
     System.ValueTuple (4.3) - redirects: force

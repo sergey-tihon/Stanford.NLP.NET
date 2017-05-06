@@ -1,5 +1,5 @@
 source https://nuget.org/api/v2
-framework: net45
+framework: net461
 
 nuget FAKE
 nuget FSharp.Management
@@ -7,15 +7,14 @@ nuget Mono.Cecil
 
 group Test
     source https://nuget.org/api/v2
-    framework: net45
+    framework: net461
 
     nuget IKVM
-    nuget Expecto
-    nuget FSharp.Core redirects:force
+    nuget Expecto redirects:force
 
 group Docs
     source https://nuget.org/api/v2
-    framework: net45
+    framework: net461
 
     nuget Suave
     nuget DotLiquid
