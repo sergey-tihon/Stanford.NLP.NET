@@ -22,6 +22,8 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
     <script language="javascript" type="text/javascript">
       function init() {
+          if (window.location.hostname !== "localhost")
+            return ;
           try {
             websocket = new WebSocket("ws://"+window.location.host+"/websocket");
             websocket.onmessage = function(evt) { location.reload(); };
