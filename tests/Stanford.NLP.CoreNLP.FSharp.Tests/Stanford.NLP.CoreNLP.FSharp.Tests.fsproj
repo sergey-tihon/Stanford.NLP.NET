@@ -62,6 +62,7 @@
     <Compile Include="Config.fs" />
     <Compile Include="CoreNLP.fs" />
     <Compile Include="SUTime.fs" />
+    <Compile Include="SimpleNLP.fs" />
     <Compile Include="..\Program.fs">
       <Link>Program.fs</Link>
     </Compile>
