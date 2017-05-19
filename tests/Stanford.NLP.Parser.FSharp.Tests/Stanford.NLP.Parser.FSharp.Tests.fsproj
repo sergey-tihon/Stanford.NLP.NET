@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Config.fs" />
     <Compile Include="ParserDemo.fs" />
+    <Compile Include="LoadFromStream.fs" />
     <Compile Include="..\Program.fs">
       <Link>Program.fs</Link>
     </Compile>
