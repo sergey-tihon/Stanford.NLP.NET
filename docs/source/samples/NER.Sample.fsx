@@ -23,13 +23,13 @@ F# Sample of Named Entity Recognition
 open edu.stanford.nlp.ie.crf
 
 // Path to the folder with classifiers models
-let classifiersDirecrory =
+let classifiersDirectory =
     __SOURCE_DIRECTORY__ + @"..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31\classifiers\"
 
 // Loading 3 class classifier model
 let classifier =
     CRFClassifier.getClassifierNoExceptions(
-        classifiersDirecrory + "english.all.3class.distsim.crf.ser.gz")
+        classifiersDirectory + "english.all.3class.distsim.crf.ser.gz")
 
 let s1 = "Good afternoon Rajat Raina, how are you today?"
 printfn "%s\n" (classifier.classifyToString(s1))
@@ -69,11 +69,11 @@ C# Sample of Named Entity Recognition
             {
                 // Path to the folder with classifiers models
                 var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2016-10-31";
-                var classifiersDirecrory = jarRoot + @"\classifiers";
+                var classifiersDirectory = jarRoot + @"\classifiers";
 
                 // Loading 3 class classifier model
                 var classifier = CRFClassifier.getClassifierNoExceptions(
-                    classifiersDirecrory + @"\english.all.3class.distsim.crf.ser.gz");
+                    classifiersDirectory + @"\english.all.3class.distsim.crf.ser.gz");
 
                 var s1 = "Good afternoon Rajat Raina, how are you today?";
                 Console.WriteLine("{0}\n", classifier.classifyToString(s1));
