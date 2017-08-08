@@ -7,8 +7,8 @@
 (*** hide ***)
 // This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
-#I "../../bin/Stanford.NLP.POSTagger/lib"
-#I "../../packages/test/IKVM/lib/"
+#I "../../../bin/Stanford.NLP.POSTagger/lib"
+#I "../../../packages/test/IKVM/lib/"
 
 (**
 
@@ -23,13 +23,17 @@ open java.io
 open java.util
 open edu.stanford.nlp.ling
 open edu.stanford.nlp.tagger.maxent
+open System
 
 // Path to the folder with models
 let modelsDirectry =
-    __SOURCE_DIRECTORY__  + @"..\..\data\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31\models"
+    IO.Path.Combine(__SOURCE_DIRECTORY__,@"../../../data/paket-files/nlp.stanford.edu/stanford-postagger-full-2016-10-31/models/")
+let model = IO.Path.Combine(modelsDirectry, "wsj-0-18-bidirectional-nodistsim.tagger")
+if (not <| IO.File.Exists(model))
+    then failwithf "Check path to the model file '%s'" model
 
 // Loading POS Tagger
-let tagger = MaxentTagger(modelsDirectry + "wsj-0-18-bidirectional-nodistsim.tagger")
+let tagger = MaxentTagger(model)
 
 let tagTexrFromReader (reader:Reader) =
     let sentances = MaxentTagger.tokenizeText(reader).toArray()
@@ -62,6 +66,7 @@ tagTexrFromReader <| new StringReader(text)
     using edu.stanford.nlp.ling;
     using edu.stanford.nlp.tagger.maxent;
     using Console = System.Console;
+    using System;
 
     namespace Stanford.NLP.POSTagger.CSharp
     {
@@ -69,11 +74,15 @@ tagTexrFromReader <| new StringReader(text)
         {
             static void Main()
             {
-                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31";
-                var modelsDirectory = jarRoot + @"\models";
+                var jarRoot = @"../../../data/paket-files/nlp.stanford.edu/stanford-postagger-full-2016-10-31";
+                var modelsDirectory = jarRoot + @"/models";
+                var model = modelsDirectory + @"/wsj-0-18-bidirectional-nodistsim.tagger";
+
+                if (!IO.File.Exists(model))
+                    throw new Exception($"Check path to the model file '{model}'");
 
                 // Loading POS Tagger
-                var tagger = new MaxentTagger(modelsDirectory + @"\wsj-0-18-bidirectional-nodistsim.tagger");
+                var tagger = new MaxentTagger(model);
 
                 // Text for tagging
                 var text = "A Part-Of-Speech Tagger (POS Tagger) is a piece of software that reads text"
