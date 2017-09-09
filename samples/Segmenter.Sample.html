@@ -141,14 +141,14 @@
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Core.dll&quot;</span>
 <span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Util.dll&quot;</span>
-<span class="prep">#r</span> <span class="s">&quot;stanford-segmenter-3.7.0.dll&quot;</span>
+<span class="prep">#r</span> <span class="s">&quot;stanford-segmenter-3.8.0.dll&quot;</span>
 
 <span class="k">open</span> <span class="i">java</span><span class="o">.</span><span class="i">util</span>
 <span class="k">open</span> <span class="i">edu</span><span class="o">.</span><span class="i">stanford</span><span class="o">.</span><span class="i">nlp</span><span class="o">.</span><span class="i">ie</span><span class="o">.</span><span class="i">crf</span>
 
 <span class="c">// Path to the folder with models</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">segmenterData</span> <span class="o">=</span>
-    <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2016-10-31\data\&quot;</span>
+    <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2017-06-09\data\&quot;</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">sampleData</span> <span class="o">=</span> <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;\..\..\tests\data\test.simple.utf8&quot;</span>;
 
 <span class="c">// `test.simple.utf8` contains following text:</span>
@@ -233,7 +233,7 @@
         <span class="k">static</span> <span class="k">void</span> Main()
         {
             <span class="c">// Path to the folder with models</span>
-            <span class="k">var</span> segmenterData <span class="o">=</span> <span class="s">@"nlp.stanford.edu\stanford-segmenter-2016-10-31\data"</span>;
+            <span class="k">var</span> segmenterData <span class="o">=</span> <span class="s">@"nlp.stanford.edu\stanford-segmenter-2017-06-09\data"</span>;
             <span class="k">var</span> sampleData <span class="o">=</span> <span class="s">@"nlp.stanford.edu\stanford-segmenter-2015-10-31\test.simp.utf8"</span>;
 
             <span class="c">// `test.simple.utf8` contains following text:</span>

@@ -143,7 +143,7 @@
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Core.dll&quot;</span>
 <span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Util.dll&quot;</span>
-<span class="prep">#r</span> <span class="s">&quot;stanford-postagger-3.7.0.dll&quot;</span>
+<span class="prep">#r</span> <span class="s">&quot;stanford-postagger-3.8.0.dll&quot;</span>
 
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">java</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">io</span>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="i">java</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 4)" onmouseover="showTip(event, 'fs3', 4)" class="i">util</span>
@@ -153,7 +153,7 @@
 
 <span class="c">// Path to the folder with models</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 15)" onmouseover="showTip(event, 'fs11', 15)" class="i">modelsDirectry</span> <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs12', 16)" onmouseover="showTip(event, 'fs12', 16)" class="i">IO</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs13', 17)" onmouseover="showTip(event, 'fs13', 17)" class="t">Path</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 18)" onmouseover="showTip(event, 'fs14', 18)" class="f">Combine</span>(<span class="k">__SOURCE_DIRECTORY__</span>,<span class="s">@&quot;../../../data/paket-files/nlp.stanford.edu/stanford-postagger-full-2016-10-31/models/&quot;</span>)
+    <span onmouseout="hideTip(event, 'fs12', 16)" onmouseover="showTip(event, 'fs12', 16)" class="i">IO</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs13', 17)" onmouseover="showTip(event, 'fs13', 17)" class="t">Path</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 18)" onmouseover="showTip(event, 'fs14', 18)" class="f">Combine</span>(<span class="k">__SOURCE_DIRECTORY__</span>,<span class="s">@&quot;../../../data/paket-files/nlp.stanford.edu/stanford-postagger-full-2017-06-09/models/&quot;</span>)
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 19)" onmouseover="showTip(event, 'fs15', 19)" class="i">model</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 20)" onmouseover="showTip(event, 'fs12', 20)" class="i">IO</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs13', 21)" onmouseover="showTip(event, 'fs13', 21)" class="t">Path</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 22)" onmouseover="showTip(event, 'fs14', 22)" class="f">Combine</span>(<span onmouseout="hideTip(event, 'fs11', 23)" onmouseover="showTip(event, 'fs11', 23)" class="i">modelsDirectry</span>, <span class="s">&quot;wsj-0-18-bidirectional-nodistsim.tagger&quot;</span>)
 <span class="k">if</span> (<span onmouseout="hideTip(event, 'fs16', 24)" onmouseover="showTip(event, 'fs16', 24)" class="f">not</span> <span class="o">&lt;|</span> <span onmouseout="hideTip(event, 'fs12', 25)" onmouseover="showTip(event, 'fs12', 25)" class="i">IO</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 26)" onmouseover="showTip(event, 'fs17', 26)" class="t">File</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs18', 27)" onmouseover="showTip(event, 'fs18', 27)" class="f">Exists</span>(<span onmouseout="hideTip(event, 'fs15', 28)" onmouseover="showTip(event, 'fs15', 28)" class="i">model</span>))
     <span class="k">then</span> <span onmouseout="hideTip(event, 'fs19', 29)" onmouseover="showTip(event, 'fs19', 29)" class="f">failwithf</span> <span class="s">&quot;Check path to the model file &#39;</span><span class="pf">%s</span><span class="s">&#39;&quot;</span> <span onmouseout="hideTip(event, 'fs15', 30)" onmouseover="showTip(event, 'fs15', 30)" class="i">model</span>
@@ -239,7 +239,7 @@
     {
         <span class="k">static</span> <span class="k">void</span> Main()
         {
-            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"../../../data/paket-files/nlp.stanford.edu/stanford-postagger-full-2016-10-31"</span>;
+            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"../../../data/paket-files/nlp.stanford.edu/stanford-postagger-full-2017-06-09"</span>;
             <span class="k">var</span> modelsDirectory <span class="o">=</span> jarRoot <span class="o">+</span> <span class="s">@"/models"</span>;
             <span class="k">var</span> model <span class="o">=</span> modelsDirectory <span class="o">+</span> <span class="s">@"/wsj-0-18-bidirectional-nodistsim.tagger"</span>;
 

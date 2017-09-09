@@ -170,7 +170,7 @@ The temporal type and value correspond to the <a href="http://www.timeml.org/sit
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Core.dll&quot;</span>
 <span class="prep">#r</span> <span class="s">&quot;IKVM.OpenJDK.Util.dll&quot;</span>
-<span class="prep">#r</span> <span class="s">&quot;stanford-corenlp-3.7.0.dll&quot;</span>
+<span class="prep">#r</span> <span class="s">&quot;stanford-corenlp-3.8.0.dll&quot;</span>
 
 <span class="k">open</span> <span class="i">java</span><span class="o">.</span><span class="i">util</span>
 <span class="k">open</span> <span class="i">java</span><span class="o">.</span><span class="i">io</span>
@@ -180,9 +180,9 @@ The temporal type and value correspond to the <a href="http://www.timeml.org/sit
 <span class="k">open</span> <span class="i">edu</span><span class="o">.</span><span class="i">stanford</span><span class="o">.</span><span class="i">nlp</span><span class="o">.</span><span class="i">util</span>
 <span class="k">open</span> <span class="i">edu</span><span class="o">.</span><span class="i">stanford</span><span class="o">.</span><span class="i">nlp</span><span class="o">.</span><span class="i">ling</span>
 
-<span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`</span>
+<span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.8.0-models.jar`</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">jarRoot</span> <span class="o">=</span>
-    <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models\&quot;</span>
+    <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2017-06-09\models\&quot;</span>
 <span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">modelsDirectry</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="i">jarRoot</span> <span class="o">+</span> <span class="s">@&quot;edu\stanford\nlp\models\&quot;</span>
 
 <span class="c">// Annotation pipeline configuration</span>
@@ -311,8 +311,8 @@ The temporal type and value correspond to the <a href="http://www.timeml.org/sit
         <span class="k">private</span> <span class="k">static</span> <span class="k">void</span> Main()
         {
 
-            <span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`</span>
-            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models"</span>;
+            <span class="c">// Path to the folder with models extracted from `stanford-corenlp-3.8.0-models.jar`</span>
+            <span class="k">var</span> jarRoot <span class="o">=</span> <span class="s">@"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2017-06-09\models"</span>;
             <span class="k">var</span> modelsDirectory <span class="o">=</span> jarRoot <span class="o">+</span> <span class="s">@"\edu\stanford\nlp\models"</span>;
 
             <span class="c">// Annotation pipeline configuration</span>
