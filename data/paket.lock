@@ -3,8 +3,9 @@ HTTP
   remote: http://www.frijters.net
     ikvmbin-8.1.5717.0.zip (/ikvmbin-8.1.5717.0.zip)
   remote: http://nlp.stanford.edu
-    stanford-corenlp-full-2016-10-31.zip (/software/stanford-corenlp-full-2016-10-31.zip)
-    stanford-ner-2016-10-31.zip (/software/stanford-ner-2016-10-31.zip)
-    stanford-parser-full-2016-10-31.zip (/software/stanford-parser-full-2016-10-31.zip)
-    stanford-postagger-full-2016-10-31.zip (/software/stanford-postagger-full-2016-10-31.zip)
-    stanford-segmenter-2016-10-31.zip (/software/stanford-segmenter-2016-10-31.zip)
+    stanford-corenlp-full-2017-06-09.zip (/software/stanford-corenlp-full-2017-06-09.zip)
+  remote: https://nlp.stanford.edu
+    stanford-ner-2017-06-09.zip (/software/stanford-ner-2017-06-09.zip)
+    stanford-parser-full-2017-06-09.zip (/software/stanford-parser-full-2017-06-09.zip)
+    stanford-postagger-full-2017-06-09.zip (/software/stanford-postagger-full-2017-06-09.zip)
+    stanford-segmenter-2017-06-09.zip (/software/stanford-segmenter-2017-06-09.zip)

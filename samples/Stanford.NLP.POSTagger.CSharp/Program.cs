@@ -10,7 +10,7 @@ namespace Stanford.NLP.POSTagger.CSharp
     {
         static void Main()
         {
-            var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31";
+            var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-postagger-full-2017-06-09";
             var modelsDirectory = jarRoot + @"\models";
 
             // Loading POS Tagger

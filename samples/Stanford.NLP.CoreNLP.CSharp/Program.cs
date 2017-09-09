@@ -11,8 +11,8 @@ namespace Stanford.NLP.CoreNLP.CSharp
     {
         static void Main()
         {
-            // Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
-            var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models";
+            // Path to the folder with models extracted from `stanford-corenlp-3.8.0-models.jar`
+            var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2017-06-09\models";
 
             // Text for processing
             var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";

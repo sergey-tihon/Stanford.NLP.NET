@@ -25,7 +25,7 @@ F# Sample of SUTime
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-corenlp-3.7.0.dll"
+#r "stanford-corenlp-3.8.0.dll"
 
 open java.util
 open java.io
@@ -35,9 +35,9 @@ open edu.stanford.nlp.time
 open edu.stanford.nlp.util
 open edu.stanford.nlp.ling
 
-// Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
+// Path to the folder with models extracted from `stanford-corenlp-3.8.0-models.jar`
 let jarRoot =
-    __SOURCE_DIRECTORY__ + @"..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models\"
+    __SOURCE_DIRECTORY__ + @"..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2017-06-09\models\"
 let modelsDirectry = jarRoot + @"edu\stanford\nlp\models\"
 
 // Annotation pipeline configuration
@@ -105,8 +105,8 @@ C# Sample of SUTime
             private static void Main()
             {
 
-                // Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
-                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2016-10-31\models";
+                // Path to the folder with models extracted from `stanford-corenlp-3.8.0-models.jar`
+                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2017-06-09\models";
                 var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
 
                 // Annotation pipeline configuration

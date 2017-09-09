@@ -37,8 +37,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="stanford-postagger-3.7.0">
-      <HintPath>..\..\bin\Stanford.NLP.POSTagger\lib\stanford-postagger-3.7.0.dll</HintPath>
+    <Reference Include="stanford-postagger-3.8.0">
+      <HintPath>..\..\bin\Stanford.NLP.POSTagger\lib\stanford-postagger-3.8.0.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

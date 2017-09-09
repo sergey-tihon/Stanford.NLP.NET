@@ -4,7 +4,7 @@ open Expecto
 open java.util
 open edu.stanford.nlp.ie.crf
 
-let [<Literal>] segmenterData = __SOURCE_DIRECTORY__ + @"..\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2016-10-31\data\"
+let [<Literal>] segmenterData = __SOURCE_DIRECTORY__ + @"..\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2017-06-09\data\"
 type SegmenterData = FSharp.Management.FileSystem<segmenterData>
 
 let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"..\..\data"

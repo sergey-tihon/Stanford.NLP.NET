@@ -22,15 +22,15 @@ An example usage is given below:
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-corenlp-3.7.0.dll"
+#r "stanford-corenlp-3.8.0.dll"
 
 open System
 open java.util
 open edu.stanford.nlp.simple
 
-// Path to the folder with models extracted from `stanford-corenlp-3.7.0-models.jar`
+// Path to the folder with models extracted from `stanford-corenlp-3.8.0-models.jar`
 let jarRoot = (__SOURCE_DIRECTORY__)+ @"/../../../data/paket-files/nlp.stanford.edu/"
-                                    + @"stanford-corenlp-full-2016-10-31/models/"
+                                    + @"stanford-corenlp-full-2017-06-09/models/"
 System.IO.Directory.SetCurrentDirectory(jarRoot)
 
 // Custom properties for annotators

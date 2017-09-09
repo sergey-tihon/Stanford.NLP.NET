@@ -1,7 +1,7 @@
 ﻿[<AutoOpen>]
 module Stanford.NLP.POSTagger.Config
 
-let [<Literal>] modelsDirectry = __SOURCE_DIRECTORY__ + @"..\..\..\data\paket-files\nlp.stanford.edu\stanford-postagger-full-2016-10-31\models\"
+let [<Literal>] modelsDirectry = __SOURCE_DIRECTORY__ + @"..\..\..\data\paket-files\nlp.stanford.edu\stanford-postagger-full-2017-06-09\models\"
 type Models = FSharp.Management.FileSystem<path=modelsDirectry>
 
 let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"..\..\data"

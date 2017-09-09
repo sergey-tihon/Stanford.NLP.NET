@@ -92,8 +92,8 @@
     <Reference Include="slf4j-simple">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-simple.dll</HintPath>
     </Reference>
-    <Reference Include="stanford-corenlp-3.7.0">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-3.7.0.dll</HintPath>
+    <Reference Include="stanford-corenlp-3.8.0">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-3.8.0.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

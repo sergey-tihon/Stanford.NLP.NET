@@ -18,7 +18,7 @@ It really depends on your task, you always should try to choose one (referencing
 
 ### Stanford.NLP.CoreNLP not loading models
 
-This is probably [the most common problem](http://stackoverflow.com/questions/40814503/stanford-nlp-for-net-not-loading-models) with `CoreNLP` (especially for newcomers). `stanfrod-corenlp-ful-*.zip` archive contains files `stanford-corenlp-3.7.0-models.jar` with models inside (this is a zip archive). In Java world, you add this `jar` on the class path, and it automatically resolves models' location in the archive.
+This is probably [the most common problem](http://stackoverflow.com/questions/40814503/stanford-nlp-for-net-not-loading-models) with `CoreNLP` (especially for newcomers). `stanfrod-corenlp-ful-*.zip` archive contains files `stanford-corenlp-3.8.0-models.jar` with models inside (this is a zip archive). In Java world, you add this `jar` on the class path, and it automatically resolves models' location in the archive.
 
 CoreNLP has a file [DefaultPaths.java](https://github.com/stanfordnlp/CoreNLP/blob/ef653d4f64f82b0395f72d43cc7add8e61752fee/src/edu/stanford/nlp/pipeline/DefaultPaths.java) that specifies path to model file. So when you instantiate `StanfordCoreNLP` with `Properties` object that does not specify models' location, you should guarantee that models could be found by default path (related to `Environment.CurrentDirectory`).
 

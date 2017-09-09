@@ -186,17 +186,17 @@ Target "CleanDocs" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.CoreNLP and build NuGet package
 
-type coreNLPDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-corenlp-full-2016-10-31``
+type coreNLPDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-corenlp-full-2017-06-09``
 
 Target "CompilerCoreNLP" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.CoreNLP\lib"
     CreateDir ikvmDir
 
-    coreNLPDir.``stanford-corenlp-3.7.0-models.jar``
+    coreNLPDir.``stanford-corenlp-3.8.0-models.jar``
     |> restoreFolderFromFile (Path.Combine(coreNLPDir.Path, "models"))
 
     let jodaTime = IKVMcTask(coreNLPDir.``joda-time.jar``, version="2.9.4")
-    [IKVMcTask(coreNLPDir.``stanford-corenlp-3.7.0.jar``, version=release.AssemblyVersion,
+    [IKVMcTask(coreNLPDir.``stanford-corenlp-3.8.0.jar``, version=release.AssemblyVersion,
            Dependencies = [jodaTime
                            IKVMcTask(coreNLPDir.``jollyday.jar``, version="0.4.9", Dependencies =[jodaTime])
                            IKVMcTask(coreNLPDir.``ejml-0.23.jar``, version="0.23")
@@ -215,7 +215,7 @@ Target "NuGetCoreNLP" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.NET and build NuGet package
 
-type nerDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-ner-2016-10-31``
+type nerDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-ner-2017-06-09``
 
 Target "CompilerNER" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.NER\lib"
@@ -235,13 +235,13 @@ Target "NuGetNER" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.Parser and build NuGet package
 
-type parserDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-parser-full-2016-10-31``
+type parserDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-parser-full-2017-06-09``
 
 Target "CompilerParser" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.Parser\lib"
     CreateDir ikvmDir
 
-    restoreFolderFromFile (parserDir.Path + "models") parserDir.``stanford-parser-3.7.0-models.jar``
+    restoreFolderFromFile (parserDir.Path + "models") parserDir.``stanford-parser-3.8.0-models.jar``
     [IKVMcTask(parserDir.``stanford-parser.jar``, version=release.AssemblyVersion,
            Dependencies = [IKVMcTask(parserDir.``ejml-0.23.jar``, version="0.23.0.0")
                            IKVMcTask(coreNLPDir.``slf4j-api.jar``, version="1.7.12")])]
@@ -255,13 +255,13 @@ Target "NuGetParser" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.POSTagger and build NuGet package
 
-type posDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-postagger-full-2016-10-31``
+type posDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-postagger-full-2017-06-09``
 
 Target "CompilerPOS" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.POSTagger\lib"
     CreateDir ikvmDir
 
-    [IKVMcTask(posDir.``stanford-postagger-3.7.0.jar``, version=release.AssemblyVersion,
+    [IKVMcTask(posDir.``stanford-postagger-3.8.0.jar``, version=release.AssemblyVersion,
         Dependencies = [])]
     |> IKVMCompile ikvmDir keyFile
 )
@@ -273,13 +273,13 @@ Target "NuGetPOS" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.Segmenter and build NuGet package
 
-type segmenterDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-segmenter-2016-10-31``
+type segmenterDir = root.data.``paket-files``.``nlp.stanford.edu``.``stanford-segmenter-2017-06-09``
 
 Target "CompilerSegmenter" (fun _ ->
     let ikvmDir  = @"bin\Stanford.NLP.Segmenter\lib"
     CreateDir ikvmDir
 
-    [IKVMcTask(segmenterDir.``stanford-segmenter-3.7.0.jar``, version=release.AssemblyVersion,
+    [IKVMcTask(segmenterDir.``stanford-segmenter-3.8.0.jar``, version=release.AssemblyVersion,
         Dependencies=[])]
     |> IKVMCompile ikvmDir keyFile
 )
