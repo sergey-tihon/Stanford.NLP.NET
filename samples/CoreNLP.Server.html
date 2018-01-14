@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Sergey Tihon">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600,700|Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link href="https://sergey-tihon.github.io/Stanford.NLP.NET//content/custom.css" rel='stylesheet' type='text/css'>
+    <script src="https://sergey-tihon.github.io/Stanford.NLP.NET//content/tips.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://sergey-tihon.github.io/Stanford.NLP.NET//content/snippets.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript">
+      function init() {
+          if (window.location.hostname !== "localhost")
+            return ;
+          try {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+          } catch(e) { /* For local development only */ }
+      }
+      window.addEventListener("load", init, false);
+    </script>
+    
+  <title>CoreNLP Server - Stanford.NLP.NET</title>
+  <meta name="description" content="How to host and use CoreNLP Server">
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-43389710-2', 'sergey-tihon.github.io');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+
+  <div class="snlp-navbar">
+  <div class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://sergey-tihon.github.io/Stanford.NLP.NET/">Stanford.NLP.NET</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="https://sergey-tihon.github.io/Stanford.NLP.NET/">home</a></li>
+          <li class=""><a href="https://sergey-tihon.github.io/Stanford.NLP.NET//samples.html">samples</a></li>
+          <li class=""><a href="https://sergey-tihon.github.io/Stanford.NLP.NET//projects.html">projects</a></li>
+          <li class=""><a href="https://sergey-tihon.github.io/Stanford.NLP.NET//faq.html">faq</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </div>
+  </div>
+
+  <div class="snlp-content-wrapper">
+  
+<div class="snlp-heading">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>CoreNLP Server</h1>
+      <p>How to host and use CoreNLP Server</p>
+      <p class="links">
+        <a href="https://twitter.com/stanfordnlp"><i class="fa fa-twitter"></i> follow</a>
+        <a href="http://stackoverflow.com/questions/tagged/stanford-nlp"><i class="fa fa-stack-overflow"></i> ask</a>
+        <a href="https://github.com/sergey-tihon/Stanford.NLP.NET"><i class="fa fa-github"></i> contribute</a>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container snlp-content">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-sm-12 col-md-12 col-lg-10">
+      <p>CoreNLP includes a simple web API server for servicing your human language understanding needs (starting with version <code>3.6.0</code>). This page describes how to set it up. CoreNLP server provides both a convenient graphical way to interface with your installation of CoreNLP and an API with which to call CoreNLP using any programming language. If you’re writing a new wrapper of CoreNLP for using it in another language, you’re advised to do it using the CoreNLP Server.</p>
+<h2><a name="Getting-Started" class="anchor" href="#Getting-Started">Getting Started</a></h2>
+<p>Stanford CoreNLP ships with a built-in server, which requires only the CoreNLP dependencies. To run this</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">java</span> <span class="o">-</span><span class="i">mx4g</span> <span class="o">-</span><span class="i">cp</span> <span class="s">&quot;*&quot;</span> <span class="i">edu</span><span class="o">.</span><span class="i">stanford</span><span class="o">.</span><span class="i">nlp</span><span class="o">.</span><span class="i">pipeline</span><span class="o">.</span><span class="i">StanfordCoreNLPServer</span> <span class="o">-</span><span class="i">port</span> <span class="n">9000</span> <span class="o">-</span><span class="i">timeout</span> <span class="n">15000</span>
+</code></pre></td>
+</tr>
+</table>
+<p>Run the server using all jars in the current directory (e.g., the CoreNLP home directory)</p>
+<p><a href="https://stanfordnlp.github.io/CoreNLP/corenlp-server.html">Read more about configuration and API</a></p>
+<h2><a name="NET-Client" class="anchor" href="#NET-Client">.NET Client</a></h2>
+<p>.NET client mirrors Java client API and behavior.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+<span class="l">25: </span>
+<span class="l">26: </span>
+<span class="l">27: </span>
+<span class="l">28: </span>
+<span class="l">29: </span>
+<span class="l">30: </span>
+<span class="l">31: </span>
+<span class="l">32: </span>
+<span class="l">33: </span>
+<span class="l">34: </span>
+<span class="l">35: </span>
+<span class="l">36: </span>
+<span class="l">37: </span>
+<span class="l">38: </span>
+<span class="l">39: </span>
+<span class="l">40: </span>
+<span class="l">41: </span>
+<span class="l">42: </span>
+<span class="l">43: </span>
+<span class="l">44: </span>
+<span class="l">45: </span>
+<span class="l">46: </span>
+<span class="l">47: </span>
+<span class="l">48: </span>
+<span class="l">49: </span>
+<span class="l">50: </span>
+<span class="l">51: </span>
+<span class="l">52: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp"><span class="k">using</span> edu.stanford.nlp.ling;
+<span class="k">using</span> edu.stanford.nlp.pipeline;
+<span class="k">using</span> edu.stanford.nlp.util;
+<span class="k">using</span> System;
+
+<span class="k">namespace</span> standfordnlp
+{
+    <span class="k">class</span> StanfordCoreNlpClient
+    {
+        <span class="k">readonly</span> <span class="k">static</span> java.lang.Class sentencesAnnotationClass <span class="o">=</span> 
+            <span class="k">new</span> CoreAnnotations.SentencesAnnotation().getClass();
+        <span class="k">readonly</span> <span class="k">static</span> java.lang.Class tokensAnnotationClass <span class="o">=</span> 
+            <span class="k">new</span> CoreAnnotations.TokensAnnotation().getClass();
+        <span class="k">readonly</span> <span class="k">static</span> java.lang.Class textAnnotationClass <span class="o">=</span> 
+            <span class="k">new</span> CoreAnnotations.TextAnnotation().getClass();
+        <span class="k">readonly</span> <span class="k">static</span> java.lang.Class partOfSpeechAnnotationClass <span class="o">=</span> 
+            <span class="k">new</span> CoreAnnotations.PartOfSpeechAnnotation().getClass();
+        <span class="k">readonly</span> <span class="k">static</span> java.lang.Class namedEntityTagAnnotationClass <span class="o">=</span> 
+            <span class="k">new</span> CoreAnnotations.NamedEntityTagAnnotation().getClass();
+        <span class="k">readonly</span> <span class="k">static</span> java.lang.Class normalizedNamedEntityTagAnnotation <span class="o">=</span> 
+            <span class="k">new</span> CoreAnnotations.NormalizedNamedEntityTagAnnotation().getClass();
+
+        <span class="c">// Sample from https://stanfordnlp.github.io/CoreNLP/corenlp-server.html</span>
+        <span class="k">static</span> <span class="k">void</span> Main()
+        {
+            <span class="c">// creates a StanfordCoreNLP object with POS tagging, lemmatization, NER, parsing, and coreference resolution</span>
+            <span class="k">var</span> props <span class="o">=</span> <span class="k">new</span> java.util.Properties();
+            props.setProperty(<span class="s">"annotators"</span>, <span class="s">"tokenize, ssplit, pos, lemma, ner, parse, dcoref"</span>);
+            StanfordCoreNLPClient pipeline <span class="o">=</span> <span class="k">new</span> StanfordCoreNLPClient(props, <span class="s">"http://localhost"</span>, <span class="n">9000</span>, <span class="n">2</span>);
+            <span class="c">// read some text in the text variable</span>
+            <span class="k">var</span> text <span class="o">=</span> <span class="s">"Kosgi Santosh sent an email to Stanford University."</span>;
+            <span class="c">// create an empty Annotation just with the given text</span>
+            Annotation document <span class="o">=</span> <span class="k">new</span> Annotation(text);
+            <span class="c">// run all Annotators on this text</span>
+            pipeline.annotate(document);
+
+            <span class="k">var</span> sentences <span class="o">=</span> document.get(sentencesAnnotationClass) <span class="k">as</span> java.util.AbstractList;
+            <span class="k">foreach</span> (CoreMap sentence <span class="k">in</span> sentences)
+            {
+                <span class="k">var</span> tokens <span class="o">=</span> sentence.get(tokensAnnotationClass) <span class="k">as</span> java.util.AbstractList;
+                Console.WriteLine(<span class="s">"----"</span>);
+                <span class="k">foreach</span> (CoreLabel token <span class="k">in</span> tokens)
+                {
+                    <span class="k">var</span> word <span class="o">=</span> token.get(textAnnotationClass);
+                    <span class="k">var</span> pos <span class="o">=</span> token.get(partOfSpeechAnnotationClass);
+                    <span class="k">var</span> ner <span class="o">=</span> token.get(namedEntityTagAnnotationClass);
+                    Console.WriteLine(<span class="s">"{0}\t[pos={1};\tner={2}]"</span>, word, pos, ner);
+                }
+            }
+        }
+    }
+}
+</code></pre></td></tr></table>
+
+
+
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>
+
+  </div>
+
+  <a class="gh-forkme" href="https://github.com/sergey-tihon/Stanford.NLP.NET"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</body>
+</html>

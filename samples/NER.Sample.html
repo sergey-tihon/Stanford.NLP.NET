@@ -143,28 +143,28 @@
 <span class="k">open</span> <span class="i">edu</span><span class="o">.</span><span class="i">stanford</span><span class="o">.</span><span class="i">nlp</span><span class="o">.</span><span class="i">ie</span><span class="o">.</span><span class="i">crf</span>
 
 <span class="c">// Path to the folder with classifiers models</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">classifiersDirectory</span> <span class="o">=</span>
+<span class="k">let</span> <span class="i">classifiersDirectory</span> <span class="o">=</span>
     <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2017-06-09\classifiers\&quot;</span>
 
 <span class="c">// Loading 3 class classifier model</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">classifier</span> <span class="o">=</span>
+<span class="k">let</span> <span class="i">classifier</span> <span class="o">=</span>
     <span class="i">CRFClassifier</span><span class="o">.</span><span class="i">getClassifierNoExceptions</span>(
-        <span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="i">classifiersDirectory</span> <span class="o">+</span> <span class="s">&quot;english.all.3class.distsim.crf.ser.gz&quot;</span>)
+        <span class="i">classifiersDirectory</span> <span class="o">+</span> <span class="s">&quot;english.all.3class.distsim.crf.ser.gz&quot;</span>)
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs3', 4)" onmouseover="showTip(event, 'fs3', 4)" class="i">s1</span> <span class="o">=</span> <span class="s">&quot;Good afternoon Rajat Raina, how are you today?&quot;</span>
-<span onmouseout="hideTip(event, 'fs4', 5)" onmouseover="showTip(event, 'fs4', 5)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%s</span><span class="s"></span><span class="e">\n</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs2', 6)" onmouseover="showTip(event, 'fs2', 6)" class="i">classifier</span><span class="o">.</span><span class="i">classifyToString</span>(<span onmouseout="hideTip(event, 'fs3', 7)" onmouseover="showTip(event, 'fs3', 7)" class="i">s1</span>))
+<span class="k">let</span> <span class="i">s1</span> <span class="o">=</span> <span class="s">&quot;Good afternoon Rajat Raina, how are you today?&quot;</span>
+<span class="i">printfn</span> <span class="s">&quot;%s\n&quot;</span> (<span class="i">classifier</span><span class="o">.</span><span class="i">classifyToString</span>(<span class="i">s1</span>))
 <span class="fsi">&gt; </span>
 <span class="fsi">Good/O afternoon/O Rajat/PERSON Raina/PERSON,/O how/O are/O you/O today/O?/O</span>
 <span class="fsi">val it : unit = ()</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 8)" onmouseover="showTip(event, 'fs5', 8)" class="i">s2</span> <span class="o">=</span> <span class="s">&quot;I go to school at Stanford University, which is located in California.&quot;</span>
-<span onmouseout="hideTip(event, 'fs4', 9)" onmouseover="showTip(event, 'fs4', 9)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%s</span><span class="s"></span><span class="e">\n</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs2', 10)" onmouseover="showTip(event, 'fs2', 10)" class="i">classifier</span><span class="o">.</span><span class="i">classifyWithInlineXML</span>(<span onmouseout="hideTip(event, 'fs5', 11)" onmouseover="showTip(event, 'fs5', 11)" class="i">s2</span>))
+<span class="k">let</span> <span class="i">s2</span> <span class="o">=</span> <span class="s">&quot;I go to school at Stanford University, which is located in California.&quot;</span>
+<span class="i">printfn</span> <span class="s">&quot;%s\n&quot;</span> (<span class="i">classifier</span><span class="o">.</span><span class="i">classifyWithInlineXML</span>(<span class="i">s2</span>))
 <span class="fsi">&gt; </span>
 <span class="fsi">I go to school at &lt;ORGANIZATION&gt;Stanford University&lt;/ORGANIZATION&gt;, which is </span>
 <span class="fsi">located in &lt;LOCATION&gt;California&lt;/LOCATION&gt;.</span>
 <span class="fsi">val it : unit = ()</span>
 
-<span onmouseout="hideTip(event, 'fs4', 12)" onmouseover="showTip(event, 'fs4', 12)" class="f">printfn</span> <span class="s">&quot;</span><span class="pf">%s</span><span class="s"></span><span class="e">\n</span><span class="s">&quot;</span> (<span onmouseout="hideTip(event, 'fs2', 13)" onmouseover="showTip(event, 'fs2', 13)" class="i">classifier</span><span class="o">.</span><span class="i">classifyToString</span>(<span onmouseout="hideTip(event, 'fs5', 14)" onmouseover="showTip(event, 'fs5', 14)" class="i">s2</span>, <span class="s">&quot;xml&quot;</span>, <span class="k">true</span>));
+<span class="i">printfn</span> <span class="s">&quot;%s\n&quot;</span> (<span class="i">classifier</span><span class="o">.</span><span class="i">classifyToString</span>(<span class="i">s2</span>, <span class="s">&quot;xml&quot;</span>, <span class="k">true</span>));
 <span class="fsi">&gt; </span>
 <span class="fsi">&lt;wi num=&quot;0&quot; entity=&quot;O&quot;&gt;I&lt;/wi&gt; &lt;wi num=&quot;1&quot; entity=&quot;O&quot;&gt;go&lt;/wi&gt; &lt;wi num=&quot;2&quot; entity=&quot;O&quot;&gt;to&lt;/wi&gt; </span>
 <span class="fsi">&lt;wi num=&quot;3&quot; entity=&quot;O&quot;&gt;school&lt;/wi&gt; &lt;wi num=&quot;4&quot; entity=&quot;O&quot;&gt;at&lt;/wi&gt; </span>
@@ -235,11 +235,6 @@
 </code></pre></td></tr></table>
 
 
-<div class="tip" id="fs1">val classifiersDirectory : string<br /><br />Full name: NER.Sample.classifiersDirectory</div>
-<div class="tip" id="fs2">val classifier : obj<br /><br />Full name: NER.Sample.classifier</div>
-<div class="tip" id="fs3">val s1 : string<br /><br />Full name: NER.Sample.s1</div>
-<div class="tip" id="fs4">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
-<div class="tip" id="fs5">val s2 : string<br /><br />Full name: NER.Sample.s2</div>
 
     </div>
     <div class="col-lg-1"></div>

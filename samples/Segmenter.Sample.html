@@ -147,9 +147,9 @@
 <span class="k">open</span> <span class="i">edu</span><span class="o">.</span><span class="i">stanford</span><span class="o">.</span><span class="i">nlp</span><span class="o">.</span><span class="i">ie</span><span class="o">.</span><span class="i">crf</span>
 
 <span class="c">// Path to the folder with models</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">segmenterData</span> <span class="o">=</span>
+<span class="k">let</span> <span class="i">segmenterData</span> <span class="o">=</span>
     <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2017-06-09\data\&quot;</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">sampleData</span> <span class="o">=</span> <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;\..\..\tests\data\test.simple.utf8&quot;</span>;
+<span class="k">let</span> <span class="i">sampleData</span> <span class="o">=</span> <span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">@&quot;\..\..\tests\data\test.simple.utf8&quot;</span>;
 
 <span class="c">// `test.simple.utf8` contains following text:</span>
 <span class="c">// 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫</span>
@@ -162,18 +162,18 @@
 <span class="c">// @author Christopher Manning</span>
 
 <span class="c">// Setup Segmenter loading properties</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">props</span> <span class="o">=</span> <span class="i">Properties</span>();
-<span onmouseout="hideTip(event, 'fs3', 4)" onmouseover="showTip(event, 'fs3', 4)" class="i">props</span><span class="o">.</span><span class="i">setProperty</span>(<span class="s">&quot;sighanCorporaDict&quot;</span>, <span onmouseout="hideTip(event, 'fs1', 5)" onmouseover="showTip(event, 'fs1', 5)" class="i">segmenterData</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="f">ignore</span>
+<span class="k">let</span> <span class="i">props</span> <span class="o">=</span> <span class="i">Properties</span>();
+<span class="i">props</span><span class="o">.</span><span class="i">setProperty</span>(<span class="s">&quot;sighanCorporaDict&quot;</span>, <span class="i">segmenterData</span>) <span class="o">|&gt;</span> <span class="i">ignore</span>
 <span class="c">// Lines below are needed because CTBSegDocumentIteratorFactory accesses it</span>
-<span onmouseout="hideTip(event, 'fs3', 7)" onmouseover="showTip(event, 'fs3', 7)" class="i">props</span><span class="o">.</span><span class="i">setProperty</span>(<span class="s">&quot;serDictionary&quot;</span>, <span onmouseout="hideTip(event, 'fs1', 8)" onmouseover="showTip(event, 'fs1', 8)" class="i">segmenterData</span> <span class="o">+</span> <span class="s">&quot;dict-chris6.ser.gz&quot;</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 9)" onmouseover="showTip(event, 'fs4', 9)" class="f">ignore</span>
-<span onmouseout="hideTip(event, 'fs3', 10)" onmouseover="showTip(event, 'fs3', 10)" class="i">props</span><span class="o">.</span><span class="i">setProperty</span>(<span class="s">&quot;testFile&quot;</span>, <span onmouseout="hideTip(event, 'fs2', 11)" onmouseover="showTip(event, 'fs2', 11)" class="i">sampleData</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 12)" onmouseover="showTip(event, 'fs4', 12)" class="f">ignore</span>
-<span onmouseout="hideTip(event, 'fs3', 13)" onmouseover="showTip(event, 'fs3', 13)" class="i">props</span><span class="o">.</span><span class="i">setProperty</span>(<span class="s">&quot;inputEncoding&quot;</span>, <span class="s">&quot;UTF-8&quot;</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 14)" onmouseover="showTip(event, 'fs4', 14)" class="f">ignore</span>
-<span onmouseout="hideTip(event, 'fs3', 15)" onmouseover="showTip(event, 'fs3', 15)" class="i">props</span><span class="o">.</span><span class="i">setProperty</span>(<span class="s">&quot;sighanPostProcessing&quot;</span>, <span class="s">&quot;true&quot;</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 16)" onmouseover="showTip(event, 'fs4', 16)" class="f">ignore</span>
+<span class="i">props</span><span class="o">.</span><span class="i">setProperty</span>(<span class="s">&quot;serDictionary&quot;</span>, <span class="i">segmenterData</span> <span class="o">+</span> <span class="s">&quot;dict-chris6.ser.gz&quot;</span>) <span class="o">|&gt;</span> <span class="i">ignore</span>
+<span class="i">props</span><span class="o">.</span><span class="i">setProperty</span>(<span class="s">&quot;testFile&quot;</span>, <span class="i">sampleData</span>) <span class="o">|&gt;</span> <span class="i">ignore</span>
+<span class="i">props</span><span class="o">.</span><span class="i">setProperty</span>(<span class="s">&quot;inputEncoding&quot;</span>, <span class="s">&quot;UTF-8&quot;</span>) <span class="o">|&gt;</span> <span class="i">ignore</span>
+<span class="i">props</span><span class="o">.</span><span class="i">setProperty</span>(<span class="s">&quot;sighanPostProcessing&quot;</span>, <span class="s">&quot;true&quot;</span>) <span class="o">|&gt;</span> <span class="i">ignore</span>
 
 <span class="c">// Load Word Segmenter</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 17)" onmouseover="showTip(event, 'fs5', 17)" class="i">segmenter</span> <span class="o">=</span> <span class="i">CRFClassifier</span>(<span onmouseout="hideTip(event, 'fs3', 18)" onmouseover="showTip(event, 'fs3', 18)" class="i">props</span>)
-<span onmouseout="hideTip(event, 'fs5', 19)" onmouseover="showTip(event, 'fs5', 19)" class="i">segmenter</span><span class="o">.</span><span class="i">loadClassifierNoExceptions</span>(<span onmouseout="hideTip(event, 'fs1', 20)" onmouseover="showTip(event, 'fs1', 20)" class="i">segmenterData</span> <span class="o">+</span> <span class="s">&quot;ctb.gz&quot;</span>, <span onmouseout="hideTip(event, 'fs3', 21)" onmouseover="showTip(event, 'fs3', 21)" class="i">props</span>)
-<span onmouseout="hideTip(event, 'fs5', 22)" onmouseover="showTip(event, 'fs5', 22)" class="i">segmenter</span><span class="o">.</span><span class="i">classifyAndWriteAnswers</span>(<span onmouseout="hideTip(event, 'fs2', 23)" onmouseover="showTip(event, 'fs2', 23)" class="i">sampleData</span>)
+<span class="k">let</span> <span class="i">segmenter</span> <span class="o">=</span> <span class="i">CRFClassifier</span>(<span class="i">props</span>)
+<span class="i">segmenter</span><span class="o">.</span><span class="i">loadClassifierNoExceptions</span>(<span class="i">segmenterData</span> <span class="o">+</span> <span class="s">&quot;ctb.gz&quot;</span>, <span class="i">props</span>)
+<span class="i">segmenter</span><span class="o">.</span><span class="i">classifyAndWriteAnswers</span>(<span class="i">sampleData</span>)
 <span class="fsi"> &gt;</span>
 <span class="fsi">面对 新 世纪 ， 世界 各 国 人民 的 共同 愿望 是 ： 继续 发展 人类 以往 创造 的 一切 文明 成果 ， 克服 20 </span>
 <span class="fsi">世纪 困扰 着 人类 的 战争 和 贫困 问题 ， 推进 和平 与 发展 的 崇高 事业 ， 创造 一 个 美好 的 世界 。</span>
@@ -265,11 +265,6 @@
 </code></pre></td></tr></table>
 
 
-<div class="tip" id="fs1">val segmenterData : string<br /><br />Full name: Segmenter.Sample.segmenterData</div>
-<div class="tip" id="fs2">val sampleData : string<br /><br />Full name: Segmenter.Sample.sampleData</div>
-<div class="tip" id="fs3">val props : obj<br /><br />Full name: Segmenter.Sample.props</div>
-<div class="tip" id="fs4">val ignore : value:&#39;T -&gt; unit<br /><br />Full name: Microsoft.FSharp.Core.Operators.ignore</div>
-<div class="tip" id="fs5">val segmenter : obj<br /><br />Full name: Segmenter.Sample.segmenter</div>
 
     </div>
     <div class="col-lg-1"></div>
