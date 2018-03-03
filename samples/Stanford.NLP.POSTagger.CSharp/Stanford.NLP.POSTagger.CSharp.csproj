@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="stanford-postagger-3.8.0">
-      <HintPath>..\..\bin\Stanford.NLP.POSTagger\lib\stanford-postagger-3.8.0.dll</HintPath>
+    <Reference Include="stanford-postagger-3.9.1">
+      <HintPath>..\..\bin\Stanford.NLP.POSTagger\lib\stanford-postagger-3.9.1.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

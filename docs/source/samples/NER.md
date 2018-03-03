@@ -15,7 +15,7 @@
       <h2>Download models</h2>
       <i class="fa fa-download" aria-hidden="true"></i>
       <h3 class="actionlink">
-        <a href="https://nlp.stanford.edu/software/stanford-ner-2017-06-09.zip">Download NER 3.8.0</a>
+        <a href="https://nlp.stanford.edu/software/stanford-ner-2018-02-27.zip">Download NER 3.9.1</a>
       </h3>
     </div>
   </div>

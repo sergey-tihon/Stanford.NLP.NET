@@ -7,12 +7,8 @@ namespace standfordnlp
 {
     class StanfordCoreNlpClient
     {
-        readonly static java.lang.Class sentencesAnnotationClass = new CoreAnnotations.SentencesAnnotation().getClass();
-        readonly static java.lang.Class tokensAnnotationClass = new CoreAnnotations.TokensAnnotation().getClass();
-        readonly static java.lang.Class textAnnotationClass = new CoreAnnotations.TextAnnotation().getClass();
-        readonly static java.lang.Class partOfSpeechAnnotationClass = new CoreAnnotations.PartOfSpeechAnnotation().getClass();
-        readonly static java.lang.Class namedEntityTagAnnotationClass = new CoreAnnotations.NamedEntityTagAnnotation().getClass();
-        readonly static java.lang.Class normalizedNamedEntityTagAnnotation = new CoreAnnotations.NormalizedNamedEntityTagAnnotation().getClass();
+        public static java.lang.Class GetAnnotationClass<T>()
+            => ikvm.@internal.ClassLiteral<T>.Value; // = new T().getClass()
 
         // Sample from https://stanfordnlp.github.io/CoreNLP/corenlp-server.html
         static void Main()
@@ -28,6 +24,14 @@ namespace standfordnlp
             // run all Annotators on this text
             pipeline.annotate(document);
 
+
+            var sentencesAnnotationClass = GetAnnotationClass<CoreAnnotations.SentencesAnnotation>();
+            var tokensAnnotationClass = GetAnnotationClass<CoreAnnotations.TokensAnnotation>();
+            var textAnnotationClass = GetAnnotationClass<CoreAnnotations.TextAnnotation>();
+            var partOfSpeechAnnotationClass = GetAnnotationClass<CoreAnnotations.PartOfSpeechAnnotation>();
+            var namedEntityTagAnnotationClass = GetAnnotationClass<CoreAnnotations.NamedEntityTagAnnotation>();
+            var normalizedNamedEntityTagAnnotation = GetAnnotationClass<CoreAnnotations.NormalizedNamedEntityTagAnnotation>();
+
             var sentences = document.get(sentencesAnnotationClass) as java.util.AbstractList;
             foreach (CoreMap sentence in sentences)
             {
@@ -38,7 +42,7 @@ namespace standfordnlp
                     var word = token.get(textAnnotationClass);
                     var pos = token.get(partOfSpeechAnnotationClass);
                     var ner = token.get(namedEntityTagAnnotationClass);
-                    Console.WriteLine("{0}\t[pos={1};\tner={2};", word, pos, ner);
+                    Console.WriteLine($"{word}\t[pos={pos};\tner={ner};]");
                 }
             }
         }

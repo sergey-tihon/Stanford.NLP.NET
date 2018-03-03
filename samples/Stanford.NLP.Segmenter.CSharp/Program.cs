@@ -8,8 +8,8 @@ namespace Stanford.NLP.Segmenter.CSharp
         static void Main()
         {
             // Path to the folder with models
-            var segmenterData = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2017-06-09\data";
-            var sampleData = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2017-06-09\test.simp.utf8";
+            var segmenterData = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2018-02-27\data";
+            var sampleData = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2018-02-27\test.simp.utf8";
 
             // `test.simple.utf8` contains following text:
             // 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫

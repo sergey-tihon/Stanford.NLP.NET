@@ -24,7 +24,7 @@ open edu.stanford.nlp.ie.crf
 
 // Path to the folder with classifiers models
 let classifiersDirectory =
-    __SOURCE_DIRECTORY__ + @"..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2017-06-09\classifiers\"
+    __SOURCE_DIRECTORY__ + @"..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2018-02-27\classifiers\"
 
 // Loading 3 class classifier model
 let classifier =
@@ -68,7 +68,7 @@ C# Sample of Named Entity Recognition
             static void Main()
             {
                 // Path to the folder with classifiers models
-                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2017-06-09";
+                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-ner-2018-02-27";
                 var classifiersDirectory = jarRoot + @"\classifiers";
 
                 // Loading 3 class classifier model

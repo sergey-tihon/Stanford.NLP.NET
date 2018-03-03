@@ -37,8 +37,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="stanford-segmenter-3.8.0">
-      <HintPath>..\..\bin\Stanford.NLP.Segmenter\lib\stanford-segmenter-3.8.0.dll</HintPath>
+    <Reference Include="stanford-segmenter-3.9.1">
+      <HintPath>..\..\bin\Stanford.NLP.Segmenter\lib\stanford-segmenter-3.9.1.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -116,7 +116,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'">
       <ItemGroup>
         <Reference Include="Argu">
-          <HintPath>..\..\packages\test\Argu\lib\net40\Argu.dll</HintPath>
+          <HintPath>..\..\packages\test\Argu\lib\net45\Argu.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -311,6 +311,17 @@
         </Reference>
         <Reference Include="Mono.Cecil.Rocks">
           <HintPath>..\..\packages\test\Mono.Cecil\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.6.1'">
+      <ItemGroup>
+        <Reference Include="System.ValueTuple">
+          <HintPath>..\..\packages\test\System.ValueTuple\lib\net461\System.ValueTuple.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>

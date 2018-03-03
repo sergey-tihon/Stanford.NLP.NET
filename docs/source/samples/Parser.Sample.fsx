@@ -26,10 +26,10 @@ open edu.stanford.nlp.ling
 open edu.stanford.nlp.trees
 open edu.stanford.nlp.parser.lexparser
 
-// Path to models extracted from `stanford-parser-3.8.0-models.jar`
+// Path to models extracted from `stanford-parser-3.9.1-models.jar`
 let modelsDirectry =
     __SOURCE_DIRECTORY__
-    + @"..\..\data\paket-files\nlp.stanford.edu\stanford-parser-full-2017-06-09\models"
+    + @"..\..\data\paket-files\nlp.stanford.edu\stanford-parser-full-2018-02-27\models"
     + @"edu\stanford\nlp\models\"
 
 // Loading english PCFG parser from file
@@ -103,8 +103,8 @@ C# Sample of sentence parsing
         {
             static void Main()
             {
-                // Path to models extracted from `stanford-parser-3.8.0-models.jar`
-                var jarRoot = "nlp.stanford.edu\\stanford-parser-full-2017-06-09\\models";
+                // Path to models extracted from `stanford-parser-3.9.1-models.jar`
+                var jarRoot = "nlp.stanford.edu\\stanford-parser-full-2018-02-27\\models";
                 var modelsDirectory = jarRoot+"\\edu\\stanford\\nlp\\models";
 
                 // Loading english PCFG parser from file

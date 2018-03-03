@@ -1,7 +1,7 @@
 RESTRICTION: == net461
 NUGET
   remote: https://www.nuget.org/api/v2
-    FAKE (4.63)
+    FAKE (4.64.6)
     FSharp.Management (0.4.5)
     Mono.Cecil (0.9.6.4)
 
@@ -9,9 +9,9 @@ GROUP Docs
 RESTRICTION: == net461
 NUGET
   remote: https://www.nuget.org/api/v2
-    DotLiquid (2.0.180)
+    DotLiquid (2.0.254)
     FSharp.Compiler.Service (2.0.0.6)
-    FSharp.Core (4.2.3)
+    FSharp.Core (4.3.4)
     FSharp.Formatting (2.14.2)
       FSharp.Compiler.Service (2.0.0.6)
       FSharpVSPowerTools.Core (>= 2.3 < 2.4)
@@ -24,11 +24,14 @@ GROUP Test
 RESTRICTION: == net461
 NUGET
   remote: https://www.nuget.org/api/v2
-    Argu (3.7) - redirects: force
-    Expecto (5.0.1) - redirects: force
+    Argu (5.0.1) - redirects: force
+      FSharp.Core (>= 4.0.0.1)
+    Expecto (5.1.2) - redirects: force
       Argu (>= 3.7)
-      FSharp.Core (>= 4.1.12)
-      Mono.Cecil (>= 0.10.0-beta5)
-    FSharp.Core (4.2.3) - redirects: force
+      FSharp.Core (>= 4.1.18)
+      Mono.Cecil (>= 0.10.0-beta7)
+      System.ValueTuple (>= 4.4)
+    FSharp.Core (4.3.4) - redirects: force
     IKVM (8.1.5717)
-    Mono.Cecil (0.10.0-beta6) - redirects: force
+    Mono.Cecil (0.10.0-beta7) - redirects: force
+    System.ValueTuple (4.4) - redirects: force

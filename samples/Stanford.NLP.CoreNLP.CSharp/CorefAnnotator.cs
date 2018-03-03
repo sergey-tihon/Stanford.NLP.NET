@@ -22,7 +22,7 @@ namespace standfordnlp
         // Sample from https://stanfordnlp.github.io/CoreNLP/coref.html
         static void Main()
         {
-            var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2017-06-09\models";
+            var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2018-02-27\models";
 
             Annotation document = new Annotation("Barack Obama was born in Hawaii.  He is the president. Obama was elected in 2008.");
             Properties props = new Properties();
