@@ -187,3 +187,4 @@ docs/content/release-notes.md
 .vscode/
 
 nuget/Stanford.NLP.snk
+!.paket/paket.exe
