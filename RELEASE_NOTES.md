@@ -1,3 +1,6 @@
+#### 3.9.2.0 - May 1, 2019
+* New version of Stanford NLP (3.9.2)
+
 #### 3.9.1.0 - March 3, 2018
 * New version of Stanford NLP (3.9.1)
 

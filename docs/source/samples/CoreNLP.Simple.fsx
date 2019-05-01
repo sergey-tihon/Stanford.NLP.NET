@@ -30,7 +30,7 @@ open edu.stanford.nlp.simple
 
 // Path to the folder with models extracted from `stanford-corenlp-3.9.1-models.jar`
 let jarRoot = (__SOURCE_DIRECTORY__)+ @"/../../../data/paket-files/nlp.stanford.edu/"
-                                    + @"stanford-corenlp-full-2018-02-27/models/"
+                                    + @"stanford-corenlp-full-2018-10-05/models/"
 System.IO.Directory.SetCurrentDirectory(jarRoot)
 
 // Custom properties for annotators

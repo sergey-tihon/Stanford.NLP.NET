@@ -24,7 +24,7 @@ open edu.stanford.nlp.ie.crf
 
 // Path to the folder with models
 let segmenterData =
-    __SOURCE_DIRECTORY__ + @"\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2018-02-27\data\"
+    __SOURCE_DIRECTORY__ + @"\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-2018-10-16\data\"
 let sampleData = __SOURCE_DIRECTORY__ + @"\..\..\tests\data\test.simple.utf8";
 
 // `test.simple.utf8` contains following text:
@@ -69,7 +69,7 @@ C# Sample of Word Segmentation
             static void Main()
             {
                 // Path to the folder with models
-                var segmenterData = @"nlp.stanford.edu\stanford-segmenter-2018-02-27\data";
+                var segmenterData = @"nlp.stanford.edu\stanford-segmenter-2018-10-16\data";
                 var sampleData = @"nlp.stanford.edu\stanford-segmenter-2015-10-31\test.simp.utf8";
 
                 // `test.simple.utf8` contains following text:

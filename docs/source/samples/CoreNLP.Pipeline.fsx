@@ -26,7 +26,7 @@ open java.io
 open edu.stanford.nlp.pipeline
 
 // Path to the folder with models extracted from `stanford-corenlp-3.9.1-models.jar`
-let jarRoot = __SOURCE_DIRECTORY__ + @"/../../../data/paket-files/nlp.stanford.edu/stanford-corenlp-full-2018-02-27/models/"
+let jarRoot = __SOURCE_DIRECTORY__ + @"/../../../data/paket-files/nlp.stanford.edu/stanford-corenlp-full-2018-10-05/models/"
 
 // Text for processing
 let text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
@@ -111,7 +111,7 @@ C# Sample of text annotation
             static void Main()
             {
                 // Path to the folder with models extracted from `stanford-corenlp-3.9.1-models.jar`
-                var jarRoot = @"nlp.stanford.edu\stanford-corenlp-full-2018-02-27\models";
+                var jarRoot = @"nlp.stanford.edu\stanford-corenlp-full-2018-10-05\models";
 
                 // Text for processing
                 var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";

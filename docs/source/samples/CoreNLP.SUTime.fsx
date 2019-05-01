@@ -37,7 +37,7 @@ open edu.stanford.nlp.ling
 
 // Path to the folder with models extracted from `stanford-corenlp-3.9.1-models.jar`
 let jarRoot =
-    __SOURCE_DIRECTORY__ + @"..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2018-02-27\models\"
+    __SOURCE_DIRECTORY__ + @"..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2018-10-05\models\"
 let modelsDirectry = jarRoot + @"edu\stanford\nlp\models\"
 
 // Annotation pipeline configuration
@@ -106,7 +106,7 @@ C# Sample of SUTime
             {
 
                 // Path to the folder with models extracted from `stanford-corenlp-3.9.1-models.jar`
-                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2018-02-27\models";
+                var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-full-2018-10-05\models";
                 var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
 
                 // Annotation pipeline configuration

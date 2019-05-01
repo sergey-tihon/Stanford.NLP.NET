@@ -15,7 +15,7 @@
       <h2>Download models</h2>
       <i class="fa fa-download" aria-hidden="true"></i>
       <h3 class="actionlink">
-        <a href="https://nlp.stanford.edu/software/stanford-corenlp-full-2018-02-27.zip">Download CoreNLP 3.9.1</a>
+        <a href="https://nlp.stanford.edu/software/stanford-corenlp-full-2018-10-05.zip">Download CoreNLP 3.9.1</a>
       </h3>
     </div>
   </div>

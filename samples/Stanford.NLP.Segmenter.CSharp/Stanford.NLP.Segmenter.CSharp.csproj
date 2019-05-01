@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="stanford-segmenter-3.9.1">
-      <HintPath>..\..\bin\Stanford.NLP.Segmenter\lib\stanford-segmenter-3.9.1.dll</HintPath>
+    <Reference Include="stanford-segmenter-3.9.2">
+      <HintPath>..\..\bin\Stanford.NLP.Segmenter\lib\stanford-segmenter-3.9.2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
