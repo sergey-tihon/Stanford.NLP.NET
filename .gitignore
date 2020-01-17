@@ -185,6 +185,7 @@ docs/content/release-notes.md
 .fake/
 .vs/
 .vscode/
+.ionide/
 
 nuget/Stanford.NLP.snk
 !.paket/paket.exe
