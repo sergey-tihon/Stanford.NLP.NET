@@ -11,9 +11,7 @@ open edu.stanford.nlp.parser.lexparser
 
 let models =
     [   Models.lexparser.``englishPCFG.ser.gz``
-        Models.lexparser.``englishPCFG.caseless.ser.gz``
-        Models.lexparser.``englishFactored.ser.gz``
-        Models.lexparser.``englishRNN.ser.gz`` ]
+        Models.lexparser.``englishPCFG.caseless.ser.gz``]
     |> List.map (fun path ->
         let name = Path.GetFileName(path)
         let model = edu.stanford.nlp.parser.lexparser.LexicalizedParser.loadModel path

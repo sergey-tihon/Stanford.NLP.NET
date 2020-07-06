@@ -15,7 +15,7 @@ let [<Tests>] suTimeTest =
     pipeline.addAnnotator(TokenizerAnnotator(false))
     pipeline.addAnnotator(WordsToSentencesAnnotator(false))
 
-    let tagger = MaxentTagger(Models.``pos-tagger``.``english-left3words``.``english-left3words-distsim.tagger``)
+    let tagger = MaxentTagger(Models.``pos-tagger``.``english-left3words-distsim.tagger``)
     pipeline.addAnnotator(POSTaggerAnnotator(tagger))
 
     let sutimeRules =

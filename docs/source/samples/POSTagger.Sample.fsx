@@ -17,7 +17,7 @@ F# Sample of POS Tagging
 *)
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-postagger-3.9.1.dll"
+#r "stanford-postagger-4.0.0.dll"
 
 open java.io
 open java.util
@@ -27,7 +27,7 @@ open System
 
 // Path to the folder with models
 let modelsDirectry =
-    IO.Path.Combine(__SOURCE_DIRECTORY__,@"../../../data/paket-files/nlp.stanford.edu/stanford-postagger-full-2018-10-16/models/")
+    IO.Path.Combine(__SOURCE_DIRECTORY__,@"../../../data/paket-files/nlp.stanford.edu/stanford-tagger-4.0.0/models/")
 let model = IO.Path.Combine(modelsDirectry, "wsj-0-18-bidirectional-nodistsim.tagger")
 if (not <| IO.File.Exists(model))
     then failwithf "Check path to the model file '%s'" model
@@ -74,7 +74,7 @@ tagTexrFromReader <| new StringReader(text)
         {
             static void Main()
             {
-                var jarRoot = @"../../../data/paket-files/nlp.stanford.edu/stanford-postagger-full-2018-10-16";
+                var jarRoot = @"../../../data/paket-files/nlp.stanford.edu/stanford-tagger-4.0.0";
                 var modelsDirectory = jarRoot + @"/models";
                 var model = modelsDirectory + @"/wsj-0-18-bidirectional-nodistsim.tagger";
 

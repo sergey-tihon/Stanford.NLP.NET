@@ -15,7 +15,7 @@
       <h2>Download models</h2>
       <i class="fa fa-download" aria-hidden="true"></i>
       <h3 class="actionlink">
-        <a href="https://nlp.stanford.edu/software/stanford-parser-full-2018-10-17.zip">Download Parser 3.9.1</a>
+        <a href="https://nlp.stanford.edu/software/stanford-parser-4.0.0.zip">Download Parser 4.0.0</a>
       </h3>
     </div>
   </div>

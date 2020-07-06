@@ -15,7 +15,7 @@
       <h2>Download models</h2>
       <i class="fa fa-download" aria-hidden="true"></i>
       <h3 class="actionlink">
-        <a href="https://nlp.stanford.edu/software/stanford-segmenter-2018-10-16.zip">Download Segmenter 3.9.1</a>
+        <a href="https://nlp.stanford.edu/software/stanford-segmenter-4.0.0.zip">Download Segmenter 4.0.0</a>
       </h3>
     </div>
   </div>
