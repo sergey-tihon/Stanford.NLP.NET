@@ -19,11 +19,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    
+
     - name: Build on Windows
       if: matrix.os == 'windows-latest'
       run: .\build.cmd
 
     - name: Build on Unix
       if: matrix.os != 'windows-latest'
-      run: ./build.sh
+      run: chmod +x build.sh && ./build.sh
