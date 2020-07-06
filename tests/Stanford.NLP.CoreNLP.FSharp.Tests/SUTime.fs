@@ -15,13 +15,13 @@ let [<Tests>] suTimeTest =
     pipeline.addAnnotator(TokenizerAnnotator(false))
     pipeline.addAnnotator(WordsToSentencesAnnotator(false))
 
-    let tagger = MaxentTagger(Models.``pos-tagger``.``english-left3words-distsim.tagger``)
+    let tagger = MaxentTagger(model "pos-tagger/english-left3words-distsim.tagger")
     pipeline.addAnnotator(POSTaggerAnnotator(tagger))
 
     let sutimeRules =
-        [| Models.sutime.``defs.sutime.txt``
-           Models.sutime.``english.holidays.sutime.txt``
-           Models.sutime.``english.sutime.txt`` |]
+        [| model "sutime/defs.sutime.txt"
+           model "sutime/english.holidays.sutime.txt"
+           model "sutime/english.sutime.txt" |]
         |> String.concat ","
     let props = Properties()
     props.setProperty("sutime.rules", sutimeRules ) |> ignore

@@ -135,7 +135,6 @@ NUGET
       FSharp.Core (>= 4.7.2)
       System.Reactive (>= 4.4.1)
     FSharp.Core (4.7.2)
-    FSharp.Management (0.4.5)
     Microsoft.Build (16.6)
     Microsoft.Build.Framework (16.6)
       System.Security.Permissions (>= 4.7)

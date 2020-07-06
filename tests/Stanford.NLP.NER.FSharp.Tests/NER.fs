@@ -13,16 +13,15 @@ open edu.stanford.nlp.ling
 // it shows how to run it on a single sentence, and how to do this
 // and produce an inline XML output format.
 
-let [<Literal>] classifiersRoot = __SOURCE_DIRECTORY__ + @"/../../data/paket-files/nlp.stanford.edu/stanford-ner-4.0.0/classifiers/"
-let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"/../data/"
-type Classifiers = FSharp.Management.FileSystem<classifiersRoot>
-type DataFiles = FSharp.Management.FileSystem<dataFilesRoot>
+let inline (</>) path1 path2 = System.IO.Path.Combine(path1, path2)
+let classifier path = __SOURCE_DIRECTORY__ </> "/../../data/paket-files/nlp.stanford.edu/stanford-ner-4.0.0/classifiers/" </> path
+let dataFile path = __SOURCE_DIRECTORY__ </> "/../data/" </> path
 
 let [<Tests>] nerTests =
   testList "NER" [
     testCase "Extract named entities from predefined phrase" <| fun _ ->
         let classifier =
-            CRFClassifier.getClassifierNoExceptions(Classifiers.``english.all.3class.distsim.crf.ser.gz``)
+            CRFClassifier.getClassifierNoExceptions(classifier "english.all.3class.distsim.crf.ser.gz")
 
         let s1 = "Good afternoon Rajat Raina, how are you today?"
         let s2 = "I go to school at Stanford University, which is located in California."
@@ -39,8 +38,8 @@ let [<Tests>] nerTests =
 
     testCase "Extract named entities from file" <| fun _ ->
         let classifier =
-            CRFClassifier.getClassifierNoExceptions(Classifiers.``english.all.3class.distsim.crf.ser.gz``)
-        let fileContent = System.IO.File.ReadAllText(DataFiles.``SampleText.txt``)
+            CRFClassifier.getClassifierNoExceptions(classifier "english.all.3class.distsim.crf.ser.gz")
+        let fileContent = System.IO.File.ReadAllText(dataFile "SampleText.txt")
 
         let sentences = classifier.classify(fileContent).toArray()
         Expect.isNonEmpty sentences "No sentences found"

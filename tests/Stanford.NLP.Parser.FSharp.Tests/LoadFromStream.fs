@@ -3,12 +3,11 @@
 open System.IO
 open Expecto
 
-
 let [<Tests>] streamTests =
     testList "Load model from stream" [
         test "MaxentTagger" {
             // Plain model in the file
-            let model = Models.``pos-tagger``.``english-left3words-distsim.tagger``
+            let model = model "pos-tagger/english-left3words-distsim.tagger"
             use fs = new FileStream(model, FileMode.Open)
             use isw = new ikvm.io.InputStreamWrapper(fs)
             let tagger = edu.stanford.nlp.tagger.maxent.MaxentTagger(isw)
@@ -16,7 +15,7 @@ let [<Tests>] streamTests =
         }
         test "LexicalizedParser" {
             // GZIPed model in the file
-            let model = Models.lexparser.``englishPCFG.ser.gz``
+            let model = model "lexparser/englishPCFG.ser.gz"
             use fs = new FileStream(model, FileMode.Open)
             use isw = new ikvm.io.InputStreamWrapper(fs)
 

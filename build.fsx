@@ -135,12 +135,13 @@ let timeOut = TimeSpan.FromSeconds(120.0)
 
 let IKVMCompile workingDirectory keyFile tasks =
     let ikvmc args =
-        //let result =
-        CreateProcess.fromRawCommandLine ikvmcExe args
+        (if Environment.isWindows
+         then CreateProcess.fromRawCommandLine ikvmcExe args
+         else CreateProcess.fromRawCommandLine "mono" (ikvmcExe + " " + args))
         |> CreateProcess.withWorkingDirectory (DirectoryInfo(workingDirectory).FullName)
         |> CreateProcess.withTimeout timeOut
         |> CreateProcess.ensureExitCode
-        |> Proc.start
+        |> Proc.run
         |> ignore
         //let result =
         //    ExecProcess
@@ -355,15 +356,24 @@ Target.create "BuildTests" (fun _ ->
 
 Target.create "RunTests" (fun _ ->
     !! testAssemblies
-    |> Testing.Expecto.run (fun p ->
-        { p with
-            WorkingDirectory = __SOURCE_DIRECTORY__
-            FailOnFocusedTests = true
-            PrintVersion = true
-            Parallel = false
-            Summary =  true
-            Debug = false
-        })
+    |> Seq.iter (fun path ->
+        let args = "--fail-on-focused-tests --summary --sequenced --version"
+        (if Environment.isWindows
+         then CreateProcess.fromRawCommandLine path args
+         else CreateProcess.fromRawCommandLine "mono" (path + " " + args))
+        |> CreateProcess.ensureExitCode
+        |> Proc.run
+        |> ignore
+    )
+    // |> Testing.Expecto.run (fun p ->
+    //     { p with
+    //         WorkingDirectory = __SOURCE_DIRECTORY__
+    //         FailOnFocusedTests = true
+    //         PrintVersion = true
+    //         Parallel = false
+    //         Summary =  true
+    //         Debug = false
+    //     })
     // |> Expecto (fun p ->
     //     { p with
     //         Parallel = false } )

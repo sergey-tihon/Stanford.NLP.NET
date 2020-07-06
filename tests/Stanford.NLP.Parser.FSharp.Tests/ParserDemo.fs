@@ -10,8 +10,8 @@ open edu.stanford.nlp.trees
 open edu.stanford.nlp.parser.lexparser
 
 let models =
-    [   Models.lexparser.``englishPCFG.ser.gz``
-        Models.lexparser.``englishPCFG.caseless.ser.gz``]
+    [   model "lexparser/englishPCFG.ser.gz"
+        model "lexparser/englishPCFG.caseless.ser.gz"]
     |> List.map (fun path ->
         let name = Path.GetFileName(path)
         let model = edu.stanford.nlp.parser.lexparser.LexicalizedParser.loadModel path
@@ -60,7 +60,7 @@ let [<Tests>] parserFileTests =
             let gsf = tlp.grammaticalStructureFactory();
             // You could also create a tokenizer here (as below) and pass it
             // to DocumentPreprocessor
-            DocumentPreprocessor(DataFiles.``SampleText.txt``)
+            DocumentPreprocessor(dataFile "SampleText.txt")
             |> toSeq
             |> Seq.cast<java.util.List>
             |> Seq.iter (fun sentence ->

@@ -21,7 +21,7 @@ let customAnnotationPrint (annotation:Annotation) =
         printfn "\n\nSentence : '%O'" sentence
 
         let tokens = sentence.get(CoreAnnotations.TokensAnnotation().getClass()) :?> java.util.ArrayList
-        Expect.isGreaterThan (tokens.size()) 0 "No tokens foudn"
+        Expect.isGreaterThan (tokens.size()) 0 "No tokens found"
         for token in (tokens |> Seq.cast<CoreLabel>) do
             let word = token.get(CoreAnnotations.TextAnnotation().getClass())
             Expect.isNotNull word "Word not found"
@@ -89,29 +89,29 @@ let [<Tests>] coreNlpTests =
             let props = Properties()
             let (<==) key value = props.setProperty(key, value) |> ignore
             "annotators"    <== "tokenize, ssplit, pos, lemma, ner, parse, dcoref"
-            "pos.model"     <== Models.``pos-tagger``.``english-left3words-distsim.tagger``
-            "ner.model"     <== Models.ner.``english.all.3class.distsim.crf.ser.gz``
+            "pos.model"     <== model "pos-tagger/english-left3words-distsim.tagger"
+            "ner.model"     <== model "ner/english.all.3class.distsim.crf.ser.gz"
             "ner.applyNumericClassifiers" <== "false"
             "ner.useSUTime" <== "false"
-            "parse.model"   <== Models.lexparser.``englishPCFG.ser.gz``
+            "parse.model"   <== model "lexparser/englishPCFG.ser.gz"
 
-            "dcoref.demonym"            <== Models.dcoref.``demonyms.txt``
-            "dcoref.states"             <== Models.dcoref.``state-abbreviations.txt``
-            "dcoref.animate"            <== Models.dcoref.``animate.unigrams.txt``
-            "dcoref.inanimate"          <== Models.dcoref.``inanimate.unigrams.txt``
-            "dcoref.male"               <== Models.dcoref.``male.unigrams.txt``
-            "dcoref.neutral"            <== Models.dcoref.``neutral.unigrams.txt``
-            "dcoref.female"             <== Models.dcoref.``female.unigrams.txt``
-            "dcoref.plural"             <== Models.dcoref.``plural.unigrams.txt``
-            "dcoref.singular"           <== Models.dcoref.``singular.unigrams.txt``
-            "dcoref.countries"          <== Models.dcoref.countries
-            "dcoref.extra.gender"       <== Models.dcoref.``namegender.combine.txt``
-            "dcoref.states.provinces"   <== Models.dcoref.statesandprovinces
-            "dcoref.singleton.predictor"<== Models.dcoref.``singleton.predictor.ser``
-            //"dcoref.big.gender.number"  <== Models.dcoref.``gender.data.gz``
-            "dcoref.big.gender.number"  <== Models.dcoref.``gender.map.ser.gz``
+            "dcoref.demonym"            <== model "dcoref/demonyms.txt"
+            "dcoref.states"             <== model "dcoref/state-abbreviations.txt"
+            "dcoref.animate"            <== model "dcoref/animate.unigrams.txt"
+            "dcoref.inanimate"          <== model "dcoref/inanimate.unigrams.txt"
+            "dcoref.male"               <== model "dcoref/male.unigrams.txt"
+            "dcoref.neutral"            <== model "dcoref/neutral.unigrams.txt"
+            "dcoref.female"             <== model "dcoref/female.unigrams.txt"
+            "dcoref.plural"             <== model "dcoref/plural.unigrams.txt"
+            "dcoref.singular"           <== model "dcoref/singular.unigrams.txt"
+            "dcoref.countries"          <== model "dcoref/countries"
+            "dcoref.extra.gender"       <== model "dcoref/namegender.combine.txt"
+            "dcoref.states.provinces"   <== model "dcoref/statesandprovinces"
+            "dcoref.singleton.predictor"<== model "dcoref/singleton.predictor.ser"
+            //"dcoref.big.gender.number"  <== Models "dcoref/gender.data.gz"
+            "dcoref.big.gender.number"  <== model "dcoref/gender.map.ser.gz"
 
-            //"dcoref.signatures"         <== Models.dcoref.``ne.signatures.txt``
+            //"dcoref.signatures"         <== Models "dcoref/ne.signatures.txt"
             //let dcorefDictionary =
             //    [|
             //        Models.dcoref.``coref.dict1.tsv``
@@ -122,9 +122,9 @@ let [<Tests>] coreNlpTests =
             //"dcoref.dictlist" <== (dcorefDictionary |> String.concat ",")
 
             let sutimeRules =
-                [| Models.sutime.``defs.sutime.txt``
-                   Models.sutime.``english.holidays.sutime.txt``
-                   Models.sutime.``english.sutime.txt`` |]
+                [| model "sutime/defs.sutime.txt"
+                   model "sutime/english.holidays.sutime.txt"
+                   model "sutime/english.sutime.txt" |]
                 |> String.concat ","
             "sutime.rules"      <== sutimeRules
             "sutime.binders"    <== "0"

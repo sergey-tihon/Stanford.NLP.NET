@@ -4,11 +4,9 @@ open Expecto
 open java.util
 open edu.stanford.nlp.ie.crf
 
-let [<Literal>] segmenterData = __SOURCE_DIRECTORY__ + @"/../../data/paket-files/nlp.stanford.edu/stanford-segmenter-4.0.0/data/"
-type SegmenterData = FSharp.Management.FileSystem<segmenterData>
-
-let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"../../data/"
-type DataFiles = FSharp.Management.FileSystem<dataFilesRoot>
+let inline (</>) path1 path2 = System.IO.Path.Combine(path1, path2)
+let segmenterData path = __SOURCE_DIRECTORY__ </> "/../../data/paket-files/nlp.stanford.edu/stanford-segmenter-4.0.0/data/" </> path
+let dataFile path = __SOURCE_DIRECTORY__ </> "../../data/" </> path
 
 //  This is a very simple demo of calling the Chinese Word Segmenter
 //  programmatically.  It assumes an input file in UTF8.
@@ -20,16 +18,16 @@ type DataFiles = FSharp.Management.FileSystem<dataFilesRoot>
 let [<Tests>] segmenterTest =
   testCase "Chinese Word Segmenter" <| fun _ ->
     let props = Properties();
-    props.setProperty("sighanCorporaDict", SegmenterData.Path) |> ignore
-    props.setProperty("NormalizationTable", SegmenterData.``norm.simp.utf8``) |> ignore
+    props.setProperty("sighanCorporaDict", segmenterData "Path") |> ignore
+    props.setProperty("NormalizationTable", segmenterData "norm.simp.utf8") |> ignore
     props.setProperty("normTableEncoding", "UTF-8") |> ignore
     // below is needed because CTBSegDocumentIteratorFactory accesses it
-    props.setProperty("serDictionary", SegmenterData.``dict-chris6.ser.gz``) |> ignore
-    props.setProperty("testFile", DataFiles.``test.simple.utf8``) |> ignore
+    props.setProperty("serDictionary", segmenterData "dict-chris6.ser.gz") |> ignore
+    props.setProperty("testFile", dataFile "test.simple.utf8") |> ignore
     props.setProperty("inputEncoding", "UTF-8") |> ignore
     props.setProperty("sighanPostProcessing", "true") |> ignore
 
     let segmenter = CRFClassifier(props)
-    segmenter.loadClassifierNoExceptions(SegmenterData.``ctb.gz``, props)
-    segmenter.classifyAndWriteAnswers(DataFiles.``test.simple.utf8``)
+    segmenter.loadClassifierNoExceptions(segmenterData "ctb.gz", props)
+    segmenter.classifyAndWriteAnswers(dataFile "test.simple.utf8")
 

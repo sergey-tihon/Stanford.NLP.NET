@@ -1,5 +1,4 @@
-FSharp.Management
-group Test
-    IKVM
-    Expecto
-    FSharp.Core
+IKVM
+Expecto
+FSharp.Core
+Microsoft.NETFramework.ReferenceAssemblies

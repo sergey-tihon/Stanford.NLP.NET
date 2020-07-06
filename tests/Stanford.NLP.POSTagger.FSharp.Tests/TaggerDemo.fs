@@ -7,10 +7,10 @@ open edu.stanford.nlp.ling
 open edu.stanford.nlp.tagger.maxent;
 
 let tagReader (reader:Reader) =
-    let sentances = MaxentTagger.tokenizeText(reader).toArray()
-    Expect.isNonEmpty sentances "no sentances tokenized"
+    let sentences = MaxentTagger.tokenizeText(reader).toArray()
+    Expect.isNonEmpty sentences "no sentences tokenized"
 
-    sentances |> Seq.iter (fun sentence ->
+    sentences |> Seq.iter (fun sentence ->
         let tSentence = tagger.tagSentence(sentence :?> ArrayList)
         printfn "%O" (SentenceUtils.listToString(tSentence, false))
     )
@@ -19,7 +19,7 @@ let tagReader (reader:Reader) =
 let [<Tests>] taggerTests =
   testList "POS Tagger" [
     testCase "Tag file" <| fun _ ->
-        let fileName = DataFiles.``SampleText.txt``
+        let fileName = dataFile "SampleText.txt"
         tagReader (new BufferedReader(new FileReader(fileName)))
 
     testCase "Tag Text" <| fun _ ->
