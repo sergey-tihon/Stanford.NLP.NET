@@ -1,0 +1,29 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  build:
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    
+    - name: Build on Windows
+      if: matrix.os == 'windows-latest'
+      run: .\build.cmd
+
+    - name: Build on Unix
+      if: matrix.os != 'windows-latest'
+      run: ./build.sh
