@@ -1,4 +1,5 @@
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/ftkg1n73xcibqwmx)](https://ci.appveyor.com/project/sergey-tihon/stanford-nlp-net)
+[![Build Status](https://github.com/sergey-tihon/Stanford.NLP.NET/workflows/Build%20and%20Test/badge.svg?branch=master)](https://github.com/fsprojects/SwaggerProvider/actions?query=branch%3Amaster)
+
 Stanford.NLP for .NET
 =====================
 

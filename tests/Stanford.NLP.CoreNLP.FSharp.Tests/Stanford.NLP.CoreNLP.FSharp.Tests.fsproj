@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="16.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -10,7 +10,6 @@
     <RootNamespace>Stanford.NLP.CoreNLP.FSharp.Tests</RootNamespace>
     <AssemblyName>Stanford.NLP.CoreNLP.FSharp.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <TargetFSharpCoreVersion>4.3.0.0</TargetFSharpCoreVersion>
     <Name>Stanford.NLP.CoreNLP.FSharp.Tests</Name>
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
@@ -56,8 +55,6 @@
       </PropertyGroup>
     </Otherwise>
   </Choose>
-  <Import Project="$(FSharpTargetsPath)" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <ItemGroup>
     <Compile Include="Config.fs" />
     <Compile Include="CoreNLP.fs" />
@@ -73,8 +70,8 @@
     <Reference Include="protobuf.dll">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\protobuf.dll</HintPath>
     </Reference>
-    <Reference Include="ejml-0.23">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\ejml-0.23.dll</HintPath>
+    <Reference Include="ejml-core-0.38">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\ejml-core-0.38.dll</HintPath>
     </Reference>
     <Reference Include="javax.json">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\javax.json.dll</HintPath>
@@ -92,8 +89,8 @@
     <Reference Include="slf4j-simple">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-simple.dll</HintPath>
     </Reference>
-    <Reference Include="stanford-corenlp-3.9.2">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-3.9.2.dll</HintPath>
+    <Reference Include="stanford-corenlp-4.0.0">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-4.0.0.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
