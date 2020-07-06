@@ -15,10 +15,15 @@ jobs:
       fail-fast: false
       matrix:
         os: [windows-latest, macOS-latest]
+        dotnet: [3.1.300]
     runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ matrix.dotnet }}
 
     - name: Build on Windows
       if: matrix.os == 'windows-latest'

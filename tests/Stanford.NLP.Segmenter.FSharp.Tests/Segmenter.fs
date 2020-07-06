@@ -4,10 +4,10 @@ open Expecto
 open java.util
 open edu.stanford.nlp.ie.crf
 
-let [<Literal>] segmenterData = __SOURCE_DIRECTORY__ + @"..\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-4.0.0\data\"
+let [<Literal>] segmenterData = __SOURCE_DIRECTORY__ + @"/../../data/paket-files/nlp.stanford.edu/stanford-segmenter-4.0.0/data/"
 type SegmenterData = FSharp.Management.FileSystem<segmenterData>
 
-let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"..\..\data"
+let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"../../data/"
 type DataFiles = FSharp.Management.FileSystem<dataFilesRoot>
 
 //  This is a very simple demo of calling the Chinese Word Segmenter

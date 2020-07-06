@@ -1,17 +1,18 @@
-﻿using edu.stanford.nlp.ling;
+﻿using System;
+
+using edu.stanford.nlp.ling;
 using edu.stanford.nlp.pipeline;
 using edu.stanford.nlp.util;
-using System;
 
-namespace standfordnlp
+namespace Stanford.NLP.CoreNLP.CSharp
 {
-    class StanfordCoreNlpClient
+    class DemoStanfordCoreNlpClient
     {
         public static java.lang.Class GetAnnotationClass<T>()
             => ikvm.@internal.ClassLiteral<T>.Value; // = new T().getClass()
 
         // Sample from https://stanfordnlp.github.io/CoreNLP/corenlp-server.html
-        static void Main()
+        public static void Run()
         {
             // creates a StanfordCoreNLP object with POS tagging, lemmatization, NER, parsing, and coreference resolution
             var props = new java.util.Properties();

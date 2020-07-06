@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
-using java.util;
-using java.io;
 using edu.stanford.nlp.coref;
+using edu.stanford.nlp.coref.data;
 using edu.stanford.nlp.ling;
 using edu.stanford.nlp.pipeline;
 using edu.stanford.nlp.util;
-using Console = System.Console;
-using edu.stanford.nlp.coref.data;
-using java.lang;
-using System.IO;
 
-namespace standfordnlp
+using java.util;
+
+using Console = System.Console;
+
+namespace Stanford.NLP.CoreNLP.CSharp
 {
-    class CorefAnnotator
+    class DemoCorefAnnotator
     {
         // Sample from https://stanfordnlp.github.io/CoreNLP/coref.html
-        static void Main()
+        public static void Run()
         {
             var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-4.0.0\models";
 

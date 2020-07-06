@@ -13,8 +13,8 @@ open edu.stanford.nlp.ling
 // it shows how to run it on a single sentence, and how to do this
 // and produce an inline XML output format.
 
-let [<Literal>] classifiersRoot = __SOURCE_DIRECTORY__ + @"..\..\..\data\paket-files\nlp.stanford.edu\stanford-ner-4.0.0\classifiers\"
-let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"..\..\data"
+let [<Literal>] classifiersRoot = __SOURCE_DIRECTORY__ + @"/../../data/paket-files/nlp.stanford.edu/stanford-ner-4.0.0/classifiers/"
+let [<Literal>] dataFilesRoot  = __SOURCE_DIRECTORY__ + @"/../data/"
 type Classifiers = FSharp.Management.FileSystem<classifiersRoot>
 type DataFiles = FSharp.Management.FileSystem<dataFilesRoot>
 
@@ -42,10 +42,10 @@ let [<Tests>] nerTests =
             CRFClassifier.getClassifierNoExceptions(Classifiers.``english.all.3class.distsim.crf.ser.gz``)
         let fileContent = System.IO.File.ReadAllText(DataFiles.``SampleText.txt``)
 
-        let sentances = classifier.classify(fileContent).toArray()
-        Expect.isNonEmpty sentances "No sentences found"
+        let sentences = classifier.classify(fileContent).toArray()
+        Expect.isNonEmpty sentences "No sentences found"
 
-        sentances
+        sentences
         |> Seq.cast<java.util.List>
         |> Seq.iter (fun rawSentence ->
             let sentence = rawSentence.toArray()

@@ -1,20 +1,20 @@
-﻿using java.util;
-using java.io;
+﻿using edu.stanford.nlp.ling;
 using edu.stanford.nlp.pipeline;
 using edu.stanford.nlp.tagger.maxent;
 using edu.stanford.nlp.time;
 using edu.stanford.nlp.util;
-using edu.stanford.nlp.ling;
+
+using java.util;
+
 using Console = System.Console;
 
-namespace Stanford.NLP.SUTime.CSharp
+namespace Stanford.NLP.CoreNLP.CSharp
 {
-    class Program
+    class DemoSUTime
     {
-        private static void Main()
+        public static void Run()
         {
-
-            // Path to the folder with models extracted from `stanford-corenlp-3.9.1-models.jar`
+            // Path to the folder with models extracted from `stanford-corenlp-4.0.0-models.jar`
             var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-4.0.0\models";
             var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
 
