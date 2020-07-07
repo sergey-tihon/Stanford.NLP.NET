@@ -7,7 +7,9 @@
     </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Config.fs" />
+    <Compile Include="..\Config.fs">
+      <Link>Config.fs</Link>
+    </Compile>
     <Compile Include="ParserDemo.fs" />
     <Compile Include="LoadFromStream.fs" />
     <Compile Include="..\Program.fs">

@@ -7,6 +7,9 @@
     </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\Config.fs">
+      <Link>Config.fs</Link>
+    </Compile>
     <Compile Include="NER.fs" />
     <Compile Include="..\Program.fs">
       <Link>Program.fs</Link>

@@ -1,6 +1,7 @@
 ﻿module Stanford.NLP.CoreNLP.SUTimeTests
 
 open Expecto
+open Stanford.NLP.Config
 open java.util
 open edu.stanford.nlp.tagger.maxent
 open edu.stanford.nlp.ling
@@ -15,13 +16,13 @@ let [<Tests>] suTimeTest =
     pipeline.addAnnotator(TokenizerAnnotator(false))
     pipeline.addAnnotator(WordsToSentencesAnnotator(false))
 
-    let tagger = MaxentTagger(model "pos-tagger/english-left3words-distsim.tagger")
+    let tagger = MaxentTagger(CoreNLP.models "pos-tagger/english-left3words-distsim.tagger")
     pipeline.addAnnotator(POSTaggerAnnotator(tagger))
 
     let sutimeRules =
-        [| model "sutime/defs.sutime.txt"
-           model "sutime/english.holidays.sutime.txt"
-           model "sutime/english.sutime.txt" |]
+        [| CoreNLP.models "sutime/defs.sutime.txt"
+           CoreNLP.models "sutime/english.holidays.sutime.txt"
+           CoreNLP.models "sutime/english.sutime.txt" |]
         |> String.concat ","
     let props = Properties()
     props.setProperty("sutime.rules", sutimeRules ) |> ignore

@@ -1,10 +1,17 @@
 ﻿module Stanford.NLP.POSTagger.FsharpTests
 
 open Expecto
+open Stanford.NLP.Config
 open java.io
 open java.util
 open edu.stanford.nlp.ling
 open edu.stanford.nlp.tagger.maxent;
+
+let tagger =
+    let model = Tagger.model "english-bidirectional-distsim.tagger"
+    let tagger = MaxentTagger(model)
+    Expect.isNotNull tagger "Tagger is null"
+    tagger
 
 let tagReader (reader:Reader) =
     let sentences = MaxentTagger.tokenizeText(reader).toArray()
@@ -14,7 +21,6 @@ let tagReader (reader:Reader) =
         let tSentence = tagger.tagSentence(sentence :?> ArrayList)
         printfn "%O" (SentenceUtils.listToString(tSentence, false))
     )
-
 
 let [<Tests>] taggerTests =
   testList "POS Tagger" [

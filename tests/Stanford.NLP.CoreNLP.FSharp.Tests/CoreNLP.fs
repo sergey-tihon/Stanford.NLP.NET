@@ -1,6 +1,7 @@
 ﻿module Stanford.NLP.CoreNLP.CoreNLPTests
 
 open Expecto
+open Stanford.NLP.Config
 open java.util
 open java.io
 open edu.stanford.nlp.ling
@@ -64,7 +65,7 @@ let [<Tests>] coreNlpTests =
 
             // we should change current directory so StanfordCoreNLP could find all the model files
             let curDir = System.Environment.CurrentDirectory
-            System.IO.Directory.SetCurrentDirectory(jarRoot)
+            System.IO.Directory.SetCurrentDirectory(CoreNLP.jarRoot)
             let pipeline = StanfordCoreNLP(props)
             System.IO.Directory.SetCurrentDirectory(curDir)
 
@@ -89,27 +90,27 @@ let [<Tests>] coreNlpTests =
             let props = Properties()
             let (<==) key value = props.setProperty(key, value) |> ignore
             "annotators"    <== "tokenize, ssplit, pos, lemma, ner, parse, dcoref"
-            "pos.model"     <== model "pos-tagger/english-left3words-distsim.tagger"
-            "ner.model"     <== model "ner/english.all.3class.distsim.crf.ser.gz"
+            "pos.model"     <== CoreNLP.models "pos-tagger/english-left3words-distsim.tagger"
+            "ner.model"     <== CoreNLP.models "ner/english.all.3class.distsim.crf.ser.gz"
             "ner.applyNumericClassifiers" <== "false"
             "ner.useSUTime" <== "false"
-            "parse.model"   <== model "lexparser/englishPCFG.ser.gz"
+            "parse.model"   <== CoreNLP.models "lexparser/englishPCFG.ser.gz"
 
-            "dcoref.demonym"            <== model "dcoref/demonyms.txt"
-            "dcoref.states"             <== model "dcoref/state-abbreviations.txt"
-            "dcoref.animate"            <== model "dcoref/animate.unigrams.txt"
-            "dcoref.inanimate"          <== model "dcoref/inanimate.unigrams.txt"
-            "dcoref.male"               <== model "dcoref/male.unigrams.txt"
-            "dcoref.neutral"            <== model "dcoref/neutral.unigrams.txt"
-            "dcoref.female"             <== model "dcoref/female.unigrams.txt"
-            "dcoref.plural"             <== model "dcoref/plural.unigrams.txt"
-            "dcoref.singular"           <== model "dcoref/singular.unigrams.txt"
-            "dcoref.countries"          <== model "dcoref/countries"
-            "dcoref.extra.gender"       <== model "dcoref/namegender.combine.txt"
-            "dcoref.states.provinces"   <== model "dcoref/statesandprovinces"
-            "dcoref.singleton.predictor"<== model "dcoref/singleton.predictor.ser"
-            //"dcoref.big.gender.number"  <== Models "dcoref/gender.data.gz"
-            "dcoref.big.gender.number"  <== model "dcoref/gender.map.ser.gz"
+            "dcoref.demonym"            <== CoreNLP.models "dcoref/demonyms.txt"
+            "dcoref.states"             <== CoreNLP.models "dcoref/state-abbreviations.txt"
+            "dcoref.animate"            <== CoreNLP.models "dcoref/animate.unigrams.txt"
+            "dcoref.inanimate"          <== CoreNLP.models "dcoref/inanimate.unigrams.txt"
+            "dcoref.male"               <== CoreNLP.models "dcoref/male.unigrams.txt"
+            "dcoref.neutral"            <== CoreNLP.models "dcoref/neutral.unigrams.txt"
+            "dcoref.female"             <== CoreNLP.models "dcoref/female.unigrams.txt"
+            "dcoref.plural"             <== CoreNLP.models "dcoref/plural.unigrams.txt"
+            "dcoref.singular"           <== CoreNLP.models "dcoref/singular.unigrams.txt"
+            "dcoref.countries"          <== CoreNLP.models "dcoref/countries"
+            "dcoref.extra.gender"       <== CoreNLP.models "dcoref/namegender.combine.txt"
+            "dcoref.states.provinces"   <== CoreNLP.models "dcoref/statesandprovinces"
+            "dcoref.singleton.predictor"<== CoreNLP.models "dcoref/singleton.predictor.ser"
+            //"dcoref.big.gender.number"  <== CoreNLP.models "dcoref/gender.data.gz"
+            "dcoref.big.gender.number"  <== CoreNLP.models "dcoref/gender.map.ser.gz"
 
             //"dcoref.signatures"         <== Models "dcoref/ne.signatures.txt"
             //let dcorefDictionary =
@@ -122,9 +123,9 @@ let [<Tests>] coreNlpTests =
             //"dcoref.dictlist" <== (dcorefDictionary |> String.concat ",")
 
             let sutimeRules =
-                [| model "sutime/defs.sutime.txt"
-                   model "sutime/english.holidays.sutime.txt"
-                   model "sutime/english.sutime.txt" |]
+                [| CoreNLP.models "sutime/defs.sutime.txt"
+                   CoreNLP.models "sutime/english.holidays.sutime.txt"
+                   CoreNLP.models "sutime/english.sutime.txt" |]
                 |> String.concat ","
             "sutime.rules"      <== sutimeRules
             "sutime.binders"    <== "0"

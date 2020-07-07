@@ -7,7 +7,9 @@
     </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Config.fs" />
+    <Compile Include="..\Config.fs">
+      <Link>Config.fs</Link>
+    </Compile>
     <Compile Include="TaggerDemo.fs" />
     <Compile Include="..\Program.fs">
       <Link>Program.fs</Link>

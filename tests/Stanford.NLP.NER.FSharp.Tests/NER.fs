@@ -1,6 +1,7 @@
 ﻿module Stanford.NLP.NER.FSharp.Tests
 
 open Expecto
+open Stanford.NLP.Config
 open edu.stanford.nlp.ie
 open edu.stanford.nlp.ie.crf
 open edu.stanford.nlp.io
@@ -13,15 +14,11 @@ open edu.stanford.nlp.ling
 // it shows how to run it on a single sentence, and how to do this
 // and produce an inline XML output format.
 
-let inline (</>) path1 path2 = System.IO.Path.Combine(path1, path2)
-let classifier path = __SOURCE_DIRECTORY__ </> "/../../data/paket-files/nlp.stanford.edu/stanford-ner-4.0.0/classifiers/" </> path
-let dataFile path = __SOURCE_DIRECTORY__ </> "/../data/" </> path
-
 let [<Tests>] nerTests =
   testList "NER" [
     testCase "Extract named entities from predefined phrase" <| fun _ ->
         let classifier =
-            CRFClassifier.getClassifierNoExceptions(classifier "english.all.3class.distsim.crf.ser.gz")
+            CRFClassifier.getClassifierNoExceptions(NER.classifier "english.all.3class.distsim.crf.ser.gz")
 
         let s1 = "Good afternoon Rajat Raina, how are you today?"
         let s2 = "I go to school at Stanford University, which is located in California."
@@ -38,7 +35,7 @@ let [<Tests>] nerTests =
 
     testCase "Extract named entities from file" <| fun _ ->
         let classifier =
-            CRFClassifier.getClassifierNoExceptions(classifier "english.all.3class.distsim.crf.ser.gz")
+            CRFClassifier.getClassifierNoExceptions(NER.classifier "english.all.3class.distsim.crf.ser.gz")
         let fileContent = System.IO.File.ReadAllText(dataFile "SampleText.txt")
 
         let sentences = classifier.classify(fileContent).toArray()

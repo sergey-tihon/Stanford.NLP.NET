@@ -2,13 +2,14 @@
 
 open Expecto
 open System
+open Stanford.NLP.Config
 open java.util
 open edu.stanford.nlp.simple
 open edu.stanford.nlp.ie.machinereading.structure
 
-let runIn root f =
+let runIn f =
     let cur = Environment.CurrentDirectory
-    Environment.CurrentDirectory <- root
+    Environment.CurrentDirectory <- CoreNLP.jarRoot
     f()
     Environment.CurrentDirectory <- cur
 
@@ -16,7 +17,7 @@ let runIn root f =
 let [<Tests>] simpleNLP =
     testList "CoreNLP - Simple NLP" [
         test "POS" {
-            runIn jarRoot (fun () ->
+            runIn (fun () ->
                 let props = Properties()
                 props.setProperty("ner.useSUTime","0") |> ignore
 
@@ -29,14 +30,14 @@ let [<Tests>] simpleNLP =
             )
         }
         test "Sentences" {
-            runIn jarRoot (fun () ->
+            runIn (fun () ->
                 let doc : Document = new Document("add your text here! It can contain multiple sentences.");
                 let sentences = doc.sentences().toArray()
                 Expect.equal (sentences.Length) 2 ""
             )
         }
         test "headOfSpan" {
-            runIn jarRoot (fun () ->
+            runIn (fun () ->
                 let sent2 : Sentence = new Sentence("your text should go here");
                 let actual = sent2.algorithms().headOfSpan(new Span(0, 2));
                 Expect.equal actual 1 ""

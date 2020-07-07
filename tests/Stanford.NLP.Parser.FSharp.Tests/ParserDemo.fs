@@ -2,6 +2,7 @@
 
 open System.IO
 open Expecto
+open Stanford.NLP.Config
 open java.io
 open edu.stanford.nlp.objectbank
 open edu.stanford.nlp.``process``
@@ -10,8 +11,8 @@ open edu.stanford.nlp.trees
 open edu.stanford.nlp.parser.lexparser
 
 let models =
-    [   model "lexparser/englishPCFG.ser.gz"
-        model "lexparser/englishPCFG.caseless.ser.gz"]
+    [   Parser.models "lexparser/englishPCFG.ser.gz"
+        Parser.models "lexparser/englishPCFG.caseless.ser.gz"]
     |> List.map (fun path ->
         let name = Path.GetFileName(path)
         let model = edu.stanford.nlp.parser.lexparser.LexicalizedParser.loadModel path
@@ -61,7 +62,7 @@ let [<Tests>] parserFileTests =
             // You could also create a tokenizer here (as below) and pass it
             // to DocumentPreprocessor
             DocumentPreprocessor(dataFile "SampleText.txt")
-            |> toSeq
+            |> Java.toSeq
             |> Seq.cast<java.util.List>
             |> Seq.iter (fun sentence ->
                 let parse = lp.apply(sentence);
