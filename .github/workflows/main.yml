@@ -24,11 +24,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: ${{ matrix.dotnet }}
-
-    - name: Build on Windows
-      if: matrix.os == 'windows-latest'
-      run: .\build.cmd
-
-    - name: Build on Unix
-      if: matrix.os != 'windows-latest'
-      run: chmod +x build.sh && ./build.sh
+    - name: Install local tools
+      run: dotnet tool restore
+    - name: Paket Restore (Data)
+      working-directory: ./data
+      run: dotnet paket restore
+    - name: Paket Restore (Dependencies)
+      run: dotnet paket restore
+    - name: Build and Test
+      run: dotnet fake run build.fsx
