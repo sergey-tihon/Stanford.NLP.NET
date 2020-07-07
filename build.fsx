@@ -63,25 +63,6 @@ Target.initEnvironment()
 let [<Literal>]root = __SOURCE_DIRECTORY__
 //Environment.CurrentDirectory <- RootFolder
 
-// --------------------------------------------------------------------------------------
-// Provide project-specific details
-
-let project = "Stanford.NLP.NET"
-let solutionFile  = "Stanford.NLP.NET.sln"
-// Pattern specifying assemblies to be tested using NUnit
-let testAssemblies = "tests/**/bin/Release/*Tests.exe"
-
-// Git configuration (used for publishing documentation in gh-pages branch)
-// The profile where the project is posted
-let gitOwner = "sergey-tihon"
-let gitHome = "https://github.com/" + gitOwner
-
-// The name of the project on GitHub
-let gitName = "Stanford.NLP.NET"
-// The url for the raw files hosted
-//let gitRaw = environVarOrDefault "gitRaw" "https://raw.github.com/sergey-tihon"
-// --------------------------------------------------------------------------------------
-
 // Read additional information from the release notes document
 let release = ReleaseNotes.load "RELEASE_NOTES.md"
 
@@ -355,8 +336,10 @@ Target.create "BuildTests" (fun _ ->
 )
 
 Target.create "RunTests" (fun _ ->
-    !! testAssemblies
+    !! "tests/**/bin/Release/net461/*Tests.exe"
     |> Seq.iter (fun path ->
+        Trace.tracefn "Running tests '%s' ..." path
+        
         let args = "--fail-on-focused-tests --summary --sequenced --version"
         (if Environment.isWindows
          then CreateProcess.fromRawCommandLine path args
