@@ -10,19 +10,26 @@ open edu.stanford.nlp.ie.machinereading.structure
 let runIn f =
     let cur = Environment.CurrentDirectory
     Environment.CurrentDirectory <- CoreNLP.jarRoot
-    f()
-    Environment.CurrentDirectory <- cur
+    try
+        try f()
+        with
+        | e -> printfn "Message: %s\nStackTrace:\n%s" e.Message e.StackTrace
+               raise e
+    finally
+        Environment.CurrentDirectory <- cur
 
+
+let props = Java.props [
+    "annotators", "tokenize, ssplit, pos, lemma, ner, parse"
+    "ner.useSUTime", "false"
+]
 
 let [<Tests>] simpleNLP =
-    testList "CoreNLP - Simple NLP" [
+    testList "CoreNLP.SimpleNLP" [
         test "POS" {
             runIn (fun () ->
-                let props = Properties()
-                props.setProperty("ner.useSUTime","0") |> ignore
-
-                let sent : Sentence = new Sentence("Lucy is in the sky with diamonds.")
-                let nerTags : List = sent.nerTags(props);
+                let sent : Sentence = Sentence("Lucy is in the sky with diamonds.")
+                let nerTags : List = sent.nerTags(props)
                 Expect.equal ((string)(nerTags.get(0))) "PERSON" ""
 
                 let firstPOSTag : string = sent.posTag(0);
@@ -38,8 +45,8 @@ let [<Tests>] simpleNLP =
         }
         test "headOfSpan" {
             runIn (fun () ->
-                let sent2 : Sentence = new Sentence("your text should go here");
-                let actual = sent2.algorithms().headOfSpan(new Span(0, 2));
+                let sentence : Sentence = Sentence("your text should go here", props);
+                let actual = sentence.algorithms().headOfSpan(Span(0, 2));
                 Expect.equal actual 1 ""
             )
         }

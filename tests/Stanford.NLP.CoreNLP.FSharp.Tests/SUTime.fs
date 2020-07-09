@@ -11,7 +11,7 @@ open edu.stanford.nlp.util
 
 /// http://nlp.stanford.edu/software/sutime.shtml#Usage
 let [<Tests>] suTimeTest =
-  testCase "SUTime Defaut Test : Three interesting dates" <| fun _ ->
+  testCase "CoreNLP.SUTime.Three interesting dates" <| fun _ ->
     let pipeline = AnnotationPipeline()
     pipeline.addAnnotator(TokenizerAnnotator(false))
     pipeline.addAnnotator(WordsToSentencesAnnotator(false))
@@ -19,14 +19,14 @@ let [<Tests>] suTimeTest =
     let tagger = MaxentTagger(CoreNLP.models "pos-tagger/english-left3words-distsim.tagger")
     pipeline.addAnnotator(POSTaggerAnnotator(tagger))
 
-    let sutimeRules =
-        [| CoreNLP.models "sutime/defs.sutime.txt"
-           CoreNLP.models "sutime/english.holidays.sutime.txt"
-           CoreNLP.models "sutime/english.sutime.txt" |]
-        |> String.concat ","
-    let props = Properties()
-    props.setProperty("sutime.rules", sutimeRules ) |> ignore
-    props.setProperty("sutime.binders", "0") |> ignore
+    let props = Java.props [
+        "sutime.binders", "0"
+        "sutime.rules", String.concat "," [
+            CoreNLP.models "sutime/defs.sutime.txt"
+            CoreNLP.models "sutime/english.sutime.txt"
+            CoreNLP.models "sutime/english.holidays.sutime.txt"
+        ]
+    ]
     pipeline.addAnnotator(TimeAnnotator("sutime", props))
 
     let text = "Three interesting dates are 18 Feb 1997, the 20th of july and 4 days from today."

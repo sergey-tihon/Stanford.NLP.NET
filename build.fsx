@@ -337,6 +337,7 @@ Target.create "BuildTests" (fun _ ->
 
 Target.create "RunTests" (fun _ ->
     !! "tests/**/bin/Release/net461/*Tests.exe"
+    |> Seq.sort
     |> Seq.iter (fun path ->
         Trace.tracefn "Running tests '%s' ..." path
         

@@ -58,16 +58,19 @@ let [<Tests>] coreNlpTests =
             let text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
 
             // Annotation pipeline configuration
-            let props = Properties()
-            props.setProperty("annotators","tokenize, ssplit, pos, lemma, ner, parse, dcoref") |> ignore
-            props.setProperty("sutime.binders","0") |> ignore
-            props.setProperty("ner.useSUTime","0") |> ignore
+            let props = Java.props [
+                "annotators", "tokenize, ssplit, pos, lemma, ner, parse"
+                "ner.useSUTime", "false"
+            ]
 
             // we should change current directory so StanfordCoreNLP could find all the model files
-            let curDir = System.Environment.CurrentDirectory
-            System.IO.Directory.SetCurrentDirectory(CoreNLP.jarRoot)
-            let pipeline = StanfordCoreNLP(props)
-            System.IO.Directory.SetCurrentDirectory(curDir)
+            let pipeline =
+                let curDir = System.Environment.CurrentDirectory
+                try
+                    System.IO.Directory.SetCurrentDirectory(CoreNLP.jarRoot)
+                    StanfordCoreNLP(props)
+                finally
+                    System.IO.Directory.SetCurrentDirectory(curDir)
 
             // Annotation
             let annotation = Annotation(text)
@@ -87,51 +90,35 @@ let [<Tests>] coreNlpTests =
             let text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
 
             // Annotation pipeline configuration
-            let props = Properties()
-            let (<==) key value = props.setProperty(key, value) |> ignore
-            "annotators"    <== "tokenize, ssplit, pos, lemma, ner, parse, dcoref"
-            "pos.model"     <== CoreNLP.models "pos-tagger/english-left3words-distsim.tagger"
-            "ner.model"     <== CoreNLP.models "ner/english.all.3class.distsim.crf.ser.gz"
-            "ner.applyNumericClassifiers" <== "false"
-            "ner.useSUTime" <== "false"
-            "parse.model"   <== CoreNLP.models "lexparser/englishPCFG.ser.gz"
+            let props = Java.props [
+                "annotators", "tokenize, ssplit, pos, lemma, ner, parse"
+                "tokenize.language", "en"
 
-            "dcoref.demonym"            <== CoreNLP.models "dcoref/demonyms.txt"
-            "dcoref.states"             <== CoreNLP.models "dcoref/state-abbreviations.txt"
-            "dcoref.animate"            <== CoreNLP.models "dcoref/animate.unigrams.txt"
-            "dcoref.inanimate"          <== CoreNLP.models "dcoref/inanimate.unigrams.txt"
-            "dcoref.male"               <== CoreNLP.models "dcoref/male.unigrams.txt"
-            "dcoref.neutral"            <== CoreNLP.models "dcoref/neutral.unigrams.txt"
-            "dcoref.female"             <== CoreNLP.models "dcoref/female.unigrams.txt"
-            "dcoref.plural"             <== CoreNLP.models "dcoref/plural.unigrams.txt"
-            "dcoref.singular"           <== CoreNLP.models "dcoref/singular.unigrams.txt"
-            "dcoref.countries"          <== CoreNLP.models "dcoref/countries"
-            "dcoref.extra.gender"       <== CoreNLP.models "dcoref/namegender.combine.txt"
-            "dcoref.states.provinces"   <== CoreNLP.models "dcoref/statesandprovinces"
-            "dcoref.singleton.predictor"<== CoreNLP.models "dcoref/singleton.predictor.ser"
-            //"dcoref.big.gender.number"  <== CoreNLP.models "dcoref/gender.data.gz"
-            "dcoref.big.gender.number"  <== CoreNLP.models "dcoref/gender.map.ser.gz"
+                "pos.model", CoreNLP.models "pos-tagger/english-left3words-distsim.tagger"
+                "ner.model", String.concat "," [
+                    CoreNLP.models "ner/english.all.3class.distsim.crf.ser.gz"
+                    CoreNLP.models "ner/english.muc.7class.distsim.crf.ser.gz"
+                    CoreNLP.models "ner/english.conll.4class.distsim.crf.ser.gz"
+                ]
+                "ner.useSUTime", "false" // !!!
+                "sutime.rules", String.concat "," [
+                    CoreNLP.models "sutime/defs.sutime.txt"
+                    CoreNLP.models "sutime/english.sutime.txt"
+                    CoreNLP.models "sutime/english.holidays.sutime.txt"
+                ]
 
-            //"dcoref.signatures"         <== Models "dcoref/ne.signatures.txt"
-            //let dcorefDictionary =
-            //    [|
-            //        Models.dcoref.``coref.dict1.tsv``
-            //        Models.dcoref.``coref.dict2.tsv``
-            //        Models.dcoref.``coref.dict3.tsv``
-            //        Models.dcoref.``coref.dict4.tsv``
-            //    |]
-            //"dcoref.dictlist" <== (dcorefDictionary |> String.concat ",")
+                "ner.fine.regexner.mapping",
+                    sprintf "ignorecase=true,validpospattern=^(NN|JJ).*,%s;%s"
+                        (CoreNLP.models "kbp/english/gazetteers/regexner_caseless.tab")
+                        (CoreNLP.models "kbp/english/gazetteers/regexner_cased.tab")
+                "ner.fine.regexner.noDefaultOverwriteLabels", "CITY"
 
-            let sutimeRules =
-                [| CoreNLP.models "sutime/defs.sutime.txt"
-                   CoreNLP.models "sutime/english.holidays.sutime.txt"
-                   CoreNLP.models "sutime/english.sutime.txt" |]
-                |> String.concat ","
-            "sutime.rules"      <== sutimeRules
-            "sutime.binders"    <== "0"
+                "parse.model", CoreNLP.models "lexparser/englishPCFG.ser.gz"
+                //"depparse.model", CoreNLP.models "parser/nndep/english_UD.gz"
+            ]
+
 
             let pipeline = StanfordCoreNLP(props)
-
             // Annotation
             let annotation = Annotation(text)
             pipeline.annotate(annotation)

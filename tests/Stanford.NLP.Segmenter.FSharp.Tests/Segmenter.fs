@@ -15,7 +15,7 @@ open edu.stanford.nlp.ie.crf
 let [<Tests>] segmenterTest =
   testCase "Chinese Word Segmenter" <| fun _ ->
     let props = Properties();
-    props.setProperty("sighanCorporaDict", Segmenter.data "Path") |> ignore
+    props.setProperty("sighanCorporaDict", Segmenter.root) |> ignore
     props.setProperty("NormalizationTable", Segmenter.data "norm.simp.utf8") |> ignore
     props.setProperty("normTableEncoding", "UTF-8") |> ignore
     // below is needed because CTBSegDocumentIteratorFactory accesses it
@@ -28,3 +28,6 @@ let [<Tests>] segmenterTest =
     segmenter.loadClassifierNoExceptions(Segmenter.data "ctb.gz", props)
     segmenter.classifyAndWriteAnswers(dataFile "test.simple.utf8")
 
+    let sample = "2008年我住在美国。"
+    let segmented = segmenter.segmentString(sample)
+    printfn "%A" segmented
