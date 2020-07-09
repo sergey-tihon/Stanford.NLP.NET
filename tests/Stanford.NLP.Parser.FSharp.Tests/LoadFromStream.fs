@@ -6,7 +6,7 @@ open Expecto
 
 let [<Tests>] streamTests =
     testList "Load model from stream" [
-        test "MaxentTagger" {
+        ptest "MaxentTagger" {
             // Plain model in the file
             let model = Parser.models "pos-tagger/english-left3words-distsim.tagger"
             use fs = new FileStream(model, FileMode.Open)

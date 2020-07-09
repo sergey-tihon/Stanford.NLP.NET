@@ -18,11 +18,11 @@ let runIn f =
     finally
         Environment.CurrentDirectory <- cur
 
-
-let props = Java.props [
-    "annotators", "tokenize, ssplit, pos, lemma, ner, parse"
-    "ner.useSUTime", "false"
-]
+//let props = Java.props [
+//    "annotators", "tokenize, ssplit, pos, lemma, ner, parse"
+//    "ner.useSUTime", "false"
+//]
+let props = CoreNLPTests.props //TODO: fix
 
 let [<Tests>] simpleNLP =
     testList "CoreNLP.SimpleNLP" [

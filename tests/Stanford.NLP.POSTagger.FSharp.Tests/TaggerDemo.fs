@@ -26,7 +26,7 @@ let tagReader (reader:Reader) =
     )
 
 let [<Tests>] taggerTests =
-  testList "POS Tagger" [
+  ptestList "POS Tagger" [
     testCase "Tag file" <| fun _ ->
         let fileName = dataFile "SampleText.txt"
         tagReader (new BufferedReader(new FileReader(fileName)))

@@ -10,6 +10,33 @@ open edu.stanford.nlp.util
 open edu.stanford.nlp.trees
 open edu.stanford.nlp.semgraph
 
+// Annotation pipeline configuration
+let props = Java.props [
+    "annotators", "tokenize, ssplit, pos, lemma, ner, parse"
+    "tokenize.language", "en"
+
+    "pos.model", CoreNLP.models "pos-tagger/english-left3words-distsim.tagger"
+    "ner.model", String.concat "," [
+        CoreNLP.models "ner/english.all.3class.distsim.crf.ser.gz"
+        CoreNLP.models "ner/english.muc.7class.distsim.crf.ser.gz"
+        CoreNLP.models "ner/english.conll.4class.distsim.crf.ser.gz"
+    ]
+    "ner.useSUTime", "false" // !!!
+    "sutime.rules", String.concat "," [
+        CoreNLP.models "sutime/defs.sutime.txt"
+        CoreNLP.models "sutime/english.sutime.txt"
+        CoreNLP.models "sutime/english.holidays.sutime.txt"
+    ]
+
+    "ner.fine.regexner.mapping",
+        sprintf "ignorecase=true,validpospattern=^(NN|JJ).*,%s;%s"
+            (CoreNLP.models "kbp/english/gazetteers/regexner_caseless.tab")
+            (CoreNLP.models "kbp/english/gazetteers/regexner_cased.tab")
+    "ner.fine.regexner.noDefaultOverwriteLabels", "CITY"
+
+    "parse.model", CoreNLP.models "lexparser/englishPCFG.ser.gz"
+    //"depparse.model", CoreNLP.models "parser/nndep/english_UD.gz"
+]
 
 let customAnnotationPrint (annotation:Annotation) =
     printfn "-------------"
@@ -53,7 +80,7 @@ let customAnnotationPrint (annotation:Annotation) =
 
 let [<Tests>] coreNlpTests =
     testList "CoreNLP" [
-        testCase "StanfordCoreNlpDemo.java that change current directory" <| fun _ ->
+        ptestCase "StanfordCoreNlpDemo.java that change current directory" <| fun _ ->
             let text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
 
             // Annotation pipeline configuration
@@ -87,35 +114,6 @@ let [<Tests>] coreNlpTests =
             /// DefaultPaths/Values - https://github.com/stanfordnlp/CoreNLP/blob/master/src/edu/stanford/nlp/pipeline/DefaultPaths.java
             /// Dictionaries/Matching - https://github.com/stanfordnlp/CoreNLP/blob/8f70e42dcd39e40685fc788c3f22384779398d63/src/edu/stanford/nlp/dcoref/Dictionaries.java
             let text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
-
-            // Annotation pipeline configuration
-            let props = Java.props [
-                "annotators", "tokenize, ssplit, pos, lemma, ner, parse"
-                "tokenize.language", "en"
-
-                "pos.model", CoreNLP.models "pos-tagger/english-left3words-distsim.tagger"
-                "ner.model", String.concat "," [
-                    CoreNLP.models "ner/english.all.3class.distsim.crf.ser.gz"
-                    CoreNLP.models "ner/english.muc.7class.distsim.crf.ser.gz"
-                    CoreNLP.models "ner/english.conll.4class.distsim.crf.ser.gz"
-                ]
-                "ner.useSUTime", "false" // !!!
-                "sutime.rules", String.concat "," [
-                    CoreNLP.models "sutime/defs.sutime.txt"
-                    CoreNLP.models "sutime/english.sutime.txt"
-                    CoreNLP.models "sutime/english.holidays.sutime.txt"
-                ]
-
-                "ner.fine.regexner.mapping",
-                    sprintf "ignorecase=true,validpospattern=^(NN|JJ).*,%s;%s"
-                        (CoreNLP.models "kbp/english/gazetteers/regexner_caseless.tab")
-                        (CoreNLP.models "kbp/english/gazetteers/regexner_cased.tab")
-                "ner.fine.regexner.noDefaultOverwriteLabels", "CITY"
-
-                "parse.model", CoreNLP.models "lexparser/englishPCFG.ser.gz"
-                //"depparse.model", CoreNLP.models "parser/nndep/english_UD.gz"
-            ]
-
 
             let pipeline = StanfordCoreNLP(props)
             // Annotation
