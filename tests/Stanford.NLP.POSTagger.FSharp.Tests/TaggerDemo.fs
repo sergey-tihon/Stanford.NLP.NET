@@ -9,17 +9,19 @@ open edu.stanford.nlp.ling
 open edu.stanford.nlp.tagger.maxent;
 
 let tagger =
-    let model = Tagger.model "english-bidirectional-distsim.tagger"
-    let tagger = MaxentTagger(model)
-    Expect.isNotNull tagger "Tagger is null"
-    tagger
+    lazy(
+        let model = Tagger.model "english-bidirectional-distsim.tagger"
+        let tagger = MaxentTagger(model)
+        Expect.isNotNull tagger "Tagger is null"
+        tagger
+    )
 
 let tagReader (reader:Reader) =
     let sentences = MaxentTagger.tokenizeText(reader).toArray()
     Expect.isNonEmpty sentences "no sentences tokenized"
 
     sentences |> Seq.iter (fun sentence ->
-        let tSentence = tagger.tagSentence(sentence :?> ArrayList)
+        let tSentence = tagger.Value.tagSentence(sentence :?> ArrayList)
         printfn "%O" (SentenceUtils.listToString(tSentence, false))
     )
 
