@@ -14,15 +14,16 @@ open edu.stanford.nlp.ie.crf
 
 let [<Tests>] segmenterTest =
   testCase "Chinese Word Segmenter" <| fun _ ->
-    let props = Properties();
-    props.setProperty("sighanCorporaDict", Segmenter.root) |> ignore
-    props.setProperty("NormalizationTable", Segmenter.data "norm.simp.utf8") |> ignore
-    props.setProperty("normTableEncoding", "UTF-8") |> ignore
-    // below is needed because CTBSegDocumentIteratorFactory accesses it
-    props.setProperty("serDictionary", Segmenter.data "dict-chris6.ser.gz") |> ignore
-    props.setProperty("testFile", dataFile "test.simple.utf8") |> ignore
-    props.setProperty("inputEncoding", "UTF-8") |> ignore
-    props.setProperty("sighanPostProcessing", "true") |> ignore
+    let props = Java.props [
+        "sighanCorporaDict", Segmenter.root
+        "NormalizationTable", Segmenter.data "norm.simp.utf8"
+        "normTableEncoding", "UTF-8"
+        // below is needed because CTBSegDocumentIteratorFactory accesses it
+        "serDictionary", Segmenter.data "dict-chris6.ser.gz"
+        "testFile", dataFile "test.simple.utf8"
+        "inputEncoding", "UTF-8"
+        "sighanPostProcessing", "true"
+    ]
 
     let segmenter = CRFClassifier(props)
     segmenter.loadClassifierNoExceptions(Segmenter.data "ctb.gz", props)

@@ -1,5 +1,7 @@
 ﻿using edu.stanford.nlp.ie.crf;
 using java.util;
+using System;
+using System.IO;
 
 namespace Stanford.NLP.Segmenter.CSharp
 {
@@ -8,8 +10,9 @@ namespace Stanford.NLP.Segmenter.CSharp
         static void Main()
         {
             // Path to the folder with models
-            var segmenterData = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-4.0.0\data";
-            var sampleData = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-segmenter-4.0.0\test.simp.utf8";
+            var segmenterData =
+                new DirectoryInfo("../../../../../data/paket-files/nlp.stanford.edu/stanford-segmenter-4.0.0/data/").FullName;
+            var sampleData = segmenterData + "../test.simp.utf8";
 
             // `test.simple.utf8` contains following text:
             // 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫
@@ -24,16 +27,22 @@ namespace Stanford.NLP.Segmenter.CSharp
             // Setup Segmenter loading properties
             var props = new Properties();
             props.setProperty("sighanCorporaDict", segmenterData);
+            props.setProperty("NormalizationTable", segmenterData + "norm.simp.utf8");
+            props.setProperty("normTableEncoding", "UTF-8");
             // Lines below are needed because CTBSegDocumentIteratorFactory accesses it
-            props.setProperty("serDictionary", segmenterData + @"\dict-chris6.ser.gz");
+            props.setProperty("serDictionary", segmenterData + "dict-chris6.ser.gz");
             props.setProperty("testFile", sampleData);
             props.setProperty("inputEncoding", "UTF-8");
             props.setProperty("sighanPostProcessing", "true");
 
             // Load Word Segmenter
             var segmenter = new CRFClassifier(props);
-            segmenter.loadClassifierNoExceptions(segmenterData + @"\ctb.gz", props);
+            segmenter.loadClassifierNoExceptions(segmenterData + @"ctb.gz", props);
             segmenter.classifyAndWriteAnswers(sampleData);
+
+            var sample = "2008年我住在美国。";
+            var segmented = segmenter.segmentString(sample);
+            Console.WriteLine(segmented);
         }
     }
 }
