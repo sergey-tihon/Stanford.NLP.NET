@@ -31,7 +31,6 @@ namespace Stanford.NLP.CoreNLP.CSharp
             var textAnnotationClass = GetAnnotationClass<CoreAnnotations.TextAnnotation>();
             var partOfSpeechAnnotationClass = GetAnnotationClass<CoreAnnotations.PartOfSpeechAnnotation>();
             var namedEntityTagAnnotationClass = GetAnnotationClass<CoreAnnotations.NamedEntityTagAnnotation>();
-            var normalizedNamedEntityTagAnnotation = GetAnnotationClass<CoreAnnotations.NormalizedNamedEntityTagAnnotation>();
 
             var sentences = document.get(sentencesAnnotationClass) as java.util.AbstractList;
             foreach (CoreMap sentence in sentences)

@@ -3,6 +3,7 @@ using java.util;
 using edu.stanford.nlp.ling;
 using edu.stanford.nlp.tagger.maxent;
 using Console = System.Console;
+using Stanford.NLP.Tools;
 
 namespace Stanford.NLP.POSTagger.CSharp
 {
@@ -10,11 +11,8 @@ namespace Stanford.NLP.POSTagger.CSharp
     {
         static void Main()
         {
-            var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-tagger-4.0.0";
-            var modelsDirectory = jarRoot + @"\models";
-
             // Loading POS Tagger
-            var tagger = new MaxentTagger(modelsDirectory + @"\wsj-0-18-bidirectional-nodistsim.tagger");
+            var tagger = new MaxentTagger(Files.Tagger.model("english-bidirectional-distsim.tagger"));
 
             // Text for tagging
             var text = "A Part-Of-Speech Tagger (POS Tagger) is a piece of software that reads text in some language "

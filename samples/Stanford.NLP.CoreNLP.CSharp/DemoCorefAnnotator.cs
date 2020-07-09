@@ -10,6 +10,7 @@ using edu.stanford.nlp.util;
 using java.util;
 
 using Console = System.Console;
+using Stanford.NLP.Tools;
 
 namespace Stanford.NLP.CoreNLP.CSharp
 {
@@ -18,15 +19,13 @@ namespace Stanford.NLP.CoreNLP.CSharp
         // Sample from https://stanfordnlp.github.io/CoreNLP/coref.html
         public static void Run()
         {
-            var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-4.0.0\models";
-
             Annotation document = new Annotation("Barack Obama was born in Hawaii.  He is the president. Obama was elected in 2008.");
             Properties props = new Properties();
             props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,mention,coref");
             props.setProperty("ner.useSUTime", "0");
 
             var curDir = Environment.CurrentDirectory;
-            Directory.SetCurrentDirectory(jarRoot);
+            Directory.SetCurrentDirectory(Files.CoreNLP.jarRoot);
             var pipeline = new StanfordCoreNLP(props);
             Directory.SetCurrentDirectory(curDir);
 

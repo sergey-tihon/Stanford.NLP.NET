@@ -3,6 +3,7 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net461</TargetFramework>
+        <StartupObject>Stanford.NLP.CoreNLP.CSharp.Program</StartupObject>
     </PropertyGroup>
 
     <ItemGroup>

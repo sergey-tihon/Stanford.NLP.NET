@@ -7,6 +7,7 @@ using edu.stanford.nlp.util;
 using java.util;
 
 using Console = System.Console;
+using Stanford.NLP.Tools;
 
 namespace Stanford.NLP.CoreNLP.CSharp
 {
@@ -14,24 +15,22 @@ namespace Stanford.NLP.CoreNLP.CSharp
     {
         public static void Run()
         {
-            // Path to the folder with models extracted from `stanford-corenlp-4.0.0-models.jar`
-            var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-4.0.0\models";
-            var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
-
             // Annotation pipeline configuration
             var pipeline = new AnnotationPipeline();
             pipeline.addAnnotator(new TokenizerAnnotator(false));
             pipeline.addAnnotator(new WordsToSentencesAnnotator(false));
 
             // Loading POS Tagger and including them into pipeline
-            var tagger = new MaxentTagger(modelsDirectory +
-                                          @"\pos-tagger\english-left3words\english-left3words-distsim.tagger");
+            var tagger = new MaxentTagger(Files.CoreNLP.models("pos-tagger/english-left3words-distsim.tagger"));
             pipeline.addAnnotator(new POSTaggerAnnotator(tagger));
 
             // SUTime configuration
-            var sutimeRules = modelsDirectory + @"\sutime\defs.sutime.txt,"
-                              + modelsDirectory + @"\sutime\english.holidays.sutime.txt,"
-                              + modelsDirectory + @"\sutime\english.sutime.txt";
+            var sutimeRules = string.Join(",", new[] {
+                Files.CoreNLP.models("sutime/defs.sutime.txt"),
+                Files.CoreNLP.models("sutime/english.sutime.txt"),
+                Files.CoreNLP.models("sutime/english.holidays.sutime.txt")
+            });
+
             var props = new Properties();
             props.setProperty("sutime.rules", sutimeRules);
             props.setProperty("sutime.binders", "0");
@@ -52,7 +51,7 @@ namespace Stanford.NLP.CoreNLP.CSharp
                 var first = tokens.get(0);
                 var last = tokens.get(tokens.size() - 1);
                 var time = cm.get(new TimeExpression.Annotation().getClass()) as TimeExpression;
-                Console.WriteLine("{0} [from char offset {1} to {2}] --> {3}", cm, first, last, time.getTemporal());
+                Console.WriteLine($"{cm} [from char offset {first} to {last}] --> {time.getTemporal()}");
             }
         }
     }

@@ -4,6 +4,7 @@ using edu.stanford.nlp.ling;
 using edu.stanford.nlp.trees;
 using edu.stanford.nlp.parser.lexparser;
 using Console = System.Console;
+using Stanford.NLP.Tools;
 
 namespace Stanford.NLP.Parser.CSharp
 {
@@ -11,12 +12,8 @@ namespace Stanford.NLP.Parser.CSharp
     {
         static void Main()
         {
-            // Path to models extracted from `stanford-parser-3.6.0-models.jar`
-            var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-parser-4.0.0\models\";
-            var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
-
             // Loading english PCFG parser from file
-            var lp = LexicalizedParser.loadModel(modelsDirectory + @"\lexparser\englishPCFG.ser.gz");
+            var lp = LexicalizedParser.loadModel(Files.Parser.models("lexparser/englishPCFG.ser.gz"));
 
             // This sample shows parsing a list of correctly tokenized words
             var sent = new[] { "This", "is", "an", "easy", "sentence", "." };
@@ -37,7 +34,7 @@ namespace Stanford.NLP.Parser.CSharp
             var gsf = tlp.grammaticalStructureFactory();
             var gs = gsf.newGrammaticalStructure(tree2);
             var tdl = gs.typedDependenciesCCprocessed();
-            Console.WriteLine("\n{0}\n", tdl);
+            Console.WriteLine("{0}", tdl);
 
             // Extract collapsed dependencies from parsed tree
             var tp = new TreePrint("penn,typedDependenciesCollapsed");
