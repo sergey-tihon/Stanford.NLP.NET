@@ -1,7 +1,8 @@
 ﻿module Stanford.NLP.POSTagger.FsharpTests
 
 open Expecto
-open Stanford.NLP.Config
+open Stanford.NLP.Tools
+
 open java.io
 open java.util
 open edu.stanford.nlp.ling

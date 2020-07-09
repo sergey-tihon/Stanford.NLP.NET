@@ -2,7 +2,7 @@
 
 open Expecto
 open System
-open Stanford.NLP.Config
+open Stanford.NLP.Tools
 open java.util
 open edu.stanford.nlp.simple
 open edu.stanford.nlp.ie.machinereading.structure

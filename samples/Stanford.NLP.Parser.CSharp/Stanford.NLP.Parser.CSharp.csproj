@@ -6,6 +6,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\tests\Staford.NLP.Tools\Staford.NLP.Tools.fsproj" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Reference Include="ejml-core-0.38, Version=0.38.0.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\bin\Stanford.NLP.Parser\lib\ejml-core-0.38.dll</HintPath>
       </Reference>

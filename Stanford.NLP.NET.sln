@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,9 +21,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BF60BC93
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{ED8079DD-2B06-4030-9F0F-DC548F98E1C4}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Stanford.NLP.CoreNLP.FSharp.Tests", "tests\Stanford.NLP.CoreNLP.FSharp.Tests\Stanford.NLP.CoreNLP.FSharp.Tests.fsproj", "{E789C72A-5CFD-436B-8EF1-61AA2852A89F}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Stanford.NLP.CoreNLP.FSharp.Tests", "tests\Stanford.NLP.CoreNLP.FSharp.Tests\Stanford.NLP.CoreNLP.FSharp.Tests.fsproj", "{E789C72A-5CFD-436B-8EF1-61AA2852A89F}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Stanford.NLP.NER.FSharp.Tests", "tests\Stanford.NLP.NER.FSharp.Tests\Stanford.NLP.NER.FSharp.Tests.fsproj", "{12355230-0BA7-4B40-8C04-F67810E027A8}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Stanford.NLP.NER.FSharp.Tests", "tests\Stanford.NLP.NER.FSharp.Tests\Stanford.NLP.NER.FSharp.Tests.fsproj", "{12355230-0BA7-4B40-8C04-F67810E027A8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{4B69DF10-DB06-4440-8434-52DC03ED19F6}"
 	ProjectSection(SolutionItems) = preProject
@@ -31,11 +31,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{4B69DF10-D
 		tests\data\test.simple.utf8 = tests\data\test.simple.utf8
 	EndProjectSection
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Stanford.NLP.Parser.FSharp.Tests", "tests\Stanford.NLP.Parser.FSharp.Tests\Stanford.NLP.Parser.FSharp.Tests.fsproj", "{199F6CB7-F5CA-48CA-8D37-A505DAFC88CA}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Stanford.NLP.Parser.FSharp.Tests", "tests\Stanford.NLP.Parser.FSharp.Tests\Stanford.NLP.Parser.FSharp.Tests.fsproj", "{199F6CB7-F5CA-48CA-8D37-A505DAFC88CA}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Stanford.NLP.POSTagger.FSharp.Tests", "tests\Stanford.NLP.POSTagger.FSharp.Tests\Stanford.NLP.POSTagger.FSharp.Tests.fsproj", "{AB3F38DD-6280-495F-8D29-752BB4AD1EAB}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Stanford.NLP.POSTagger.FSharp.Tests", "tests\Stanford.NLP.POSTagger.FSharp.Tests\Stanford.NLP.POSTagger.FSharp.Tests.fsproj", "{AB3F38DD-6280-495F-8D29-752BB4AD1EAB}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Stanford.NLP.Segmenter.FSharp.Tests", "tests\Stanford.NLP.Segmenter.FSharp.Tests\Stanford.NLP.Segmenter.FSharp.Tests.fsproj", "{DB60FB5A-0452-4AC1-B682-E67065419978}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Stanford.NLP.Segmenter.FSharp.Tests", "tests\Stanford.NLP.Segmenter.FSharp.Tests\Stanford.NLP.Segmenter.FSharp.Tests.fsproj", "{DB60FB5A-0452-4AC1-B682-E67065419978}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{541B53FE-E886-41DB-B096-77879813EF6C}"
 	ProjectSection(SolutionItems) = preProject
@@ -48,15 +48,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{541B53FE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{F3548FA9-EC99-422B-825A-37CB9CF4C74B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.Parser.CSharp", "samples\Stanford.NLP.Parser.CSharp\Stanford.NLP.Parser.CSharp.csproj", "{C4ED4982-19EF-4BAB-A92D-91C572A9E4A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stanford.NLP.Parser.CSharp", "samples\Stanford.NLP.Parser.CSharp\Stanford.NLP.Parser.CSharp.csproj", "{C4ED4982-19EF-4BAB-A92D-91C572A9E4A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.CoreNLP.CSharp", "samples\Stanford.NLP.CoreNLP.CSharp\Stanford.NLP.CoreNLP.CSharp.csproj", "{0F34E183-4968-4269-9848-D907AFB6CB31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stanford.NLP.CoreNLP.CSharp", "samples\Stanford.NLP.CoreNLP.CSharp\Stanford.NLP.CoreNLP.CSharp.csproj", "{0F34E183-4968-4269-9848-D907AFB6CB31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.NER.CSharp", "samples\Stanford.NLP.NER.CSharp\Stanford.NLP.NER.CSharp.csproj", "{4D9AF4ED-B531-4A80-BBEB-828101BD3F9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stanford.NLP.NER.CSharp", "samples\Stanford.NLP.NER.CSharp\Stanford.NLP.NER.CSharp.csproj", "{4D9AF4ED-B531-4A80-BBEB-828101BD3F9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.POSTagger.CSharp", "samples\Stanford.NLP.POSTagger.CSharp\Stanford.NLP.POSTagger.CSharp.csproj", "{82549D93-4302-4F74-A23C-A0576705AC82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stanford.NLP.POSTagger.CSharp", "samples\Stanford.NLP.POSTagger.CSharp\Stanford.NLP.POSTagger.CSharp.csproj", "{82549D93-4302-4F74-A23C-A0576705AC82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.Segmenter.CSharp", "samples\Stanford.NLP.Segmenter.CSharp\Stanford.NLP.Segmenter.CSharp.csproj", "{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stanford.NLP.Segmenter.CSharp", "samples\Stanford.NLP.Segmenter.CSharp\Stanford.NLP.Segmenter.CSharp.csproj", "{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{DF0763FE-B1E0-46F9-8345-749EA79EB041}"
 	ProjectSection(SolutionItems) = preProject
@@ -89,6 +89,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{6122
 		docs\source\samples\Segmenter.md = docs\source\samples\Segmenter.md
 		docs\source\samples\Segmenter.Sample.fsx = docs\source\samples\Segmenter.Sample.fsx
 	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Staford.NLP.Tools", "tests\Staford.NLP.Tools\Staford.NLP.Tools.fsproj", "{CB0F5E83-A6D9-458A-9AAB-165A6DFC3ACD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -136,6 +138,10 @@ Global
 		{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A07BC13B-AF0D-4A82-BC6B-F7C77040BBC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB0F5E83-A6D9-458A-9AAB-165A6DFC3ACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB0F5E83-A6D9-458A-9AAB-165A6DFC3ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB0F5E83-A6D9-458A-9AAB-165A6DFC3ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB0F5E83-A6D9-458A-9AAB-165A6DFC3ACD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,6 +161,7 @@ Global
 		{DF0763FE-B1E0-46F9-8345-749EA79EB041} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{4F64151E-B033-48C4-A61B-A1884039FA92} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{612252BC-CCB7-4673-BD2B-FE4917B6B4CB} = {DF0763FE-B1E0-46F9-8345-749EA79EB041}
+		{CB0F5E83-A6D9-458A-9AAB-165A6DFC3ACD} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E257E391-8FA8-4FAC-A612-5F9CE36F53D3}

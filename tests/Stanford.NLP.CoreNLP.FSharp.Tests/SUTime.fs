@@ -1,8 +1,8 @@
 ﻿module Stanford.NLP.CoreNLP.SUTimeTests
 
 open Expecto
-open Stanford.NLP.Config
-open java.util
+open Stanford.NLP.Tools
+
 open edu.stanford.nlp.tagger.maxent
 open edu.stanford.nlp.ling
 open edu.stanford.nlp.pipeline

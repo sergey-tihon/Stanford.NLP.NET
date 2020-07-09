@@ -1,10 +1,8 @@
 ﻿module Stanford.NLP.NER.FSharp.Tests
 
 open Expecto
-open Stanford.NLP.Config
-open edu.stanford.nlp.ie
+open Stanford.NLP.Tools
 open edu.stanford.nlp.ie.crf
-open edu.stanford.nlp.io
 open edu.stanford.nlp.ling
 
 // For either a file to annotate or for the hardcoded text example,

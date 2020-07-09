@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Files.fs" />
+    <Compile Include="Java.fs" />
+    <None Include="paket.references" />
+  </ItemGroup>
+
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

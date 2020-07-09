@@ -2,13 +2,12 @@
 
 open System.IO
 open Expecto
-open Stanford.NLP.Config
+open Stanford.NLP.Tools
+
 open java.io
-open edu.stanford.nlp.objectbank
 open edu.stanford.nlp.``process``
 open edu.stanford.nlp.ling
 open edu.stanford.nlp.trees
-open edu.stanford.nlp.parser.lexparser
 
 let models =
     [   Parser.models "lexparser/englishPCFG.ser.gz"

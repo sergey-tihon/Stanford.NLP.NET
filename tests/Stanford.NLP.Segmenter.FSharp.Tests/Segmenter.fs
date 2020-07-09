@@ -1,8 +1,8 @@
 ﻿module Stanford.NLP.Segmenter.FSharp.Tests
 
 open Expecto
-open Stanford.NLP.Config
-open java.util
+open Stanford.NLP.Tools
+
 open edu.stanford.nlp.ie.crf
 
 //  This is a very simple demo of calling the Chinese Word Segmenter

@@ -1,6 +1,6 @@
 ﻿module Stanford.NLP.Parser.LoadFromStream
 
-open Stanford.NLP.Config
+open Stanford.NLP.Tools
 open System.IO
 open Expecto
 

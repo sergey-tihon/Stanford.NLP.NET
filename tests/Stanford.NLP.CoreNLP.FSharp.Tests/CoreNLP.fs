@@ -1,13 +1,12 @@
 ﻿module Stanford.NLP.CoreNLP.CoreNLPTests
 
 open Expecto
-open Stanford.NLP.Config
-open java.util
+open Stanford.NLP.Tools
+
 open java.io
 open edu.stanford.nlp.ling
 open edu.stanford.nlp.pipeline
 open edu.stanford.nlp.util
-open edu.stanford.nlp.io
 open edu.stanford.nlp.trees
 open edu.stanford.nlp.semgraph
 

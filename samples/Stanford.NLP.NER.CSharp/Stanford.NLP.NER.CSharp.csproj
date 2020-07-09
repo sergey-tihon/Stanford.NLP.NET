@@ -3,7 +3,12 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net461</TargetFramework>
+        <StartupObject>Stanford.NLP.NER.CSharp.Program</StartupObject>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\tests\Staford.NLP.Tools\Staford.NLP.Tools.fsproj" />
+    </ItemGroup>
 
     <ItemGroup>
       <Reference Include="joda-time, Version=2.9.4.0, Culture=neutral, PublicKeyToken=null">
