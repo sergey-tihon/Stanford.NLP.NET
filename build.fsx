@@ -3,6 +3,7 @@ source https://nuget.org/api/v2
 framework netstandard2.0
 nuget Mono.Cecil
 nuget System.IO.Compression.ZipFile
+nuget Fantomas prerelease
 nuget Fake.Core.Target
 nuget Fake.Core.Process
 nuget Fake.Core.ReleaseNotes
@@ -34,7 +35,8 @@ open Fake.IO.FileSystemOperators
 open Fake.IO.Globbing.Operators
 open Fake.DotNet
 open Fake.Tools
-//open Fake.Tools.Git
+open Fantomas.FakeHelpers
+open Fantomas.FormatConfig
 
 Target.initEnvironment()
 
@@ -328,6 +330,16 @@ Target.create "NuGetSegmenter" (fun _ ->
 
 open Fake.DotNet
 
+// --------------------------------------------------------------------------------------
+// Check code format & format code using Fantomas
+
+Target.create "Format" (fun _ ->
+    !!"tests/**/*.fs"
+    |> formatCode
+    |> Async.RunSynchronously
+    |> printfn "Formatted files: %A"
+)
+
 Target.create "BuildTests" (fun _ ->
     DotNet.exec id "build" "Stanford.NLP.NET.sln -c Release" |> ignore
     // !! solutionFile
@@ -442,6 +454,7 @@ Target.create "NuGet" ignore
   ==> "NuGet"
 
 "NuGet"
+//  ==> "Format"
   ==> "BuildTests"
   ==> "RunTests"
   ==> "All"
