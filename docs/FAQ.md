@@ -1,6 +1,4 @@
- - tagline: Questions and Answers
-
-# Frequently asked questions (FAQ)
+# Frequently Asked Questions
 
 ### How does it work? Where is C# source code for Stanford.NLP.NET?
 
@@ -47,4 +45,4 @@ var pipeline = new StanfordCoreNLP(props);
 
 ### StackOverflow Exception
 
-You probably try to execute code under `IIS Express`. So you have two options here: [deploy to IIS](https://github.com/sergey-tihon/Stanford.NLP.NET/issues/15#issuecomment-77526331) or [run under 64bit version of IIS Express](https://github.com/sergey-tihon/Stanford.NLP.NET/issues/43#issuecomment-190186401). In VS2015 it is./ under Tools> Options> Projects and Solutions > Web Projects > Use the 64 bit version of IIS Express for web sites and projects
+You probably try to execute code under `IIS Express`. So you have two options here: [deploy to IIS](https://github.com/sergey-tihon/Stanford.NLP.NET/issues/15#issuecomment-77526331) or [run under 64bit version of IIS Express](https://github.com/sergey-tihon/Stanford.NLP.NET/issues/43#issuecomment-190186401). In VS2015 it is under `Tools > Options > Projects and Solutions > Web Projects > Use the 64 bit version of IIS Express` for web sites and projects.

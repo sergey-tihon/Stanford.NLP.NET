@@ -1,6 +1,3 @@
-(**
- - tagline: Package: Stanford.NLP.CoreNLP
-
 # Simple CoreNLP
 
 This page is direct translation of the [original Simple CoreNLP page](https://stanfordnlp.github.io/CoreNLP/simple.html)
@@ -11,15 +8,7 @@ In addition to the fully-featured annotator pipeline interface to CoreNLP, Stanf
 
 An example usage is given below:
 
-*)
-(*** hide ***)
-// This block of code is omitted in the generated HTML documentation. Use
-// it to define helpers that you do not want to show in the documentation.
-#I "../../../bin/Stanford.NLP.CoreNLP/lib/"
-#I "../../../packages/test/IKVM/lib/"
-
-(**
-*)
+```fsharp
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
 #r "stanford-corenlp-4.0.0.dll"
@@ -44,14 +33,11 @@ let firstPOSTag : string = sent.posTag(0);
 // [fsi:val sent : Sentence = Lucy is in the sky with diamonds.]
 // [fsi:val nerTags : List = seq ["PERSON"; "O"; "O"; "O"; ...]]
 // [fsi:val firstPOSTag : string = "NNP"]
-
-(**
+```
 
 The API is included in the `CoreNLP` release from `3.6.0` onwards. Visit the [download page](https://stanfordnlp.github.io/CoreNLP/download.html) to download CoreNLP; make sure to set current directory to folder with models!
 
-<code>
-    <b>Note:</b> If you use Simple CoreNLP API, your current directory should always be set to the root folder of an unzipped model, since Simple CoreNLP loads models lazily. <a href="../faq.html#Stanford-NLP-CoreNLP-not-loading-models">Read more about model loading</a>
-</code>
+<Note>If you use Simple CoreNLP API, your current directory should always be set to the root folder of an unzipped model, since Simple CoreNLP loads models lazily. [Read more about model loading](../faq.html#Stanford-NLP-CoreNLP-not-loading-models)</Note>
 
 ### Advantages and Disadvantages
 
@@ -82,8 +68,7 @@ There are two main classes in the interface: `Document` and `Sentence`. Tokens a
 
 An example program using the interface is given below:
 
-*)
-
+```fsharp
 open edu.stanford.nlp.simple
 
 // Create a document. No computation is done yet.
@@ -104,8 +89,7 @@ for sentObj in sentences do  // Will iterate over two sentences
 // [fsi:The second word of the sentence 'It can contain multiple sentences.' is can]
 // [fsi:The third lemma of the sentence 'It can contain multiple sentences.' is contain]
 // [fsi:The parse of the sentence 'It can contain multiple sentences.' is (ROOT (S (NP (PRP It)) (VP (MD can) (VP (VB contain) (NP (JJ multiple) (NNS sentences)))) (. .)))]
-
-(**
+```
 
 ### Supported Annotators
 
@@ -128,8 +112,8 @@ Open Information Extraction | openie | `Sentence` |	`.openie()` / `.openieTriple
 ### Miscellaneous Extras
 
 Some potentially useful utility functions are implemented in the `SentenceAlgorithms` class. These can be called from a `Sentence` object with, e.g.:
-*)
 
+```fsharp
 open edu.stanford.nlp.ie.machinereading.structure
 
 let sent2 : Sentence = new Sentence("your text should go here");
@@ -137,13 +121,10 @@ sent2.algorithms().headOfSpan(new Span(0, 2));  // Should return 1
 // [fsi:> ]
 // [fsi:val sent2 : Sentence = your text should go here]
 // [fsi:val it : int = 1]
-
-(**
+```
 
 A selection of useful algorithms are:
 
 - **`headOfSpan(Span)`** Finds the index of the head word of the given span. So, for example, _United States_ president _Barack Obama_ would return _Obama_.
 
 - **`dependencyPathBetween(int, int)`** Returns the dependency path between the words at the given two indices. This is returned as a list of `string` objects, meant primarily as an input to a featurizer.
-
-*)
