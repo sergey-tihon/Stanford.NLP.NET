@@ -24,7 +24,7 @@ namespace Stanford.NLP.CoreNLP.Tests
         {
             Annotation document = new Annotation("Barack Obama was born in Hawaii.  He is the president. Obama was elected in 2008.");
             Properties props = new Properties();
-            props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,mention,coref");
+            props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,coref");
             props.setProperty("ner.useSUTime", "false");
 
             var curDir = Environment.CurrentDirectory;
