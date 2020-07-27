@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>8</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Stanford.NLP.Tools\Stanford.NLP.Tools.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ejml-core-0.38, Version=0.38.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\bin\Stanford.NLP.Parser\lib\ejml-core-0.38.dll</HintPath>
+    </Reference>
+    <Reference Include="slf4j-api, Version=1.7.12.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\bin\Stanford.NLP.Parser\lib\slf4j-api.dll</HintPath>
+    </Reference>
+    <Reference Include="stanford-parser, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\bin\Stanford.NLP.Parser\lib\stanford-parser.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

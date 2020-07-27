@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>8</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Stanford.NLP.Tools\Stanford.NLP.Tools.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="stanford-segmenter-4.0.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\bin\Stanford.NLP.Segmenter\lib\stanford-segmenter-4.0.0.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

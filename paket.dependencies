@@ -1,7 +1,7 @@
 source https://nuget.org/api/v2
 framework: net461
 
-nuget FSharp.Core
 nuget IKVM
-nuget Expecto
 nuget Microsoft.NETFramework.ReferenceAssemblies
+nuget NUnit
+nuget NUnit.ConsoleRunner

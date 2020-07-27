@@ -3,7 +3,6 @@ source https://nuget.org/api/v2
 framework netstandard2.0
 nuget Mono.Cecil
 nuget System.IO.Compression.ZipFile
-nuget Fantomas prerelease
 nuget Fake.Core.Target
 nuget Fake.Core.Process
 nuget Fake.Core.ReleaseNotes
@@ -12,8 +11,6 @@ nuget Fake.DotNet.Cli
 nuget Fake.DotNet.MSBuild
 nuget Fake.DotNet.AssemblyInfoFile
 nuget Fake.DotNet.Paket
-nuget Fake.DotNet.Testing.Expecto
-nuget Fake.DotNet.FSFormatting
 nuget Fake.Tools.Git
 nuget Fake.Api.GitHub //"
 
@@ -35,8 +32,6 @@ open Fake.IO.FileSystemOperators
 open Fake.IO.Globbing.Operators
 open Fake.DotNet
 open Fake.Tools
-open Fantomas.FakeHelpers
-open Fantomas.FormatConfig
 
 Target.initEnvironment()
 
@@ -333,47 +328,23 @@ open Fake.DotNet
 // --------------------------------------------------------------------------------------
 // Check code format & format code using Fantomas
 
-Target.create "Format" (fun _ ->
-    !!"tests/**/*.fs"
-    |> formatCode
-    |> Async.RunSynchronously
-    |> printfn "Formatted files: %A"
-)
-
 Target.create "BuildTests" (fun _ ->
-    DotNet.exec id "build" "Stanford.NLP.NET.sln -c Release" |> ignore
-    // !! solutionFile
-    // |> MSBuildRelease "" "Rebuild"
-    // |> ignore
+    let result = DotNet.exec id "build" "Stanford.NLP.NET.sln -c Release"
+    if not result.OK
+    then failwithf "Build failed: %A" result.Errors
 )
 
 Target.create "RunTests" (fun _ ->
-    !! "tests/**/bin/Release/net461/*Tests.exe"
-    |> Seq.sort
-    |> Seq.iter (fun path ->
-        Trace.tracefn "Running tests '%s' ..." path
-        
-        let args = "--fail-on-focused-tests --summary --sequenced --version"
-        (if Environment.isWindows
-         then CreateProcess.fromRawCommandLine path args
-         else CreateProcess.fromRawCommandLine "mono" (path + " " + args))
-        |> CreateProcess.ensureExitCode
-        |> Proc.run
-        |> ignore
-    )
-    // |> Testing.Expecto.run (fun p ->
-    //     { p with
-    //         WorkingDirectory = __SOURCE_DIRECTORY__
-    //         FailOnFocusedTests = true
-    //         PrintVersion = true
-    //         Parallel = false
-    //         Summary =  true
-    //         Debug = false
-    //     })
-    // |> Expecto (fun p ->
-    //     { p with
-    //         Parallel = false } )
-    // |> ignore
+    let libs = !! "tests/**/bin/Release/net461/*.Tests.dll"
+    let args = String.Join(" ", libs)
+    let runner = "packages/NUnit.ConsoleRunner/tools/nunit3-console.exe"
+
+    (if Environment.isWindows
+     then CreateProcess.fromRawCommandLine runner args
+     else CreateProcess.fromRawCommandLine "mono" (runner + " " + args))
+    |> CreateProcess.ensureExitCode
+    |> Proc.run
+    |> ignore
 )
 
 // --------------------------------------------------------------------------------------
@@ -454,7 +425,6 @@ Target.create "NuGet" ignore
   ==> "NuGet"
 
 "NuGet"
-//  ==> "Format"
   ==> "BuildTests"
   ==> "RunTests"
   ==> "All"
