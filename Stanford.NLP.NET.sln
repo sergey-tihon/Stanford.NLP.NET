@@ -3,13 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}"
-	ProjectSection(SolutionItems) = preProject
-		docs\docs.fsx = docs\docs.fsx
-		docs\helpers.fs = docs\helpers.fs
-		docs\liquid.fs = docs\liquid.fs
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BF60BC93-E09B-4E5F-9D85-95A519479D54}"
 	ProjectSection(SolutionItems) = preProject
 		build.fsx = build.fsx
@@ -25,38 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{4B69DF10-D
 	ProjectSection(SolutionItems) = preProject
 		tests\data\SampleText.txt = tests\data\SampleText.txt
 		tests\data\test.simple.utf8 = tests\data\test.simple.utf8
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{DF0763FE-B1E0-46F9-8345-749EA79EB041}"
-	ProjectSection(SolutionItems) = preProject
-		docs\source\faq.md = docs\source\faq.md
-		docs\source\index.html = docs\source\index.html
-		docs\source\projects.md = docs\source\projects.md
-		docs\source\samples.md = docs\source\samples.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{4F64151E-B033-48C4-A61B-A1884039FA92}"
-	ProjectSection(SolutionItems) = preProject
-		docs\templates\code.html = docs\templates\code.html
-		docs\templates\content.html = docs\templates\content.html
-		docs\templates\page.html = docs\templates\page.html
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{612252BC-CCB7-4673-BD2B-FE4917B6B4CB}"
-	ProjectSection(SolutionItems) = preProject
-		docs\source\samples\CoreNLP.md = docs\source\samples\CoreNLP.md
-		docs\source\samples\CoreNLP.Pipeline.fsx = docs\source\samples\CoreNLP.Pipeline.fsx
-		docs\source\samples\CoreNLP.Server.fsx = docs\source\samples\CoreNLP.Server.fsx
-		docs\source\samples\CoreNLP.Simple.fsx = docs\source\samples\CoreNLP.Simple.fsx
-		docs\source\samples\CoreNLP.SUTime.fsx = docs\source\samples\CoreNLP.SUTime.fsx
-		docs\source\samples\NER.md = docs\source\samples\NER.md
-		docs\source\samples\NER.Sample.fsx = docs\source\samples\NER.Sample.fsx
-		docs\source\samples\Parser.md = docs\source\samples\Parser.md
-		docs\source\samples\Parser.Sample.fsx = docs\source\samples\Parser.Sample.fsx
-		docs\source\samples\POSTagger.md = docs\source\samples\POSTagger.md
-		docs\source\samples\POSTagger.Sample.fsx = docs\source\samples\POSTagger.Sample.fsx
-		docs\source\samples\Segmenter.md = docs\source\samples\Segmenter.md
-		docs\source\samples\Segmenter.Sample.fsx = docs\source\samples\Segmenter.Sample.fsx
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.Segmenter.Tests", "tests\Stanford.NLP.Segmenter.Tests\Stanford.NLP.Segmenter.Tests.csproj", "{1CC767E6-5DD0-4567-B9DC-6612D51033FA}"
@@ -107,9 +68,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4B69DF10-DB06-4440-8434-52DC03ED19F6} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
-		{DF0763FE-B1E0-46F9-8345-749EA79EB041} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
-		{4F64151E-B033-48C4-A61B-A1884039FA92} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
-		{612252BC-CCB7-4673-BD2B-FE4917B6B4CB} = {DF0763FE-B1E0-46F9-8345-749EA79EB041}
 		{1CC767E6-5DD0-4567-B9DC-6612D51033FA} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 		{952BD2E5-772F-4EF6-BE2A-50CB10D83938} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 		{8936D281-29E7-4B79-B8F8-B9F81AD58224} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}

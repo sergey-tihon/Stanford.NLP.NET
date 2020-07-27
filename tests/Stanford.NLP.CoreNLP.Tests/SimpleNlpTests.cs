@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 using edu.stanford.nlp.ie.machinereading.structure;
 using edu.stanford.nlp.simple;
 

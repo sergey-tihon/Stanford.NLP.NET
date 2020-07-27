@@ -67,7 +67,7 @@ namespace Stanford.NLP.CoreNLP.Tests
             CustomAnnotationPrint(annotation);
         }
 
-        [Test, Explicit]
+        [Test]
         public void DirectoryChangeLoad()
         {
             var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";

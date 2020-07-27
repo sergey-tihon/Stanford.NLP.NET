@@ -75,7 +75,7 @@ namespace Stanford.NLP.Parser.Tests
 
                 var gs = gsf.newGrammaticalStructure(parse);
                 var tdl = gs.typedDependenciesCCprocessed(true);
-                TestContext.Out.WriteLine("\n{tdl}\n");
+                TestContext.Out.WriteLine($"\n{tdl}\n");
             }
         }
     }
