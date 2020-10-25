@@ -1,6 +1,7 @@
 #r @"paket:
 source https://nuget.org/api/v2
 framework netstandard2.0
+nuget FSharp.Core 4.7.2.0
 nuget Mono.Cecil
 nuget System.IO.Compression.ZipFile
 nuget Fake.Core.Target
