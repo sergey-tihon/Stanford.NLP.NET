@@ -5,5 +5,5 @@ NUGET
     Microsoft.NETFramework.ReferenceAssemblies (1.0)
       Microsoft.NETFramework.ReferenceAssemblies.net461 (>= 1.0)
     Microsoft.NETFramework.ReferenceAssemblies.net461 (1.0)
-    NUnit (3.12)
-    NUnit.ConsoleRunner (3.11.1)
+    NUnit (3.13.1)
+    NUnit.ConsoleRunner (3.12)

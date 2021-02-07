@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "paket": {
-      "version": "5.251.0",
+      "version": "5.257.0",
       "commands": [
         "paket"
       ]
@@ -15,7 +15,7 @@
       ]
     },
     "dotnet-serve": {
-      "version": "1.7.137",
+      "version": "1.8.15",
       "commands": [
         "dotnet-serve"
       ]
