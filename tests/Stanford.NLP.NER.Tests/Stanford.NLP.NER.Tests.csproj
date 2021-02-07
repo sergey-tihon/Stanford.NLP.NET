@@ -19,7 +19,7 @@
         <Reference Include="jollyday-0.4.9, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\..\bin\Stanford.NLP.NER\lib\jollyday-0.4.9.dll</HintPath>
         </Reference>
-        <Reference Include="stanford-ner, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="stanford-ner, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\..\bin\Stanford.NLP.NER\lib\stanford-ner.dll</HintPath>
         </Reference>
     </ItemGroup>

@@ -40,7 +40,7 @@ namespace Stanford.NLP.Tools
         public static class CoreNlp
         {
             public static string JarRoot =>
-                Path.Combine(NlpStanford, "stanford-corenlp-4.0.0/models/");
+                Path.Combine(NlpStanford, "stanford-corenlp-4.2.0/models/");
 
             public static string Models(string path) =>
                 Path.Combine(JarRoot, "edu/stanford/nlp/models/", path);
@@ -49,25 +49,25 @@ namespace Stanford.NLP.Tools
         public static class NER
         {
             public static string Classifier(string path) =>
-                Path.Combine(NlpStanford, "stanford-ner-4.0.0/classifiers/", path);
+                Path.Combine(NlpStanford, "stanford-ner-2020-11-17/classifiers/", path);
         }
 
         public static class Parser
         {
             public static string Models(string path) =>
-                Path.Combine(NlpStanford, "stanford-parser-4.0.0/models/edu/stanford/nlp/models/", path);
+                Path.Combine(NlpStanford, "stanford-parser-full-2020-11-17/models/edu/stanford/nlp/models/", path);
         }
 
         public static class Tagger
         {
             public static string Model(string path) =>
-                Path.Combine(NlpStanford, "stanford-tagger-4.0.0/models/", path);
+                Path.Combine(NlpStanford, "stanford-postagger-full-2020-11-17/models/", path);
         }
 
         public static class Segmenter
         {
             public static string Root =>
-                Path.Combine(NlpStanford, "stanford-segmenter-4.0.0/data/");
+                Path.Combine(NlpStanford, "stanford-segmenter-2020-11-17/data/");
 
             public static string Data(string path) =>
                 Path.Combine(Root, path);

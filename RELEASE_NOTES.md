@@ -1,5 +1,5 @@
-#### 4.0.0.0 - July 5, 2020
-* New version of Stanford NLP (4.0.0)
+#### 4.2.0.0-beta1 - February 7, 2021
+* New version of Stanford NLP (4.2.0)
 
 #### 3.9.2.0 - May 1, 2019
 * New version of Stanford NLP (3.9.2)

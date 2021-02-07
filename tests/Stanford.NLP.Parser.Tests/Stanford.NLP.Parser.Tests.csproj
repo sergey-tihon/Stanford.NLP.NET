@@ -17,7 +17,7 @@
     <Reference Include="slf4j-api, Version=1.7.12.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\bin\Stanford.NLP.Parser\lib\slf4j-api.dll</HintPath>
     </Reference>
-    <Reference Include="stanford-parser, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="stanford-parser, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\bin\Stanford.NLP.Parser\lib\stanford-parser.dll</HintPath>
     </Reference>
   </ItemGroup>
