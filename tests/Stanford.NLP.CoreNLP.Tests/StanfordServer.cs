@@ -1,9 +1,9 @@
 using System;
-
+using System.Collections.Generic;
 using edu.stanford.nlp.ling;
 using edu.stanford.nlp.pipeline;
 using edu.stanford.nlp.util;
-
+using java.lang;
 using java.util;
 
 using NUnit.Framework;
@@ -37,7 +37,16 @@ namespace Stanford.NLP.CoreNLP.Tests
             var partOfSpeechAnnotationClass = Java.GetAnnotationClass<CoreAnnotations.PartOfSpeechAnnotation>();
             var namedEntityTagAnnotationClass = Java.GetAnnotationClass<CoreAnnotations.NamedEntityTagAnnotation>();
 
-            var sentences = (AbstractList) document.get(sentencesAnnotationClass);
+            Class[] sacClasses = sentencesAnnotationClass.getClasses();
+
+            int index = 0;
+            List<object> sentences = new List<object>();
+            foreach (Class thisClass in sacClasses)
+            {
+                sentences[index] = document.get(thisClass);
+                index++;
+            }
+
             foreach (CoreMap sentence in sentences)
             {
                 var tokens = (AbstractList) sentence.get(tokensAnnotationClass);
