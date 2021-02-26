@@ -189,3 +189,4 @@ docs/content/release-notes.md
 
 nuget/Stanford.NLP.snk
 .paket/
+data/.paket/
