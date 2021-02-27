@@ -351,47 +351,9 @@ Target.create "RunTests" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Generate the documentation
 
-module Fake =
-    let fakePath = "packages" </> "FAKE" </> "tools" </> "FAKE.exe"
-    let fakeStartInfo script workingDirectory args fsiargs environmentVars =
-        (fun (info: System.Diagnostics.ProcessStartInfo) ->
-            info.FileName <- System.IO.Path.GetFullPath fakePath
-            info.Arguments <- sprintf "%s --fsiargs -d:FAKE %s \"%s\"" args fsiargs script
-            info.WorkingDirectory <- workingDirectory
-            let setVar k v = info.EnvironmentVariables.[k] <- v
-            for (k, v) in environmentVars do setVar k v
-            //setVar "MSBuild" msBuildExe
-            setVar "GIT" Git.CommandHelper.gitPath
-            //setVar "FSI" fsiPath
-            )
-
-    /// Run the given buildscript with FAKE.exe
-    let executeFAKEWithOutput workingDirectory script fsiargs envArgs =
-        let exitCode = 0
-            //ExecProcessWithLambdas
-            //    (fakeStartInfo script workingDirectory "" fsiargs envArgs)
-            //    TimeSpan.MaxValue false ignore ignore
-        System.Threading.Thread.Sleep 1000
-        exitCode
-
 Target.create "BrowseDocs" (fun _ ->
-    let exit = Fake.executeFAKEWithOutput "docs" "docs.fsx" "" ["target", "BrowseDocs"]
-    if exit <> 0 then failwith "Browsing documentation failed"
-)
-
-Target.create "GenerateDocs" (fun _ ->
-    let exit = Fake.executeFAKEWithOutput "docs" "docs.fsx" "" ["target", "GenerateDocs"]
-    if exit <> 0 then failwith "Generating documentation failed"
-)
-
-Target.create "PublishDocs" (fun _ ->
-    let exit = Fake.executeFAKEWithOutput "docs" "docs.fsx" "" ["target", "PublishDocs"]
-    if exit <> 0 then failwith "Publishing documentation failed"
-)
-
-Target.create "PublishStaticPages" (fun _ ->
-    let exit = Fake.executeFAKEWithOutput "docs" "docs.fsx" "" ["target", "PublishStaticPages"]
-    if exit <> 0 then failwith "Publishing documentation failed"
+    CreateProcess.fromRawCommandLine "dotnet" "serve -o -d ./docs"
+    |> (Proc.run >> ignore)
 )
 
 // --------------------------------------------------------------------------------------
