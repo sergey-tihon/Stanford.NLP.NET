@@ -40,16 +40,19 @@ namespace Stanford.NLP.CoreNLP.Tests
 
             Console.WriteLine("---");
             Console.WriteLine("coref chains");
-            var corefChain = (Map) document.get(corefChainAnnotation);
-            foreach (CorefChain cc in corefChain.values().toArray()) {
+            var corefChain = (Map)document.get(corefChainAnnotation);
+            foreach (CorefChain cc in corefChain.values().toArray())
+            {
                 Console.WriteLine($"\t{cc}");
             }
-            var sentences = (ArrayList) document.get(sentencesAnnotation);
-            foreach (CoreMap sentence in sentences.toArray()) {
+            var sentences = (ArrayList)document.get(sentencesAnnotation);
+            foreach (CoreMap sentence in sentences.toArray())
+            {
                 Console.WriteLine("---");
                 Console.WriteLine("mentions");
-                var corefMentions = (ArrayList) sentence.get(corefMentionsAnnotation);
-                foreach (Mention m in corefMentions) {
+                var corefMentions = (ArrayList)sentence.get(corefMentionsAnnotation);
+                foreach (Mention m in corefMentions)
+                {
                     Console.WriteLine("\t" + m);
                 }
             }

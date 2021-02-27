@@ -4,7 +4,7 @@
         <TargetFramework>net461</TargetFramework>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <PlatformTarget>x64</PlatformTarget>
-        <LangVersion>8</LangVersion>
+        <LangVersion>9</LangVersion>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="ejml-core-0.38, Version=0.38.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\ejml-core-0.38.dll</HintPath>
+    <Reference Include="ejml-core-0.39">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\ejml-core-0.39.dll</HintPath>
     </Reference>
     <Reference Include="javax.json, Version=1.0.4.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\javax.json.dll</HintPath>

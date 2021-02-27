@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 using edu.stanford.nlp.parser.lexparser;
 using edu.stanford.nlp.tagger.maxent;
@@ -17,7 +16,8 @@ namespace Stanford.NLP.Parser.Tests
     public class LoadFromStreamTests
     {
         [Test]
-        public void MaxentTaggerTest() {
+        public void MaxentTaggerTest()
+        {
             // Plain model in the file
             var model = Files.Parser.Models("pos-tagger/english-left3words-distsim.tagger");
             using var fs = new FileStream(model, FileMode.Open);

@@ -1,25 +1,14 @@
 using System.IO;
 using System.Reflection;
 
-using FileNotFoundException = System.IO.FileNotFoundException;
-
 namespace Stanford.NLP.Tools
 {
     public static class Files
     {
-        private static string GetFullPath(string path)
-        {
-            if (File.Exists(path))
-                return new FileInfo(path).FullName;
-            if (Directory.Exists(path))
-                return new DirectoryInfo(path).FullName;
-            throw new FileNotFoundException($"File or directory {path} does not exist");
-        }
-
-        private static string? _rootFolder = null;
+        private static string? _rootFolder;
         private static string GetRootFolder()
         {
-            if (_rootFolder is {})
+            if (_rootFolder is not null)
                 return _rootFolder;
 
             _rootFolder = new FileInfo(Assembly.GetExecutingAssembly().Location).DirectoryName;
@@ -27,7 +16,7 @@ namespace Stanford.NLP.Tools
             {
                 if (File.Exists(Path.Combine(_rootFolder, ".gitignore")))
                     return _rootFolder;
-                _rootFolder = new DirectoryInfo(_rootFolder).Parent.FullName;
+                _rootFolder = new DirectoryInfo(_rootFolder!).Parent.FullName;
             }
         }
 

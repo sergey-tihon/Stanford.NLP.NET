@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 using edu.stanford.nlp.ling;
 using edu.stanford.nlp.pipeline;
@@ -33,12 +31,10 @@ namespace Stanford.NLP.CoreNLP.Tests
             {
                 {"sutime.binders", "0"},
                 {
-                    "sutime.rules", string.Join(",", new[]
-                    {
+                    "sutime.rules", string.Join(",",
                         Files.CoreNlp.Models("sutime/defs.sutime.txt"),
                         Files.CoreNlp.Models("sutime/english.sutime.txt"),
-                        Files.CoreNlp.Models("sutime/english.holidays.sutime.txt")
-                    })
+                        Files.CoreNlp.Models("sutime/english.holidays.sutime.txt"))
                 }
             });
             pipeline.addAnnotator(new TimeAnnotator("sutime", props));
@@ -49,17 +45,17 @@ namespace Stanford.NLP.CoreNLP.Tests
             pipeline.annotate(annotation);
 
             TestContext.Out.WriteLine(annotation.get(Java.GetAnnotationClass<CoreAnnotations.TextAnnotation>()));
-            var timexAnnsAll = (java.util.ArrayList) annotation.get(Java.GetAnnotationClass<TimeAnnotations.TimexAnnotations>());
+            var timexAnnsAll = (java.util.ArrayList)annotation.get(Java.GetAnnotationClass<TimeAnnotations.TimexAnnotations>());
             Assert.Greater(timexAnnsAll.size(), 0);
 
             foreach (CoreMap cm in timexAnnsAll)
             {
-                var tokens = (java.util.List) cm.get(Java.GetAnnotationClass<CoreAnnotations.TokensAnnotation>());
+                var tokens = (java.util.List)cm.get(Java.GetAnnotationClass<CoreAnnotations.TokensAnnotation>());
                 Assert.Greater(tokens.size(), 0);
 
                 var first = tokens.get(0);
                 var last = tokens.get(tokens.size() - 1);
-                var time = (TimeExpression) cm.get(Java.GetAnnotationClass<TimeExpression.Annotation>());
+                var time = (TimeExpression)cm.get(Java.GetAnnotationClass<TimeExpression.Annotation>());
                 Assert.IsNotNull(time, "Time expression is null");
 
                 TestContext.Out.WriteLine($"{cm} [from char offset '{first}' to '{last}'] --> {time.getTemporal()}");

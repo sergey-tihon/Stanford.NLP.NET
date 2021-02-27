@@ -19,25 +19,30 @@ namespace Stanford.NLP.CoreNLP.Tests
     public class CoreNlpTests
     {
         // Annotation pipeline configuration
-        public static Properties Props => Java.Props(new Dictionary<string, string>()
+        public static Properties Props => Java.Props(new Dictionary<string, string>
         {
             {"annotators", "tokenize, ssplit, pos, lemma, ner, parse"},
             {"tokenize.language", "en"},
 
             {"pos.model", Files.CoreNlp.Models("pos-tagger/english-left3words-distsim.tagger")},
-            {"ner.model", string.Join(",", new [] {
-                Files.CoreNlp.Models("ner/english.all.3class.distsim.crf.ser.gz"),
-                Files.CoreNlp.Models("ner/english.muc.7class.distsim.crf.ser.gz"),
-                Files.CoreNlp.Models("ner/english.conll.4class.distsim.crf.ser.gz")
-            })},
+            {
+                "ner.model", string.Join(",",
+                    Files.CoreNlp.Models("ner/english.all.3class.distsim.crf.ser.gz"),
+                    Files.CoreNlp.Models("ner/english.muc.7class.distsim.crf.ser.gz"),
+                    Files.CoreNlp.Models("ner/english.conll.4class.distsim.crf.ser.gz")
+                )
+            },
             {"ner.useSUTime", "false"}, // !!!
-            {"sutime.rules", string.Join(",", new [] {
-                Files.CoreNlp.Models("sutime/defs.sutime.txt"),
-                Files.CoreNlp.Models("sutime/english.sutime.txt"),
-                Files.CoreNlp.Models("sutime/english.holidays.sutime.txt")
-            })},
+            {
+                "sutime.rules", string.Join(",",
+                    Files.CoreNlp.Models("sutime/defs.sutime.txt"),
+                    Files.CoreNlp.Models("sutime/english.sutime.txt"),
+                    Files.CoreNlp.Models("sutime/english.holidays.sutime.txt")
+                )
+            },
 
-            {"ner.fine.regexner.mapping",
+            {
+                "ner.fine.regexner.mapping",
                 $"ignorecase=true,validpospattern=^(NN|JJ).*,{Files.CoreNlp.Models("kbp/english/gazetteers/regexner_caseless.tab")};{Files.CoreNlp.Models("kbp/english/gazetteers/regexner_cased.tab")}"
             },
             {"ner.fine.regexner.noDefaultOverwriteLabels", "CITY"},
@@ -103,7 +108,8 @@ namespace Stanford.NLP.CoreNLP.Tests
 
             CustomAnnotationPrint(annotation);
         }
-        private void CustomAnnotationPrint (Annotation annotation) {
+        private void CustomAnnotationPrint(Annotation annotation)
+        {
             TestContext.Out.WriteLine("-------------");
             TestContext.Out.WriteLine("Custom print:");
             TestContext.Out.WriteLine("-------------");
@@ -114,7 +120,7 @@ namespace Stanford.NLP.CoreNLP.Tests
             foreach (CoreMap sentence in sentences)
             {
                 TestContext.Out.WriteLine($"\n\nSentence : '{sentence}'");
-                var tokens = (ArrayList) sentence.get(Java.GetAnnotationClass<CoreAnnotations.TokensAnnotation>());
+                var tokens = (ArrayList)sentence.get(Java.GetAnnotationClass<CoreAnnotations.TokensAnnotation>());
                 Assert.Greater(tokens.size(), 0, "No tokens found");
                 foreach (CoreLabel token in tokens)
                 {
@@ -128,14 +134,14 @@ namespace Stanford.NLP.CoreNLP.Tests
                 }
 
                 TestContext.Out.WriteLine("\nTree:");
-                var tree = (Tree) sentence.get(Java.GetAnnotationClass<TreeCoreAnnotations.TreeAnnotation>());
+                var tree = (Tree)sentence.get(Java.GetAnnotationClass<TreeCoreAnnotations.TreeAnnotation>());
                 Assert.NotNull(tree, "Parse Tree is null");
                 using var stream = new ByteArrayOutputStream();
                 tree.pennPrint(new PrintWriter(stream));
                 TestContext.Out.WriteLine($"The first sentence parsed is:\n {stream.toString()}");
 
                 TestContext.Out.WriteLine("\nDependencies:");
-                var deps = (SemanticGraph) sentence.get(Java.GetAnnotationClass<SemanticGraphCoreAnnotations.CollapsedDependenciesAnnotation>());
+                var deps = (SemanticGraph)sentence.get(Java.GetAnnotationClass<SemanticGraphCoreAnnotations.CollapsedDependenciesAnnotation>());
                 Assert.NotNull(deps, "Semantic graph is null");
                 foreach (SemanticGraphEdge edge in deps.edgeListSorted().toArray())
                 {

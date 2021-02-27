@@ -1,10 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using edu.stanford.nlp.ling;
 using edu.stanford.nlp.pipeline;
 using edu.stanford.nlp.util;
-using java.lang;
 using java.util;
 
 using NUnit.Framework;
@@ -21,13 +19,14 @@ namespace Stanford.NLP.CoreNLP.Tests
         public static void CoreNlpClient()
         {
             // creates a StanfordCoreNLP object with POS tagging, lemmatization, NER, parsing, and coreference resolution
-            var props = new java.util.Properties();
+            var props = new Properties();
             props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
-            StanfordCoreNLPClient pipeline = new StanfordCoreNLPClient(props, "http://localhost", 9000, 2);
+            StanfordCoreNLPClient pipeline = new(props, "http://localhost", 9000, 2);
+
             // read some text in the text variable
             var text = "Kosgi Santosh sent an email to Stanford University.";
             // create an empty Annotation just with the given text
-            Annotation document = new Annotation(text);
+            Annotation document = new(text);
             // run all Annotators on this text
             pipeline.annotate(document);
 
@@ -42,7 +41,7 @@ namespace Stanford.NLP.CoreNLP.Tests
 
             foreach (CoreMap sentence in sentences)
             {
-                var tokens = (AbstractList) sentence.get(tokensAnnotationClass);
+                var tokens = (AbstractList)sentence.get(tokensAnnotationClass);
                 Console.WriteLine("----");
                 foreach (CoreLabel token in tokens)
                 {

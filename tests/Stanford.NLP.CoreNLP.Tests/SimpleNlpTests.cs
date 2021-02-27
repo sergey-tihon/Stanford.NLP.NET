@@ -41,14 +41,16 @@ namespace Stanford.NLP.CoreNLP.Tests
         }
 
         [Test]
-        public void Sentences() {
+        public void Sentences()
+        {
             var doc = new Document("add your text here! It can contain multiple sentences.");
             var sentences = doc.sentences().toArray();
             Assert.AreEqual(2, sentences.Length);
         }
 
         [Test]
-        public void HeadOfSpan() {
+        public void HeadOfSpan()
+        {
             var sentence = new Sentence("your text should go here");
             var actual = sentence.algorithms().headOfSpan(new Span(0, 2));
             Assert.AreEqual(1, actual);

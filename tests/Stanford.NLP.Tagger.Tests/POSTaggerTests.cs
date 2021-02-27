@@ -17,7 +17,7 @@ namespace Stanford.NLP.POSTagger.Tests
         public void SetUp()
         {
             var model = Files.Tagger.Model("english-bidirectional-distsim.tagger");
-            _tagger =new MaxentTagger(model);
+            _tagger = new MaxentTagger(model);
         }
 
         private MaxentTagger _tagger = null!;
