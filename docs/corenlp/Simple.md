@@ -11,7 +11,7 @@ An example usage is given below:
 ```fsharp
 #r "IKVM.OpenJDK.Core.dll"
 #r "IKVM.OpenJDK.Util.dll"
-#r "stanford-corenlp-4.0.0.dll"
+#r "stanford-corenlp-4.2.0.dll"
 
 open System
 open java.util
@@ -19,7 +19,7 @@ open edu.stanford.nlp.simple
 
 // Path to the folder with models extracted from `stanford-corenlp-3.9.1-models.jar`
 let jarRoot = (__SOURCE_DIRECTORY__)+ @"/../../../data/paket-files/nlp.stanford.edu/"
-                                    + @"stanford-corenlp-4.0.0/models/"
+                                    + @"stanford-corenlp-4.2.0/models/"
 System.IO.Directory.SetCurrentDirectory(jarRoot)
 
 // Custom properties for annotators
