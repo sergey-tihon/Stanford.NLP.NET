@@ -188,4 +188,6 @@ docs/content/release-notes.md
 .ionide/
 
 nuget/Stanford.NLP.snk
-!.paket/paket.exe
+.paket/
+data/.paket/
+TestResult.xml

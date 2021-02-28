@@ -1,0 +1,4 @@
+[*.fs]
+max_line_length=150
+fsharp_space_before_parameter=false
+fsharp_space_before_lowercase_invocation=false

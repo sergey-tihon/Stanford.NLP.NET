@@ -1,21 +1,7 @@
 source https://nuget.org/api/v2
 framework: net461
 
-nuget FAKE
-nuget FSharp.Management
-nuget Mono.Cecil
-
-group Test
-    source https://nuget.org/api/v2
-    framework: net461
-
-    nuget IKVM
-    nuget Expecto redirects:force
-
-group Docs
-    source https://nuget.org/api/v2
-    framework: net461
-
-    nuget Suave
-    nuget DotLiquid
-    nuget FSharp.Formatting 2.14.2
+nuget IKVM
+nuget Microsoft.NETFramework.ReferenceAssemblies
+nuget NUnit
+nuget NUnit.ConsoleRunner

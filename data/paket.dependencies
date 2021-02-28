@@ -1,6 +1,6 @@
 http http://www.frijters.net/ikvmbin-8.1.5717.0.zip
-http https://nlp.stanford.edu/software/stanford-corenlp-full-2018-10-05.zip
-http https://nlp.stanford.edu/software/stanford-ner-2018-10-16.zip
-http https://nlp.stanford.edu/software/stanford-parser-full-2018-10-17.zip
-http https://nlp.stanford.edu/software/stanford-postagger-full-2018-10-16.zip
-http https://nlp.stanford.edu/software/stanford-segmenter-2018-10-16.zip
+http https://nlp.stanford.edu/software/stanford-corenlp-4.2.0.zip
+http https://nlp.stanford.edu/software/stanford-ner-4.2.0.zip
+http https://nlp.stanford.edu/software/stanford-parser-4.2.0.zip
+http https://nlp.stanford.edu/software/stanford-tagger-4.2.0.zip
+http https://nlp.stanford.edu/software/stanford-segmenter-4.2.0.zip
