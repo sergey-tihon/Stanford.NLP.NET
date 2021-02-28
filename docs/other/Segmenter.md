@@ -17,7 +17,7 @@ A CRF-based word segmenter (tokenizer). Supports Arabic and Chinese (can be used
 ## Getting started
 
 - [Install NuGet package](https://www.nuget.org/packages/Stanford.NLP.Segmenter/)
-- [Download models](https://nlp.stanford.edu/software/stanford-segmenter-4.0.0.zip)
+- [Download models](https://nlp.stanford.edu/software/stanford-segmenter-4.2.0.zip)
 - Try samples from this page
 - [Read official Segmenter docs](https://nlp.stanford.edu/software/segmenter.html)
 
@@ -32,8 +32,8 @@ class Program
     static void Main()
     {
         // Path to the folder with models
-        var segmenterData = @"nlp.stanford.edu\stanford-segmenter-4.0.0\data";
-        var sampleData = @"nlp.stanford.edu\stanford-segmenter-2015-10-31\test.simp.utf8";
+        var segmenterData = @"nlp.stanford.edu\stanford-segmenter-4.2.0\data";
+        var sampleData = @"nlp.stanford.edu\stanford-segmenter-2020-11-17\test.simp.utf8";
 
         // `test.simple.utf8` contains following text:
         // 面对新世纪，世界各国人民的共同愿望是：继续发展人类以往创造的一切文明成果，克服20世纪困扰着人类的战争和贫

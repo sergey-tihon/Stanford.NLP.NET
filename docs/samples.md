@@ -2,11 +2,11 @@
 
 ### Stanford CoreNLP
 
-* [What is Stanford.NLP.CoreNLP?](samples/CoreNLP.html)
-* [Simple CoreNLP](samples/CoreNLP.Simple.html)
-* [CoreNLP Server](samples/CoreNLP.Server.html)
-* [Building and using a Stanford CoreNLP pipeline](samples/CoreNLP.Pipeline.html)
-* [SUTime - recognizing and normalizing time expressions](samples/CoreNLP.SUTime.html)
+* [What is Stanford.NLP.CoreNLP?](corenlp/)
+* [Simple CoreNLP](corenlp/Simple)
+* [CoreNLP Server](corenlp/Server)
+* [Building and using a Stanford CoreNLP pipeline](corenlp/Pipeline)
+* [SUTime - recognizing and normalizing time expressions](corenlp/SUTime)
 
 __Related links__:
 
@@ -18,8 +18,8 @@ __Related links__:
 
 ### Stanford Parser
 
-* [What is Stanford.NLP.Parser?](samples/Parser.html)
-* [Getting started with Stanford Parser](samples/Parser.Sample.html)
+* [What is Stanford.NLP.Parser?](other/Parser)
+* [Getting started with Stanford Parser](samples/Parser#getting-started)
 
 __Relevant links__:
 
@@ -30,21 +30,17 @@ __Relevant links__:
 
 ### Stanford Named Entity Recognizer (NER)
 
-* [What is Stanford.NLP.NER?](samples/NER.html)
-* [Getting started with Stanford NER](samples/NER.Sample.html)
-
-__Related links__:
-
-* [Extracting named entities in C# using the Stanford NLP Parser](http://www.stewh.com/2013/11/extracting-named-entities-in-c-using-the-stanford-nlp-parser/)
+* [What is Stanford.NLP.NER?](other/NER)
+* [Getting started with Stanford NER](other/NER#getting-started)
 
 
 ### Stanford Log-linear Part-Of-Speech (POS) Tagger
 
-* [What is Stanford.NLP.POSTagger?](samples/POSTagger.html)
-* [Getting started with Stanford POS Tagger](samples/POSTagger.Sample.html)
+* [What is Stanford.NLP.POSTagger?](other/POSTagger)
+* [Getting started with Stanford POS Tagger](other/POSTagger#getting-started)
 
 
 ### Stanford Word Segmenter
 
-* [What is Stanford.NLP.Segmenter?](samples/Segmenter.html)
-* [Getting started with Stanford Word Segmenter](samples/Segmenter.Sample.html)
+* [What is Stanford.NLP.Segmenter?](other/Segmenter)
+* [Getting started with Stanford Word Segmenter](other/Segmenter#sample)

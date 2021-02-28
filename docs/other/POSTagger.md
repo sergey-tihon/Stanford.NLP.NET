@@ -19,7 +19,7 @@ Log-linear Part-Of-Speech Tagger for English, Arabic, Chinese, French, and Germa
 ## Getting started
 
 - [Install NuGet package](https://www.nuget.org/packages/Stanford.NLP.POSTagger/)
-- [Download models](https://nlp.stanford.edu/software/stanford-tagger-4.0.0.zip)
+- [Download models](https://nlp.stanford.edu/software/stanford-tagger-4.2.0.zip)
 - Try samples from this page
 - [Read official Tagger docs](https://nlp.stanford.edu/software/tagger.html)
 
@@ -37,7 +37,7 @@ class Program
 {
     static void Main()
     {
-        var jarRoot = @"../../../data/paket-files/nlp.stanford.edu/stanford-tagger-4.0.0";
+        var jarRoot = @"../../../data/paket-files/nlp.stanford.edu/stanford-tagger-4.2.0";
         var modelsDirectory = jarRoot + @"/models";
         var model = modelsDirectory + @"/wsj-0-18-bidirectional-nodistsim.tagger";
 

@@ -20,7 +20,7 @@ See also: [online NER demo](http://nlp.stanford.edu:8080/ner/)
 ## Getting started
 
 - [Install NuGet package](https://www.nuget.org/packages/Stanford.NLP.NER/)
-- [Download models](https://nlp.stanford.edu/software/stanford-ner-4.0.0.zip)
+- [Download models](https://nlp.stanford.edu/software/stanford-ner-4.2.0.zip)
 - Try samples from this page
 - [Read official NER docs](https://nlp.stanford.edu/software/CRF-NER.html)
 
@@ -35,7 +35,7 @@ class Program
     static void Main()
     {
         // Path to the folder with classifiers models
-        var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-ner-4.0.0";
+        var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-ner-4.2.0";
         var classifiersDirectory = jarRoot + @"\classifiers";
 
         // Loading 3 class classifier model

@@ -49,7 +49,7 @@ class StanfordCoreNlpClient
         var namedEntityTagAnnotationClass = GetAnnotationClass<CoreAnnotations.NamedEntityTagAnnotation>();
         var normalizedNamedEntityTagAnnotation = GetAnnotationClass<CoreAnnotations.NormalizedNamedEntityTagAnnotation>();
 
-        var sentences = document.get(sentencesAnnotationClass) as java.util.AbstractList;
+        var sentences = sentencesAnnotationClass.getClasses().Select(document.get).ToList();
         foreach (CoreMap sentence in sentences)
         {
             var tokens = sentence.get(tokensAnnotationClass) as java.util.AbstractList;

@@ -17,7 +17,7 @@ open System
 open java.util
 open edu.stanford.nlp.simple
 
-// Path to the folder with models extracted from `stanford-corenlp-3.9.1-models.jar`
+// Path to the folder with models extracted from `stanford-corenlp-4.2.0-models.jar`
 let jarRoot = (__SOURCE_DIRECTORY__)+ @"/../../../data/paket-files/nlp.stanford.edu/"
                                     + @"stanford-corenlp-4.2.0/models/"
 System.IO.Directory.SetCurrentDirectory(jarRoot)

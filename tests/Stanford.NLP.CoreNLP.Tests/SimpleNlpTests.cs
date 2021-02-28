@@ -31,7 +31,7 @@ namespace Stanford.NLP.CoreNLP.Tests
         public void Pos()
         {
             var sent = new Sentence("Lucy is in the sky with diamonds.");
-            java.util.Properties props = new java.util.Properties();
+            var props = new java.util.Properties();
             props.setProperty("ner.useSUTime", "0");
             var nerTags = sent.nerTags(props);
             Assert.AreEqual("PERSON", nerTags.get(0));

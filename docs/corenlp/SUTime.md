@@ -23,7 +23,7 @@ class Program
     private static void Main()
     {
 
-        // Path to the folder with models extracted from `stanford-corenlp-3.9.1-models.jar`
+        // Path to the folder with models extracted from `stanford-corenlp-4.2.0-models.jar`
         var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-4.2.0\models";
         var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
 

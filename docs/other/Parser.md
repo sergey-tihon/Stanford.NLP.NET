@@ -23,7 +23,7 @@ See also: [online parser demo](http://nlp.stanford.edu:8080/parser/).
 ## Getting started
 
 - [Install NuGet package](https://www.nuget.org/packages/Stanford.NLP.Parser/)
-- [Download models](https://nlp.stanford.edu/software/stanford-parser-4.0.0.zip)
+- [Download models](https://nlp.stanford.edu/software/stanford-parser-4.2.0.zip)
 - Try samples from this page
 - [Read official Parser docs](https://nlp.stanford.edu/software/lex-parser.shtml)
 
@@ -41,8 +41,8 @@ class Program
 {
     static void Main()
     {
-        // Path to models extracted from `stanford-parser-3.9.1-models.jar`
-        var jarRoot = "nlp.stanford.edu\\stanford-parser-4.0.0\\models";
+        // Path to models extracted from `stanford-parser-4.2.0-models.jar`
+        var jarRoot = "nlp.stanford.edu\\stanford-parser-4.2.0\\models";
         var modelsDirectory = jarRoot+"\\edu\\stanford\\nlp\\models";
 
         // Loading english PCFG parser from file
