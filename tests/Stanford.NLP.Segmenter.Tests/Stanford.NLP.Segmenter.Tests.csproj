@@ -11,7 +11,7 @@
     <ProjectReference Include="..\Stanford.NLP.Tools\Stanford.NLP.Tools.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="stanford-segmenter-4.2.0, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="stanford-segmenter-4.2.0">
       <HintPath>..\..\bin\Stanford.NLP.Segmenter\lib\stanford-segmenter-4.2.0.dll</HintPath>
     </Reference>
   </ItemGroup>

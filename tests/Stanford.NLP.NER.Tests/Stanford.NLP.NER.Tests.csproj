@@ -13,13 +13,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Reference Include="joda-time, Version=2.9.4.0, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="joda-time">
             <HintPath>..\..\bin\Stanford.NLP.NER\lib\joda-time.dll</HintPath>
         </Reference>
-        <Reference Include="jollyday-0.4.9, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="jollyday-0.4.9">
             <HintPath>..\..\bin\Stanford.NLP.NER\lib\jollyday-0.4.9.dll</HintPath>
         </Reference>
-        <Reference Include="stanford-ner, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="stanford-ner">
             <HintPath>..\..\bin\Stanford.NLP.NER\lib\stanford-ner.dll</HintPath>
         </Reference>
     </ItemGroup>

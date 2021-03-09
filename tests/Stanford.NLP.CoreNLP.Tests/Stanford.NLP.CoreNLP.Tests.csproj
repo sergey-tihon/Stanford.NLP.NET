@@ -22,28 +22,28 @@
     <Reference Include="ejml-core-0.39">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\ejml-core-0.39.dll</HintPath>
     </Reference>
-    <Reference Include="javax.json, Version=1.0.4.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="javax.json">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\javax.json.dll</HintPath>
     </Reference>
-    <Reference Include="joda-time, Version=2.10.5.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="joda-time">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\joda-time.dll</HintPath>
     </Reference>
-    <Reference Include="jollyday, Version=0.4.9.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="jollyday">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\jollyday.dll</HintPath>
     </Reference>
-    <Reference Include="protobuf, Version=2.6.1.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="protobuf">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\protobuf.dll</HintPath>
     </Reference>
-    <Reference Include="slf4j-api, Version=1.7.2.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="slf4j-api">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-api.dll</HintPath>
     </Reference>
-    <Reference Include="slf4j-simple, Version=1.7.2.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="slf4j-simple">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-simple.dll</HintPath>
     </Reference>
     <Reference Include="stanford-corenlp-4.2.0">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-4.2.0.dll</HintPath>
     </Reference>
-    <Reference Include="xom, Version=1.3.2.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="xom">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\xom.dll</HintPath>
     </Reference>
   </ItemGroup>
