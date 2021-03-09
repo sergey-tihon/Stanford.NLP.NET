@@ -12,44 +12,54 @@ using java.util;
 using NUnit.Framework;
 
 using Stanford.NLP.Tools;
+using edu.stanford.nlp.neural.rnn;
 
 namespace Stanford.NLP.CoreNLP.Tests
 {
     [TestFixture]
     public class CoreNlpTests
     {
-        // Annotation pipeline configuration
-        public static Properties Props => Java.Props(new Dictionary<string, string>
+        public static Properties GetProperties(string annotators)
         {
-            {"annotators", "tokenize, ssplit, pos, lemma, ner, parse"},
-            {"tokenize.language", "en"},
-
-            {"pos.model", Files.CoreNlp.Models("pos-tagger/english-left3words-distsim.tagger")},
+            Dictionary<string, string> props = new()
             {
-                "ner.model", string.Join(",",
-                    Files.CoreNlp.Models("ner/english.all.3class.distsim.crf.ser.gz"),
-                    Files.CoreNlp.Models("ner/english.muc.7class.distsim.crf.ser.gz"),
-                    Files.CoreNlp.Models("ner/english.conll.4class.distsim.crf.ser.gz")
-                )
-            },
-            {"ner.useSUTime", "false"}, // !!!
-            {
-                "sutime.rules", string.Join(",",
-                    Files.CoreNlp.Models("sutime/defs.sutime.txt"),
-                    Files.CoreNlp.Models("sutime/english.sutime.txt"),
-                    Files.CoreNlp.Models("sutime/english.holidays.sutime.txt")
-                )
-            },
+                {"annotators", annotators},
+                {"tokenize.language", "en"},
 
-            {
-                "ner.fine.regexner.mapping",
-                $"ignorecase=true,validpospattern=^(NN|JJ).*,{Files.CoreNlp.Models("kbp/english/gazetteers/regexner_caseless.tab")};{Files.CoreNlp.Models("kbp/english/gazetteers/regexner_cased.tab")}"
-            },
-            {"ner.fine.regexner.noDefaultOverwriteLabels", "CITY"},
+                {"pos.model", Files.CoreNlp.Models("pos-tagger/english-left3words-distsim.tagger")},
+                {
+                    "ner.model", string.Join(",",
+                        Files.CoreNlp.Models("ner/english.all.3class.distsim.crf.ser.gz"),
+                        Files.CoreNlp.Models("ner/english.muc.7class.distsim.crf.ser.gz"),
+                        Files.CoreNlp.Models("ner/english.conll.4class.distsim.crf.ser.gz")
+                    )
+                },
+                {"ner.useSUTime", "false"}, // !!!
+                {
+                    "sutime.rules", string.Join(",",
+                        Files.CoreNlp.Models("sutime/defs.sutime.txt"),
+                        Files.CoreNlp.Models("sutime/english.sutime.txt"),
+                        Files.CoreNlp.Models("sutime/english.holidays.sutime.txt")
+                    )
+                },
 
-            {"parse.model", Files.CoreNlp.Models("lexparser/englishPCFG.ser.gz")},
-            //{"depparse.model", Files.CoreNlp.Models("parser/nndep/english_UD.gz")}
-        });
+                {
+                    "ner.fine.regexner.mapping",
+                    $"ignorecase=true,validpospattern=^(NN|JJ).*,{Files.CoreNlp.Models("kbp/english/gazetteers/regexner_caseless.tab")};{Files.CoreNlp.Models("kbp/english/gazetteers/regexner_cased.tab")}"
+                },
+                {"ner.fine.regexner.noDefaultOverwriteLabels", "CITY"},
+
+                {"parse.model", Files.CoreNlp.Models("lexparser/englishPCFG.ser.gz")},
+                //{"depparse.model", Files.CoreNlp.Models("parser/nndep/english_UD.gz")}
+
+                { "sentiment.model", Files.CoreNlp.Models("sentiment/sentiment.ser.gz") },
+            };
+            return Java.Props(props);
+        }
+
+        // Annotation pipeline configuration
+        public static Properties Props =>
+            GetProperties("tokenize, ssplit, pos, lemma, ner, parse");
 
         [Test]
         public void ManualPropsConfiguration()
@@ -156,5 +166,44 @@ namespace Stanford.NLP.CoreNLP.Tests
             }
         }
 
+
+        [Test]
+        public void SentimentAnalysisTest()
+        {
+            // Annotation pipeline configuration
+            var props = GetProperties("tokenize, ssplit, pos, parse, sentiment");
+            var pipeline = new StanfordCoreNLP(props);
+
+            // Annotation
+            var text = "The mission of the F# Software Foundation is to promote and advance the F# programming language, including a diverse and international community of F# programmers.";
+            var annotation = new Annotation(text);
+            pipeline.annotate(annotation);
+
+            var sentences = (ArrayList)annotation.get(Java.GetAnnotationClass<CoreAnnotations.SentencesAnnotation>());
+            foreach (CoreMap sentence in sentences)
+            {
+                TestContext.Out.WriteLine($"Sentence : '{sentence}'");
+                var sentenceTree = (Tree)sentence.get(Java.GetAnnotationClass<edu.stanford.nlp.sentiment.SentimentCoreAnnotations.SentimentAnnotatedTree>());
+                Assert.NotNull(sentenceTree, "Cannot find SentimentAnnotatedTree");
+
+                var sentiment = RNNCoreAnnotations.getPredictedClass(sentenceTree);
+                var preds = (ArrayList)RNNCoreAnnotations.getPredictions(sentenceTree);
+
+                for(var i=0; i<=4; i++)
+                {
+                    var prob = preds.get(i);
+                    var descr = i switch
+                    {
+                        0 => "Negative",
+                        1 => "Somewhat negative",
+                        2 => "Neutral",
+                        3 => "Somewhat positive",
+                        4 => "Positive",
+                        _ => "Unknown"
+                    };
+                    TestContext.Out.WriteLine($"\tP('{descr}') = {prob}");
+                }
+            }
+        }
     }
 }
