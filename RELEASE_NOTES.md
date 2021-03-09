@@ -1,3 +1,7 @@
+#### 4.2.0.1 - March 9, 2021
+* Added test for sentoment analysis
+* Fixed "java.lang.NoClassDefFoundError: org.ejml.simple.SimpleMatrix
+
 #### 4.2.0.0 - February 27, 2021
 * New version of Stanford NLP (4.2.0)
 

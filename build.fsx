@@ -223,15 +223,21 @@ Target.create "CompilerCoreNLP" (fun _ ->
     |> restoreFolderFromFile (Path.Combine(coreNLPDir, "models"))
 
     let jodaTime = IKVMcTask(coreNLPDir </> "joda-time.jar", version="2.10.5")
+    let ejmlCore =  IKVMcTask(coreNLPDir </> "ejml-core-0.39.jar", version="0.39")
+    let ejmlDdense = IKVMcTask(coreNLPDir </> "ejml-ddense-0.39.jar", version="0.39", Dependencies =[ejmlCore])
+    let sl4japi = IKVMcTask(coreNLPDir </> "slf4j-api.jar", version="1.7.2")
+
     [IKVMcTask(coreNLPDir </> "stanford-corenlp-4.2.0.jar", version=release.AssemblyVersion,
-           Dependencies = [jodaTime
-                           IKVMcTask(coreNLPDir </> "jollyday.jar", version="0.4.9", Dependencies =[jodaTime])
-                           IKVMcTask(coreNLPDir </> "ejml-core-0.39.jar", version="0.39")
-                           IKVMcTask(coreNLPDir </> "xom.jar", version="1.3.2")
-                           IKVMcTask(coreNLPDir </> "javax.json.jar", version="1.0.4")
-                           IKVMcTask(coreNLPDir </> "slf4j-api.jar", version="1.7.2")
-                           IKVMcTask(coreNLPDir </> "slf4j-simple.jar", version="1.7.2")
-                           IKVMcTask(coreNLPDir </> "protobuf.jar", version="2.6.1")])]
+           Dependencies = [
+               jodaTime
+               IKVMcTask(coreNLPDir </> "jollyday.jar", version="0.4.9", Dependencies =[jodaTime])
+               ejmlCore; ejmlDdense
+               IKVMcTask(coreNLPDir </> "ejml-simple-0.39.jar", version="0.39", Dependencies =[ejmlDdense; ejmlCore])
+               IKVMcTask(coreNLPDir </> "xom.jar", version="1.3.2")
+               IKVMcTask(coreNLPDir </> "javax.json.jar", version="1.0.4")
+               sl4japi
+               IKVMcTask(coreNLPDir </> "slf4j-simple.jar", version="1.7.2", Dependencies =[sl4japi])
+               IKVMcTask(coreNLPDir </> "protobuf.jar", version="2.6.1")])]
     |> IKVMCompile ikvmDir keyFile
 )
 

@@ -187,7 +187,7 @@ namespace Stanford.NLP.CoreNLP.Tests
                 Assert.NotNull(sentenceTree, "Cannot find SentimentAnnotatedTree");
 
                 var sentiment = RNNCoreAnnotations.getPredictedClass(sentenceTree);
-                var preds = (ArrayList)RNNCoreAnnotations.getPredictions(sentenceTree);
+                var preds = RNNCoreAnnotations.getPredictions(sentenceTree);
 
                 for(var i=0; i<=4; i++)
                 {
