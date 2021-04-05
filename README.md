@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/sergey-tihon/Stanford.NLP.NET/workflows/Build%20and%20Test/badge.svg?branch=master)](https://github.com/fsprojects/SwaggerProvider/actions?query=branch%3Amaster)
+[![Build Status](https://github.com/sergey-tihon/Stanford.NLP.NET/workflows/Build%20and%20Test/badge.svg?branch=master)](https://github.com/sergey-tihon/Stanford.NLP.NET/actions?query=branch%3Amaster)
 
 Stanford.NLP for .NET
 =====================
