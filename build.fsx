@@ -213,13 +213,13 @@ Target.create "CleanDocs" (fun _ ->
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.CoreNLP and build NuGet package
 
-let coreNLPDir = root </> "data/paket-files/nlp.stanford.edu/stanford-corenlp-4.2.0"
+let coreNLPDir = root </> "data/paket-files/nlp.stanford.edu/stanford-corenlp-4.3.2"
 
 Target.create "CompilerCoreNLP" (fun _ ->
     let ikvmDir  = @"bin/Stanford.NLP.CoreNLP/lib"
     Shell.mkdir ikvmDir
 
-    coreNLPDir </> "stanford-corenlp-4.2.0-models.jar"
+    coreNLPDir </> "stanford-corenlp-4.3.2-models.jar"
     |> restoreFolderFromFile (Path.Combine(coreNLPDir, "models"))
 
     let jodaTime = IKVMcTask(coreNLPDir </> "joda-time.jar", version="2.10.5")
@@ -227,7 +227,7 @@ Target.create "CompilerCoreNLP" (fun _ ->
     let ejmlDdense = IKVMcTask(coreNLPDir </> "ejml-ddense-0.39.jar", version="0.39", Dependencies =[ejmlCore])
     let sl4japi = IKVMcTask(coreNLPDir </> "slf4j-api.jar", version="1.7.2")
 
-    [IKVMcTask(coreNLPDir </> "stanford-corenlp-4.2.0.jar", version=release.AssemblyVersion,
+    [IKVMcTask(coreNLPDir </> "stanford-corenlp-4.3.2.jar", version=release.AssemblyVersion,
            Dependencies = [
                jodaTime
                IKVMcTask(coreNLPDir </> "jollyday.jar", version="0.4.9", Dependencies =[jodaTime])
@@ -237,7 +237,7 @@ Target.create "CompilerCoreNLP" (fun _ ->
                IKVMcTask(coreNLPDir </> "javax.json.jar", version="1.0.4")
                sl4japi
                IKVMcTask(coreNLPDir </> "slf4j-simple.jar", version="1.7.2", Dependencies =[sl4japi])
-               IKVMcTask(coreNLPDir </> "protobuf.jar", version="2.6.1")])]
+               IKVMcTask(coreNLPDir </> "protobuf-java-3.11.4.jar", version="3.11.4")])]
     |> IKVMCompile ikvmDir keyFile
 )
 

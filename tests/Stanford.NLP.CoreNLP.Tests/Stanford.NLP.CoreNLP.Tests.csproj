@@ -31,8 +31,8 @@
     <Reference Include="jollyday">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\jollyday.dll</HintPath>
     </Reference>
-    <Reference Include="protobuf">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\protobuf.dll</HintPath>
+    <Reference Include="protobuf-java-3.11.4">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\protobuf-java-3.11.4.dll</HintPath>
     </Reference>
     <Reference Include="slf4j-api">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-api.dll</HintPath>
@@ -40,8 +40,8 @@
     <Reference Include="slf4j-simple">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-simple.dll</HintPath>
     </Reference>
-    <Reference Include="stanford-corenlp-4.2.0">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-4.2.0.dll</HintPath>
+    <Reference Include="stanford-corenlp-4.3.2">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-4.3.2.dll</HintPath>
     </Reference>
     <Reference Include="xom">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\xom.dll</HintPath>

@@ -3,7 +3,7 @@ HTTP
   remote: https://sergeytihon.files.wordpress.com
     ikvmbin-8.1.5717.0.zip (/2021/11/ikvmbin-8.1.5717.0.zip)
   remote: https://nlp.stanford.edu
-    stanford-corenlp-4.2.0.zip (/software/stanford-corenlp-4.2.0.zip)
+    stanford-corenlp-latest.zip (/software/stanford-corenlp-latest.zip)
     stanford-ner-4.2.0.zip (/software/stanford-ner-4.2.0.zip)
     stanford-parser-4.2.0.zip (/software/stanford-parser-4.2.0.zip)
     stanford-segmenter-4.2.0.zip (/software/stanford-segmenter-4.2.0.zip)
