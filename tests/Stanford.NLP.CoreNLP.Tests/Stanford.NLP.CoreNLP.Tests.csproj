@@ -40,8 +40,8 @@
     <Reference Include="slf4j-simple">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-simple.dll</HintPath>
     </Reference>
-    <Reference Include="stanford-corenlp-4.3.2">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-4.3.2.dll</HintPath>
+    <Reference Include="stanford-corenlp-4.4.0">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-4.4.0.dll</HintPath>
     </Reference>
     <Reference Include="xom">
       <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\xom.dll</HintPath>
