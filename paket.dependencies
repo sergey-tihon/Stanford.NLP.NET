@@ -1,4 +1,4 @@
-source https://api.nuget.org/v3/index.json
+source https://nuget.org/api/v2
 framework: net461
 
 nuget IKVM
