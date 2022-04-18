@@ -1,9 +1,9 @@
 RESTRICTION: == net461
 NUGET
-  remote: https://www.nuget.org/api/v2
+  remote: https://api.nuget.org/v3/index.json
     IKVM (8.1.5717)
     Microsoft.NETFramework.ReferenceAssemblies (1.0.2)
       Microsoft.NETFramework.ReferenceAssemblies.net461 (>= 1.0.2)
     Microsoft.NETFramework.ReferenceAssemblies.net461 (1.0.2)
-    NUnit (3.13.2)
-    NUnit.ConsoleRunner (3.12)
+    NUnit (3.13.3)
+    NUnit.ConsoleRunner (3.15)
