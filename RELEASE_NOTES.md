@@ -1,6 +1,9 @@
-#### 4.3.2 - November 23, 2021
+#### 4.4.0 - April 18, 2022
+* New version of Stanford CoreNLP (4.4.0)
+
+#### 4.4.0 - November 23, 2021
 * Build with .NET 6.0
-* New version of Stanford CoreNLP (4.3.2)
+* New version of Stanford CoreNLP (4.4.0)
 
 #### 4.2.0.1 - March 9, 2021
 * Added test for sentoment analysis
