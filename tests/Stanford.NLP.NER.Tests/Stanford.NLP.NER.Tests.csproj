@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net461</TargetFramework>
+        <TargetFrameworks>netcoreapp3.1;net461</TargetFrameworks>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <PlatformTarget>x64</PlatformTarget>
         <LangVersion>9</LangVersion>
@@ -14,13 +14,13 @@
 
     <ItemGroup>
         <Reference Include="joda-time">
-            <HintPath>..\..\bin\Stanford.NLP.NER\lib\joda-time.dll</HintPath>
+            <HintPath>..\..\bin\Stanford.NLP.NER\lib\$(TargetFramework)\joda-time.dll</HintPath>
         </Reference>
         <Reference Include="jollyday-0.4.9">
-            <HintPath>..\..\bin\Stanford.NLP.NER\lib\jollyday-0.4.9.dll</HintPath>
+            <HintPath>..\..\bin\Stanford.NLP.NER\lib\$(TargetFramework)\jollyday-0.4.9.dll</HintPath>
         </Reference>
         <Reference Include="stanford-ner">
-            <HintPath>..\..\bin\Stanford.NLP.NER\lib\stanford-ner.dll</HintPath>
+            <HintPath>..\..\bin\Stanford.NLP.NER\lib\$(TargetFramework)\stanford-ner.dll</HintPath>
         </Reference>
     </ItemGroup>
 

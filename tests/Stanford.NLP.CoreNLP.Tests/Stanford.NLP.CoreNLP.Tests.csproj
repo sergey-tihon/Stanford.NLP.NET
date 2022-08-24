@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net461</TargetFramework>
+        <TargetFrameworks>netcoreapp3.1;net461</TargetFrameworks>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <PlatformTarget>x64</PlatformTarget>
         <LangVersion>9</LangVersion>
@@ -14,37 +14,37 @@
 
   <ItemGroup>
     <Reference Include="ejml-ddense-0.39">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\ejml-ddense-0.39.dll</HintPath>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\$(TargetFramework)\ejml-ddense-0.39.dll</HintPath>
     </Reference>
     <Reference Include="ejml-simple-0.39">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\ejml-simple-0.39.dll</HintPath>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\$(TargetFramework)\ejml-simple-0.39.dll</HintPath>
     </Reference>
     <Reference Include="ejml-core-0.39">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\ejml-core-0.39.dll</HintPath>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\$(TargetFramework)\ejml-core-0.39.dll</HintPath>
     </Reference>
     <Reference Include="javax.json">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\javax.json.dll</HintPath>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\$(TargetFramework)\javax.json.dll</HintPath>
     </Reference>
     <Reference Include="joda-time">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\joda-time.dll</HintPath>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\$(TargetFramework)\joda-time.dll</HintPath>
     </Reference>
     <Reference Include="jollyday">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\jollyday.dll</HintPath>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\$(TargetFramework)\jollyday.dll</HintPath>
     </Reference>
-    <Reference Include="protobuf-java-3.11.4">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\protobuf-java-3.11.4.dll</HintPath>
+    <Reference Include="protobuf-java-3.19.2">
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\$(TargetFramework)\protobuf-java-3.19.2.dll</HintPath>
     </Reference>
     <Reference Include="slf4j-api">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-api.dll</HintPath>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\$(TargetFramework)\slf4j-api.dll</HintPath>
     </Reference>
     <Reference Include="slf4j-simple">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\slf4j-simple.dll</HintPath>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\$(TargetFramework)\slf4j-simple.dll</HintPath>
     </Reference>
     <Reference Include="stanford-corenlp-4.5.0">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\stanford-corenlp-4.5.0.dll</HintPath>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\$(TargetFramework)\stanford-corenlp-4.5.0.dll</HintPath>
     </Reference>
     <Reference Include="xom">
-      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\xom.dll</HintPath>
+      <HintPath>..\..\bin\Stanford.NLP.CoreNLP\lib\$(TargetFramework)\xom.dll</HintPath>
     </Reference>
   </ItemGroup>
 

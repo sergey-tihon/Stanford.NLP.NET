@@ -1,5 +1,6 @@
 #### 4.5.0 - August 24, 2022
 * New version of Stanford CoreNLP (4.5.0)
+* Binaries for `netcoreapp3.1`
 
 #### 4.4.0 - April 18, 2022
 * New version of Stanford CoreNLP (4.4.0)

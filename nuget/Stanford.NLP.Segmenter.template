@@ -21,6 +21,6 @@ summary
 description
     Tokenization of raw text is a standard pre-processing step for many NLP tasks. For English, tokenization usually involves punctuation splitting and separation of some affixes like possessives. Other languages require more extensive token pre-processing, which is usually called segmentation.
 files
-    ../bin/Stanford.NLP.Segmenter/lib/*.dll ==> lib
+    ../bin/Stanford.NLP.Segmenter/lib/**/*.dll ==> lib
 dependencies
-    IKVM 8.1.5717
+    IKVM LOCKEDVERSION
