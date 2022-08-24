@@ -1,7 +1,7 @@
 source https://nuget.org/api/v2
 framework: net461
 
-nuget IKVM
+nuget IKVM 8.1.5717
 nuget Microsoft.NETFramework.ReferenceAssemblies
 nuget NUnit
 nuget NUnit.ConsoleRunner
