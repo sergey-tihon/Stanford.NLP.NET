@@ -76,7 +76,7 @@ jobs:
     - name: Paket Restore (Dependencies)
       run: dotnet paket restore
     - name: Run Tests
-      run: dotnet fake run build.fsx -t "RunTests" --single-target
+      run: dotnet fake run build.fsx -t "RunTests"
     - name: Upload Test Results
       uses: actions/upload-artifact@v3
       with:

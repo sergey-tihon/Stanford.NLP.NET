@@ -217,10 +217,12 @@ let coreNLPDir =
     root
     </> "data/paket-files/nlp.stanford.edu/stanford-corenlp-4.5.0"
 
-Target.create "CompilerCoreNLP" (fun _ ->
+Target.create "RestoreCoreNLPModels" (fun _ ->
     coreNLPDir </> "stanford-corenlp-4.5.0-models.jar"
     |> restoreFolderFromFile (Path.Combine(coreNLPDir, "models"))
-
+)
+    
+Target.create "CompilerCoreNLP" (fun _ ->
     let jodaTime = IKVMcTask(coreNLPDir </> "joda-time.jar", version = "2.10.5")
     let ejmlCore = IKVMcTask(coreNLPDir </> "ejml-core-0.39.jar", version = "0.39")
 
@@ -418,6 +420,9 @@ Target.create "NuGet" ignore
 ==> "NuGetSegmenter"
 ==> "NuGet"
 
-"NuGet" ==> "BuildTests" ==> "RunTests" ==> "All"
+"NuGet" ==> "BuildTests" ==> "All"
+
+"RestoreCoreNLPModels"
+==> "RunTests"
 
 Target.runOrDefault "All"
