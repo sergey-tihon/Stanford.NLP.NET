@@ -216,11 +216,6 @@ Target.create "CleanDocs" (fun _ -> Shell.cleanDirs [ "docs/output" ])
 let coreNLPDir =
     root
     </> "data/paket-files/nlp.stanford.edu/stanford-corenlp-4.5.0"
-
-Target.create "RestoreCoreNLPModels" (fun _ ->
-    coreNLPDir </> "stanford-corenlp-4.5.0-models.jar"
-    |> restoreFolderFromFile (Path.Combine(coreNLPDir, "models"))
-)
     
 Target.create "CompilerCoreNLP" (fun _ ->
     let jodaTime = IKVMcTask(coreNLPDir </> "joda-time.jar", version = "2.10.5")
@@ -372,6 +367,16 @@ let dotnet cmd args =
 
 Target.create "BuildTests" (fun _ -> dotnet "build" "Stanford.NLP.NET.sln -c Release")
 
+Target.create "RestoreModels" (fun _ ->
+    coreNLPDir </> "stanford-corenlp-4.5.0-models.jar"
+    |> restoreFolderFromFile (Path.Combine(coreNLPDir, "models"))
+
+    parserDir </> "stanford-parser-4.2.0-models.jar"
+    |> restoreFolderFromFile (Path.Combine(parserDir, "models"))
+
+)
+
+
 Target.create "RunTests" (fun _ ->
     for framework in frameworks do
 
@@ -422,7 +427,7 @@ Target.create "NuGet" ignore
 
 "NuGet" ==> "BuildTests" ==> "All"
 
-"RestoreCoreNLPModels"
+"RestoreModels"
 ==> "RunTests"
 
 Target.runOrDefault "All"

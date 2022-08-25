@@ -11,7 +11,7 @@ on:
 jobs:
 
   build:
-    name: Build Stanford.NLP.NET (Windows)
+    name: Build
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
@@ -45,6 +45,7 @@ jobs:
         path: tests
       
   test:
+    name: Test
     strategy:
       fail-fast: false
       matrix:
