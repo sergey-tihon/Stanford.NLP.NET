@@ -378,7 +378,7 @@ Target.create "RunTests" (fun _ ->
             let logFileName =
                 $"""${framework}-{Path.GetFileNameWithoutExtension(lib)}-TestResults.trx"""
 
-            dotnet "test" $"{lib} -c Release --no-build --logger:\"console;verbosity=normal\" --logger:\"trx;LogFileName={logFileName}\""))
+            dotnet "test" $"{lib} --logger:\"console;verbosity=normal\" --logger:\"trx;LogFileName={logFileName}\""))
 
 // --------------------------------------------------------------------------------------
 // Generate the documentation

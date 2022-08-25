@@ -50,6 +50,7 @@ NUGET
     NuGet.Frameworks (6.3) - restriction: || (&& (== net461) (>= netcoreapp1.0)) (&& (== net461) (>= netcoreapp2.1)) (== netcoreapp3.1)
     NUnit (3.13.3)
       NETStandard.Library (>= 2.0) - restriction: || (&& (== net461) (< net35) (>= netstandard2.0)) (== netcoreapp3.1)
+    NUnit3TestAdapter (4.2.1)
     runtime.native.System (4.3.1) - restriction: || (&& (== net461) (>= netcoreapp3.1)) (== netcoreapp3.1)
       Microsoft.NETCore.Platforms (>= 1.1.1)
       Microsoft.NETCore.Targets (>= 1.1.3)
