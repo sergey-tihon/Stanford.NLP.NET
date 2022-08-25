@@ -192,13 +192,13 @@ let copyPackages fromDir toDir =
     |> Seq.filter (fun x -> Path.GetExtension(x) = ".nupkg")
     |> Seq.iter (fun x -> File.Copy(x, Path.Combine(toDir, Path.GetFileName(x)), true))
 
-let createNuGetPackage template =
+let createNuGetPackage version template =
     Fake.DotNet.Paket.pack (fun p ->
         { p with
             ToolType = Fake.DotNet.ToolType.CreateLocalTool()
             TemplateFile = template
             OutputPath = "bin"
-            Version = release.NugetVersion
+            Version = version
             ReleaseNotes = String.toLines release.Notes })
 
 let keyFile = @"nuget/Stanford.NLP.snk"
@@ -257,7 +257,7 @@ Target.create "CompilerCoreNLP" (fun _ ->
 
 Target.create "NuGetCoreNLP" (fun _ ->
     root </> "nuget/Stanford.NLP.CoreNLP.template"
-    |> createNuGetPackage)
+    |> createNuGetPackage release.NugetVersion)
 
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.NET and build NuGet package
@@ -287,7 +287,7 @@ Target.create "CompilerNER" (fun _ ->
 
 Target.create "NuGetNER" (fun _ ->
     root </> "nuget/Stanford.NLP.NER.template"
-    |> createNuGetPackage)
+    |> createNuGetPackage toolsVersion)
 
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.Parser and build NuGet package
@@ -313,7 +313,7 @@ Target.create "CompilerParser" (fun _ ->
 
 Target.create "NuGetParser" (fun _ ->
     root </> "nuget/Stanford.NLP.Parser.template"
-    |> createNuGetPackage)
+    |> createNuGetPackage toolsVersion)
 
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.POSTagger and build NuGet package
@@ -333,7 +333,7 @@ Target.create "CompilerPOS" (fun _ ->
 
 Target.create "NuGetPOS" (fun _ ->
     root </> "nuget/Stanford.NLP.POSTagger.template"
-    |> createNuGetPackage)
+    |> createNuGetPackage toolsVersion)
 
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.Segmenter and build NuGet package
@@ -357,7 +357,7 @@ Target.create "CompilerSegmenter" (fun _ ->
 
 Target.create "NuGetSegmenter" (fun _ ->
     root </> "nuget/Stanford.NLP.Segmenter.template"
-    |> createNuGetPackage)
+    |> createNuGetPackage toolsVersion)
 
 
 // --------------------------------------------------------------------------------------
