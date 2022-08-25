@@ -23,8 +23,8 @@ class Program
     private static void Main()
     {
 
-        // Path to the folder with models extracted from `stanford-corenlp-4.4.0-models.jar`
-        var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-4.4.0\models";
+        // Path to the folder with models extracted from `stanford-corenlp-4.5.0-models.jar`
+        var jarRoot = @"..\..\..\..\data\paket-files\nlp.stanford.edu\stanford-corenlp-4.5.0\models";
         var modelsDirectory = jarRoot + @"\edu\stanford\nlp\models";
 
         // Annotation pipeline configuration

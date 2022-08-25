@@ -1,3 +1,5 @@
 IKVM
 NUnit
+NUnit3TestAdapter
+Microsoft.NET.Test.Sdk
 Microsoft.NETFramework.ReferenceAssemblies
