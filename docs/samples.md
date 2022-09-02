@@ -19,7 +19,7 @@ __Related links__:
 ### Stanford Parser
 
 * [What is Stanford.NLP.Parser?](other/Parser)
-* [Getting started with Stanford Parser](samples/Parser#getting-started)
+* [Getting started with Stanford Parser](other/Parser#getting-started)
 
 __Relevant links__:
 
