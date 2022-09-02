@@ -6,7 +6,7 @@
 
 ### Key facts
 
-- `Stanford.NLP.NET` is built on top of [IKVM.NET](http://weblog.ikvm.net/) (`Java` VM that runs on top of `.NET` VM).
+- `Stanford.NLP.NET` is built on top of [IKVM.NET](https://github.com/ikvm-revived/ikvm) (`Java` VM that runs on top of `.NET` VM).
 - It supports only full `.NET` framework and does not work on `.NET Core` and `.NET 5+`.
 - You should always start from [CoreNLP](corenlp) master package that provide full range of features (other packages are exist for historical/compatibility reasons)
 - Use [official CoreNLP site](https://stanfordnlp.github.io/CoreNLP/demo.html) for latest docs, samples and demos. Site is maintained by library authors.
