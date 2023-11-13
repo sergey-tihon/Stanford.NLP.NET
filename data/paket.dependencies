@@ -1,7 +1,6 @@
-http https://github.com/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-tools-net472-win-x64.zip tools-ikvmc-net472/tools.zip
-http https://github.com/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-tools-net6.0-win-x64.zip tools-ikvmc-net6.0/tools.zip
-http https://github.com/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-bin-net472.zip bin-net472/bin.zip
-http https://github.com/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-bin-net6.0.zip bin-net6.0/bin.zip
+http https://github.com/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-tools-net6.0-osx-x64.zip tools-osx/tools.zip
+http https://github.com/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-tools-net6.0-linux-x64.zip tools-linux/tools.zip
+http https://github.com/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-bin-net6.0.zip bin/bin.zip
 
 http https://nlp.stanford.edu/software/stanford-corenlp-4.5.5.zip
 http https://nlp.stanford.edu/software/stanford-ner-4.2.0.zip

@@ -3,6 +3,7 @@ using System.Linq;
 using edu.stanford.nlp.ling;
 using edu.stanford.nlp.pipeline;
 using edu.stanford.nlp.util;
+using java.lang;
 using java.util;
 
 using NUnit.Framework;
@@ -29,25 +30,18 @@ namespace Stanford.NLP.CoreNLP.Tests
             Annotation document = new(text);
             // run all Annotators on this text
             pipeline.annotate(document);
-
-
-            var sentencesAnnotationClass = Java.GetAnnotationClass<CoreAnnotations.SentencesAnnotation>();
-            var tokensAnnotationClass = Java.GetAnnotationClass<CoreAnnotations.TokensAnnotation>();
-            var textAnnotationClass = Java.GetAnnotationClass<CoreAnnotations.TextAnnotation>();
-            var partOfSpeechAnnotationClass = Java.GetAnnotationClass<CoreAnnotations.PartOfSpeechAnnotation>();
-            var namedEntityTagAnnotationClass = Java.GetAnnotationClass<CoreAnnotations.NamedEntityTagAnnotation>();
-
-            var sentences = sentencesAnnotationClass.getClasses().Select(document.get).ToList();
+            
+            var sentences = ((Class)typeof(CoreAnnotations.SentencesAnnotation)).getClasses().Select(document.get).ToList();
 
             foreach (CoreMap sentence in sentences)
             {
-                var tokens = (AbstractList)sentence.get(tokensAnnotationClass);
+                var tokens = (AbstractList)sentence.get(typeof(CoreAnnotations.TokensAnnotation));
                 Console.WriteLine("----");
                 foreach (CoreLabel token in tokens)
                 {
-                    var word = token.get(textAnnotationClass);
-                    var pos = token.get(partOfSpeechAnnotationClass);
-                    var ner = token.get(namedEntityTagAnnotationClass);
+                    var word = token.get(typeof(CoreAnnotations.TextAnnotation));
+                    var pos = token.get(typeof(CoreAnnotations.PartOfSpeechAnnotation));
+                    var ner = token.get(typeof(CoreAnnotations.NamedEntityTagAnnotation));
                     Console.WriteLine($"{word}\t[pos={pos};\tner={ner};]");
                 }
             }

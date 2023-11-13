@@ -1,7 +1,7 @@
-#### 4.5.5 - November 11, 2023
+#### 4.5.5-beta1 - November 14, 2023
 * New version of Stanford CoreNLP (4.5.5)
 * Migration to IKVM 8.7.1
-* Binaries for `net6.0` and `net472`
+* Target `net6.0` only
 * Drop support of `netcoreapp3.1` and `net461`
 
 #### 4.5.0 - August 24, 2022

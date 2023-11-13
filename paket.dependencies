@@ -1,8 +1,7 @@
 source https://nuget.org/api/v2
-framework: net472, net6.0
+framework: net6.0
 
 nuget IKVM
 nuget NUnit
 nuget NUnit3TestAdapter
 nuget Microsoft.NET.Test.Sdk
-nuget Microsoft.NETFramework.ReferenceAssemblies

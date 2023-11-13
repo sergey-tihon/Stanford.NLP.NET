@@ -2,7 +2,7 @@
 source https://api.nuget.org/v3/index.json
 framework: net6.0
 storage: none
-nuget FSharp.Core
+nuget FSharp.Core 6.0.0.0
 nuget Mono.Cecil
 nuget System.IO.Compression.ZipFile
 nuget Fake.Core.Target
@@ -32,7 +32,6 @@ open Fake.IO
 open Fake.IO.FileSystemOperators
 open Fake.IO.Globbing.Operators
 open Fake.DotNet
-open Fake.Tools
 
 Target.initEnvironment ()
 
@@ -51,28 +50,30 @@ let release = ReleaseNotes.load "RELEASE_NOTES.md"
 // IKVM.NET compilation helpers
 
 type TargetRuntime =
-    | Net_472
     | Net_6_0
 
     override this.ToString() =
         match this with
-        | Net_472 -> "net472"
         | Net_6_0 -> "net6.0"
 
-let frameworks = [ Net_472; Net_6_0 ]
+let frameworks = [ Net_6_0 ]
 
 // Location of IKVM Compiler
 let ikvmRootFolder = root </> "data/paket-files/github.com"
 
 let getIkmvcFolder =
     function
-    | Net_472 -> ikvmRootFolder </> "tools-ikvmc-net472"
-    | Net_6_0 -> ikvmRootFolder </> "tools-ikvmc-net6.0"
+    | Net_6_0 ->
+        let toolsFolder =
+            if OperatingSystem.IsMacOS() then "tools-osx"
+            elif OperatingSystem.IsLinux() then "tools-linux"
+            else failwithf "Platform is not supported"
+
+        ikvmRootFolder </> toolsFolder
 
 let getIkvmRuntimeFolder =
     function
-    | Net_472 -> ikvmRootFolder </> "bin-net472"
-    | Net_6_0 -> ikvmRootFolder </> "bin-net6.0"
+    | Net_6_0 -> ikvmRootFolder </> "bin"
 
 let fixFileNames path =
     use file = File.Open(path, FileMode.Open, FileAccess.ReadWrite)
@@ -119,10 +120,10 @@ type IKVMcTask(jar: string, version: string) =
 let timeOut = TimeSpan.FromSeconds(120.0)
 
 let IKVMCompile framework workingDirectory keyFile tasks =
-    let ikvmcExe = (getIkmvcFolder framework) </> "ikvmc.exe"
+    let ikvmc = (getIkmvcFolder framework) </> "ikvmc.dll"
 
     let ikvmc args =
-        CreateProcess.fromRawCommandLine ikvmcExe args
+        CreateProcess.fromRawCommandLine "dotnet" (ikvmc + " " + args)
         |> CreateProcess.withWorkingDirectory (DirectoryInfo(workingDirectory).FullName)
         |> CreateProcess.withTimeout timeOut
         |> CreateProcess.ensureExitCode
@@ -137,8 +138,8 @@ let IKVMCompile framework workingDirectory keyFile tasks =
         else
             keyFile
 
-    let bprintf = Microsoft.FSharp.Core.Printf.bprintf
-    let cache = System.Collections.Generic.HashSet<_>()
+    let bprintf = Printf.bprintf
+    let cache = Collections.Generic.HashSet<_>()
 
     let rec compile (task: IKVMcTask) =
         let getIKVMCommandLineArgs () =
@@ -151,11 +152,10 @@ let IKVMCompile framework workingDirectory keyFile tasks =
 
             let sb = Text.StringBuilder()
 
-            if framework = Net_6_0 then
-                bprintf sb " -nostdlib"
+            bprintf sb " -nostdlib"
 
-                !!(sprintf "%s/refs/*.dll" (getIkmvcFolder framework))
-                |> Seq.iter (fun lib -> bprintf sb " -r:%s" lib)
+            !!(sprintf "%s/*.dll" (getIkmvcFolder framework))
+            |> Seq.iter (fun lib -> bprintf sb " -r:%s" lib)
 
             let runtime = getIkvmRuntimeFolder framework
             bprintf sb " -runtime:%s/IKVM.Runtime.dll" runtime
@@ -242,7 +242,7 @@ Target.create "CompilerCoreNLP" (fun _ ->
                     IKVMcTask(coreNLPDir </> "javax.json.jar", version = "1.0.4")
                     sl4japi
                     IKVMcTask(coreNLPDir </> "slf4j-simple.jar", version = "1.7.2", Dependencies = [ sl4japi ])
-                    IKVMcTask(coreNLPDir </> "protobuf-java-3.19.2.jar", version = "3.19.2") ]
+                    IKVMcTask(coreNLPDir </> "protobuf-java-3.19.6.jar", version = "3.19.6") ]
           ) ]
 
     for framework in frameworks do

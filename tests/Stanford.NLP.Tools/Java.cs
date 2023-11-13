@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-
+using IKVM.Runtime;
 using java.lang;
 using java.util;
 
@@ -25,8 +25,5 @@ namespace Stanford.NLP.Tools
             }
             return props;
         }
-
-        public static Class GetAnnotationClass<T>()
-            => ikvm.@internal.ClassLiteral<T>.Value; // = new T().getClass()
     }
 }

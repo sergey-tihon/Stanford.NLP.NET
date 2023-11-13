@@ -191,3 +191,4 @@ nuget/Stanford.NLP.snk
 .paket/
 data/.paket/
 TestResult.xml
+.idea/

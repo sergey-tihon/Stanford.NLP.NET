@@ -1,10 +1,9 @@
 
 HTTP
   remote: https://github.com
-    bin-net472/bin.zip (/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-bin-net472.zip)
-    bin-net6.0/bin.zip (/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-bin-net6.0.zip)
-    tools-ikvmc-net472/tools.zip (/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-tools-net472-win-x64.zip)
-    tools-ikvmc-net6.0/tools.zip (/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-tools-net6.0-win-x64.zip)
+    bin/bin.zip (/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-bin-net6.0.zip)
+    tools-linux/tools.zip (/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-tools-net6.0-linux-x64.zip)
+    tools-osx/tools.zip (/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-tools-net6.0-osx-x64.zip)
   remote: https://nlp.stanford.edu
     stanford-corenlp-4.5.5.zip (/software/stanford-corenlp-4.5.5.zip)
     stanford-ner-4.2.0.zip (/software/stanford-ner-4.2.0.zip)

@@ -5,7 +5,7 @@ using edu.stanford.nlp.pipeline;
 using edu.stanford.nlp.tagger.maxent;
 using edu.stanford.nlp.time;
 using edu.stanford.nlp.util;
-
+using java.lang;
 using NUnit.Framework;
 
 using Stanford.NLP.Tools;
@@ -41,21 +41,21 @@ namespace Stanford.NLP.CoreNLP.Tests
 
             var text = "Three interesting dates are 18 Feb 1997, the 20th of july and 4 days from today.";
             var annotation = new Annotation(text);
-            annotation.set(Java.GetAnnotationClass<CoreAnnotations.DocDateAnnotation>(), "2013-07-14");
+            annotation.set(typeof(CoreAnnotations.DocDateAnnotation), "2013-07-14");
             pipeline.annotate(annotation);
 
-            TestContext.Out.WriteLine(annotation.get(Java.GetAnnotationClass<CoreAnnotations.TextAnnotation>()));
-            var timexAnnsAll = (java.util.ArrayList)annotation.get(Java.GetAnnotationClass<TimeAnnotations.TimexAnnotations>());
+            TestContext.Out.WriteLine(annotation.get(typeof(CoreAnnotations.TextAnnotation)));
+            var timexAnnsAll = (java.util.ArrayList)annotation.get(typeof(TimeAnnotations.TimexAnnotations));
             Assert.Greater(timexAnnsAll.size(), 0);
 
             foreach (CoreMap cm in timexAnnsAll)
             {
-                var tokens = (java.util.List)cm.get(Java.GetAnnotationClass<CoreAnnotations.TokensAnnotation>());
+                var tokens = (java.util.List)cm.get(typeof(CoreAnnotations.TokensAnnotation));
                 Assert.Greater(tokens.size(), 0);
 
                 var first = tokens.get(0);
                 var last = tokens.get(tokens.size() - 1);
-                var time = (TimeExpression)cm.get(Java.GetAnnotationClass<TimeExpression.Annotation>());
+                var time = (TimeExpression)cm.get(typeof(TimeExpression.Annotation));
                 Assert.IsNotNull(time, "Time expression is null");
 
                 TestContext.Out.WriteLine($"{cm} [from char offset '{first}' to '{last}'] --> {time.getTemporal()}");

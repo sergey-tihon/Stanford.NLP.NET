@@ -13,6 +13,8 @@ using NUnit.Framework;
 
 using Stanford.NLP.Tools;
 using edu.stanford.nlp.neural.rnn;
+using edu.stanford.nlp.sentiment;
+using java.lang;
 
 namespace Stanford.NLP.CoreNLP.Tests
 {
@@ -124,34 +126,34 @@ namespace Stanford.NLP.CoreNLP.Tests
             TestContext.Out.WriteLine("Custom print:");
             TestContext.Out.WriteLine("-------------");
 
-            var sentences = (ArrayList)annotation.get(Java.GetAnnotationClass<CoreAnnotations.SentencesAnnotation>());
+            var sentences = (ArrayList)annotation.get(typeof(CoreAnnotations.SentencesAnnotation));
             Assert.Greater(sentences.size(), 0, "No sentences found");
 
             foreach (CoreMap sentence in sentences)
             {
                 TestContext.Out.WriteLine($"\n\nSentence : '{sentence}'");
-                var tokens = (ArrayList)sentence.get(Java.GetAnnotationClass<CoreAnnotations.TokensAnnotation>());
+                var tokens = (ArrayList)sentence.get(typeof(CoreAnnotations.TokensAnnotation));
                 Assert.Greater(tokens.size(), 0, "No tokens found");
                 foreach (CoreLabel token in tokens)
                 {
-                    var word = token.get(Java.GetAnnotationClass<CoreAnnotations.TextAnnotation>());
+                    var word = token.get(typeof(CoreAnnotations.TextAnnotation));
                     Assert.NotNull(word, "Word not found");
-                    var pos = token.get(Java.GetAnnotationClass<CoreAnnotations.PartOfSpeechAnnotation>());
+                    var pos = token.get(typeof(CoreAnnotations.PartOfSpeechAnnotation));
                     Assert.NotNull(pos, "POS not found");
-                    var ner = token.get(Java.GetAnnotationClass<CoreAnnotations.NamedEntityTagAnnotation>());
+                    var ner = token.get(typeof(CoreAnnotations.NamedEntityTagAnnotation));
                     Assert.NotNull(ner, "NER not found");
                     TestContext.Out.WriteLine($"{word} \t[pos={pos}; ner={ner}]");
                 }
 
                 TestContext.Out.WriteLine("\nTree:");
-                var tree = (Tree)sentence.get(Java.GetAnnotationClass<TreeCoreAnnotations.TreeAnnotation>());
+                var tree = (Tree)sentence.get(typeof(TreeCoreAnnotations.TreeAnnotation));
                 Assert.NotNull(tree, "Parse Tree is null");
                 using var stream = new ByteArrayOutputStream();
                 tree.pennPrint(new PrintWriter(stream));
                 TestContext.Out.WriteLine($"The first sentence parsed is:\n {stream.toString()}");
 
                 TestContext.Out.WriteLine("\nDependencies:");
-                var deps = (SemanticGraph)sentence.get(Java.GetAnnotationClass<SemanticGraphCoreAnnotations.CollapsedDependenciesAnnotation>());
+                var deps = (SemanticGraph)sentence.get(typeof(SemanticGraphCoreAnnotations.CollapsedDependenciesAnnotation));
                 Assert.NotNull(deps, "Semantic graph is null");
                 foreach (SemanticGraphEdge edge in deps.edgeListSorted().toArray())
                 {
@@ -179,11 +181,11 @@ namespace Stanford.NLP.CoreNLP.Tests
             var annotation = new Annotation(text);
             pipeline.annotate(annotation);
 
-            var sentences = (ArrayList)annotation.get(Java.GetAnnotationClass<CoreAnnotations.SentencesAnnotation>());
+            var sentences = (ArrayList)annotation.get(typeof(CoreAnnotations.SentencesAnnotation));
             foreach (CoreMap sentence in sentences)
             {
                 TestContext.Out.WriteLine($"Sentence : '{sentence}'");
-                var sentenceTree = (Tree)sentence.get(Java.GetAnnotationClass<edu.stanford.nlp.sentiment.SentimentCoreAnnotations.SentimentAnnotatedTree>());
+                var sentenceTree = (Tree)sentence.get(typeof(SentimentCoreAnnotations.SentimentAnnotatedTree));
                 Assert.NotNull(sentenceTree, "Cannot find SentimentAnnotatedTree");
 
                 var sentiment = RNNCoreAnnotations.getPredictedClass(sentenceTree);

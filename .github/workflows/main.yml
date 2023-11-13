@@ -12,13 +12,9 @@ jobs:
 
   build:
     name: Build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Setup .NET 3.1 SDK
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 3.1.x
     - name: Setup .NET 6.0 SDK
       uses: actions/setup-dotnet@v2
       with:
@@ -49,16 +45,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, ubuntu-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     needs:
     - build
     steps:
     - uses: actions/checkout@v1
-    - name: Setup .NET 3.1 SDK
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 3.1.x
     - name: Setup .NET 6.0 SDK
       uses: actions/setup-dotnet@v2
       with:
