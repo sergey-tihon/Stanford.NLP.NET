@@ -1,5 +1,5 @@
 source https://nuget.org/api/v2
-framework: net461, netcore3.1
+framework: net472, net6.0
 
 nuget IKVM
 nuget NUnit

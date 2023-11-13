@@ -51,29 +51,28 @@ let release = ReleaseNotes.load "RELEASE_NOTES.md"
 // IKVM.NET compilation helpers
 
 type TargetRuntime =
-    | Net_461
-    | NetCore_3_1
+    | Net_472
+    | Net_6_0
+
     override this.ToString() =
         match this with
-        | Net_461 -> "net461"
-        | NetCore_3_1 -> "netcoreapp3.1"
+        | Net_472 -> "net472"
+        | Net_6_0 -> "net6.0"
 
-let frameworks = [ Net_461; NetCore_3_1 ]
+let frameworks = [ Net_472; Net_6_0 ]
 
 // Location of IKVM Compiler
 let ikvmRootFolder = root </> "data/paket-files/github.com"
 
 let getIkmvcFolder =
     function
-    | Net_461 -> ikvmRootFolder </> "tools-ikvmc-net461/any"
-    | NetCore_3_1 ->
-        ikvmRootFolder
-        </> "tools-ikvmc-netcoreapp3.1/win7-x64"
+    | Net_472 -> ikvmRootFolder </> "tools-ikvmc-net472"
+    | Net_6_0 -> ikvmRootFolder </> "tools-ikvmc-net6.0"
 
 let getIkvmRuntimeFolder =
     function
-    | Net_461 -> ikvmRootFolder </> "bin-net461"
-    | NetCore_3_1 -> ikvmRootFolder </> "bin-netcoreapp3.1"
+    | Net_472 -> ikvmRootFolder </> "bin-net472"
+    | Net_6_0 -> ikvmRootFolder </> "bin-net6.0"
 
 let fixFileNames path =
     use file = File.Open(path, FileMode.Open, FileAccess.ReadWrite)
@@ -129,6 +128,7 @@ let IKVMCompile framework workingDirectory keyFile tasks =
         |> CreateProcess.ensureExitCode
         |> Proc.run
         |> ignore
+
     let newKeyFile =
         if (File.Exists keyFile) then
             let file = workingDirectory @@ (Path.GetFileName(keyFile))
@@ -151,7 +151,7 @@ let IKVMCompile framework workingDirectory keyFile tasks =
 
             let sb = Text.StringBuilder()
 
-            if framework = NetCore_3_1 then
+            if framework = Net_6_0 then
                 bprintf sb " -nostdlib"
 
                 !!(sprintf "%s/refs/*.dll" (getIkmvcFolder framework))
@@ -213,10 +213,8 @@ Target.create "CleanDocs" (fun _ -> Shell.cleanDirs [ "docs/output" ])
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.CoreNLP and build NuGet package
 
-let coreNLPDir =
-    root
-    </> "data/paket-files/nlp.stanford.edu/stanford-corenlp-4.5.0"
-    
+let coreNLPDir = root </> "data/paket-files/nlp.stanford.edu/stanford-corenlp-4.5.5"
+
 Target.create "CompilerCoreNLP" (fun _ ->
     let jodaTime = IKVMcTask(coreNLPDir </> "joda-time.jar", version = "2.10.5")
     let ejmlCore = IKVMcTask(coreNLPDir </> "ejml-core-0.39.jar", version = "0.39")
@@ -228,7 +226,7 @@ Target.create "CompilerCoreNLP" (fun _ ->
 
     let tasks =
         [ IKVMcTask(
-              coreNLPDir </> "stanford-corenlp-4.5.0.jar",
+              coreNLPDir </> "stanford-corenlp-4.5.5.jar",
               version = release.AssemblyVersion,
               Dependencies =
                   [ jodaTime
@@ -260,9 +258,7 @@ Target.create "NuGetCoreNLP" (fun _ ->
 // Compile Stanford.NLP.NET and build NuGet package
 
 let toolsVersion = "4.2.0.2"
-let nerDir =
-    root
-    </> "data/paket-files/nlp.stanford.edu/stanford-ner-2020-11-17"
+let nerDir = root </> "data/paket-files/nlp.stanford.edu/stanford-ner-2020-11-17"
 
 Target.create "CompilerNER" (fun _ ->
     let tasks =
@@ -282,16 +278,13 @@ Target.create "CompilerNER" (fun _ ->
         Shell.mkdir ikvmDir
         IKVMCompile framework ikvmDir keyFile tasks)
 
-Target.create "NuGetNER" (fun _ ->
-    root </> "nuget/Stanford.NLP.NER.template"
-    |> createNuGetPackage toolsVersion)
+Target.create "NuGetNER" (fun _ -> root </> "nuget/Stanford.NLP.NER.template" |> createNuGetPackage toolsVersion)
 
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.Parser and build NuGet package
 
 let parserDir =
-    root
-    </> "data/paket-files/nlp.stanford.edu/stanford-parser-full-2020-11-17"
+    root </> "data/paket-files/nlp.stanford.edu/stanford-parser-full-2020-11-17"
 
 Target.create "CompilerParser" (fun _ ->
     let tasks =
@@ -308,16 +301,13 @@ Target.create "CompilerParser" (fun _ ->
         Shell.mkdir ikvmDir
         IKVMCompile framework ikvmDir keyFile tasks)
 
-Target.create "NuGetParser" (fun _ ->
-    root </> "nuget/Stanford.NLP.Parser.template"
-    |> createNuGetPackage toolsVersion)
+Target.create "NuGetParser" (fun _ -> root </> "nuget/Stanford.NLP.Parser.template" |> createNuGetPackage toolsVersion)
 
 // --------------------------------------------------------------------------------------
 // Compile Stanford.NLP.POSTagger and build NuGet package
 
 let posDir =
-    root
-    </> "data/paket-files/nlp.stanford.edu/stanford-postagger-full-2020-11-17"
+    root </> "data/paket-files/nlp.stanford.edu/stanford-postagger-full-2020-11-17"
 
 Target.create "CompilerPOS" (fun _ ->
     let tasks =
@@ -336,16 +326,11 @@ Target.create "NuGetPOS" (fun _ ->
 // Compile Stanford.NLP.Segmenter and build NuGet package
 
 let segmenterDir =
-    root
-    </> "data/paket-files/nlp.stanford.edu/stanford-segmenter-2020-11-17"
+    root </> "data/paket-files/nlp.stanford.edu/stanford-segmenter-2020-11-17"
 
 Target.create "CompilerSegmenter" (fun _ ->
     let tasks =
-        [ IKVMcTask(
-              segmenterDir </> "stanford-segmenter-4.2.0.jar",
-              version = toolsVersion,
-              Dependencies = []
-          ) ]
+        [ IKVMcTask(segmenterDir </> "stanford-segmenter-4.2.0.jar", version = toolsVersion, Dependencies = []) ]
 
     for framework in frameworks do
         let ikvmDir = $"bin/Stanford.NLP.Segmenter/lib/{framework}"
@@ -362,13 +347,14 @@ Target.create "NuGetSegmenter" (fun _ ->
 
 let dotnet cmd args =
     let result = DotNet.exec id cmd args
+
     if not result.OK then
         failwithf "Failed: %A" result.Errors
 
 Target.create "BuildTests" (fun _ -> dotnet "build" "Stanford.NLP.NET.sln -c Release")
 
 Target.create "RestoreModels" (fun _ ->
-    coreNLPDir </> "stanford-corenlp-4.5.0-models.jar"
+    coreNLPDir </> "stanford-corenlp-4.5.5-models.jar"
     |> restoreFolderFromFile (Path.Combine(coreNLPDir, "models"))
 
     parserDir </> "stanford-parser-4.2.0-models.jar"
@@ -400,34 +386,13 @@ Target.create "BrowseDocs" (fun _ ->
 Target.create "All" ignore
 Target.create "NuGet" ignore
 
-"Clean"
-==> "CompilerCoreNLP"
-==> "NuGetCoreNLP"
-==> "NuGet"
-
-"Clean"
-==> "CompilerNER"
-==> "NuGetNER"
-==> "NuGet"
-
-"Clean"
-==> "CompilerParser"
-==> "NuGetParser"
-==> "NuGet"
-
-"Clean"
-==> "CompilerPOS"
-==> "NuGetPOS"
-==> "NuGet"
-
-"Clean"
-==> "CompilerSegmenter"
-==> "NuGetSegmenter"
-==> "NuGet"
+"Clean" ==> "CompilerCoreNLP" ==> "NuGetCoreNLP" ==> "NuGet"
+"Clean" ==> "CompilerNER" ==> "NuGetNER" ==> "NuGet"
+"Clean" ==> "CompilerParser" ==> "NuGetParser" ==> "NuGet"
+"Clean" ==> "CompilerPOS" ==> "NuGetPOS" ==> "NuGet"
+"Clean" ==> "CompilerSegmenter" ==> "NuGetSegmenter" ==> "NuGet"
 
 "NuGet" ==> "BuildTests" ==> "All"
-
-"RestoreModels"
-==> "RunTests"
+"RestoreModels" ==> "RunTests"
 
 Target.runOrDefault "All"

@@ -19,7 +19,7 @@ See also: [corenlp.run](http://corenlp.run) and [online CoreNLP demo](http://nlp
 
 1. Choose the package that is the most suitable for your task. If your task is complex and you need a deep analysis - select [Stanford CoreNLP](samples/CoreNLP.html)
 1. Install [NuGet package](https://www.nuget.org/packages/Stanford.NLP.CoreNLP/).
-1. Download [CoreNLP ZIP archive](https://nlp.stanford.edu/software/stanford-corenlp-latest.zip).
+1. Download [CoreNLP ZIP archive](https://nlp.stanford.edu/software/stanford-corenlp-4.5.5.zip).
 1. Unzip `*.jar` file with models.
 1. You are ready to start, please look at [samples](/samples)
 1. Read more details on [official CoreNLP page](https://stanfordnlp.github.io/CoreNLP/).

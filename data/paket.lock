@@ -1,12 +1,12 @@
 
 HTTP
   remote: https://github.com
-    bin-net461/bin.zip (/ikvm-revived/ikvm/releases/download/8.2.1/IKVM-8.2.1-bin-net461.zip)
-    bin-netcoreapp3.1/bin.zip (/ikvm-revived/ikvm/releases/download/8.2.1/IKVM-8.2.1-bin-netcoreapp3.1.zip)
-    tools-ikvmc-net461/tools.zip (/ikvm-revived/ikvm/releases/download/8.2.1/IKVM-8.2.1-tools-ikvmc-net461.zip)
-    tools-ikvmc-netcoreapp3.1/tools.zip (/ikvm-revived/ikvm/releases/download/8.2.1/IKVM-8.2.1-tools-ikvmc-netcoreapp3.1.zip)
+    bin-net472/bin.zip (/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-bin-net472.zip)
+    bin-net6.0/bin.zip (/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-bin-net6.0.zip)
+    tools-ikvmc-net472/tools.zip (/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-tools-net472-win-x64.zip)
+    tools-ikvmc-net6.0/tools.zip (/ikvmnet/ikvm/releases/download/8.7.1/IKVM-8.7.1-tools-net6.0-win-x64.zip)
   remote: https://nlp.stanford.edu
-    stanford-corenlp-latest.zip (/software/stanford-corenlp-latest.zip)
+    stanford-corenlp-4.5.5.zip (/software/stanford-corenlp-4.5.5.zip)
     stanford-ner-4.2.0.zip (/software/stanford-ner-4.2.0.zip)
     stanford-parser-4.2.0.zip (/software/stanford-parser-4.2.0.zip)
     stanford-segmenter-4.2.0.zip (/software/stanford-segmenter-4.2.0.zip)

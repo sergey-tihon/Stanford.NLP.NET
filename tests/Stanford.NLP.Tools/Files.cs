@@ -29,7 +29,7 @@ namespace Stanford.NLP.Tools
         public static class CoreNlp
         {
             public static string JarRoot =>
-                Path.Combine(NlpStanford, "stanford-corenlp-4.5.0/models/");
+                Path.Combine(NlpStanford, "stanford-corenlp-4.5.5/models/");
 
             public static string Models(string path) =>
                 Path.Combine(JarRoot, "edu/stanford/nlp/models/", path);

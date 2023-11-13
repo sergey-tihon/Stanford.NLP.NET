@@ -12,8 +12,8 @@ class Program
 {
     static void Main()
     {
-        // Path to the folder with models extracted from `stanford-corenlp-4.5.0-models.jar`
-        var jarRoot = @"nlp.stanford.edu\stanford-corenlp-4.5.0\models";
+        // Path to the folder with models extracted from `stanford-corenlp-4.5.5-models.jar`
+        var jarRoot = @"nlp.stanford.edu\stanford-corenlp-4.5.5\models";
 
         // Text for processing
         var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
