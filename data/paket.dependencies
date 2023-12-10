@@ -1,10 +1,1 @@
-http https://github.com/ikvm-revived/ikvm/releases/download/8.2.1/IKVM-8.2.1-tools-ikvmc-net461.zip tools-ikvmc-net461/tools.zip
-http https://github.com/ikvm-revived/ikvm/releases/download/8.2.1/IKVM-8.2.1-tools-ikvmc-netcoreapp3.1.zip tools-ikvmc-netcoreapp3.1/tools.zip
-http https://github.com/ikvm-revived/ikvm/releases/download/8.2.1/IKVM-8.2.1-bin-net461.zip bin-net461/bin.zip
-http https://github.com/ikvm-revived/ikvm/releases/download/8.2.1/IKVM-8.2.1-bin-netcoreapp3.1.zip bin-netcoreapp3.1/bin.zip
-
-http https://nlp.stanford.edu/software/stanford-corenlp-latest.zip
-http https://nlp.stanford.edu/software/stanford-ner-4.2.0.zip
-http https://nlp.stanford.edu/software/stanford-parser-4.2.0.zip
-http https://nlp.stanford.edu/software/stanford-tagger-4.2.0.zip
-http https://nlp.stanford.edu/software/stanford-segmenter-4.2.0.zip
+http https://nlp.stanford.edu/software/stanford-corenlp-4.5.5.zip

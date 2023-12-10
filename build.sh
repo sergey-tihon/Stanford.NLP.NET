@@ -1,11 +1,2 @@
 #!/bin/bash
-
-dotnet tool restore
-
-cd data
-dotnet paket restore
-cd ..
-
-dotnet paket restore
-dotnet fake run build.fsx $@
-
+dotnet fsi build.fsx -- -p build
