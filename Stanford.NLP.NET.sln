@@ -6,31 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BF60BC93-E09B-4E5F-9D85-95A519479D54}"
 	ProjectSection(SolutionItems) = preProject
 		build.fsx = build.fsx
-		paket.dependencies = paket.dependencies
-		paket.lock = paket.lock
 		README.md = README.md
 		RELEASE_NOTES.md = RELEASE_NOTES.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{ED8079DD-2B06-4030-9F0F-DC548F98E1C4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{4B69DF10-DB06-4440-8434-52DC03ED19F6}"
-	ProjectSection(SolutionItems) = preProject
-		tests\data\SampleText.txt = tests\data\SampleText.txt
-		tests\data\test.simple.utf8 = tests\data\test.simple.utf8
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.Segmenter.Tests", "tests\Stanford.NLP.Segmenter.Tests\Stanford.NLP.Segmenter.Tests.csproj", "{1CC767E6-5DD0-4567-B9DC-6612D51033FA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.Tagger.Tests", "tests\Stanford.NLP.Tagger.Tests\Stanford.NLP.Tagger.Tests.csproj", "{952BD2E5-772F-4EF6-BE2A-50CB10D83938}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.Parser.Tests", "tests\Stanford.NLP.Parser.Tests\Stanford.NLP.Parser.Tests.csproj", "{8936D281-29E7-4B79-B8F8-B9F81AD58224}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.NER.Tests", "tests\Stanford.NLP.NER.Tests\Stanford.NLP.NER.Tests.csproj", "{3E6A9451-BF6C-4452-8B83-3365BBD73AF8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.CoreNLP.Tests", "tests\Stanford.NLP.CoreNLP.Tests\Stanford.NLP.CoreNLP.Tests.csproj", "{8FD5937A-91FF-4220-8F81-CB1F6C7C5C68}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stanford.NLP.Tools", "tests\Stanford.NLP.Tools\Stanford.NLP.Tools.csproj", "{AA366199-0030-4E5A-9EB6-7763BB465245}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,42 +18,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1CC767E6-5DD0-4567-B9DC-6612D51033FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1CC767E6-5DD0-4567-B9DC-6612D51033FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1CC767E6-5DD0-4567-B9DC-6612D51033FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1CC767E6-5DD0-4567-B9DC-6612D51033FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{952BD2E5-772F-4EF6-BE2A-50CB10D83938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{952BD2E5-772F-4EF6-BE2A-50CB10D83938}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{952BD2E5-772F-4EF6-BE2A-50CB10D83938}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{952BD2E5-772F-4EF6-BE2A-50CB10D83938}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8936D281-29E7-4B79-B8F8-B9F81AD58224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8936D281-29E7-4B79-B8F8-B9F81AD58224}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8936D281-29E7-4B79-B8F8-B9F81AD58224}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8936D281-29E7-4B79-B8F8-B9F81AD58224}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E6A9451-BF6C-4452-8B83-3365BBD73AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E6A9451-BF6C-4452-8B83-3365BBD73AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E6A9451-BF6C-4452-8B83-3365BBD73AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E6A9451-BF6C-4452-8B83-3365BBD73AF8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8FD5937A-91FF-4220-8F81-CB1F6C7C5C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8FD5937A-91FF-4220-8F81-CB1F6C7C5C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FD5937A-91FF-4220-8F81-CB1F6C7C5C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FD5937A-91FF-4220-8F81-CB1F6C7C5C68}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA366199-0030-4E5A-9EB6-7763BB465245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA366199-0030-4E5A-9EB6-7763BB465245}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA366199-0030-4E5A-9EB6-7763BB465245}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA366199-0030-4E5A-9EB6-7763BB465245}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4B69DF10-DB06-4440-8434-52DC03ED19F6} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
-		{1CC767E6-5DD0-4567-B9DC-6612D51033FA} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
-		{952BD2E5-772F-4EF6-BE2A-50CB10D83938} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
-		{8936D281-29E7-4B79-B8F8-B9F81AD58224} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
-		{3E6A9451-BF6C-4452-8B83-3365BBD73AF8} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
-		{8FD5937A-91FF-4220-8F81-CB1F6C7C5C68} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
-		{AA366199-0030-4E5A-9EB6-7763BB465245} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E257E391-8FA8-4FAC-A612-5F9CE36F53D3}
