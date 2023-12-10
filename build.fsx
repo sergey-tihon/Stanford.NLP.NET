@@ -55,10 +55,9 @@ pipeline "build" {
         }
     }
 
-    stage "Build" {
-        run "dotnet build Stanford.NLP.NET.sln -c Release"
-        run "dotnet test Stanford.NLP.NET.sln -c Release"
-    }
+    stage "Build" { run "dotnet build Stanford.NLP.NET.sln -c Release" }
+
+    stage "Test" { run "dotnet test Stanford.NLP.NET.sln -c Release" }
 
     runIfOnlySpecified
 }
