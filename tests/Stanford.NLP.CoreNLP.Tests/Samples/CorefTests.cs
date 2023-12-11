@@ -6,12 +6,14 @@ using edu.stanford.nlp.ling;
 using edu.stanford.nlp.pipeline;
 using edu.stanford.nlp.util;
 using java.util;
+using Stanford.NLP.CoreNLP.Tests.Fixtures;
 using Stanford.NLP.CoreNLP.Tests.Helpers;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace Stanford.NLP.CoreNLP.Tests.Samples;
 
+[Collection(nameof(IkvmCollection))]
 public class CorefTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
@@ -25,10 +27,6 @@ public class CorefTests
     [Fact]
     public void CorefTest()
     { 
-        // Black magic - https://github.com/ikvmnet/ikvm-maven/issues/46#issuecomment-1849085463
-        // This is the first test to run (with sequential test execution), so it affect all other tests as well
-        var _ = new java.lang.Object();
-
         var document =
             new Annotation("Barack Obama was born in Hawaii.  He is the president. Obama was elected in 2008.");
         var props = new Properties();

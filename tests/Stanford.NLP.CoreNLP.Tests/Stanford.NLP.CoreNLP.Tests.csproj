@@ -8,7 +8,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="IKVM" Version="8.7.3"/>
-        <PackageReference Include="IKVM.Maven.Sdk" Version="1.6.2" PrivateAssets="all"/>
+        <PackageReference Include="IKVM.Maven.Sdk" Version="1.6.3" PrivateAssets="all"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
         <PackageReference Include="xunit" Version="2.6.3"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.5.5">
@@ -18,8 +18,5 @@
     </ItemGroup>
     <ItemGroup>
         <MavenReference Include="edu.stanford.nlp:stanford-corenlp" Version="4.5.5"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 </Project>

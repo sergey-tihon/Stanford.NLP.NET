@@ -5,12 +5,14 @@ using edu.stanford.nlp.tagger.maxent;
 using edu.stanford.nlp.time;
 using edu.stanford.nlp.util;
 using java.util;
+using Stanford.NLP.CoreNLP.Tests.Fixtures;
 using Stanford.NLP.CoreNLP.Tests.Helpers;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace Stanford.NLP.CoreNLP.Tests.Samples;
 
+[Collection(nameof(IkvmCollection))]
 public class SUTimeTests
 {
     private readonly ITestOutputHelper _testOutputHelper;

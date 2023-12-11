@@ -10,6 +10,7 @@ using edu.stanford.nlp.trees;
 using edu.stanford.nlp.util;
 using java.io;
 using java.util;
+using Stanford.NLP.CoreNLP.Tests.Fixtures;
 using Stanford.NLP.CoreNLP.Tests.Helpers;
 using Xunit;
 using Xunit.Abstractions;
@@ -17,6 +18,7 @@ using Assert = Xunit.Assert;
 
 namespace Stanford.NLP.CoreNLP.Tests.Samples;
 
+[Collection(nameof(IkvmCollection))]
 public class CoreNlpTests
 {
     private readonly ITestOutputHelper _testOutputHelper;

@@ -2,11 +2,13 @@ using System;
 using edu.stanford.nlp.ie.machinereading.structure;
 using edu.stanford.nlp.simple;
 using java.util;
+using Stanford.NLP.CoreNLP.Tests.Fixtures;
 using Stanford.NLP.CoreNLP.Tests.Helpers;
 using Xunit;
 
 namespace Stanford.NLP.CoreNLP.Tests.Samples;
 
+[Collection(nameof(IkvmCollection))]
 public class SimpleNlpTests : IDisposable
 {
     private readonly string _currentDir;
