@@ -67,7 +67,7 @@ pipeline "docs" {
 
     stage "Build" {
         run "rm -rf ./docs/output"
-        run "dotnet serve -o -d ./docs"
+        run "dotnet serve -o -d=./docs"
     }
 
     runIfOnlySpecified
