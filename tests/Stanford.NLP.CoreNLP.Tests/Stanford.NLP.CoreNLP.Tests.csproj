@@ -7,11 +7,11 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="IKVM" Version="8.7.4" />
-        <PackageReference Include="IKVM.Maven.Sdk" Version="1.6.7" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
-        <PackageReference Include="xunit" Version="2.6.6" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.6">
+        <PackageReference Include="IKVM" Version="8.7.5" />
+        <PackageReference Include="IKVM.Maven.Sdk" Version="1.6.8" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+        <PackageReference Include="xunit" Version="2.7.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
