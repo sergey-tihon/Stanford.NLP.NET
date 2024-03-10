@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using edu.stanford.nlp.ling;
 using edu.stanford.nlp.neural.rnn;
 using edu.stanford.nlp.pipeline;
@@ -11,7 +8,6 @@ using edu.stanford.nlp.util;
 using java.io;
 using java.util;
 using Stanford.NLP.CoreNLP.Tests.Fixtures;
-using Stanford.NLP.CoreNLP.Tests.Helpers;
 using Xunit;
 using Xunit.Abstractions;
 using Assert = Xunit.Assert;
@@ -28,93 +24,18 @@ public class CoreNlpTests
         _testOutputHelper = testOutputHelper;
     }
 
-    // Annotation pipeline configuration
-    public static Properties Props =>
-        GetProperties("tokenize, ssplit, pos, lemma, ner, parse");
-
-    public static Properties GetProperties(string annotators)
-    {
-        Dictionary<string, string> props = new()
-        {
-            { "annotators", annotators },
-            { "tokenize.language", "en" },
-
-            { "pos.model", Files.CoreNlp.Models("pos-tagger/english-left3words-distsim.tagger") },
-            {
-                "ner.model", string.Join(",",
-                    Files.CoreNlp.Models("ner/english.all.3class.distsim.crf.ser.gz"),
-                    Files.CoreNlp.Models("ner/english.muc.7class.distsim.crf.ser.gz"),
-                    Files.CoreNlp.Models("ner/english.conll.4class.distsim.crf.ser.gz")
-                )
-            },
-            { "ner.useSUTime", "false" }, // !!!
-            {
-                "sutime.rules", string.Join(",",
-                    Files.CoreNlp.Models("sutime/defs.sutime.txt"),
-                    Files.CoreNlp.Models("sutime/english.sutime.txt"),
-                    Files.CoreNlp.Models("sutime/english.holidays.sutime.txt")
-                )
-            },
-
-            {
-                "ner.fine.regexner.mapping",
-                $"ignorecase=true,validpospattern=^(NN|JJ).*,{Files.CoreNlp.Models("kbp/english/gazetteers/regexner_caseless.tab")};{Files.CoreNlp.Models("kbp/english/gazetteers/regexner_cased.tab")}"
-            },
-            { "ner.fine.regexner.noDefaultOverwriteLabels", "CITY" },
-
-            { "parse.model", Files.CoreNlp.Models("lexparser/englishPCFG.ser.gz") },
-            //{"depparse.model", Files.CoreNlp.Models("parser/nndep/english_UD.gz")}
-
-            { "sentiment.model", Files.CoreNlp.Models("sentiment/sentiment.ser.gz") }
-        };
-        return Java.Props(props);
-    }
-
     [Fact]
-    public void ManualPropsConfiguration()
-    {
-        // Constants/Keys - https://github.com/stanfordnlp/CoreNLP/blob/1d5d8914500e1110f5c6577a70e49897ccb0d084/src/edu/stanford/nlp/dcoref/Constants.java
-        // DefaultPaths/Values - https://github.com/stanfordnlp/CoreNLP/blob/master/src/edu/stanford/nlp/pipeline/DefaultPaths.java
-        // Dictionaries/Matching - https://github.com/stanfordnlp/CoreNLP/blob/8f70e42dcd39e40685fc788c3f22384779398d63/src/edu/stanford/nlp/dcoref/Dictionaries.java
-        var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
-
-        var pipeline = new StanfordCoreNLP(Props);
-        // Annotation
-        var annotation = new Annotation(text);
-        pipeline.annotate(annotation);
-
-        // Result - Pretty Print
-        using var stream = new ByteArrayOutputStream();
-        pipeline.prettyPrint(annotation, new PrintWriter(stream));
-        _testOutputHelper.WriteLine(stream.toString());
-
-        CustomAnnotationPrint(annotation);
-    }
-
-    [Fact]
-    public void DirectoryChangeLoad()
+    public void LoadFromAssemblyWithModels()
     {
         var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
 
         // Annotation pipeline configuration
-        var props = Java.Props(new Dictionary<string, string>
-        {
-            { "annotators", "tokenize, ssplit, pos, lemma, ner, parse" },
-            { "ner.useSUTime", "false" }
-        });
+        var props = new Properties();
+        props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse");
+        props.setProperty("ner.useSUTime", "false");
 
         // we should change current directory so StanfordCoreNLP could find all the model files
-        StanfordCoreNLP pipeline;
-        var curDir = Environment.CurrentDirectory;
-        try
-        {
-            Directory.SetCurrentDirectory(Files.CoreNlp.JarRoot);
-            pipeline = new StanfordCoreNLP(props);
-        }
-        finally
-        {
-            Directory.SetCurrentDirectory(curDir);
-        }
+        var pipeline = new StanfordCoreNLP(props);
 
         // Annotation
         var annotation = new Annotation(text);
@@ -182,7 +103,9 @@ public class CoreNlpTests
     public void SentimentAnalysisTest()
     {
         // Annotation pipeline configuration
-        var props = GetProperties("tokenize, ssplit, pos, parse, sentiment");
+        var props = new Properties();
+        props.setProperty("annotators", "tokenize, ssplit, pos, parse, sentiment");
+        //props.setProperty("ner.useSUTime", "false");
         var pipeline = new StanfordCoreNLP(props);
 
         // Annotation

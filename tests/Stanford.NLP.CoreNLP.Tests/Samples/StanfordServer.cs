@@ -27,7 +27,7 @@ public class StanfordServer
         // creates a StanfordCoreNLP object with POS tagging, lemmatization, NER, parsing, and coreference resolution
         var props = new Properties();
         props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
-        StanfordCoreNLPClient pipeline = new(props, "http://localhost", 9000, 2);
+        var pipeline = new StanfordCoreNLPClient(props, "http://localhost", 9000, 2);
 
         // read some text in the text variable
         var text = "Kosgi Santosh sent an email to Stanford University.";
@@ -37,7 +37,6 @@ public class StanfordServer
         pipeline.annotate(document);
 
 
-        var sentencesAnnotationClass = typeof(CoreAnnotations.SentencesAnnotation);
         var tokensAnnotationClass = typeof(CoreAnnotations.TokensAnnotation);
         var textAnnotationClass = typeof(CoreAnnotations.TextAnnotation);
         var partOfSpeechAnnotationClass = typeof(CoreAnnotations.PartOfSpeechAnnotation);

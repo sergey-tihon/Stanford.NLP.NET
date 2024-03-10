@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using edu.stanford.nlp.coref;
 using edu.stanford.nlp.coref.data;
 using edu.stanford.nlp.ling;
@@ -7,7 +5,6 @@ using edu.stanford.nlp.pipeline;
 using edu.stanford.nlp.util;
 using java.util;
 using Stanford.NLP.CoreNLP.Tests.Fixtures;
-using Stanford.NLP.CoreNLP.Tests.Helpers;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -33,10 +30,7 @@ public class CorefTests
         props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,coref");
         props.setProperty("ner.useSUTime", "false");
 
-        var curDir = Environment.CurrentDirectory;
-        Directory.SetCurrentDirectory(Files.CoreNlp.JarRoot);
         var pipeline = new StanfordCoreNLP(props);
-        Directory.SetCurrentDirectory(curDir);
 
         pipeline.annotate(document);
 

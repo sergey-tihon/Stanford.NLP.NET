@@ -3,27 +3,13 @@ using edu.stanford.nlp.ie.machinereading.structure;
 using edu.stanford.nlp.simple;
 using java.util;
 using Stanford.NLP.CoreNLP.Tests.Fixtures;
-using Stanford.NLP.CoreNLP.Tests.Helpers;
 using Xunit;
 
 namespace Stanford.NLP.CoreNLP.Tests.Samples;
 
 [Collection(nameof(IkvmCollection))]
-public class SimpleNlpTests : IDisposable
+public class SimpleNlpTests 
 {
-    private readonly string _currentDir;
-
-    public SimpleNlpTests()
-    {
-        _currentDir = Environment.CurrentDirectory;
-        Environment.CurrentDirectory = Files.CoreNlp.JarRoot;
-    }
-
-    public void Dispose()
-    {
-        Environment.CurrentDirectory = _currentDir;
-    }
-
     [Fact]
     public void Pos()
     {

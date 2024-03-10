@@ -17,6 +17,7 @@
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
-        <MavenReference Include="edu.stanford.nlp:stanford-corenlp" Version="4.5.5"/>
+        <MavenReference Include="edu.stanford.nlp:stanford-corenlp" Version="4.5.6"/>
+        <MavenReference Include="edu.stanford.nlp:stanford-corenlp" Version="4.5.6" Classifier="models" />
     </ItemGroup>
 </Project>
