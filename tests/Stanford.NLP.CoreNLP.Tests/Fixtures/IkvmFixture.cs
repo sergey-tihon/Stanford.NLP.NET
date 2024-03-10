@@ -9,9 +9,6 @@ public class IkvmFixture
     public IkvmFixture ()
     {
         PreloadAssemblyWithModels();
-        
-        // BUG: IKVM issue - https://github.com/ikvmnet/ikvm/issues/423
-        _ = new java.lang.Object();
     }
 
     private static void PreloadAssemblyWithModels()
