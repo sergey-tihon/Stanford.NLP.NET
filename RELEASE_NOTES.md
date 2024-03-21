@@ -1,3 +1,6 @@
+#### Unreleased - March 10, 2024
+* All packages were archived and will not be updated anymore
+
 #### 4.5.0 - August 24, 2022
 * New version of Stanford CoreNLP (4.5.0)
 * Binaries for `netcoreapp3.1`

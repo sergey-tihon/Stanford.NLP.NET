@@ -33,8 +33,7 @@ public class CoreNlpTests
         var props = new Properties();
         props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse");
         props.setProperty("ner.useSUTime", "false");
-
-        // we should change current directory so StanfordCoreNLP could find all the model files
+        
         var pipeline = new StanfordCoreNLP(props);
 
         // Annotation

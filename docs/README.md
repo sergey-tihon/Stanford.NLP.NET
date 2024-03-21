@@ -4,18 +4,53 @@
   <img src="https://stanfordnlp.github.io/CoreNLP/assets/images/corenlp-title.png">
 </a>
 
-### Key facts
+<Note type="warning">
 
-- `Stanford.NLP.NET` is built on top of [IKVM.NET](https://github.com/ikvm-revived/ikvm) (`Java` VM that runs on top of `.NET` VM).
-- It supports full `.NET` framework and `.NET Core`.
-- You should always start from the main [CoreNLP](https://www.nuget.org/packages/Stanford.NLP.CoreNLP/) package, which provides the full range of features. Other, related packages exist only for historical/compatibility reasons.
-- Use the [official CoreNLP site](https://stanfordnlp.github.io/CoreNLP/demo.html) for the latest docs, samples and demos. This site is maintained by the library's authors.
-- Use [StackOverflow](https://stackoverflow.com/questions/tagged/stanford-nlp) to ask all "how to" NLP-related questions.
+2024-03-21: All [Stanford.NLP NuGet packages](https://www.nuget.org/packages?q=Stanford.NLP) are marted as deprecated (legacy and no longer maintained). Please use [official Stanford CoreNLP Maven package](https://mvnrepository.com/artifact/edu.stanford.nlp/stanford-corenlp) instead with [IKVM.Maven.Sdk](https://github.com/ikvmnet/ikvm-maven).
 
-### Licensing
+</Note>
 
-All these software distributions are open source, **licensed under the [GNU General Public License](https://github.com/sergey-tihon/Stanford.NLP.NET/blob/master/LICENSE.txt) (v2 or later)**. Note that this is the *full* GPL, which allows many free uses, but *does not* allow its incorporation into any type of distributed proprietary software, even in part or in translation. **Commercial licensing** is also available; please contact [The Stanford Natural Language Processing Group](http://www-nlp.stanford.edu/) if you are interested.
+### Getting started `IKVM.Maven.Sdk`
 
-### Versioning
+Copy following lines into your project file:
 
-The versioning model used for NuGet packages is aligned to versioning used by the Stanford NLP Group. For example, if you get a Stanford CoreNLP distribution from [Stanford NLP site](https://nlp.stanford.edu/software/index.shtml) with version `3.9.1`, then the NuGet version of this package has a version `3.9.1.x`, where `x` is the greatest that is available on NuGet. The last number is used for internal versioning of .NET assemblies.
+```xml
+<ItemGroup>
+    <PackageReference Include="IKVM" Version="8.7.5" />
+    <PackageReference Include="IKVM.Maven.Sdk" Version="1.6.8" PrivateAssets="all" />
+</ItemGroup>
+<ItemGroup>
+    <MavenReference Include="edu.stanford.nlp:stanford-corenlp" Version="4.5.6"/>
+    <MavenReference Include="edu.stanford.nlp:stanford-corenlp" Version="4.5.6" Classifier="models" />
+</ItemGroup>
+```
+First two `PackageReference`es add [IKVM](https://github.com/ikvmnet/ikvm) and [IKVM.Maven.Sdk](https://github.com/ikvmnet/ikvm-maven) to your project. The `MavenReference`es are used to download and compile Stanford CoreNLP `.jar` files and models.
+
+The next step is to manually load the assembly with models into you process
+
+```csharp
+var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+var modelsAssemblyPath = Path.Combine(baseDirectory, "edu.stanford.nlp.corenlp_english_models.dll");
+Assembly.LoadFile(modelsAssemblyPath);
+```
+
+[Previously](http://sergey-tihon.github.io/Stanford.NLP.NET/#/FAQ#stanfordnlpcorenlp-not-loading-models) you have to manually find `*.jar` file with models, unpack it and temporary change the current directory to the unpacked folder. This is no longer needed with `IKVM.Maven.Sdk`. The `*.jar` with models is automatically downloaded and compiled to `*.dll` with the same name. The only thing that you have to do it to load this assembly into your process.
+
+You are ready to use Stanford CoreNLP in your .NET project.
+
+```csharp
+var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
+
+// Annotation pipeline configuration
+var props = new Properties();
+props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse");
+props.setProperty("ner.useSUTime", "false");
+
+var pipeline = new StanfordCoreNLP(props);
+
+// Annotation
+var annotation = new Annotation(text);
+pipeline.annotate(annotation);
+```
+
+P.S. More samples are available in the [Stanford.NLP.NET](http://sergey-tihon.github.io/Stanford.NLP.NET) repository.

@@ -1,5 +1,8 @@
 ﻿# SUTime - recognizing and normalizing time expressions
 
+<Note type="warning">
+This package is deprecated and should not be used. <a href="../">Read more.</a>
+</Note>
 >[SUTime](http://www-nlp.stanford.edu/software/sutime.shtml) is a library for recognizing and normalizing time expressions. SUTime is available as part of the [Stanford CoreNLP](CoreNLP.html) pipeline and can be used to annotate documents with temporal information. It is a deterministic rule-based system designed for extensibility.
 >
 >SUTime was developed using [TokensRegex](http://www-nlp.stanford.edu/software/tokensregex.shtml), a generic framework for defining patterns over text and mapping to semantic objects. An included set of [PowerPoint slides](https://nlp.stanford.edu/software/SUTime.pptx) and the [javadoc for SUTime](http://nlp.stanford.edu/nlp/javadoc/javanlp/edu/stanford/nlp/time/SUTime.html) provide an overview of this package.
