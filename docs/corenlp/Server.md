@@ -1,5 +1,8 @@
 # CoreNLP Server
 
+<Note type="warning">
+This package is deprecated and should not be used. <a href="../">Read more.</a>
+</Note>
 CoreNLP includes a simple web API server for servicing your human language understanding needs (starting with version `3.6.0`). This page describes how to set it up. CoreNLP server provides both a convenient graphical way to interface with your installation of CoreNLP and an API with which to call CoreNLP using any programming language. If you’re writing a new wrapper of CoreNLP for using it in another language, you’re advised to do it using the CoreNLP Server.
 
 ### Start Server

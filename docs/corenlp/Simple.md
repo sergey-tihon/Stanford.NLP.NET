@@ -1,5 +1,8 @@
 # Simple CoreNLP
 
+<Note type="warning">
+This package is deprecated and should not be used. <a href="../">Read more.</a>
+</Note>
 This page is direct translation of the [original Simple CoreNLP page](https://stanfordnlp.github.io/CoreNLP/simple.html)
 
 ### Simple CoreNLP
@@ -53,14 +56,11 @@ This interface offers a number of advantages (and a few disadvantages – see be
 
 - **Maintains Thread Safety** Like the `CoreNLP` pipeline, this wrapper is thread-safe.
 
-
 In exchange for these advantages, users should be aware of a few disadvantages:
 
 - **Less Customizability** Although the ability to pass properties to annotators is supported, it is significantly more clunky than the annotation pipeline interface, and is generally discouraged.
 
 - **Possible Nondeterminism** There is no guarantee that the same algorithm will be used to compute the requested function on each invocation. For example, if a dependency parse is requested, followed by a constituency parse, we will compute the dependency parse with the [Neural Dependency Parser](https://nlp.stanford.edu/software/nndep.shtml), and then use the [Stanford Parser](https://nlp.stanford.edu/software/lex-parser.shtml) for the constituency parse. If, however, you request the constituency parse before the dependency parse, we will use the Stanford Parser for both.
-
-
 
 ### Usage
 
@@ -95,19 +95,18 @@ for sentObj in sentences do  // Will iterate over two sentences
 
 The interface is not guaranteed to support all of the annotators in the CoreNLP pipeline. However, most common annotators are supported. A list of these, and their invocation, is given below. Functionality is the plain-english description of the task to be performed. The second column lists the analogous CoreNLP annotator for that task. The implementing class and function describe the class and function used in this wrapper to perform the same tasks.
 
-Functionality |	Anootator in CoreNLP | Implementation class | Function
---------------|----------------------|--------------------|---------
-Tokenization | tokenize | `Sentence` |  `.words()` / `.word(int)`
-Sentence Splitting | ssplit | `Document` | `.sentences()` / `.sentence(int)`
-Part of Speech Tagging | pos | `Sentence` |	`.posTags()` / `.posTag(int)`
-Lemmatization |	lemma |	`Sentence` | `.lemmas()` / `.lemma(int)`
-Named Entity Recognition | ner | `Sentence` | `.nerTags()` / `.nerTag(int)`
-Constituency Parsing | parse | `Sentence` | `.parse()`
-Dependency Parsing | depparse | `Sentence` | `.governor(int)` / `.incomingDependencyLabel(int)`
-Coreference Resolution | dcoref | `Document` | `.coref()`
-Natural Logic Polarity | natlog | `Sentence` | `.natlogPolarities()` / `natlogPolarity(int)`
-Open Information Extraction | openie | `Sentence` |	`.openie()` / `.openieTriples()`
-
+| Functionality               | Anootator in CoreNLP | Implementation class | Function                                           |
+| --------------------------- | -------------------- | -------------------- | -------------------------------------------------- |
+| Tokenization                | tokenize             | `Sentence`           | `.words()` / `.word(int)`                          |
+| Sentence Splitting          | ssplit               | `Document`           | `.sentences()` / `.sentence(int)`                  |
+| Part of Speech Tagging      | pos                  | `Sentence`           | `.posTags()` / `.posTag(int)`                      |
+| Lemmatization               | lemma                | `Sentence`           | `.lemmas()` / `.lemma(int)`                        |
+| Named Entity Recognition    | ner                  | `Sentence`           | `.nerTags()` / `.nerTag(int)`                      |
+| Constituency Parsing        | parse                | `Sentence`           | `.parse()`                                         |
+| Dependency Parsing          | depparse             | `Sentence`           | `.governor(int)` / `.incomingDependencyLabel(int)` |
+| Coreference Resolution      | dcoref               | `Document`           | `.coref()`                                         |
+| Natural Logic Polarity      | natlog               | `Sentence`           | `.natlogPolarities()` / `natlogPolarity(int)`      |
+| Open Information Extraction | openie               | `Sentence`           | `.openie()` / `.openieTriples()`                   |
 
 ### Miscellaneous Extras
 

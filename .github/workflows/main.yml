@@ -12,74 +12,14 @@ jobs:
 
   build:
     name: Build
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Setup .NET 3.1 SDK
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 3.1.x
-    - name: Setup .NET 6.0 SDK
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 6.0.x
+    runs-on: ubuntu-latest
 
-    - name: Install local tools
-      run: dotnet tool restore
-    - name: Paket Restore (Data)
-      working-directory: ./data
-      run: dotnet paket restore
-    - name: Paket Restore (Dependencies)
-      run: dotnet paket restore
-    - name: Build Tests and Binaries
-      run: dotnet fake run build.fsx -t "BuildTests"
-    - name: Upload NuGet Packages
-      uses: actions/upload-artifact@v3
-      with:
-        name: nuget
-        path: bin/*.nupkg
-    - name: Upload Tests
-      uses: actions/upload-artifact@v3
-      with:
-        name: tests
-        path: tests
-      
-  test:
-    name: Test
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [windows-latest, ubuntu-latest]
-    runs-on: ${{ matrix.os }}
-    needs:
-    - build
     steps:
-    - uses: actions/checkout@v1
-    - name: Setup .NET 3.1 SDK
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup .NET 8.0 SDK
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 3.1.x
-    - name: Setup .NET 6.0 SDK
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 6.0.x
-    - name: Download OpenNLP.NET Tests
-      uses: actions/download-artifact@v3
-      with:
-        name: tests
-        path: tests
-
-    - name: Install local tools
-      run: dotnet tool restore
-    - name: Paket Restore (Data)
-      working-directory: ./data
-      run: dotnet paket restore
-    - name: Paket Restore (Dependencies)
-      run: dotnet paket restore
-    - name: Run Tests
-      run: dotnet fake run build.fsx -t "RunTests"
-    - name: Upload Test Results
-      uses: actions/upload-artifact@v3
-      with:
-        name: TestResults-${{ matrix.os }}
-        path: TestResults
+        dotnet-version: 8.0.x
+    - name: Build and Test
+      run: dotnet fsi build.fsx -- -p build

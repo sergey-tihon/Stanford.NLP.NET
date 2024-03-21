@@ -1,8 +1,0 @@
-source https://nuget.org/api/v2
-framework: net461, netcore3.1
-
-nuget IKVM
-nuget NUnit
-nuget NUnit3TestAdapter
-nuget Microsoft.NET.Test.Sdk
-nuget Microsoft.NETFramework.ReferenceAssemblies

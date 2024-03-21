@@ -1,18 +1,21 @@
 # Stanford.NLP.Segmenter
 
+<Note type="warning">
+This package is deprecated and should not be used. <a href="../">Read more.</a>
+</Note>
 <img align="right" width="150" src="images/logo.png">
 
 A CRF-based word segmenter (tokenizer). Supports Arabic and Chinese (can be used for English, French, and Spanish.)
 
 [![](https://buildstats.info/nuget/Stanford.NLP.Segmenter)](https://www.nuget.org/packages/Stanford.NLP.Segmenter/)
 
->Tokenization of raw text is a standard pre-processing step for many NLP tasks. For English, tokenization usually involves punctuation splitting and separation of some affixes like possessives. Other languages require more extensive token pre-processing, which is usually called segmentation.
+> Tokenization of raw text is a standard pre-processing step for many NLP tasks. For English, tokenization usually involves punctuation splitting and separation of some affixes like possessives. Other languages require more extensive token pre-processing, which is usually called segmentation.
 >
->**The Stanford Word Segmenter** currently supports `Arabic` and `Chinese`. The provided segmentation schemes have been found to work well for a variety of applications.
+> **The Stanford Word Segmenter** currently supports `Arabic` and `Chinese`. The provided segmentation schemes have been found to work well for a variety of applications.
 >
->Stanford NLP group recommend at least `1Gb` of memory for documents that contain long sentences.
+> Stanford NLP group recommend at least `1Gb` of memory for documents that contain long sentences.
 >
->The segmenter is available for download, licensed under the `GNU General Public License` (v2 or later). Source is included. The package includes components for command-line invocation and a Java API. The segmenter code is dual licensed (in a similar manner to MySQL, etc.). Open source licensing is under the full GPL, which allows many free uses. For distributors of proprietary software, [commercial licensing](http://otlportal.stanford.edu/techfinder/technology/ID=27276) is available.
+> The segmenter is available for download, licensed under the `GNU General Public License` (v2 or later). Source is included. The package includes components for command-line invocation and a Java API. The segmenter code is dual licensed (in a similar manner to MySQL, etc.). Open source licensing is under the full GPL, which allows many free uses. For distributors of proprietary software, [commercial licensing](http://otlportal.stanford.edu/techfinder/technology/ID=27276) is available.
 
 ## Getting started
 
@@ -61,3 +64,4 @@ class Program
     }
 }
 ```
+

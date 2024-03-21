@@ -1,5 +1,9 @@
 # Building and using a Stanford CoreNLP pipeline
 
+<Note type="warning">
+This package is deprecated and should not be used. <a href="../">Read more.</a>
+</Note>
+
 ```csharp
 using System;
 using System.IO;
@@ -10,10 +14,10 @@ using Console = System.Console;
 
 class Program
 {
-    static void Main()
-    {
-        // Path to the folder with models extracted from `stanford-corenlp-4.5.0-models.jar`
-        var jarRoot = @"nlp.stanford.edu\stanford-corenlp-4.5.0\models";
+static void Main()
+{
+// Path to the folder with models extracted from `stanford-corenlp-4.5.0-models.jar`
+var jarRoot = @"nlp.stanford.edu\stanford-corenlp-4.5.0\models";
 
         // Text for processing
         var text = "Kosgi Santosh sent an email to Stanford University. He didn't get a reply.";
@@ -41,6 +45,7 @@ class Program
             stream.close();
         }
     }
+
 }
 ```
 

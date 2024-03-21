@@ -1,5 +1,8 @@
 # Stanford.NLP.Parser
 
+<Note type="warning">
+This package is deprecated and should not be used. <a href="../">Read more.</a>
+</Note>
 <img align="right" width="150" src="images/logo.png">
 
 Probabilistic natural language parsers: highly optimized PCFG and dependency parsers, a lexicalized PCFG parser, and a deep learning reranker.
@@ -8,17 +11,15 @@ See also: [online parser demo](http://nlp.stanford.edu:8080/parser/).
 
 [![](https://buildstats.info/nuget/Stanford.NLP.Parser)](https://www.nuget.org/packages/Stanford.NLP.Parser/)
 
-
->A natural language parser is a program that works out the grammatical **structure of sentences**, for instance, which groups of words go together (as "phrases") and which words are the **subject** or **object** of a verb. Probabilistic parsers use knowledge of language gained from hand-parsed sentences to try to produce the _most likely_ analysis of new sentences. These statistical parsers still make some mistakes, but commonly work rather well. Their development was one of the biggest breakthroughs in natural language processing in the 1990s. You can [try out our parser online](http://nlp.stanford.edu:8080/parser/).
+> A natural language parser is a program that works out the grammatical **structure of sentences**, for instance, which groups of words go together (as "phrases") and which words are the **subject** or **object** of a verb. Probabilistic parsers use knowledge of language gained from hand-parsed sentences to try to produce the _most likely_ analysis of new sentences. These statistical parsers still make some mistakes, but commonly work rather well. Their development was one of the biggest breakthroughs in natural language processing in the 1990s. You can [try out our parser online](http://nlp.stanford.edu:8080/parser/).
 >
->The lexicalized probabilistic parser implements a factored product model, with separate `PCFG` phrase structure and lexical dependency experts, whose preferences are combined by efficient exact inference, using an `A*` algorithm. Alternatively the software can be used simply as an accurate unlexicalized stochastic context-free grammar parser. Either of these yields a good performance statistical parsing system. A GUI (Java) is provided for viewing the phrase structure tree output of the parser.
+> The lexicalized probabilistic parser implements a factored product model, with separate `PCFG` phrase structure and lexical dependency experts, whose preferences are combined by efficient exact inference, using an `A*` algorithm. Alternatively the software can be used simply as an accurate unlexicalized stochastic context-free grammar parser. Either of these yields a good performance statistical parsing system. A GUI (Java) is provided for viewing the phrase structure tree output of the parser.
 >
->As well as providing an **English** parser, the parser can be and has been adapted to work with other languages. A **Chinese** parser based on the Chinese Treebank, a **German** parser based on the Negra corpus and **Arabic** parsers based on the Penn Arabic Treebank are also included. The parser has also been used for other languages, such as Italian, Bulgarian, and Portuguese.
+> As well as providing an **English** parser, the parser can be and has been adapted to work with other languages. A **Chinese** parser based on the Chinese Treebank, a **German** parser based on the Negra corpus and **Arabic** parsers based on the Penn Arabic Treebank are also included. The parser has also been used for other languages, such as Italian, Bulgarian, and Portuguese.
 >
->The parser provides [Stanford Dependencies](https://nlp.stanford.edu/software/stanford-dependencies.shtml) output as well as phrase structure trees. Typed dependencies are otherwise known **grammatical relations**. This style of output is available only for English and Chinese. For more details, please refer to the [Stanford Dependencies webpage](https://nlp.stanford.edu/software/stanford-dependencies.shtml).
+> The parser provides [Stanford Dependencies](https://nlp.stanford.edu/software/stanford-dependencies.shtml) output as well as phrase structure trees. Typed dependencies are otherwise known **grammatical relations**. This style of output is available only for English and Chinese. For more details, please refer to the [Stanford Dependencies webpage](https://nlp.stanford.edu/software/stanford-dependencies.shtml).
 >
->The parser is available for download, licensed under the `GNU General Public License` (v2 or later). Source is included. The package includes components for command-line invocation, a Java parsing GUI, and a Java API. The parser code is dual licensed (in a similar manner to MySQL, etc.). Open source licensing is under the full GPL, which allows many free uses. For distributors of proprietary software, commercial licensing is available.
-
+> The parser is available for download, licensed under the `GNU General Public License` (v2 or later). Source is included. The package includes components for command-line invocation, a Java parsing GUI, and a Java API. The parser code is dual licensed (in a similar manner to MySQL, etc.). Open source licensing is under the full GPL, which allows many free uses. For distributors of proprietary software, commercial licensing is available.
 
 ## Getting started
 
@@ -75,3 +76,4 @@ class Program
     }
 }
 ```
+
